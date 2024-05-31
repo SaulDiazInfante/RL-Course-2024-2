@@ -1,0 +1,44 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "RL-Course"
+  reader-mode: true
+  page-footer:
+    left: |
+      This notes for RL, are the first draft of for the course: Froma Markov Decision Proceses to Reinforcement Lenarning
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  #cover-image: cover.jpg
+  #favicon: cover.jpg
+  #site-url: https://r4ds.hadley.nz/
+  #repo-url: https://github.com/hadley/r4ds/
+  #repo-branch: main
+  #repo-actions: [edit, issue]
+  comments:
+    hypothesis:
+      theme: clean
+      openSidebar: True
+  author: "Saúl Díaz Infante, David González Sánchez"
+  date: "5/30/2024"
+    
+  chapters:
+    - index.qmd
+    - dynamic_programming.qmd
+    - mkp_and_rl.qmd
+    - mdp.qmd
+    - tabular_rl.qmd
+    - dp_rl.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: darkly
+  pdf:
+    documentclass: scrreprt
+
+
+

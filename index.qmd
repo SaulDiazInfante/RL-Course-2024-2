@@ -1,0 +1,10 @@
+# Preface {.unnumbered}
+
+This notes are based in the course from Berstekas for the MIT
+see all lectures and other resources for complete the understanding.
+
+
+# Outline {.unnumbered}
+The texbook for chapter one is the Bertsekas' book
+[@Bertsekas2005]. Chapter 2 and 3 are adapted from Suttons' book [Ch.3,Ch.4 @Sutton2018]. For application and broad conection with more Matchine Learning Applications we refer to [@Brunton2019].  Also we recomend for a handbook of algorithms [@Szepesvari2022]. For applictions wiht implemented code we follows the books [@bilgin2020mastering]. 
+
