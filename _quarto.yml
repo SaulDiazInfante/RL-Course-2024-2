@@ -14,13 +14,13 @@ book:
   favicon: cover_RL.jpeg
   site-url: https://sauldiazinfante.github.io/RL-Course-2024-2/applications.html
   repo-url: https://github.com/SaulDiazInfante/RL-Course-2024-2.git
-  #repo-branch: main
-  #repo-actions: [edit, issue]
+  repo-branch: main
+  repo-actions: [edit, issue]
   comments:
     hypothesis:
       theme: clean
       openSidebar: True
-  author: "Saúl Díaz Infante, David González Sánchez"
+  author: "Saúl Díaz Infante Velasco,  David González Sánchez"
   date: "5/30/2024"
     
   chapters:
