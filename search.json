@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "From Markov Decision Processes to Reinforcement Learning with Python",
+    "title": "RL-Course",
     "section": "",
-    "text": "Preface\nThis notes are based in the course from Berstekas for the MIT see all lectures and other resources for complete the understanding.\n\n\nOutline\nThe textbook for chapter one is Bertsekas’ book (Bertsekas 2005). Chapters 2 and 3 are adapted from Sutton’s book (Ch. 3, Ch. 4, Sutton and Barto 2018). For application and broad connection with more machine learning applications, we refer to (Brunton and Kutz 2019). Also, we recommend a handbook of algorithms (Szepesvári 2022). For applications with implemented code, we follow the books (Bilgin 2020).\n\n\n\n\nBertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control. Vol. I. Third. Athena Scientific, Belmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build Next-Generation, Self-Learning Models Using Reinforcement Learning Techniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science and Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. 2022. Algorithms for Reinforcement Learning. Vol. 9. Synthesis Lectures on Artificial Intelligence and Machine Learning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
+    "text": "Preface\nThis notes are based in the course from Berstekas for the MIT see all lectures and other resources for complete the understanding.\n\n\nOutline\nThe texbook for chapter one is the Bertsekas’ book (Bertsekas 2005). Chapter 2 and 3 are adapted from Suttons’ book (Ch.3,Ch.4 Sutton and Barto 2018). For application and broad conection with more Matchine Learning Applications we refer to (Brunton and Kutz 2019). Also we recomend for a handbook of algorithms (Szepesvári [2022] \\copyright 2022). For applictions wiht implemented code we follows the books (Bilgin 2020).\n\n\n\n\nBertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control. Vol. I. Third. Athena Scientific, Belmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build Next-Generation, Self-Learning Models Using Reinforcement Learning Techniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science and Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. [2022] \\copyright 2022. Algorithms for Reinforcement Learning. Vol. 9. Synthesis Lectures on Artificial Intelligence and Machine Learning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
     "crumbs": [
       "Preface"
     ]
@@ -80,343 +80,163 @@
     ]
   },
   {
-    "objectID": "mkp_and_rl.html",
-    "href": "mkp_and_rl.html",
-    "title": "2  Dynamic Programming",
-    "section": "",
-    "text": "2.1 Policy Evaluation (Prediction)",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#policy-improvement",
-    "href": "mkp_and_rl.html#policy-improvement",
-    "title": "2  Dynamic Programming",
-    "section": "2.2 Policy Improvement",
-    "text": "2.2 Policy Improvement",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#policy-iteration",
-    "href": "mkp_and_rl.html#policy-iteration",
-    "title": "2  Dynamic Programming",
-    "section": "2.3 Policy Iteration",
-    "text": "2.3 Policy Iteration",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#value-iteration",
-    "href": "mkp_and_rl.html#value-iteration",
-    "title": "2  Dynamic Programming",
-    "section": "2.4 Value Iteration",
-    "text": "2.4 Value Iteration",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#asynchronous-dynamic-programming",
-    "href": "mkp_and_rl.html#asynchronous-dynamic-programming",
-    "title": "2  Dynamic Programming",
-    "section": "2.5 Asynchronous Dynamic Programming",
-    "text": "2.5 Asynchronous Dynamic Programming",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#generalized-policy-iteration",
-    "href": "mkp_and_rl.html#generalized-policy-iteration",
-    "title": "2  Dynamic Programming",
-    "section": "2.6 Generalized Policy Iteration",
-    "text": "2.6 Generalized Policy Iteration",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#efficiency-of-dynamic-programming",
-    "href": "mkp_and_rl.html#efficiency-of-dynamic-programming",
-    "title": "2  Dynamic Programming",
-    "section": "2.7 Efficiency of Dynamic Programming",
-    "text": "2.7 Efficiency of Dynamic Programming",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#summary",
-    "href": "mkp_and_rl.html#summary",
-    "title": "2  Dynamic Programming",
-    "section": "2.8 Summary",
-    "text": "2.8 Summary",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#recycling-robot",
-    "href": "mkp_and_rl.html#recycling-robot",
-    "title": "2  Dynamic Programming",
-    "section": "3.1 Recycling Robot",
-    "text": "3.1 Recycling Robot",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
-    "objectID": "mkp_and_rl.html#a-robot-with-randomly-moves-in-a-grid-world.",
-    "href": "mkp_and_rl.html#a-robot-with-randomly-moves-in-a-grid-world.",
-    "title": "2  Dynamic Programming",
-    "section": "3.2 A robot with randomly moves in a grid world.",
-    "text": "3.2 A robot with randomly moves in a grid world.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dynamic Programming</span>"
-    ]
-  },
-  {
     "objectID": "mdp.html",
     "href": "mdp.html",
-    "title": "3  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes",
     "section": "",
-    "text": "3.1 The Agent–Environment Interface",
+    "text": "2.1 The Agent–Environment Interface",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
     ]
   },
   {
     "objectID": "mdp.html#goals-and-rewards",
     "href": "mdp.html#goals-and-rewards",
-    "title": "3  Finite Markov Decision Processes",
-    "section": "3.2 Goals and Rewards",
-    "text": "3.2 Goals and Rewards",
+    "title": "2  Finite Markov Decision Processes",
+    "section": "2.2 Goals and Rewards",
+    "text": "2.2 Goals and Rewards",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
     ]
   },
   {
     "objectID": "mdp.html#returns-and-episodes",
     "href": "mdp.html#returns-and-episodes",
-    "title": "3  Finite Markov Decision Processes",
-    "section": "3.3 Returns and Episodes",
-    "text": "3.3 Returns and Episodes",
+    "title": "2  Finite Markov Decision Processes",
+    "section": "2.3 Returns and Episodes",
+    "text": "2.3 Returns and Episodes",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
     ]
   },
   {
     "objectID": "mdp.html#unified-notation-for-episodic-and-continuing-tasks",
     "href": "mdp.html#unified-notation-for-episodic-and-continuing-tasks",
-    "title": "3  Finite Markov Decision Processes",
-    "section": "3.4 Unified Notation for Episodic and Continuing Tasks",
-    "text": "3.4 Unified Notation for Episodic and Continuing Tasks",
+    "title": "2  Finite Markov Decision Processes",
+    "section": "2.4 Unified Notation for Episodic and Continuing Tasks",
+    "text": "2.4 Unified Notation for Episodic and Continuing Tasks",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
     ]
   },
   {
     "objectID": "mdp.html#policies-and-value-functions",
     "href": "mdp.html#policies-and-value-functions",
-    "title": "3  Finite Markov Decision Processes",
-    "section": "3.5 Policies and Value Functions",
-    "text": "3.5 Policies and Value Functions",
+    "title": "2  Finite Markov Decision Processes",
+    "section": "2.5 Policies and Value Functions",
+    "text": "2.5 Policies and Value Functions",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
     ]
   },
   {
     "objectID": "mdp.html#optimal-policies-and-optimal-value-functions",
     "href": "mdp.html#optimal-policies-and-optimal-value-functions",
-    "title": "3  Finite Markov Decision Processes",
-    "section": "3.6 Optimal Policies and Optimal Value Functions",
-    "text": "3.6 Optimal Policies and Optimal Value Functions",
+    "title": "2  Finite Markov Decision Processes",
+    "section": "2.6 Optimal Policies and Optimal Value Functions",
+    "text": "2.6 Optimal Policies and Optimal Value Functions",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
     ]
   },
   {
     "objectID": "mdp.html#optimality-and-approximation",
     "href": "mdp.html#optimality-and-approximation",
-    "title": "3  Finite Markov Decision Processes",
-    "section": "3.7 Optimality and Approximation",
-    "text": "3.7 Optimality and Approximation",
+    "title": "2  Finite Markov Decision Processes",
+    "section": "2.7 Optimality and Approximation",
+    "text": "2.7 Optimality and Approximation",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
     ]
   },
   {
     "objectID": "mdp.html#summary",
     "href": "mdp.html#summary",
-    "title": "3  Finite Markov Decision Processes",
-    "section": "3.8 Summary",
-    "text": "3.8 Summary",
+    "title": "2  Finite Markov Decision Processes",
+    "section": "2.8 Summary",
+    "text": "2.8 Summary",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
-    ]
-  },
-  {
-    "objectID": "tabular_rl.html",
-    "href": "tabular_rl.html",
-    "title": "4  Finite Markov Decision Processes",
-    "section": "",
-    "text": "4.1 The Agent–Environment Interface",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
-    ]
-  },
-  {
-    "objectID": "tabular_rl.html#goals-and-rewards",
-    "href": "tabular_rl.html#goals-and-rewards",
-    "title": "4  Finite Markov Decision Processes",
-    "section": "4.2 Goals and Rewards",
-    "text": "4.2 Goals and Rewards",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
-    ]
-  },
-  {
-    "objectID": "tabular_rl.html#returns-and-episodes",
-    "href": "tabular_rl.html#returns-and-episodes",
-    "title": "4  Finite Markov Decision Processes",
-    "section": "4.3 Returns and Episodes",
-    "text": "4.3 Returns and Episodes",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
-    ]
-  },
-  {
-    "objectID": "tabular_rl.html#unified-notation-for-episodic-and-continuing-tasks",
-    "href": "tabular_rl.html#unified-notation-for-episodic-and-continuing-tasks",
-    "title": "4  Finite Markov Decision Processes",
-    "section": "4.4 Unified Notation for Episodic and Continuing Tasks",
-    "text": "4.4 Unified Notation for Episodic and Continuing Tasks",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
-    ]
-  },
-  {
-    "objectID": "tabular_rl.html#policies-and-value-functions",
-    "href": "tabular_rl.html#policies-and-value-functions",
-    "title": "4  Finite Markov Decision Processes",
-    "section": "4.5 Policies and Value Functions",
-    "text": "4.5 Policies and Value Functions",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
-    ]
-  },
-  {
-    "objectID": "tabular_rl.html#optimal-policies-and-optimal-value-functions",
-    "href": "tabular_rl.html#optimal-policies-and-optimal-value-functions",
-    "title": "4  Finite Markov Decision Processes",
-    "section": "4.6 Optimal Policies and Optimal Value Functions",
-    "text": "4.6 Optimal Policies and Optimal Value Functions",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
-    ]
-  },
-  {
-    "objectID": "tabular_rl.html#optimality-and-approximation",
-    "href": "tabular_rl.html#optimality-and-approximation",
-    "title": "4  Finite Markov Decision Processes",
-    "section": "4.7 Optimality and Approximation",
-    "text": "4.7 Optimality and Approximation",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
-    ]
-  },
-  {
-    "objectID": "tabular_rl.html#summary",
-    "href": "tabular_rl.html#summary",
-    "title": "4  Finite Markov Decision Processes",
-    "section": "4.8 Summary",
-    "text": "4.8 Summary",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
     ]
   },
   {
     "objectID": "dp_rl.html",
     "href": "dp_rl.html",
-    "title": "5  Dynamic Programming",
+    "title": "3  Dynamic Programming",
     "section": "",
-    "text": "5.1 Policy Evaluation (Prediction)",
+    "text": "3.1 Policy Evaluation (Prediction)",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#policy-improvement",
     "href": "dp_rl.html#policy-improvement",
-    "title": "5  Dynamic Programming",
-    "section": "5.2 Policy Improvement",
-    "text": "5.2 Policy Improvement",
+    "title": "3  Dynamic Programming",
+    "section": "3.2 Policy Improvement",
+    "text": "3.2 Policy Improvement",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#policy-iteration",
     "href": "dp_rl.html#policy-iteration",
-    "title": "5  Dynamic Programming",
-    "section": "5.3 Policy Iteration",
-    "text": "5.3 Policy Iteration",
+    "title": "3  Dynamic Programming",
+    "section": "3.3 Policy Iteration",
+    "text": "3.3 Policy Iteration",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#value-iteration",
     "href": "dp_rl.html#value-iteration",
-    "title": "5  Dynamic Programming",
-    "section": "5.4 Value Iteration",
-    "text": "5.4 Value Iteration",
+    "title": "3  Dynamic Programming",
+    "section": "3.4 Value Iteration",
+    "text": "3.4 Value Iteration",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#asynchronous-dynamic-programming",
     "href": "dp_rl.html#asynchronous-dynamic-programming",
-    "title": "5  Dynamic Programming",
-    "section": "5.5 Asynchronous Dynamic Programming",
-    "text": "5.5 Asynchronous Dynamic Programming",
+    "title": "3  Dynamic Programming",
+    "section": "3.5 Asynchronous Dynamic Programming",
+    "text": "3.5 Asynchronous Dynamic Programming",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#generalized-policy-iteration",
     "href": "dp_rl.html#generalized-policy-iteration",
-    "title": "5  Dynamic Programming",
-    "section": "5.6 Generalized Policy Iteration",
-    "text": "5.6 Generalized Policy Iteration",
+    "title": "3  Dynamic Programming",
+    "section": "3.6 Generalized Policy Iteration",
+    "text": "3.6 Generalized Policy Iteration",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#efficiency-of-dynamic-programming",
     "href": "dp_rl.html#efficiency-of-dynamic-programming",
-    "title": "5  Dynamic Programming",
-    "section": "5.7 Efficiency of Dynamic Programming",
-    "text": "5.7 Efficiency of Dynamic Programming",
+    "title": "3  Dynamic Programming",
+    "section": "3.7 Efficiency of Dynamic Programming",
+    "text": "3.7 Efficiency of Dynamic Programming",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#summary",
     "href": "dp_rl.html#summary",
-    "title": "5  Dynamic Programming",
-    "section": "5.8 Summary",
-    "text": "5.8 Summary",
+    "title": "3  Dynamic Programming",
+    "section": "3.8 Summary",
+    "text": "3.8 Summary",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
@@ -424,9 +244,29 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Bertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control.\nVol. I. Third. Athena Scientific,\nBelmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build\nNext-Generation, Self-Learning Models Using Reinforcement Learning\nTechniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science\nand Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement\nLearning: An Introduction. Second. Adaptive Computation and Machine\nLearning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. 2022. Algorithms for Reinforcement Learning.\nVol. 9. Synthesis Lectures on Artificial Intelligence and Machine\nLearning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
+    "text": "Bertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control.\nVol. I. Third. Athena Scientific,\nBelmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build\nNext-Generation, Self-Learning Models Using Reinforcement Learning\nTechniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science\nand Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement\nLearning: An Introduction. Second. Adaptive Computation and Machine\nLearning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. [2022] \\copyright 2022. Algorithms for\nReinforcement Learning. Vol. 9. Synthesis Lectures on Artificial\nIntelligence and Machine Learning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "applications.html",
+    "href": "applications.html",
+    "title": "4  Applications",
+    "section": "",
+    "text": "4.1 Recycling Robot",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Applications</span>"
+    ]
+  },
+  {
+    "objectID": "applications.html#a-robot-with-randomly-moves-in-a-grid-world.",
+    "href": "applications.html#a-robot-with-randomly-moves-in-a-grid-world.",
+    "title": "4  Applications",
+    "section": "4.2 A robot with randomly moves in a grid world.",
+    "text": "4.2 A robot with randomly moves in a grid world.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Applications</span>"
     ]
   }
 ]

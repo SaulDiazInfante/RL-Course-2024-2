@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>From Markov Decision Processes to Reinforcement Learning with Python - 2&nbsp; Dynamic Programming</title>
+<title>RL-Course - 4&nbsp; Applications</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,14 +24,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./mdp.html" rel="next">
-<link href="./dynamic_programming.html" rel="prev">
-<link href="./cover_RL.jpeg" rel="icon" type="image/jpeg">
+<link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -42,11 +41,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -84,47 +83,45 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">From Markov Decision Processes to Reinforcement Learning with Python</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-wide tools-end">
-    <a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./applications.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RL-Course</a> 
+        <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mkp_and_rl.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="sidebar-tools-main">
-    <a href="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-save"></i></a>
-</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -141,32 +138,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mkp_and_rl.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./mdp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tabular_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dp_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./applications.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
     </ul>
@@ -179,28 +170,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#policy-evaluation-prediction" id="toc-policy-evaluation-prediction" class="nav-link active" data-scroll-target="#policy-evaluation-prediction"><span class="header-section-number">2.1</span> Policy Evaluation (Prediction)</a></li>
-  <li><a href="#policy-improvement" id="toc-policy-improvement" class="nav-link" data-scroll-target="#policy-improvement"><span class="header-section-number">2.2</span> Policy Improvement</a></li>
-  <li><a href="#policy-iteration" id="toc-policy-iteration" class="nav-link" data-scroll-target="#policy-iteration"><span class="header-section-number">2.3</span> Policy Iteration</a></li>
-  <li><a href="#value-iteration" id="toc-value-iteration" class="nav-link" data-scroll-target="#value-iteration"><span class="header-section-number">2.4</span> Value Iteration</a></li>
-  <li><a href="#asynchronous-dynamic-programming" id="toc-asynchronous-dynamic-programming" class="nav-link" data-scroll-target="#asynchronous-dynamic-programming"><span class="header-section-number">2.5</span> Asynchronous Dynamic Programming</a></li>
-  <li><a href="#generalized-policy-iteration" id="toc-generalized-policy-iteration" class="nav-link" data-scroll-target="#generalized-policy-iteration"><span class="header-section-number">2.6</span> Generalized Policy Iteration</a></li>
-  <li><a href="#efficiency-of-dynamic-programming" id="toc-efficiency-of-dynamic-programming" class="nav-link" data-scroll-target="#efficiency-of-dynamic-programming"><span class="header-section-number">2.7</span> Efficiency of Dynamic Programming</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.8</span> Summary</a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">3</span> Applications</a>
-  <ul class="collapse">
-  <li><a href="#recycling-robot" id="toc-recycling-robot" class="nav-link" data-scroll-target="#recycling-robot"><span class="header-section-number">3.1</span> Recycling Robot</a></li>
-  <li><a href="#a-robot-with-randomly-moves-in-a-grid-world." id="toc-a-robot-with-randomly-moves-in-a-grid-world." class="nav-link" data-scroll-target="#a-robot-with-randomly-moves-in-a-grid-world."><span class="header-section-number">3.2</span> A robot with randomly moves in a grid world.</a></li>
-  </ul></li>
+  <li><a href="#recycling-robot" id="toc-recycling-robot" class="nav-link active" data-scroll-target="#recycling-robot"><span class="header-section-number">4.1</span> Recycling Robot</a></li>
+  <li><a href="#a-robot-with-randomly-moves-in-a-grid-world." id="toc-a-robot-with-randomly-moves-in-a-grid-world." class="nav-link" data-scroll-target="#a-robot-with-randomly-moves-in-a-grid-world."><span class="header-section-number">4.2</span> A robot with randomly moves in a grid world.</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/mkp_and_rl.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></h1>
 </div>
 
 
@@ -217,40 +197,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="policy-evaluation-prediction" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="policy-evaluation-prediction"><span class="header-section-number">2.1</span> Policy Evaluation (Prediction)</h2>
+<section id="recycling-robot" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="recycling-robot"><span class="header-section-number">4.1</span> Recycling Robot</h2>
 </section>
-<section id="policy-improvement" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="policy-improvement"><span class="header-section-number">2.2</span> Policy Improvement</h2>
-</section>
-<section id="policy-iteration" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="policy-iteration"><span class="header-section-number">2.3</span> Policy Iteration</h2>
-</section>
-<section id="value-iteration" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="value-iteration"><span class="header-section-number">2.4</span> Value Iteration</h2>
-</section>
-<section id="asynchronous-dynamic-programming" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="asynchronous-dynamic-programming"><span class="header-section-number">2.5</span> Asynchronous Dynamic Programming</h2>
-</section>
-<section id="generalized-policy-iteration" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="generalized-policy-iteration"><span class="header-section-number">2.6</span> Generalized Policy Iteration</h2>
-</section>
-<section id="efficiency-of-dynamic-programming" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="efficiency-of-dynamic-programming"><span class="header-section-number">2.7</span> Efficiency of Dynamic Programming</h2>
-</section>
-<section id="summary" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.8</span> Summary</h2>
-</section>
-<section id="applications" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Applications</h1>
-<section id="recycling-robot" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="recycling-robot"><span class="header-section-number">3.1</span> Recycling Robot</h2>
-</section>
-<section id="a-robot-with-randomly-moves-in-a-grid-world." class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="a-robot-with-randomly-moves-in-a-grid-world."><span class="header-section-number">3.2</span> A robot with randomly moves in a grid world.</h2>
+<section id="a-robot-with-randomly-moves-in-a-grid-world." class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="a-robot-with-randomly-moves-in-a-grid-world."><span class="header-section-number">4.2</span> A robot with randomly moves in a grid world.</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -335,7 +288,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sauldiazinfante\.github\.io\/RL-Course-2024-2\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -665,25 +618,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./dynamic_programming.html" class="pagination-link" aria-label="The Dynamic Programming Algorithm">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./mdp.html" class="pagination-link" aria-label="Finite Markov Decision Processes">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>This notes for RL, are the first draft of for the course: From Markov Decision Processes to Reinforcement Learning</p>
+<p>This notes for RL, are the first draft of for the course: Froma Markov Decision Proceses to Reinforcement Lenarning</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/mkp_and_rl.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    </div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

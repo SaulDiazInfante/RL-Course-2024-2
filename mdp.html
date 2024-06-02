@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>From Markov Decision Processes to Reinforcement Learning with Python - 3&nbsp; Finite Markov Decision Processes</title>
+<title>RL-Course - 2&nbsp; Finite Markov Decision Processes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,14 +24,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tabular_rl.html" rel="next">
-<link href="./mkp_and_rl.html" rel="prev">
-<link href="./cover_RL.jpeg" rel="icon" type="image/jpeg">
+<link href="./dp_rl.html" rel="next">
+<link href="./dynamic_programming.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -42,11 +42,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -84,47 +84,45 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">From Markov Decision Processes to Reinforcement Learning with Python</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-wide tools-end">
-    <a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mdp.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RL-Course</a> 
+        <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mdp.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="sidebar-tools-main">
-    <a href="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-save"></i></a>
-</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -141,32 +139,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mkp_and_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./mdp.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tabular_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dp_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
     </ul>
@@ -179,23 +171,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-agentenvironment-interface" id="toc-the-agentenvironment-interface" class="nav-link active" data-scroll-target="#the-agentenvironment-interface"><span class="header-section-number">3.1</span> The Agent–Environment Interface</a></li>
-  <li><a href="#goals-and-rewards" id="toc-goals-and-rewards" class="nav-link" data-scroll-target="#goals-and-rewards"><span class="header-section-number">3.2</span> Goals and Rewards</a></li>
-  <li><a href="#returns-and-episodes" id="toc-returns-and-episodes" class="nav-link" data-scroll-target="#returns-and-episodes"><span class="header-section-number">3.3</span> Returns and Episodes</a></li>
-  <li><a href="#unified-notation-for-episodic-and-continuing-tasks" id="toc-unified-notation-for-episodic-and-continuing-tasks" class="nav-link" data-scroll-target="#unified-notation-for-episodic-and-continuing-tasks"><span class="header-section-number">3.4</span> Unified Notation for Episodic and Continuing Tasks</a></li>
-  <li><a href="#policies-and-value-functions" id="toc-policies-and-value-functions" class="nav-link" data-scroll-target="#policies-and-value-functions"><span class="header-section-number">3.5</span> Policies and Value Functions</a></li>
-  <li><a href="#optimal-policies-and-optimal-value-functions" id="toc-optimal-policies-and-optimal-value-functions" class="nav-link" data-scroll-target="#optimal-policies-and-optimal-value-functions"><span class="header-section-number">3.6</span> Optimal Policies and Optimal Value Functions</a></li>
-  <li><a href="#optimality-and-approximation" id="toc-optimality-and-approximation" class="nav-link" data-scroll-target="#optimality-and-approximation"><span class="header-section-number">3.7</span> Optimality and Approximation</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">3.8</span> Summary</a></li>
+  <li><a href="#the-agentenvironment-interface" id="toc-the-agentenvironment-interface" class="nav-link active" data-scroll-target="#the-agentenvironment-interface"><span class="header-section-number">2.1</span> The Agent–Environment Interface</a></li>
+  <li><a href="#goals-and-rewards" id="toc-goals-and-rewards" class="nav-link" data-scroll-target="#goals-and-rewards"><span class="header-section-number">2.2</span> Goals and Rewards</a></li>
+  <li><a href="#returns-and-episodes" id="toc-returns-and-episodes" class="nav-link" data-scroll-target="#returns-and-episodes"><span class="header-section-number">2.3</span> Returns and Episodes</a></li>
+  <li><a href="#unified-notation-for-episodic-and-continuing-tasks" id="toc-unified-notation-for-episodic-and-continuing-tasks" class="nav-link" data-scroll-target="#unified-notation-for-episodic-and-continuing-tasks"><span class="header-section-number">2.4</span> Unified Notation for Episodic and Continuing Tasks</a></li>
+  <li><a href="#policies-and-value-functions" id="toc-policies-and-value-functions" class="nav-link" data-scroll-target="#policies-and-value-functions"><span class="header-section-number">2.5</span> Policies and Value Functions</a></li>
+  <li><a href="#optimal-policies-and-optimal-value-functions" id="toc-optimal-policies-and-optimal-value-functions" class="nav-link" data-scroll-target="#optimal-policies-and-optimal-value-functions"><span class="header-section-number">2.6</span> Optimal Policies and Optimal Value Functions</a></li>
+  <li><a href="#optimality-and-approximation" id="toc-optimality-and-approximation" class="nav-link" data-scroll-target="#optimality-and-approximation"><span class="header-section-number">2.7</span> Optimality and Approximation</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.8</span> Summary</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></h1>
 </div>
 
 
@@ -212,29 +204,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-agentenvironment-interface" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="the-agentenvironment-interface"><span class="header-section-number">3.1</span> The Agent–Environment Interface</h2>
+<section id="the-agentenvironment-interface" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-agentenvironment-interface"><span class="header-section-number">2.1</span> The Agent–Environment Interface</h2>
 </section>
-<section id="goals-and-rewards" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="goals-and-rewards"><span class="header-section-number">3.2</span> Goals and Rewards</h2>
+<section id="goals-and-rewards" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="goals-and-rewards"><span class="header-section-number">2.2</span> Goals and Rewards</h2>
 </section>
-<section id="returns-and-episodes" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="returns-and-episodes"><span class="header-section-number">3.3</span> Returns and Episodes</h2>
+<section id="returns-and-episodes" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="returns-and-episodes"><span class="header-section-number">2.3</span> Returns and Episodes</h2>
 </section>
-<section id="unified-notation-for-episodic-and-continuing-tasks" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="unified-notation-for-episodic-and-continuing-tasks"><span class="header-section-number">3.4</span> Unified Notation for Episodic and Continuing Tasks</h2>
+<section id="unified-notation-for-episodic-and-continuing-tasks" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="unified-notation-for-episodic-and-continuing-tasks"><span class="header-section-number">2.4</span> Unified Notation for Episodic and Continuing Tasks</h2>
 </section>
-<section id="policies-and-value-functions" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="policies-and-value-functions"><span class="header-section-number">3.5</span> Policies and Value Functions</h2>
+<section id="policies-and-value-functions" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="policies-and-value-functions"><span class="header-section-number">2.5</span> Policies and Value Functions</h2>
 </section>
-<section id="optimal-policies-and-optimal-value-functions" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="optimal-policies-and-optimal-value-functions"><span class="header-section-number">3.6</span> Optimal Policies and Optimal Value Functions</h2>
+<section id="optimal-policies-and-optimal-value-functions" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="optimal-policies-and-optimal-value-functions"><span class="header-section-number">2.6</span> Optimal Policies and Optimal Value Functions</h2>
 </section>
-<section id="optimality-and-approximation" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="optimality-and-approximation"><span class="header-section-number">3.7</span> Optimality and Approximation</h2>
+<section id="optimality-and-approximation" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="optimality-and-approximation"><span class="header-section-number">2.7</span> Optimality and Approximation</h2>
 </section>
-<section id="summary" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.8</span> Summary</h2>
+<section id="summary" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.8</span> Summary</h2>
 
 
 </section>
@@ -321,7 +313,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sauldiazinfante\.github\.io\/RL-Course-2024-2\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -651,13 +643,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./mkp_and_rl.html" class="pagination-link" aria-label="Dynamic Programming">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span>
+      <a href="./dynamic_programming.html" class="pagination-link" aria-label="The Dynamic Programming Algorithm">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tabular_rl.html" class="pagination-link" aria-label="Finite Markov Decision Processes">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./dp_rl.html" class="pagination-link" aria-label="Dynamic Programming">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -665,11 +657,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>This notes for RL, are the first draft of for the course: From Markov Decision Processes to Reinforcement Learning</p>
+<p>This notes for RL, are the first draft of for the course: Froma Markov Decision Proceses to Reinforcement Lenarning</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    </div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
