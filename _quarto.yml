@@ -3,25 +3,30 @@ project:
   output-dir: docs
 
 book:
-  title: "RL-Course"
+  title: "From Markov Decision Processes to Reinforcement Learning with Python"
+  page-navigation: true
   reader-mode: true
   page-footer:
     left: |
-      This notes for RL, are the first draft of for the course: Froma Markov Decision Proceses to Reinforcement Lenarning
+      This notes for RL, are the first draft of for the course: From Markov Decision Processes to Reinforcement Learning
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
-  #cover-image: cover.jpg
-  #favicon: cover.jpg
-  #site-url: https://r4ds.hadley.nz/
-  #repo-url: https://github.com/hadley/r4ds/
-  #repo-branch: main
-  #repo-actions: [edit, issue]
+  cover-image: cover_RL.jpeg
+  favicon: cover_RL.jpeg
+  site-url: https://sauldiazinfante.github.io/RL-Course-2024-2/
+  repo-url: https://github.com/SaulDiazInfante/RL-Course-2024-2.git
+  repo-branch: main
+  repo-actions: [edit, issue]
   comments:
     hypothesis:
-      theme: clean
-      openSidebar: True
+      theme: classic
+      openSidebar: False
+      
+
   author: "Saúl Díaz Infante, David González Sánchez"
   date: "5/30/2024"
+  navbar:
+    search: true
     
   chapters:
     - index.qmd
@@ -31,6 +36,11 @@ book:
     - tabular_rl.qmd
     - dp_rl.qmd
     - references.qmd
+  downloads: [pdf]
+  sidebar:
+    pinned: true
+    tools:
+      - icon: save
 
 bibliography: references.bib
 
