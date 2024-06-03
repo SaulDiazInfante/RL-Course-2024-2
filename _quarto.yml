@@ -31,10 +31,9 @@ book:
   chapters:
     - index.qmd
     - dynamic_programming.qmd
-    - mkp_and_rl.qmd
     - mdp.qmd
-    - tabular_rl.qmd
     - dp_rl.qmd
+    - applications.qmd
     - references.qmd
   downloads: [pdf]
   sidebar:
@@ -43,7 +42,6 @@ book:
       - icon: save
 
 bibliography: references.bib
-
 format:
   html:
     theme: darkly

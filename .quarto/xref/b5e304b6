@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"entries":[],"options":{"chapters":true},"headings":["the-agentenvironment-interface","goals-and-rewards","returns-and-episodes","unified-notation-for-episodic-and-continuing-tasks","policies-and-value-functions","optimal-policies-and-optimal-value-functions","optimality-and-approximation","summary"]}
+=======
+{"headings":["the-agentenvironment-interface","goals-and-rewards","returns-and-episodes","unified-notation-for-episodic-and-continuing-tasks","policies-and-value-functions","optimal-policies-and-optimal-value-functions","optimality-and-approximation","summary"],"options":{"chapters":true},"entries":[]}
+>>>>>>> e0d1b738be07351d7e9b361c6eb968311f66df43

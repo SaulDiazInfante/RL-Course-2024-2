@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"entries":[],"headings":["introduction","the-basic-problem","the-dynamic-programming-algorithm","state-augmentation-and-other-reformulations","some-mathematical-issues","dynamic-programming-and-minimax-control","notes-sources-and-exercises"],"options":{"chapters":true}}
+=======
+{"headings":["introduction","the-basic-problem","the-dynamic-programming-algorithm","state-augmentation-and-other-reformulations","some-mathematical-issues","dynamic-programming-and-minimax-control","notes-sources-and-exercises"],"entries":[],"options":{"chapters":true}}
+>>>>>>> e0d1b738be07351d7e9b361c6eb968311f66df43
