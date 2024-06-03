@@ -82,81 +82,91 @@
   {
     "objectID": "mdp.html",
     "href": "mdp.html",
-    "title": "2  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
     "section": "",
     "text": "2.1 The Agent–Environment Interface",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+    ]
+  },
+  {
+    "objectID": "mdp.html#the-agentenvironment-interface",
+    "href": "mdp.html#the-agentenvironment-interface",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
+    "section": "",
+    "text": "Example 2.1 A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set \\(\\mathcal{S} = \\{\\texttt{high}, \\texttt{low} \\}\\). In each state, the agent can decide whether to\n\nactively search for a can for a certain period of time,\nremain stationary and wait for someone to bring it a can, or\nhead back to its home base to recharge its battery.\n\nWhen the energy level is high, recharging would always be foolis h, so we do not include it in the action set for this state. The action sets are then \\(\\mathcal{A}(\\texttt{high}) = \\{\\texttt{search}, \\texttt{wait}\\}\\) and \\(\\mathcal{A}(\\texttt{low}) = \\{\\texttt{search}, \\texttt{wait}, \\texttt{recharge}\\}\\).\nThe rewards are zero most of the time, but become positive when the robot secures an empty can, or large and negative if the battery runs all the way down. The best way to find cans is to actively search for them, but this runs down the robot’s battery, whereas waiting does not. Whenever the robot is searching, the possibility exists that its battery will become depleted. In this case the robot must shut down and wait to be rescued (producing a low reward).\nIf the energy level is high, then a period of active search can always be completed without risk of depleting the battery. A period of searching that begins with a high energy level leaves the energy level high with probability \\(\\alpha\\) and reduces it to low with probability \\(1 - \\alpha\\). On the other hand, a period of searching undertaken when the energy level is low leaves it low with probability \\(\\beta\\) and depletes the battery with probability \\(1 - \\beta\\). In the latter case, the robot must be rescued, and the battery is then recharged back to high. Each can collected by the robot counts as a unit reward, whereas a reward of \\(-3\\) results whenever the robot has to be rescued. Let \\(r_{\\texttt{search}}\\) and \\(r_{\\texttt{wait}}\\), with \\(r_{\\texttt{search}} &gt; r_{\\texttt{wait}}\\), denote the expected numbers of cans the robot will collect (and hence the expected reward) while searching and while waiting respectively. Finally, suppose that no cans can be collected during a run home for recharging, and that no cans can be collected on a step in which the battery is depleted. This system is then a finite MDP, and we can write down the transition probabilities and the expected rewards, with dynamics as indicated in the table on the left:\n\n\n\n\n\n\n\nfinite_state_machine\n\n\n\nsearch_0\n\n\n\n\nhigh\n\nhigh\n\n\n\nsearch_0-&gt;high\n\n\n$1 - beta$ \n\n\n\nlow\n\nhigh\n\n\n\nsearch_0-&gt;low\n\n\n$beta$ \n\n\n\nsearch_1\n\n\n\n\nsearch_1-&gt;search_1\n\n\n&lt; r&lt;sub&gt; search &lt;sub&gt;&gt;\n\n\n\nsearch_1-&gt;high\n\n\n1, $r_{wait}$\n\n\n\nsearch_1-&gt;low\n\n\n$1 - alpha, r_{search}$\n\n\n\nwait_0\n\n\n\n\nwait_0-&gt;low\n\n\n1, r(wait) \n\n\n\nwait_1\n\n\n\n\nwait_1-&gt;high\n\n\n1, $r_{wait}$\n\n\n\nrecharge\n\n\n\n\nrecharge-&gt;high\n\n\n\n\n\nhigh-&gt;search_1\n\n\n1, $r_{wait}$\n\n\n\nhigh-&gt;search_1\n\n\n$1 - alpha, r_{search}$\n\n\n\nhigh-&gt;wait_1\n\n\n1, $r_{wait}$\n\n\n\nhigh-&gt;low\n\n\n\n\n\nlow-&gt;search_0\n\n\n$beta$ \n\n\n\nlow-&gt;wait_0\n\n\n1, r(wait) \n\n\n\nlow-&gt;recharge\n\n\n1,0\n\n\n\n\n\n\n\n\n\n\nExercise 2.1 Give a table analogous to that in (p.53, Ex. 3.3, Sutton and Barto 2018), but for \\(p(s_0 , r |s, a)\\). It should have columns for \\(s\\), \\(a\\), \\(s_0\\) , \\(r\\), and \\(p(s_0 , r |s, a)\\), and a row for every 4-tuple for which \\(p(s_0 , r |s, a) &gt; 0\\).",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
     "objectID": "mdp.html#goals-and-rewards",
     "href": "mdp.html#goals-and-rewards",
-    "title": "2  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
     "section": "2.2 Goals and Rewards",
     "text": "2.2 Goals and Rewards",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
     "objectID": "mdp.html#returns-and-episodes",
     "href": "mdp.html#returns-and-episodes",
-    "title": "2  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
     "section": "2.3 Returns and Episodes",
     "text": "2.3 Returns and Episodes",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
     "objectID": "mdp.html#unified-notation-for-episodic-and-continuing-tasks",
     "href": "mdp.html#unified-notation-for-episodic-and-continuing-tasks",
-    "title": "2  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
     "section": "2.4 Unified Notation for Episodic and Continuing Tasks",
     "text": "2.4 Unified Notation for Episodic and Continuing Tasks",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
     "objectID": "mdp.html#policies-and-value-functions",
     "href": "mdp.html#policies-and-value-functions",
-    "title": "2  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
     "section": "2.5 Policies and Value Functions",
     "text": "2.5 Policies and Value Functions",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
     "objectID": "mdp.html#optimal-policies-and-optimal-value-functions",
     "href": "mdp.html#optimal-policies-and-optimal-value-functions",
-    "title": "2  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
     "section": "2.6 Optimal Policies and Optimal Value Functions",
     "text": "2.6 Optimal Policies and Optimal Value Functions",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
     "objectID": "mdp.html#optimality-and-approximation",
     "href": "mdp.html#optimality-and-approximation",
-    "title": "2  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
     "section": "2.7 Optimality and Approximation",
     "text": "2.7 Optimality and Approximation",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
     "objectID": "mdp.html#summary",
     "href": "mdp.html#summary",
-    "title": "2  Finite Markov Decision Processes",
+    "title": "2  Finite Markov Decision Processes (MDPs)",
     "section": "2.8 Summary",
-    "text": "2.8 Summary",
+    "text": "2.8 Summary\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
