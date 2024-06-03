@@ -1,5 +1,8 @@
 # Dynamic Programming
 
+An explanation from ChatGPT.
+Alright, imagine you have a big puzzle to solve, but it's too big for you to finish in one go. So, you decide to break it into smaller puzzles, and you solve each of these small puzzles one by one. But, here's the clever part: as you solve these small puzzles, you remember the solutions. That way, if you come across the same small puzzle again, you don't have to solve it all over again. You already know the answer! Dynamic programming is like solving a big puzzle by breaking it into smaller ones and remembering the solutions to the smaller ones to make solving the big puzzle easier and faster.
+
 ## Policy Evaluation (Prediction)
 
 ## Policy Improvement
