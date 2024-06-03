@@ -2,14 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/index.html</loc>
-    <lastmod>2024-06-01T01:11:41.433Z</lastmod>
+    <lastmod>2024-06-03T16:41:43.270Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/dynamic_programming.html</loc>
-    <lastmod>2024-05-31T17:26:58.068Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/mkp_and_rl.html</loc>
     <lastmod>2024-05-31T17:26:58.068Z</lastmod>
   </url>
   <url>
@@ -17,12 +13,12 @@
     <lastmod>2024-05-31T17:26:58.068Z</lastmod>
   </url>
   <url>
-    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/tabular_rl.html</loc>
+    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/dp_rl.html</loc>
     <lastmod>2024-05-31T17:26:58.068Z</lastmod>
   </url>
   <url>
-    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/dp_rl.html</loc>
-    <lastmod>2024-05-31T17:26:58.068Z</lastmod>
+    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/applications.html</loc>
+    <lastmod>2024-05-31T17:26:58.060Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/references.html</loc>
@@ -30,6 +26,6 @@
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf</loc>
-    <lastmod>2024-06-01T01:33:04.881Z</lastmod>
+    <lastmod>2024-06-03T17:15:35.371Z</lastmod>
   </url>
 </urlset>

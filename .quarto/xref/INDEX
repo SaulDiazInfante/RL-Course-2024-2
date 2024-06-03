@@ -1,32 +1,20 @@
 {
   "index.qmd": {
-    "index.html": "92889d1b"
-  },
-  "intro.qmd": {
-    "intro.html": "25f15409"
-  },
-  "summary.qmd": {
-    "summary.html": "0955cd6e"
-  },
-  "references.qmd": {
-    "references.html": "52b98e36"
+    "index.html": "abedf26b"
   },
   "dynamic_programming.qmd": {
-    "dynamic_programming.html": "3b90c256"
-  },
-  "mkp_and_rl.qmd": {
-    "mkp_and_rl.html": "35a6d2d8"
+    "dynamic_programming.html": "1a17e7c0"
   },
   "mdp.qmd": {
-    "mdp.html": "b5e304b6"
-  },
-  "tabular_rl.qmd": {
-    "tabular_rl.html": "1cc5a84f"
+    "mdp.html": "3d6efcc7"
   },
   "dp_rl.qmd": {
-    "dp_rl.html": "fba5d57b"
+    "dp_rl.html": "782d38f7"
   },
   "applications.qmd": {
-    "applications.html": "259d4b8c"
+    "applications.html": "d546d33f"
+  },
+  "references.qmd": {
+    "references.html": "eef50ea9"
   }
 }

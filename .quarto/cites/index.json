@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"mkp_and_rl.qmd":[],"tabular_rl.qmd":[],"references.qmd":[],"dp_rl.qmd":[],"dynamic_programming.qmd":[],"summary.qmd":[],"index.qmd":["Bertsekas2005","Sutton2018","Brunton2019","Szepesvari2022","Bilgin2020"],"intro.qmd":["knuth84"],"mdp.qmd":[]}
-=======
-{"index.qmd":["Bertsekas2005","Sutton2018","Brunton2019","Szepesvari2022","bilgin2020mastering"],"applications.qmd":[],"mdp.qmd":[],"tabular_rl.qmd":[],"summary.qmd":[],"mkp_and_rl.qmd":[],"references.qmd":[],"dynamic_programming.qmd":[],"intro.qmd":["knuth84"],"dp_rl.qmd":[]}
->>>>>>> e0d1b738be07351d7e9b361c6eb968311f66df43
+{"dynamic_programming.qmd":[],"dp_rl.qmd":[],"index.qmd":["Bertsekas2005","Sutton2018","Brunton2019","Szepesvari2022","Bilgin2020"],"mdp.qmd":[],"references.qmd":[],"applications.qmd":[]}

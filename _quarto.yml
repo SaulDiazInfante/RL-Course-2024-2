@@ -47,6 +47,3 @@ format:
     theme: darkly
   pdf:
     documentclass: scrreprt
-
-
-
