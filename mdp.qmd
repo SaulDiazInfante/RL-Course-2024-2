@@ -1,6 +1,107 @@
-#  Finite Markov Decision Processes
+#  Finite Markov Decision Processes (MDPs)
+
+That is what ChatGPT would answer to a 5-year-old kid.
+Alright, let's imagine you have a little robot friend named Robo. Robo likes to explore and do different things, but Robo doesn't always know what to do next. A Markov Decision Process (MDP) is like giving Robo a set of rules to help it decide what to do next based on where it is and what it knows.
+
+Imagine Robo is in a room full of toys. Each toy is like a different choice Robo can make, like playing with blocks or reading a book. But Robo can't see the whole room at once, so it has to decide what to do based on what it can see and remember.
+
+In an MDP, Robo learns from its past experiences. If it finds that playing with blocks usually makes it happy, it's more likely to choose that again next time. But if it tries reading a book and doesn't like it, it might choose something else next time.
+
+So, a Markov Decision Process helps Robo make decisions by learning from what it's done before and what it can see around it, kind of like how you learn from playing with different toys and remembering which ones you like best.
 
 ## The Agent–Environment Interface 
+
+
+
+
+:::{#exm-roboClean}
+A mobile robot has the job of collecting empty soda cans in an office environment. It
+has sensors for detecting cans, and an arm and gripper that can pick them up and place
+them in an onboard bin; it runs on a rechargeable battery. The robot’s control system
+has components for interpreting sensory information, for navigating, and for controlling
+the arm and gripper. High-level decisions about how to search for cans are made by a
+reinforcement learning agent based on the current charge level of the battery. 
+To make a simple example, we assume that only two charge levels can be distinguished, comprising
+a small state set $\mathcal{S} = \{\texttt{high}, \texttt{low} \}$. In each state, the agent can 
+decide whether to 
+
+1. actively **search** for a can for a certain period of time, 
+2. remain stationary and **wait** for someone to bring it a can, or 
+3. head back to its home base to **recharge** its battery.
+
+When the energy level is **high**, recharging would always be foolis
+h, so we do not include it
+in the action set for this state. The action sets are then 
+$\mathcal{A}(\texttt{high}) = \{\texttt{search}, \texttt{wait}\}$ and
+$\mathcal{A}(\texttt{low}) = \{\texttt{search}, \texttt{wait}, \texttt{recharge}\}$.
+
+The rewards are zero most of the time, but become positive when the robot secures an
+empty can, or large and negative if the battery runs all the way down. The best way to
+find cans is to actively search for them, but this runs down the robot’s battery, whereas
+waiting does not. Whenever the robot is searching, the possibility exists that its battery
+will become depleted. In this case the robot must shut down and wait to be rescued
+(producing a low reward). 
+
+If the energy level is **high**, then a period of active search can
+always be completed without risk of depleting the battery.  A period of searching that
+begins with a **high** energy level leaves the energy level high **with** probability
+$\alpha$ and reduces it to low with probability $1 - \alpha$. On the other hand, a period of searching undertaken
+when the energy level is low leaves it low with probability $\beta$ and depletes the battery with
+probability $1 - \beta$.  In the latter case, the robot must be rescued, and the battery is then
+recharged back to **high**. Each can collected by the robot counts as a unit reward, whereas
+a reward of $-3$ results whenever the robot has to be rescued. Let 
+$r_{\texttt{search}}$ and $r_{\texttt{wait}}$, with $r_{\texttt{search}} > r_{\texttt{wait}}$,
+denote the expected numbers of cans the robot will collect (and hence the
+expected reward) while searching and while waiting respectively. Finally, suppose that no
+cans can be collected during a run home for recharging, and that no cans can be collected
+on a step in which the battery is depleted. This system is then a finite MDP, and we
+can write down the transition probabilities and the expected rewards, with dynamics as
+indicated in the table on the left:
+
+```{dot}
+digraph finite_state_machine {
+	node [fontname="Helvetica,Arial,sans-serif"]
+	edge [fontname="Helvetica,Arial,sans-serif"]
+    rankdir=LR;
+    node [shape = point] search_0;
+    node  [label =<search>, shape= point] search_1;
+    node  [label = <wait>, shape = point] wait_0;
+    node  [label = <wait>, shape = point] wait_1;
+    node  [label = <recharge>, shape= point] recharge;
+    node [
+        label = <low>,
+        fillcolor=gray,
+        style="filled",
+        shape=circle
+    ]
+    node [
+        label = <high>,
+        fillcolor=gray,
+        style="filled",
+        shape=circle
+    ] high;
+    low -> recharge [label = "1,0"];
+	recharge -> high -> low;
+	low -> wait_0 -> low [label = "1, r(wait) "];
+    low -> search_0 -> low [label = "$\beta$ "];
+    search_0 -> high [label = "$1 - \beta$ "];
+    high -> wait_1 -> high [label = "1, $r_{wait}$"];
+    high -> search_1 -> high [label = "1, $r_{wait}$"];
+    search_1 -> search_1 [label = "< r<sub> search <\sub>>"];
+    high -> search_1 -> low [label= "$1 - \alpha, r_{search}$"];
+}
+```
+:::
+
+
+:::{#exr-001}
+Give a table analogous to that in [p.53, Ex. 3.3,@Sutton2018],
+but for $p(s_0 , r |s, a)$. It should have columns for $s$, $a$, $s_0$ ,
+ $r$, and $p(s_0 , r |s, a)$, and a row for every 4-tuple for which 
+ $p(s_0 , r |s, a) > 0$.
+
+:::
+
 
 ## Goals and Rewards
 
