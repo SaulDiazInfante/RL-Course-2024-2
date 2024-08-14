@@ -11,10 +11,8 @@ So, a Markov Decision Process helps Robo make decisions by learning from what it
 
 ## The Agent–Environment Interface 
 
-
-
-
 :::{#exm-roboClean}
+
 A mobile robot has the job of collecting empty soda cans in an office environment. It
 has sensors for detecting cans, and an arm and gripper that can pick them up and place
 them in an onboard bin; it runs on a rechargeable battery. The robot’s control system
@@ -58,40 +56,11 @@ on a step in which the battery is depleted. This system is then a finite MDP, an
 can write down the transition probabilities and the expected rewards, with dynamics as
 indicated in the table on the left:
 
-```{dot}
-digraph finite_state_machine {
-	node [fontname="Helvetica,Arial,sans-serif"]
-	edge [fontname="Helvetica,Arial,sans-serif"]
-    rankdir=LR;
-    node [shape = point] search_0;
-    node  [label =<search>, shape= point] search_1;
-    node  [label = <wait>, shape = point] wait_0;
-    node  [label = <wait>, shape = point] wait_1;
-    node  [label = <recharge>, shape= point] recharge;
-    node [
-        label = <low>,
-        fillcolor=gray,
-        style="filled",
-        shape=circle
-    ]
-    node [
-        label = <high>,
-        fillcolor=gray,
-        style="filled",
-        shape=circle
-    ] high;
-    low -> recharge [label = "1,0"];
-	recharge -> high -> low;
-	low -> wait_0 -> low [label = "1, r(wait) "];
-    low -> search_0 -> low [label = "$\beta$ "];
-    search_0 -> high [label = "$1 - \beta$ "];
-    high -> wait_1 -> high [label = "1, $r_{wait}$"];
-    high -> search_1 -> high [label = "1, $r_{wait}$"];
-    search_1 -> search_1 [label = "< r<sub> search <\sub>>"];
-    high -> search_1 -> low [label= "$1 - \alpha, r_{search}$"];
-}
-```
+::: {#fig-robot-diagram fig-env="figure*"}
+![](../assets/ch_03/recycling_robot_diagram.png)
+Recycling-robot's graph. Taken from [@Sutton2018]
 :::
+
 
 
 :::{#exr-001}

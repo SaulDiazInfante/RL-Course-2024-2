@@ -1,0 +1,27 @@
+Version: 1.0
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+RnwWeave: Sweave
+LaTeX: pdfLaTeX
+
+AutoAppendNewline: Yes
+
+UseNativePipeOperator: Yes
+
+MarkdownWrap: Column
+MarkdownWrapAtColumn: 80
+MarkdownReferences: Section
+
+PythonType: conda
+PythonVersion: 3.12.4
+PythonPath: ~/Insync/sauld@cimat.mx/Google Drive/UNISON/Ponencias/2024/SMUQ-Valencia2024-talk/.conda/bin/python3.12
+
+SpellingDictionary: en_US

@@ -30,11 +30,13 @@ book:
     
   chapters:
     - index.qmd
+    - ./02-introductionToRL/intro.qmd
     - dynamic_programming.qmd
-    - mdp.qmd
+    - ./03-finiteMDPs/mdp.qmd
     - dp_rl.qmd
     - applications.qmd
     - references.qmd
+    - ./homeworks/home_works_list.qmd
   downloads: [pdf]
   sidebar:
     pinned: true
