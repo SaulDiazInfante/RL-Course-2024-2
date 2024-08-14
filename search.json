@@ -10,263 +10,323 @@
     ]
   },
   {
+    "objectID": "02-introductionToRL/intro.html",
+    "href": "02-introductionToRL/intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Trial-Error\nAccording to Richard S. Sutton and Andrew G. Barto Sutton and Barto (2018)–the first authors to use the term–Reinforced Learning Reinforcement learning is about what to do, that is, how to map situations to action so that we optimize a reward. The learner must discover which action yield the best reward by trying them. In the most general sense, action may not only affect immediate reward but also the next situation and, through that, all subsequent rewards.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "02-introductionToRL/intro.html#trial-error",
+    "href": "02-introductionToRL/intro.html#trial-error",
+    "title": "Introduction",
+    "section": "",
+    "text": "Sensation action and goal\nAt the same time, Reinforcement Learning encloses a problem, a class of solution methods, and the field that studies this problem and its solutions. Its formalism is based on the theory of controlled dynamical systems, with a strong focus on the optimal control of partially known Markov decision processes. Then, the core idea consists of capturing the essence of the problem when an agent learns through experience and interaction to reach a goal. This agent can sense the state of its environment to some extent and must be able to take action that affects the state. The agent also must have a goal or goals related to the state of the environment.\nMDPs are designed to incorporate three essential elements: sensation, action, and goal. Therefore, any approach suitable for solving such problems should be considered a potential method for Reinforcement Learning.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "02-introductionToRL/intro.html#exploration-exploration-dilemma-and-uncertainty",
+    "href": "02-introductionToRL/intro.html#exploration-exploration-dilemma-and-uncertainty",
+    "title": "Introduction",
+    "section": "Exploration-exploration dilemma and uncertainty",
+    "text": "Exploration-exploration dilemma and uncertainty\nTo obtain the best reward, the agent must prefer actions used in the past and perceived as effective to produce a reward. However, to discover such actions, the agent must try actions never used before. So, there is a delicate trade-off between exploiting and exploring. The agent has to exploit its knowledge to produce a reward but simultaneously has to explore to improve its reward in the future. Here, our dilemma is that neither exploration nor exploitation can be pursued exclusively without failing the task.\nAnother essential aspect of reinforcement learning is that it specifically deals with the entire process of a goal-directed agent interacting with an uncertain environment. This aspect differs from many approaches that only focus on subproblems rather than considering how they might contribute to the bigger picture. For example, many machine learning researchers have studied supervised Learning without specifying how such an ability would ultimately be helpful. Other researchers have developed planning theories with general goals without considering planning’s role in real-time decision-making or whether the predictive models necessary for planning are well suited. Although these approaches have produced valuable results, their focus on isolated subproblems leads to significant limitations.\nReinforcement learning takes the opposite approach, beginning with a fully interactive, goal-seeking agent. In reinforcement learning, the agent has explicit goals, can sense aspects of their environment, and can choose actions to influence its environment.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "02-introductionToRL/intro.html#examples",
+    "href": "02-introductionToRL/intro.html#examples",
+    "title": "Introduction",
+    "section": "Examples",
+    "text": "Examples\n\nA master chess player makes a move.\nAn adaptive controller adjusts parameters of a petroleum refinery’s operation in real time.\nA gazelle calf struggles to its feet minutes after being born.\nA mobile robot decides whether it should enter a new room in search of more trash to collect or start trying to find its way back to its battery recharging station.\nPhil prepares his breakfast",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "02-introductionToRL/intro.html#the-possible-4-elements-of-reinforcement-learning",
+    "href": "02-introductionToRL/intro.html#the-possible-4-elements-of-reinforcement-learning",
+    "title": "Introduction",
+    "section": "The (possible) 4 elements of Reinforcement Learning",
+    "text": "The (possible) 4 elements of Reinforcement Learning\nGiven an agent, we identify four main element in a reinforcement learning model:\n\na policy, a reward, a value function and (optionally) a model of the environment.\n\n\nPolicy\n\nA policy is as a set of actions that guide the agent to respond according to its perception of the environment. It’s like a set of instructions that tell the agent what to do when it encounters a certain situation. In general, policies may be stochastic, specifying probabilities for each action.\n\nReward\n\nThe reward signal thus defines what are the good and bad events for the agent. In a biological system, we might think of rewards as analogous to the experiences of pleasure or pain. They are the immediate and defining features of the problem faced by the agent. The reward signal is the primary basis for altering the policy; if an action selected by the policy is followed by low reward, then the policy may be changed to select some other action in that situation in the future. In general, reward signals may be stochastic functions of the state of the environment and the actions taken.\n\nValue function\n\nWhereas the reward signal indicates what is good in the immediate sense, a value function specifies what is good in the long run. In simple terms, the value of a state represents the total reward an agent can anticipate to receive in the future, beginning from that state. While rewards reflect the immediate appeal of environmental states, values signify the long-term appeal of states, considering the potential future states and the rewards they offer. For example, a state might consistently yield a low immediate reward but still have a high value because it is regularly followed by other states that yield high rewards. Alternatively, the opposite could also be true. Rewards can be compared to pleasure (when high) and pain (when low). At the same time, values represent a more precise and long-term assessment of how satisfied or dissatisfied we are with the state of our environment. In a sense, rewards are primary, whereas values, as predictions of rewards, are secondary. Without rewards, there could be no values, and the only purpose of estimating values is to achieve more rewards.\nAction choices are made based on value judgments. We seek actions that bring about states of highest value, not highest reward, because these actions obtain the greatest amount of reward for us over the long run. In fact, the most important component of almost all reinforcement learning algorithms we consider is a method for efficiently estimating values.\n\nEnvironment model\n\nThe environment model is something that mimics the behavior of the environment or, more generally, that allows inferences to be made about how the environment will behave. For example, given a state and action, the model might predict the resultant next state and next reward. Models are used for planning. This means making decisions by considering potential future situations before they occur. For our purposes, the environment can be represented as a dynamic system through an ordinary differential equation or a discrete finite difference equation.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "02-introductionToRL/intro.html#a-toy-rl-exmaple-tic-tac-toe",
+    "href": "02-introductionToRL/intro.html#a-toy-rl-exmaple-tic-tac-toe",
+    "title": "Introduction",
+    "section": "A toy RL-exmaple: Tic-Tac-Toe",
+    "text": "A toy RL-exmaple: Tic-Tac-Toe\nTo illustrate the general idea of reinforcement learning and contrast it with other ap- proaches, we next consider a single example in more detail.\nConsider the familiar child’s game of tic-tac-toe.\n\nAlthough the tic-tac-toe game is a simple problem, it cannot be satisfactorily solved using classical techniques.\nFor instance, the classical “minimax” solution from game theory is not applicable here because it assumes the opponent’s specific way of playing. A minimax player would never reach a game state from which it could lose. Even if, in reality, it always won from that state due to incorrect play by the opponent. The classical optimization methods for sequential decision problems, like dynamic programming, can find the best solution for any opponent. However, these methods need a detailed description of the opponent as input, including the probabilities of the opponent’s moves in each board state.\nAlternatively, this information can be estimated through experience, such as playing numerous games against the opponent. The best approach to this problem is to first learn a model of the opponent’s behavior with a certain level of confidence, and then use dynamic programming to calculate an optimal solution based on the approximate opponent model.\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
     "objectID": "dynamic_programming.html",
     "href": "dynamic_programming.html",
-    "title": "1  The Dynamic Programming Algorithm",
+    "title": "2  The Dynamic Programming Algorithm",
     "section": "",
-    "text": "1.1 Introduction",
+    "text": "2.1 Introduction",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
     ]
   },
   {
     "objectID": "dynamic_programming.html#the-basic-problem",
     "href": "dynamic_programming.html#the-basic-problem",
-    "title": "1  The Dynamic Programming Algorithm",
-    "section": "1.2 The Basic Problem",
-    "text": "1.2 The Basic Problem",
+    "title": "2  The Dynamic Programming Algorithm",
+    "section": "2.2 The Basic Problem",
+    "text": "2.2 The Basic Problem",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
     ]
   },
   {
     "objectID": "dynamic_programming.html#the-dynamic-programming-algorithm",
     "href": "dynamic_programming.html#the-dynamic-programming-algorithm",
-    "title": "1  The Dynamic Programming Algorithm",
-    "section": "1.3 The Dynamic Programming Algorithm",
-    "text": "1.3 The Dynamic Programming Algorithm",
+    "title": "2  The Dynamic Programming Algorithm",
+    "section": "2.3 The Dynamic Programming Algorithm",
+    "text": "2.3 The Dynamic Programming Algorithm",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
     ]
   },
   {
     "objectID": "dynamic_programming.html#state-augmentation-and-other-reformulations",
     "href": "dynamic_programming.html#state-augmentation-and-other-reformulations",
-    "title": "1  The Dynamic Programming Algorithm",
-    "section": "1.4 State Augmentation and Other Reformulations",
-    "text": "1.4 State Augmentation and Other Reformulations",
+    "title": "2  The Dynamic Programming Algorithm",
+    "section": "2.4 State Augmentation and Other Reformulations",
+    "text": "2.4 State Augmentation and Other Reformulations",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
     ]
   },
   {
     "objectID": "dynamic_programming.html#some-mathematical-issues",
     "href": "dynamic_programming.html#some-mathematical-issues",
-    "title": "1  The Dynamic Programming Algorithm",
-    "section": "1.5 Some Mathematical Issues",
-    "text": "1.5 Some Mathematical Issues",
+    "title": "2  The Dynamic Programming Algorithm",
+    "section": "2.5 Some Mathematical Issues",
+    "text": "2.5 Some Mathematical Issues",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
     ]
   },
   {
     "objectID": "dynamic_programming.html#dynamic-programming-and-minimax-control",
     "href": "dynamic_programming.html#dynamic-programming-and-minimax-control",
-    "title": "1  The Dynamic Programming Algorithm",
-    "section": "1.6 Dynamic Programming and Minimax Control",
-    "text": "1.6 Dynamic Programming and Minimax Control",
+    "title": "2  The Dynamic Programming Algorithm",
+    "section": "2.6 Dynamic Programming and Minimax Control",
+    "text": "2.6 Dynamic Programming and Minimax Control",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
     ]
   },
   {
     "objectID": "dynamic_programming.html#notes-sources-and-exercises",
     "href": "dynamic_programming.html#notes-sources-and-exercises",
-    "title": "1  The Dynamic Programming Algorithm",
-    "section": "1.7 Notes, Sources, and Exercises",
-    "text": "1.7 Notes, Sources, and Exercises",
+    "title": "2  The Dynamic Programming Algorithm",
+    "section": "2.7 Notes, Sources, and Exercises",
+    "text": "2.7 Notes, Sources, and Exercises",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
     ]
   },
   {
-    "objectID": "mdp.html",
-    "href": "mdp.html",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
+    "objectID": "03-finiteMDPs/mdp.html",
+    "href": "03-finiteMDPs/mdp.html",
+    "title": "Finite Markov Decision Processes (MDPs)",
     "section": "",
-    "text": "2.1 The Agent–Environment Interface",
+    "text": "The Agent–Environment Interface\n:::{#exm-roboClean}\nA mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set \\(\\mathcal{S} = \\{\\texttt{high}, \\texttt{low} \\}\\). In each state, the agent can decide whether to\nWhen the energy level is high, recharging would always be foolis h, so we do not include it in the action set for this state. The action sets are then \\(\\mathcal{A}(\\texttt{high}) = \\{\\texttt{search}, \\texttt{wait}\\}\\) and \\(\\mathcal{A}(\\texttt{low}) = \\{\\texttt{search}, \\texttt{wait}, \\texttt{recharge}\\}\\).\nThe rewards are zero most of the time, but become positive when the robot secures an empty can, or large and negative if the battery runs all the way down. The best way to find cans is to actively search for them, but this runs down the robot’s battery, whereas waiting does not. Whenever the robot is searching, the possibility exists that its battery will become depleted. In this case the robot must shut down and wait to be rescued (producing a low reward).\nIf the energy level is high, then a period of active search can always be completed without risk of depleting the battery. A period of searching that begins with a high energy level leaves the energy level high with probability \\(\\alpha\\) and reduces it to low with probability \\(1 - \\alpha\\). On the other hand, a period of searching undertaken when the energy level is low leaves it low with probability \\(\\beta\\) and depletes the battery with probability \\(1 - \\beta\\). In the latter case, the robot must be rescued, and the battery is then recharged back to high. Each can collected by the robot counts as a unit reward, whereas a reward of \\(-3\\) results whenever the robot has to be rescued. Let \\(r_{\\texttt{search}}\\) and \\(r_{\\texttt{wait}}\\), with \\(r_{\\texttt{search}} &gt; r_{\\texttt{wait}}\\), denote the expected numbers of cans the robot will collect (and hence the expected reward) while searching and while waiting respectively. Finally, suppose that no cans can be collected during a run home for recharging, and that no cans can be collected on a step in which the battery is depleted. This system is then a finite MDP, and we can write down the transition probabilities and the expected rewards, with dynamics as indicated in the table on the left:",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "mdp.html#the-agentenvironment-interface",
-    "href": "mdp.html#the-agentenvironment-interface",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
+    "objectID": "03-finiteMDPs/mdp.html#the-agentenvironment-interface",
+    "href": "03-finiteMDPs/mdp.html#the-agentenvironment-interface",
+    "title": "Finite Markov Decision Processes (MDPs)",
     "section": "",
-    "text": "Example 2.1 A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set \\(\\mathcal{S} = \\{\\texttt{high}, \\texttt{low} \\}\\). In each state, the agent can decide whether to\n\nactively search for a can for a certain period of time,\nremain stationary and wait for someone to bring it a can, or\nhead back to its home base to recharge its battery.\n\nWhen the energy level is high, recharging would always be foolis h, so we do not include it in the action set for this state. The action sets are then \\(\\mathcal{A}(\\texttt{high}) = \\{\\texttt{search}, \\texttt{wait}\\}\\) and \\(\\mathcal{A}(\\texttt{low}) = \\{\\texttt{search}, \\texttt{wait}, \\texttt{recharge}\\}\\).\nThe rewards are zero most of the time, but become positive when the robot secures an empty can, or large and negative if the battery runs all the way down. The best way to find cans is to actively search for them, but this runs down the robot’s battery, whereas waiting does not. Whenever the robot is searching, the possibility exists that its battery will become depleted. In this case the robot must shut down and wait to be rescued (producing a low reward).\nIf the energy level is high, then a period of active search can always be completed without risk of depleting the battery. A period of searching that begins with a high energy level leaves the energy level high with probability \\(\\alpha\\) and reduces it to low with probability \\(1 - \\alpha\\). On the other hand, a period of searching undertaken when the energy level is low leaves it low with probability \\(\\beta\\) and depletes the battery with probability \\(1 - \\beta\\). In the latter case, the robot must be rescued, and the battery is then recharged back to high. Each can collected by the robot counts as a unit reward, whereas a reward of \\(-3\\) results whenever the robot has to be rescued. Let \\(r_{\\texttt{search}}\\) and \\(r_{\\texttt{wait}}\\), with \\(r_{\\texttt{search}} &gt; r_{\\texttt{wait}}\\), denote the expected numbers of cans the robot will collect (and hence the expected reward) while searching and while waiting respectively. Finally, suppose that no cans can be collected during a run home for recharging, and that no cans can be collected on a step in which the battery is depleted. This system is then a finite MDP, and we can write down the transition probabilities and the expected rewards, with dynamics as indicated in the table on the left:\n\n\n\n\n\n\n\nfinite_state_machine\n\n\n\nsearch_0\n\n\n\n\nhigh\n\nhigh\n\n\n\nsearch_0-&gt;high\n\n\n$1 - beta$ \n\n\n\nlow\n\nhigh\n\n\n\nsearch_0-&gt;low\n\n\n$beta$ \n\n\n\nsearch_1\n\n\n\n\nsearch_1-&gt;search_1\n\n\n&lt; r&lt;sub&gt; search &lt;sub&gt;&gt;\n\n\n\nsearch_1-&gt;high\n\n\n1, $r_{wait}$\n\n\n\nsearch_1-&gt;low\n\n\n$1 - alpha, r_{search}$\n\n\n\nwait_0\n\n\n\n\nwait_0-&gt;low\n\n\n1, r(wait) \n\n\n\nwait_1\n\n\n\n\nwait_1-&gt;high\n\n\n1, $r_{wait}$\n\n\n\nrecharge\n\n\n\n\nrecharge-&gt;high\n\n\n\n\n\nhigh-&gt;search_1\n\n\n1, $r_{wait}$\n\n\n\nhigh-&gt;search_1\n\n\n$1 - alpha, r_{search}$\n\n\n\nhigh-&gt;wait_1\n\n\n1, $r_{wait}$\n\n\n\nhigh-&gt;low\n\n\n\n\n\nlow-&gt;search_0\n\n\n$beta$ \n\n\n\nlow-&gt;wait_0\n\n\n1, r(wait) \n\n\n\nlow-&gt;recharge\n\n\n1,0\n\n\n\n\n\n\n\n\n\n\nExercise 2.1 Give a table analogous to that in (p.53, Ex. 3.3, Sutton and Barto 2018), but for \\(p(s_0 , r |s, a)\\). It should have columns for \\(s\\), \\(a\\), \\(s_0\\) , \\(r\\), and \\(p(s_0 , r |s, a)\\), and a row for every 4-tuple for which \\(p(s_0 , r |s, a) &gt; 0\\).",
+    "text": "actively search for a can for a certain period of time,\nremain stationary and wait for someone to bring it a can, or\nhead back to its home base to recharge its battery.\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\nExercise 1 Give a table analogous to that in (p.53, Ex. 3.3, Sutton and Barto 2018), but for \\(p(s_0 , r |s, a)\\). It should have columns for \\(s\\), \\(a\\), \\(s_0\\) , \\(r\\), and \\(p(s_0 , r |s, a)\\), and a row for every 4-tuple for which \\(p(s_0 , r |s, a) &gt; 0\\).",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "mdp.html#goals-and-rewards",
-    "href": "mdp.html#goals-and-rewards",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
-    "section": "2.2 Goals and Rewards",
-    "text": "2.2 Goals and Rewards",
+    "objectID": "03-finiteMDPs/mdp.html#goals-and-rewards",
+    "href": "03-finiteMDPs/mdp.html#goals-and-rewards",
+    "title": "Finite Markov Decision Processes (MDPs)",
+    "section": "Goals and Rewards",
+    "text": "Goals and Rewards",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "mdp.html#returns-and-episodes",
-    "href": "mdp.html#returns-and-episodes",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
-    "section": "2.3 Returns and Episodes",
-    "text": "2.3 Returns and Episodes",
+    "objectID": "03-finiteMDPs/mdp.html#returns-and-episodes",
+    "href": "03-finiteMDPs/mdp.html#returns-and-episodes",
+    "title": "Finite Markov Decision Processes (MDPs)",
+    "section": "Returns and Episodes",
+    "text": "Returns and Episodes",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "mdp.html#unified-notation-for-episodic-and-continuing-tasks",
-    "href": "mdp.html#unified-notation-for-episodic-and-continuing-tasks",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
-    "section": "2.4 Unified Notation for Episodic and Continuing Tasks",
-    "text": "2.4 Unified Notation for Episodic and Continuing Tasks",
+    "objectID": "03-finiteMDPs/mdp.html#unified-notation-for-episodic-and-continuing-tasks",
+    "href": "03-finiteMDPs/mdp.html#unified-notation-for-episodic-and-continuing-tasks",
+    "title": "Finite Markov Decision Processes (MDPs)",
+    "section": "Unified Notation for Episodic and Continuing Tasks",
+    "text": "Unified Notation for Episodic and Continuing Tasks",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "mdp.html#policies-and-value-functions",
-    "href": "mdp.html#policies-and-value-functions",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
-    "section": "2.5 Policies and Value Functions",
-    "text": "2.5 Policies and Value Functions",
+    "objectID": "03-finiteMDPs/mdp.html#policies-and-value-functions",
+    "href": "03-finiteMDPs/mdp.html#policies-and-value-functions",
+    "title": "Finite Markov Decision Processes (MDPs)",
+    "section": "Policies and Value Functions",
+    "text": "Policies and Value Functions",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "mdp.html#optimal-policies-and-optimal-value-functions",
-    "href": "mdp.html#optimal-policies-and-optimal-value-functions",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
-    "section": "2.6 Optimal Policies and Optimal Value Functions",
-    "text": "2.6 Optimal Policies and Optimal Value Functions",
+    "objectID": "03-finiteMDPs/mdp.html#optimal-policies-and-optimal-value-functions",
+    "href": "03-finiteMDPs/mdp.html#optimal-policies-and-optimal-value-functions",
+    "title": "Finite Markov Decision Processes (MDPs)",
+    "section": "Optimal Policies and Optimal Value Functions",
+    "text": "Optimal Policies and Optimal Value Functions",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "mdp.html#optimality-and-approximation",
-    "href": "mdp.html#optimality-and-approximation",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
-    "section": "2.7 Optimality and Approximation",
-    "text": "2.7 Optimality and Approximation",
+    "objectID": "03-finiteMDPs/mdp.html#optimality-and-approximation",
+    "href": "03-finiteMDPs/mdp.html#optimality-and-approximation",
+    "title": "Finite Markov Decision Processes (MDPs)",
+    "section": "Optimality and Approximation",
+    "text": "Optimality and Approximation",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "mdp.html#summary",
-    "href": "mdp.html#summary",
-    "title": "2  Finite Markov Decision Processes (MDPs)",
-    "section": "2.8 Summary",
-    "text": "2.8 Summary\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
+    "objectID": "03-finiteMDPs/mdp.html#summary",
+    "href": "03-finiteMDPs/mdp.html#summary",
+    "title": "Finite Markov Decision Processes (MDPs)",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
     "objectID": "dp_rl.html",
     "href": "dp_rl.html",
-    "title": "3  Dynamic Programming",
+    "title": "4  Dynamic Programming",
     "section": "",
-    "text": "3.1 Policy Evaluation (Prediction)",
+    "text": "4.1 Policy Evaluation (Prediction)",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#policy-improvement",
     "href": "dp_rl.html#policy-improvement",
-    "title": "3  Dynamic Programming",
-    "section": "3.2 Policy Improvement",
-    "text": "3.2 Policy Improvement",
+    "title": "4  Dynamic Programming",
+    "section": "4.2 Policy Improvement",
+    "text": "4.2 Policy Improvement",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#policy-iteration",
     "href": "dp_rl.html#policy-iteration",
-    "title": "3  Dynamic Programming",
-    "section": "3.3 Policy Iteration",
-    "text": "3.3 Policy Iteration",
+    "title": "4  Dynamic Programming",
+    "section": "4.3 Policy Iteration",
+    "text": "4.3 Policy Iteration",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#value-iteration",
     "href": "dp_rl.html#value-iteration",
-    "title": "3  Dynamic Programming",
-    "section": "3.4 Value Iteration",
-    "text": "3.4 Value Iteration",
+    "title": "4  Dynamic Programming",
+    "section": "4.4 Value Iteration",
+    "text": "4.4 Value Iteration",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#asynchronous-dynamic-programming",
     "href": "dp_rl.html#asynchronous-dynamic-programming",
-    "title": "3  Dynamic Programming",
-    "section": "3.5 Asynchronous Dynamic Programming",
-    "text": "3.5 Asynchronous Dynamic Programming",
+    "title": "4  Dynamic Programming",
+    "section": "4.5 Asynchronous Dynamic Programming",
+    "text": "4.5 Asynchronous Dynamic Programming",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#generalized-policy-iteration",
     "href": "dp_rl.html#generalized-policy-iteration",
-    "title": "3  Dynamic Programming",
-    "section": "3.6 Generalized Policy Iteration",
-    "text": "3.6 Generalized Policy Iteration",
+    "title": "4  Dynamic Programming",
+    "section": "4.6 Generalized Policy Iteration",
+    "text": "4.6 Generalized Policy Iteration",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#efficiency-of-dynamic-programming",
     "href": "dp_rl.html#efficiency-of-dynamic-programming",
-    "title": "3  Dynamic Programming",
-    "section": "3.7 Efficiency of Dynamic Programming",
-    "text": "3.7 Efficiency of Dynamic Programming",
+    "title": "4  Dynamic Programming",
+    "section": "4.7 Efficiency of Dynamic Programming",
+    "text": "4.7 Efficiency of Dynamic Programming",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "dp_rl.html#summary",
     "href": "dp_rl.html#summary",
-    "title": "3  Dynamic Programming",
-    "section": "3.8 Summary",
-    "text": "3.8 Summary",
+    "title": "4  Dynamic Programming",
+    "section": "4.8 Summary",
+    "text": "4.8 Summary",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
     "objectID": "applications.html",
     "href": "applications.html",
-    "title": "4  Applications",
+    "title": "5  Applications",
     "section": "",
-    "text": "4.1 Recycling Robot",
+    "text": "5.1 Recycling Robot",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Applications</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Applications</span>"
     ]
   },
   {
     "objectID": "applications.html#a-robot-with-randomly-moves-in-a-grid-world.",
     "href": "applications.html#a-robot-with-randomly-moves-in-a-grid-world.",
-    "title": "4  Applications",
-    "section": "4.2 A robot with randomly moves in a grid world.",
-    "text": "4.2 A robot with randomly moves in a grid world.",
+    "title": "5  Applications",
+    "section": "5.2 A robot with randomly moves in a grid world.",
+    "text": "5.2 A robot with randomly moves in a grid world.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Applications</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Applications</span>"
     ]
   },
   {
@@ -277,6 +337,26 @@
     "text": "Bertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control.\nVol. I. Third. Athena Scientific,\nBelmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build\nNext-Generation, Self-Learning Models Using Reinforcement Learning\nTechniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science\nand Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement\nLearning: An Introduction. Second. Adaptive Computation and Machine\nLearning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. 2022. Algorithms for Reinforcement Learning.\nVol. 9. Synthesis Lectures on Artificial Intelligence and Machine\nLearning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "homeworks/home_works_list.html",
+    "href": "homeworks/home_works_list.html",
+    "title": "List of Home Works and due dates",
+    "section": "",
+    "text": "Homework 001 due date: september 16, 2024-12:00:00\nExplain why Reinforcement Learning differs for supervised and unsupervised learning.",
+    "crumbs": [
+      "List of Home Works and due dates"
+    ]
+  },
+  {
+    "objectID": "homeworks/home_works_list.html#homework-001-due-date-september-16-2024-120000",
+    "href": "homeworks/home_works_list.html#homework-001-due-date-september-16-2024-120000",
+    "title": "List of Home Works and due dates",
+    "section": "",
+    "text": "Read (Sec 1.1, pp 1-2 Sutton and Barto 2018) and answer the following.\n\n\n\nSee the first Steve Brunton’s youtube video about Reinforcement Learning. Then accordingly to its presentation explain what is the meaning of the following expression: \\[\n  V_{\\pi}(s) = \\mathbb{E}\n\\left(\n   \\sum_{t} \\gamma ^ {t} r_t | s_0 = s\n\\right).\n\\]\n\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
+    "crumbs": [
+      "List of Home Works and due dates"
     ]
   }
 ]

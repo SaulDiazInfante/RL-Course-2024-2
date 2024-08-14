@@ -5,12 +5,16 @@
     <lastmod>2024-06-03T16:41:43.270Z</lastmod>
   </url>
   <url>
+    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/02-introductionToRL/intro.html</loc>
+    <lastmod>2024-08-14T18:08:09.911Z</lastmod>
+  </url>
+  <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/dynamic_programming.html</loc>
     <lastmod>2024-05-31T17:26:58.068Z</lastmod>
   </url>
   <url>
-    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/mdp.html</loc>
-    <lastmod>2024-06-03T23:20:08.624Z</lastmod>
+    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/03-finiteMDPs/mdp.html</loc>
+    <lastmod>2024-08-06T21:13:21.239Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/dp_rl.html</loc>
@@ -25,7 +29,11 @@
     <lastmod>2024-05-31T17:26:58.068Z</lastmod>
   </url>
   <url>
+    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/homeworks/home_works_list.html</loc>
+    <lastmod>2024-08-06T17:48:06.262Z</lastmod>
+  </url>
+  <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf</loc>
-    <lastmod>2024-06-03T23:23:58.963Z</lastmod>
+    <lastmod>2024-08-14T18:15:56.600Z</lastmod>
   </url>
 </urlset>

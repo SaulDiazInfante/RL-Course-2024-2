@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>From Markov Decision Processes to Reinforcement Learning with Python - 1&nbsp; The Dynamic Programming Algorithm</title>
+<title>From Markov Decision Processes to Reinforcement Learning with Python - 2&nbsp; The Dynamic Programming Algorithm</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./mdp.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./03-finiteMDPs/mdp.html" rel="next">
+<link href="./02-introductionToRL/intro.html" rel="prev">
 <link href="./cover_RL.jpeg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dynamic_programming.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dynamic_programming.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -135,32 +135,44 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dynamic_programming.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span></a>
+  <a href="./02-introductionToRL/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mdp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
+  <a href="./dynamic_programming.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dp_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./applications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
     </ul>
@@ -173,13 +185,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1.1</span> Introduction</a></li>
-  <li><a href="#the-basic-problem" id="toc-the-basic-problem" class="nav-link" data-scroll-target="#the-basic-problem"><span class="header-section-number">1.2</span> The Basic Problem</a></li>
-  <li><a href="#the-dynamic-programming-algorithm" id="toc-the-dynamic-programming-algorithm" class="nav-link" data-scroll-target="#the-dynamic-programming-algorithm"><span class="header-section-number">1.3</span> The Dynamic Programming Algorithm</a></li>
-  <li><a href="#state-augmentation-and-other-reformulations" id="toc-state-augmentation-and-other-reformulations" class="nav-link" data-scroll-target="#state-augmentation-and-other-reformulations"><span class="header-section-number">1.4</span> State Augmentation and Other Reformulations</a></li>
-  <li><a href="#some-mathematical-issues" id="toc-some-mathematical-issues" class="nav-link" data-scroll-target="#some-mathematical-issues"><span class="header-section-number">1.5</span> Some Mathematical Issues</a></li>
-  <li><a href="#dynamic-programming-and-minimax-control" id="toc-dynamic-programming-and-minimax-control" class="nav-link" data-scroll-target="#dynamic-programming-and-minimax-control"><span class="header-section-number">1.6</span> Dynamic Programming and Minimax Control</a></li>
-  <li><a href="#notes-sources-and-exercises" id="toc-notes-sources-and-exercises" class="nav-link" data-scroll-target="#notes-sources-and-exercises"><span class="header-section-number">1.7</span> Notes, Sources, and Exercises</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
+  <li><a href="#the-basic-problem" id="toc-the-basic-problem" class="nav-link" data-scroll-target="#the-basic-problem"><span class="header-section-number">2.2</span> The Basic Problem</a></li>
+  <li><a href="#the-dynamic-programming-algorithm" id="toc-the-dynamic-programming-algorithm" class="nav-link" data-scroll-target="#the-dynamic-programming-algorithm"><span class="header-section-number">2.3</span> The Dynamic Programming Algorithm</a></li>
+  <li><a href="#state-augmentation-and-other-reformulations" id="toc-state-augmentation-and-other-reformulations" class="nav-link" data-scroll-target="#state-augmentation-and-other-reformulations"><span class="header-section-number">2.4</span> State Augmentation and Other Reformulations</a></li>
+  <li><a href="#some-mathematical-issues" id="toc-some-mathematical-issues" class="nav-link" data-scroll-target="#some-mathematical-issues"><span class="header-section-number">2.5</span> Some Mathematical Issues</a></li>
+  <li><a href="#dynamic-programming-and-minimax-control" id="toc-dynamic-programming-and-minimax-control" class="nav-link" data-scroll-target="#dynamic-programming-and-minimax-control"><span class="header-section-number">2.6</span> Dynamic Programming and Minimax Control</a></li>
+  <li><a href="#notes-sources-and-exercises" id="toc-notes-sources-and-exercises" class="nav-link" data-scroll-target="#notes-sources-and-exercises"><span class="header-section-number">2.7</span> Notes, Sources, and Exercises</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/dynamic_programming.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -188,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></h1>
 </div>
 
 
@@ -205,26 +217,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
 </section>
-<section id="the-basic-problem" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="the-basic-problem"><span class="header-section-number">1.2</span> The Basic Problem</h2>
+<section id="the-basic-problem" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-basic-problem"><span class="header-section-number">2.2</span> The Basic Problem</h2>
 </section>
-<section id="the-dynamic-programming-algorithm" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="the-dynamic-programming-algorithm"><span class="header-section-number">1.3</span> The Dynamic Programming Algorithm</h2>
+<section id="the-dynamic-programming-algorithm" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="the-dynamic-programming-algorithm"><span class="header-section-number">2.3</span> The Dynamic Programming Algorithm</h2>
 </section>
-<section id="state-augmentation-and-other-reformulations" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="state-augmentation-and-other-reformulations"><span class="header-section-number">1.4</span> State Augmentation and Other Reformulations</h2>
+<section id="state-augmentation-and-other-reformulations" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="state-augmentation-and-other-reformulations"><span class="header-section-number">2.4</span> State Augmentation and Other Reformulations</h2>
 </section>
-<section id="some-mathematical-issues" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="some-mathematical-issues"><span class="header-section-number">1.5</span> Some Mathematical Issues</h2>
+<section id="some-mathematical-issues" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="some-mathematical-issues"><span class="header-section-number">2.5</span> Some Mathematical Issues</h2>
 </section>
-<section id="dynamic-programming-and-minimax-control" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="dynamic-programming-and-minimax-control"><span class="header-section-number">1.6</span> Dynamic Programming and Minimax Control</h2>
+<section id="dynamic-programming-and-minimax-control" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="dynamic-programming-and-minimax-control"><span class="header-section-number">2.6</span> Dynamic Programming and Minimax Control</h2>
 </section>
-<section id="notes-sources-and-exercises" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="notes-sources-and-exercises"><span class="header-section-number">1.7</span> Notes, Sources, and Exercises</h2>
+<section id="notes-sources-and-exercises" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="notes-sources-and-exercises"><span class="header-section-number">2.7</span> Notes, Sources, and Exercises</h2>
 
 
 </section>
@@ -641,13 +653,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./02-introductionToRL/intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./mdp.html" class="pagination-link" aria-label="Finite Markov Decision Processes (MDPs)">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03-finiteMDPs/mdp.html" class="pagination-link" aria-label="Finite Markov Decision Processes (MDPs)">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>From Markov Decision Processes to Reinforcement Learning with Python - 5&nbsp; Applications</title>
+<title>From Markov Decision Processes to Reinforcement Learning with Python - Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,47 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./dp_rl.html" rel="prev">
-<link href="./cover_RL.jpeg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../dynamic_programming.html" rel="next">
+<link href="../index.html" rel="prev">
+<link href="../cover_RL.jpeg" rel="icon" type="image/jpeg">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,13 +111,13 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">From Markov Decision Processes to Reinforcement Learning with Python</span>
     </a>
   </div>
         <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="../From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -112,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./applications.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-introductionToRL/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -129,49 +149,49 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-introductionToRL/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-introductionToRL/intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dynamic_programming.html" class="sidebar-item-text sidebar-link">
+  <a href="../dynamic_programming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dp_rl.html" class="sidebar-item-text sidebar-link">
+  <a href="../dp_rl.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link active">
+  <a href="../applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
+  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
@@ -185,17 +205,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#recycling-robot" id="toc-recycling-robot" class="nav-link active" data-scroll-target="#recycling-robot"><span class="header-section-number">5.1</span> Recycling Robot</a></li>
-  <li><a href="#a-robot-with-randomly-moves-in-a-grid-world." id="toc-a-robot-with-randomly-moves-in-a-grid-world." class="nav-link" data-scroll-target="#a-robot-with-randomly-moves-in-a-grid-world."><span class="header-section-number">5.2</span> A robot with randomly moves in a grid world.</a></li>
+  <li><a href="#trial-error" id="toc-trial-error" class="nav-link active" data-scroll-target="#trial-error">Trial-Error</a>
+  <ul class="collapse">
+  <li><a href="#sensation-action-and-goal" id="toc-sensation-action-and-goal" class="nav-link" data-scroll-target="#sensation-action-and-goal">Sensation action and goal</a></li>
+  </ul></li>
+  <li><a href="#exploration-exploration-dilemma-and-uncertainty" id="toc-exploration-exploration-dilemma-and-uncertainty" class="nav-link" data-scroll-target="#exploration-exploration-dilemma-and-uncertainty">Exploration-exploration dilemma and uncertainty</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#the-possible-4-elements-of-reinforcement-learning" id="toc-the-possible-4-elements-of-reinforcement-learning" class="nav-link" data-scroll-target="#the-possible-4-elements-of-reinforcement-learning">The (possible) 4 elements of Reinforcement Learning</a></li>
+  <li><a href="#a-toy-rl-exmaple-tic-tac-toe" id="toc-a-toy-rl-exmaple-tic-tac-toe" class="nav-link" data-scroll-target="#a-toy-rl-exmaple-tic-tac-toe">A toy RL-exmaple: Tic-Tac-Toe</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/applications.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/02-introductionToRL/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></h1>
+<h1 class="title">Introduction</h1>
 </div>
 
 
@@ -212,13 +238,73 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="recycling-robot" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="recycling-robot"><span class="header-section-number">5.1</span> Recycling Robot</h2>
+<p>Reinforcement Learning is part of a decades-long trend within artificial intelligence and machine learning toward greater integration with statistics, optimization, and other mathematical subjects. For example, the ability of some reinforcement learning methods to learn with parameterized approximators addresses the classical “curse of dimensionality” in operations research and control theory. More distinctively, reinforcement learning has also interacted strongly with psychology and neuroscience, with substantial benefits going both ways. Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems.</p>
+<section id="trial-error" class="level2">
+<h2 class="anchored" data-anchor-id="trial-error">Trial-Error</h2>
+<p>According to Richard S. Sutton and Andrew G. Barto <span class="citation" data-cites="Sutton2018">Sutton and Barto (<a href="../references.html#ref-Sutton2018" role="doc-biblioref">2018</a>)</span>–the first authors to use the term–Reinforced Learning Reinforcement learning is about what to do, that is, how to map situations to action so that we optimize a reward. <strong>The learner must discover which action yield the best reward by trying them.</strong> In the most general sense, action may not only affect immediate reward but also the next situation and, through that, all subsequent rewards.</p>
+<section id="sensation-action-and-goal" class="level3">
+<h3 class="anchored" data-anchor-id="sensation-action-and-goal">Sensation action and goal</h3>
+<p>At the same time, Reinforcement Learning encloses a problem, a class of solution methods, and the field that studies this problem and its solutions. Its formalism is based on the theory of controlled dynamical systems, with a strong focus on the optimal control of partially known Markov decision processes. Then, the core idea consists of capturing the essence of the problem when an agent learns through experience and interaction to reach a goal. This agent can sense the state of its environment to some extent and must be able to take action that affects the state. The agent also must have a goal or goals related to the state of the environment.</p>
+<p>MDPs are designed to incorporate three essential elements: sensation, action, and goal. Therefore, any approach suitable for solving such problems should be considered a potential method for Reinforcement Learning.</p>
 </section>
-<section id="a-robot-with-randomly-moves-in-a-grid-world." class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="a-robot-with-randomly-moves-in-a-grid-world."><span class="header-section-number">5.2</span> A robot with randomly moves in a grid world.</h2>
+</section>
+<section id="exploration-exploration-dilemma-and-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="exploration-exploration-dilemma-and-uncertainty">Exploration-exploration dilemma and uncertainty</h2>
+<p>To obtain the best reward, the agent must prefer actions used in the past and perceived as effective to produce a reward. However, to discover such actions, the agent must try actions never used before. So, there is a delicate trade-off between exploiting and exploring. The agent has to exploit its knowledge to produce a reward but simultaneously has to explore to improve its reward in the future. Here, our dilemma is that neither exploration nor exploitation can be pursued exclusively without failing the task.</p>
+<p>Another essential aspect of reinforcement learning is that it specifically deals with the entire process of a goal-directed agent interacting with an uncertain environment. This aspect differs from many approaches that only focus on subproblems rather than considering how they might contribute to the bigger picture. For example, many machine learning researchers have studied supervised Learning without specifying how such an ability would ultimately be helpful. Other researchers have developed planning theories with general goals without considering planning’s role in real-time decision-making or whether the predictive models necessary for planning are well suited. Although these approaches have produced valuable results, their focus on isolated subproblems leads to significant limitations.</p>
+<p>Reinforcement learning takes the opposite approach, beginning with a fully interactive, goal-seeking agent. In reinforcement learning, the agent has explicit goals, can sense aspects of their environment, and can choose actions to influence its environment.</p>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<ul>
+<li><p>A master chess player makes a move.</p></li>
+<li><p>An adaptive controller adjusts parameters of a petroleum refinery’s operation in real time.</p></li>
+<li><p>A gazelle calf struggles to its feet minutes after being born.</p></li>
+<li><p>A mobile robot decides whether it should enter a new room in search of more trash to collect or start trying to find its way back to its battery recharging station.</p></li>
+<li><p>Phil prepares his breakfast</p></li>
+</ul>
+</section>
+<section id="the-possible-4-elements-of-reinforcement-learning" class="level2">
+<h2 class="anchored" data-anchor-id="the-possible-4-elements-of-reinforcement-learning">The (possible) 4 elements of Reinforcement Learning</h2>
+<p>Given an agent, we identify four main element in a reinforcement learning model:</p>
+<blockquote class="blockquote">
+<p>a <strong>policy</strong>, a <strong>reward</strong>, a value function and (optionally) a model of the <strong>environment</strong>.</p>
+</blockquote>
+<dl>
+<dt>Policy</dt>
+<dd>
+<p>A policy is as a set of actions that guide the agent to respond according to its perception of the environment. It’s like a set of instructions that tell the agent what to do when it encounters a certain situation. In general, policies may be stochastic, specifying probabilities for each action.</p>
+</dd>
+<dt>Reward</dt>
+<dd>
+<p>The reward signal thus defines what are the good and bad events for the agent. In a biological system, we might think of rewards as analogous to the experiences of pleasure or pain. They are the immediate and defining features of the problem faced by the agent. The reward signal is the primary basis for altering the policy; if an action selected by the policy is followed by low reward, then the policy may be changed to select some other action in that situation in the future. In general, reward signals may be stochastic functions of the state of the environment and the actions taken.</p>
+</dd>
+<dt>Value function</dt>
+<dd>
+<p>Whereas the reward signal indicates what is good in the immediate sense, a value function specifies what is good in the long run. In simple terms, the value of a state represents the total reward an agent can anticipate to receive in the future, beginning from that state. While rewards reflect the immediate appeal of environmental states, values signify the long-term appeal of states, considering the potential future states and the rewards they offer. For example, a state might consistently yield a low immediate reward but still have a high value because it is regularly followed by other states that yield high rewards. Alternatively, the opposite could also be true. Rewards can be compared to pleasure (when high) and pain (when low). At the same time, values represent a more precise and long-term assessment of how satisfied or dissatisfied we are with the state of our environment. In a sense, rewards are primary, whereas values, as predictions of rewards, are secondary. Without rewards, there could be no values, and the only purpose of estimating values is to achieve more rewards.</p>
+<p>Action choices are made based on value judgments. We seek actions that bring about states of highest value, not highest reward, because these actions obtain the greatest amount of reward for us over the long run. In fact, the most important component of almost all reinforcement learning algorithms we consider is a method for efficiently estimating values.</p>
+</dd>
+<dt>Environment model</dt>
+<dd>
+<p>The environment model is something that mimics the behavior of the environment or, more generally, that allows inferences to be made about how the environment will behave. For example, given a state and action, the model might predict the resultant next state and next reward. Models are used for planning. This means making decisions by considering potential future situations before they occur. For our purposes, the environment can be represented as a dynamic system through an ordinary differential equation or a discrete finite difference equation.</p>
+</dd>
+</dl>
+</section>
+<section id="a-toy-rl-exmaple-tic-tac-toe" class="level2">
+<h2 class="anchored" data-anchor-id="a-toy-rl-exmaple-tic-tac-toe">A toy RL-exmaple: Tic-Tac-Toe</h2>
+<p>To illustrate the general idea of reinforcement learning and contrast it with other ap- proaches, we next consider a single example in more detail.</p>
+<p>Consider the familiar child’s game of tic-tac-toe.</p>
+<p><img src="../assets/tic_tac_toe.jpeg" class="img-fluid"></p>
+<p>Although the tic-tac-toe game is a simple problem, it cannot be satisfactorily solved using classical techniques.</p>
+<p>For instance, the classical “<em>minimax</em>” solution from game theory is not applicable here because it assumes the opponent’s specific way of playing. A <em>minimax</em> player would never reach a game state from which it could lose. Even if, in reality, it always won from that state due to incorrect play by the opponent. The classical optimization methods for sequential decision problems, like dynamic programming, can find the best solution for any opponent. However, these methods need a detailed description of the opponent as input, including the probabilities of the opponent’s moves in each board state.</p>
+<p>Alternatively, this information can be estimated through experience, such as playing numerous games against the opponent. The best approach to this problem is to first learn a model of the opponent’s behavior with a certain level of confidence, and then use dynamic programming to calculate an optimal solution based on the approximate opponent model.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Sutton2018" class="csl-entry" role="listitem">
+Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An Introduction</em>. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -633,13 +719,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./dp_rl.html" class="pagination-link" aria-label="Dynamic Programming">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span>
+      <a href="../index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../dynamic_programming.html" class="pagination-link" aria-label="The Dynamic Programming Algorithm">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -651,7 +737,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/applications.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/02-introductionToRL/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

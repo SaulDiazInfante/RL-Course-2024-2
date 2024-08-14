@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>From Markov Decision Processes to Reinforcement Learning with Python - 2&nbsp; Finite Markov Decision Processes (MDPs)</title>
+<title>From Markov Decision Processes to Reinforcement Learning with Python - Finite Markov Decision Processes (MDPs)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -43,24 +43,24 @@ div.csl-indent {
 }</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./dp_rl.html" rel="next">
-<link href="./dynamic_programming.html" rel="prev">
-<link href="./cover_RL.jpeg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../dp_rl.html" rel="next">
+<link href="../dynamic_programming.html" rel="prev">
+<link href="../cover_RL.jpeg" rel="icon" type="image/jpeg">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -140,13 +140,13 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">From Markov Decision Processes to Reinforcement Learning with Python</span>
     </a>
   </div>
         <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="../From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -161,7 +161,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mdp.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-finiteMDPs/mdp.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -178,38 +178,50 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dynamic_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span></a>
+  <a href="../02-introductionToRL/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mdp.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
+  <a href="../dynamic_programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dp_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
+  <a href="../03-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
+  <a href="../dp_rl.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
     </ul>
@@ -222,23 +234,23 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-agentenvironment-interface" id="toc-the-agentenvironment-interface" class="nav-link active" data-scroll-target="#the-agentenvironment-interface"><span class="header-section-number">2.1</span> The Agent–Environment Interface</a></li>
-  <li><a href="#goals-and-rewards" id="toc-goals-and-rewards" class="nav-link" data-scroll-target="#goals-and-rewards"><span class="header-section-number">2.2</span> Goals and Rewards</a></li>
-  <li><a href="#returns-and-episodes" id="toc-returns-and-episodes" class="nav-link" data-scroll-target="#returns-and-episodes"><span class="header-section-number">2.3</span> Returns and Episodes</a></li>
-  <li><a href="#unified-notation-for-episodic-and-continuing-tasks" id="toc-unified-notation-for-episodic-and-continuing-tasks" class="nav-link" data-scroll-target="#unified-notation-for-episodic-and-continuing-tasks"><span class="header-section-number">2.4</span> Unified Notation for Episodic and Continuing Tasks</a></li>
-  <li><a href="#policies-and-value-functions" id="toc-policies-and-value-functions" class="nav-link" data-scroll-target="#policies-and-value-functions"><span class="header-section-number">2.5</span> Policies and Value Functions</a></li>
-  <li><a href="#optimal-policies-and-optimal-value-functions" id="toc-optimal-policies-and-optimal-value-functions" class="nav-link" data-scroll-target="#optimal-policies-and-optimal-value-functions"><span class="header-section-number">2.6</span> Optimal Policies and Optimal Value Functions</a></li>
-  <li><a href="#optimality-and-approximation" id="toc-optimality-and-approximation" class="nav-link" data-scroll-target="#optimality-and-approximation"><span class="header-section-number">2.7</span> Optimality and Approximation</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.8</span> Summary</a></li>
+  <li><a href="#the-agentenvironment-interface" id="toc-the-agentenvironment-interface" class="nav-link active" data-scroll-target="#the-agentenvironment-interface">The Agent–Environment Interface</a></li>
+  <li><a href="#goals-and-rewards" id="toc-goals-and-rewards" class="nav-link" data-scroll-target="#goals-and-rewards">Goals and Rewards</a></li>
+  <li><a href="#returns-and-episodes" id="toc-returns-and-episodes" class="nav-link" data-scroll-target="#returns-and-episodes">Returns and Episodes</a></li>
+  <li><a href="#unified-notation-for-episodic-and-continuing-tasks" id="toc-unified-notation-for-episodic-and-continuing-tasks" class="nav-link" data-scroll-target="#unified-notation-for-episodic-and-continuing-tasks">Unified Notation for Episodic and Continuing Tasks</a></li>
+  <li><a href="#policies-and-value-functions" id="toc-policies-and-value-functions" class="nav-link" data-scroll-target="#policies-and-value-functions">Policies and Value Functions</a></li>
+  <li><a href="#optimal-policies-and-optimal-value-functions" id="toc-optimal-policies-and-optimal-value-functions" class="nav-link" data-scroll-target="#optimal-policies-and-optimal-value-functions">Optimal Policies and Optimal Value Functions</a></li>
+  <li><a href="#optimality-and-approximation" id="toc-optimality-and-approximation" class="nav-link" data-scroll-target="#optimality-and-approximation">Optimality and Approximation</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/03-finiteMDPs/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></h1>
+<h1 class="title">Finite Markov Decision Processes (MDPs)</h1>
 </div>
 
 
@@ -259,10 +271,10 @@ window.Quarto = {
 <p>Imagine Robo is in a room full of toys. Each toy is like a different choice Robo can make, like playing with blocks or reading a book. But Robo can’t see the whole room at once, so it has to decide what to do based on what it can see and remember.</p>
 <p>In an MDP, Robo learns from its past experiences. If it finds that playing with blocks usually makes it happy, it’s more likely to choose that again next time. But if it tries reading a book and doesn’t like it, it might choose something else next time.</p>
 <p>So, a Markov Decision Process helps Robo make decisions by learning from what it’s done before and what it can see around it, kind of like how you learn from playing with different toys and remembering which ones you like best.</p>
-<section id="the-agentenvironment-interface" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-agentenvironment-interface"><span class="header-section-number">2.1</span> The Agent–Environment Interface</h2>
-<div id="exm-roboClean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.1</strong></span> A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set <span class="math inline">\(\mathcal{S} = \{\texttt{high}, \texttt{low} \}\)</span>. In each state, the agent can decide whether to</p>
+<section id="the-agentenvironment-interface" class="level2">
+<h2 class="anchored" data-anchor-id="the-agentenvironment-interface">The Agent–Environment Interface</h2>
+<p>:::{#exm-roboClean}</p>
+<p>A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set <span class="math inline">\(\mathcal{S} = \{\texttt{high}, \texttt{low} \}\)</span>. In each state, the agent can decide whether to</p>
 <ol type="1">
 <li>actively <strong>search</strong> for a can for a certain period of time,</li>
 <li>remain stationary and <strong>wait</strong> for someone to bring it a can, or</li>
@@ -271,187 +283,40 @@ window.Quarto = {
 <p>When the energy level is <strong>high</strong>, recharging would always be foolis h, so we do not include it in the action set for this state. The action sets are then <span class="math inline">\(\mathcal{A}(\texttt{high}) = \{\texttt{search}, \texttt{wait}\}\)</span> and <span class="math inline">\(\mathcal{A}(\texttt{low}) = \{\texttt{search}, \texttt{wait}, \texttt{recharge}\}\)</span>.</p>
 <p>The rewards are zero most of the time, but become positive when the robot secures an empty can, or large and negative if the battery runs all the way down. The best way to find cans is to actively search for them, but this runs down the robot’s battery, whereas waiting does not. Whenever the robot is searching, the possibility exists that its battery will become depleted. In this case the robot must shut down and wait to be rescued (producing a low reward).</p>
 <p>If the energy level is <strong>high</strong>, then a period of active search can always be completed without risk of depleting the battery. A period of searching that begins with a <strong>high</strong> energy level leaves the energy level high <strong>with</strong> probability <span class="math inline">\(\alpha\)</span> and reduces it to low with probability <span class="math inline">\(1 - \alpha\)</span>. On the other hand, a period of searching undertaken when the energy level is low leaves it low with probability <span class="math inline">\(\beta\)</span> and depletes the battery with probability <span class="math inline">\(1 - \beta\)</span>. In the latter case, the robot must be rescued, and the battery is then recharged back to <strong>high</strong>. Each can collected by the robot counts as a unit reward, whereas a reward of <span class="math inline">\(-3\)</span> results whenever the robot has to be rescued. Let <span class="math inline">\(r_{\texttt{search}}\)</span> and <span class="math inline">\(r_{\texttt{wait}}\)</span>, with <span class="math inline">\(r_{\texttt{search}} &gt; r_{\texttt{wait}}\)</span>, denote the expected numbers of cans the robot will collect (and hence the expected reward) while searching and while waiting respectively. Finally, suppose that no cans can be collected during a run home for recharging, and that no cans can be collected on a step in which the battery is depleted. This system is then a finite MDP, and we can write down the transition probabilities and the expected rewards, with dynamics as indicated in the table on the left:</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<svg width="672" height="480" viewbox="0.00 0.00 665.56 359.64" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 355.64)">
-<title>finite_state_machine</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-355.64 661.56,-355.64 661.56,4 -4,4"></polygon>
-<!-- search_0 -->
-<g id="node1" class="node">
-<title>search_0</title>
-<ellipse fill="black" stroke="black" cx="1.8" cy="-295.84" rx="1.8" ry="1.8"></ellipse>
-</g>
-<!-- high -->
-<g id="node6" class="node">
-<title>high</title>
-<ellipse fill="gray" stroke="black" cx="127.28" cy="-155.84" rx="28.41" ry="28.41"></ellipse>
-<text text-anchor="start" x="114.84" y="-151.64" font-family="Helvetica,Arial,sans-serif" font-size="14.00">high</text>
-</g>
-<!-- search_0&#45;&gt;high -->
-<g id="edge8" class="edge">
-<title>search_0-&gt;high</title>
-<path fill="none" stroke="black" d="M3.31,-294.83C5.35,-290.86 13.19,-275.96 21.6,-265.04 45.25,-234.32 76.43,-202.73 98.59,-181.47"></path>
-<polygon fill="black" stroke="black" points="101.19,-183.83 106.03,-174.41 96.37,-178.76 101.19,-183.83"></polygon>
-<text text-anchor="middle" x="51.34" y="-269.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">$1 - beta$ </text>
-</g>
-<!-- low -->
-<g id="node7" class="node">
-<title>low</title>
-<ellipse fill="gray" stroke="black" cx="534.16" cy="-135.84" rx="28.41" ry="28.41"></ellipse>
-<text text-anchor="start" x="521.72" y="-131.64" font-family="Helvetica,Arial,sans-serif" font-size="14.00">high</text>
-</g>
-<!-- search_0&#45;&gt;low -->
-<g id="edge7" class="edge">
-<title>search_0-&gt;low</title>
-<path fill="none" stroke="black" d="M3.86,-295.82C21.09,-295.45 242.75,-290.42 304.32,-270.84 382.25,-246.06 462,-190.85 503.66,-159.25"></path>
-<polygon fill="black" stroke="black" points="505.92,-161.93 511.72,-153.07 501.66,-156.38 505.92,-161.93"></polygon>
-<text text-anchor="middle" x="238.91" y="-292.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">$beta$ </text>
-</g>
-<!-- search_1 -->
-<g id="node2" class="node">
-<title>search_1</title>
-<ellipse fill="black" stroke="black" cx="330.72" cy="-135.84" rx="1.8" ry="1.8"></ellipse>
-</g>
-<!-- search_1&#45;&gt;search_1 -->
-<g id="edge13" class="edge">
-<title>search_1-&gt;search_1</title>
-<path fill="none" stroke="black" d="M328.93,-136.39C308.24,-143.15 308.84,-155.64 330.72,-155.64 348.5,-155.64 352.23,-147.39 341.91,-140.68"></path>
-<polygon fill="black" stroke="black" points="343.07,-137.36 332.52,-136.39 340.16,-143.73 343.07,-137.36"></polygon>
-<text text-anchor="middle" x="330.72" y="-159.84" font-family="Helvetica,Arial,sans-serif" font-size="14.00">&lt; r&lt;sub&gt; search &lt;sub&gt;&gt;</text>
-</g>
-<!-- search_1&#45;&gt;high -->
-<g id="edge12" class="edge">
-<title>search_1-&gt;high</title>
-<path fill="none" stroke="black" d="M328.87,-136.75C325.87,-139.9 315.43,-150.23 304.32,-153.84 258.28,-168.79 201.84,-166 165.48,-161.71"></path>
-<polygon fill="black" stroke="black" points="165.69,-158.21 155.33,-160.41 164.8,-165.15 165.69,-158.21"></polygon>
-<text text-anchor="middle" x="238.91" y="-170.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1, $r_{wait}$</text>
-</g>
-<!-- search_1&#45;&gt;low -->
-<g id="edge15" class="edge">
-<title>search_1-&gt;low</title>
-<path fill="none" stroke="black" d="M332.62,-135.84C342.99,-135.84 440.73,-135.84 495.82,-135.84"></path>
-<polygon fill="black" stroke="black" points="495.91,-139.34 505.91,-135.84 495.91,-132.34 495.91,-139.34"></polygon>
-<text text-anchor="middle" x="422.54" y="-140.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">$1 - alpha, r_{search}$</text>
-</g>
-<!-- wait_0 -->
-<g id="node3" class="node">
-<title>wait_0</title>
-<ellipse fill="black" stroke="black" cx="655.76" cy="-146.84" rx="1.8" ry="1.8"></ellipse>
-</g>
-<!-- wait_0&#45;&gt;low -->
-<g id="edge5" class="edge">
-<title>wait_0-&gt;low</title>
-<path fill="none" stroke="black" d="M654.26,-145.69C652.47,-141.75 645.98,-128.76 635.96,-124.04 615.64,-114.46 590.57,-117.34 570.51,-122.66"></path>
-<polygon fill="black" stroke="black" points="569.43,-119.33 560.82,-125.51 571.4,-126.04 569.43,-119.33"></polygon>
-<text text-anchor="middle" x="608.16" y="-129.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1, r(wait) </text>
-</g>
-<!-- wait_1 -->
-<g id="node4" class="node">
-<title>wait_1</title>
-<ellipse fill="black" stroke="black" cx="330.72" cy="-235.84" rx="1.8" ry="1.8"></ellipse>
-</g>
-<!-- wait_1&#45;&gt;high -->
-<g id="edge10" class="edge">
-<title>wait_1-&gt;high</title>
-<path fill="none" stroke="black" d="M328.89,-234.76C325.98,-231.06 315.77,-218.77 304.32,-213.04 251.31,-186.47 228.12,-209.9 173.49,-186.84 168.34,-184.66 163.17,-181.86 158.27,-178.82"></path>
-<polygon fill="black" stroke="black" points="160.05,-175.8 149.78,-173.19 156.18,-181.63 160.05,-175.8"></polygon>
-<text text-anchor="middle" x="238.91" y="-218.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1, $r_{wait}$</text>
-</g>
-<!-- recharge -->
-<g id="node5" class="node">
-<title>recharge</title>
-<ellipse fill="black" stroke="black" cx="655.76" cy="-33.84" rx="1.8" ry="1.8"></ellipse>
-</g>
-<!-- recharge&#45;&gt;high -->
-<g id="edge2" class="edge">
-<title>recharge-&gt;high</title>
-<path fill="none" stroke="black" d="M653.88,-33.58C635.92,-28.34 345.92,53.7 173.49,-61.84 154.23,-74.74 142.92,-98.26 136.44,-118.54"></path>
-<polygon fill="black" stroke="black" points="133.07,-117.59 133.63,-128.17 139.79,-119.55 133.07,-117.59"></polygon>
-</g>
-<!-- high&#45;&gt;search_1 -->
-<g id="edge11" class="edge">
-<title>high-&gt;search_1</title>
-<path fill="none" stroke="black" d="M153.08,-143.52C159.57,-140.86 166.66,-138.43 173.49,-137.04 226.81,-126.18 292.51,-131.6 318.44,-134.46"></path>
-<polygon fill="black" stroke="black" points="318.37,-137.97 328.72,-135.7 319.21,-131.02 318.37,-137.97"></polygon>
-<text text-anchor="middle" x="238.91" y="-142.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1, $r_{wait}$</text>
-</g>
-<!-- high&#45;&gt;search_1 -->
-<g id="edge14" class="edge">
-<title>high-&gt;search_1</title>
-<path fill="none" stroke="black" d="M144.56,-132.76C152.21,-123.9 162.15,-114.78 173.49,-110.04 227.14,-87.61 250.69,-87.58 304.32,-110.04 312.09,-113.29 318.69,-120.21 323.21,-126.07"></path>
-<polygon fill="black" stroke="black" points="320.6,-128.46 329.11,-134.77 326.4,-124.53 320.6,-128.46"></polygon>
-<text text-anchor="middle" x="238.91" y="-115.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">$1 - alpha, r_{search}$</text>
-</g>
-<!-- high&#45;&gt;wait_1 -->
-<g id="edge9" class="edge">
-<title>high-&gt;wait_1</title>
-<path fill="none" stroke="black" d="M136.21,-182.94C143,-200.8 154.71,-222.86 173.49,-233.84 221.13,-261.7 291.71,-246.54 318.69,-239.14"></path>
-<polygon fill="black" stroke="black" points="320.03,-242.4 328.63,-236.2 318.04,-235.68 320.03,-242.4"></polygon>
-<text text-anchor="middle" x="238.91" y="-254.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1, $r_{wait}$</text>
-</g>
-<!-- high&#45;&gt;low -->
-<g id="edge3" class="edge">
-<title>high-&gt;low</title>
-<path fill="none" stroke="black" d="M138.75,-129.73C146.11,-115.15 157.52,-98.26 173.49,-89.84 281.77,-32.76 433.05,-88.92 499.55,-119.23"></path>
-<polygon fill="black" stroke="black" points="498.19,-122.46 508.73,-123.5 501.14,-116.11 498.19,-122.46"></polygon>
-</g>
-<!-- low&#45;&gt;search_0 -->
-<g id="edge6" class="edge">
-<title>low-&gt;search_0</title>
-<path fill="none" stroke="black" d="M529.93,-164.07C524.2,-208.59 510.66,-291.88 487.96,-309.84 378.33,-396.55 313.25,-315.68 173.49,-313.84 105.97,-312.95 85.42,-331.93 21.6,-309.84 17.85,-308.54 14.23,-306.2 11.18,-303.8"></path>
-<polygon fill="black" stroke="black" points="13.4,-301.08 3.69,-296.84 8.63,-306.21 13.4,-301.08"></polygon>
-<text text-anchor="middle" x="238.91" y="-339.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">$beta$ </text>
-</g>
-<!-- low&#45;&gt;wait_0 -->
-<g id="edge4" class="edge">
-<title>low-&gt;wait_0</title>
-<path fill="none" stroke="black" d="M561.81,-141.92C567.88,-143.09 574.32,-144.16 580.37,-144.84 602.71,-147.34 629.04,-147.37 643.62,-147.12"></path>
-<polygon fill="black" stroke="black" points="643.79,-150.62 653.7,-146.88 643.62,-143.62 643.79,-150.62"></polygon>
-<text text-anchor="middle" x="608.16" y="-152.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1, r(wait) </text>
-</g>
-<!-- low&#45;&gt;recharge -->
-<g id="edge1" class="edge">
-<title>low-&gt;recharge</title>
-<path fill="none" stroke="black" d="M556.3,-117.66C563.88,-111.14 572.5,-103.75 580.37,-97.04 604.13,-76.75 632.25,-52.9 646.12,-41.15"></path>
-<polygon fill="black" stroke="black" points="648.65,-43.59 654.02,-34.46 644.13,-38.25 648.65,-43.59"></polygon>
-<text text-anchor="middle" x="608.16" y="-102.04" font-family="Helvetica,Arial,sans-serif" font-size="14.00">1,0</text>
-</g>
-</g>
-</svg>
+<div id="fig-robot-diagram" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/ch_03/recycling_robot_diagram.png" class="img-fluid figure-img">
 </div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
 </div>
 <div id="exr-001" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Give a table analogous to that in <span class="citation" data-cites="Sutton2018">(p.53, Ex. 3.3, <a href="references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>, but for <span class="math inline">\(p(s_0 , r |s, a)\)</span>. It should have columns for <span class="math inline">\(s\)</span>, <span class="math inline">\(a\)</span>, <span class="math inline">\(s_0\)</span> , <span class="math inline">\(r\)</span>, and <span class="math inline">\(p(s_0 , r |s, a)\)</span>, and a row for every 4-tuple for which <span class="math inline">\(p(s_0 , r |s, a) &gt; 0\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Give a table analogous to that in <span class="citation" data-cites="Sutton2018">(p.53, Ex. 3.3, <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>, but for <span class="math inline">\(p(s_0 , r |s, a)\)</span>. It should have columns for <span class="math inline">\(s\)</span>, <span class="math inline">\(a\)</span>, <span class="math inline">\(s_0\)</span> , <span class="math inline">\(r\)</span>, and <span class="math inline">\(p(s_0 , r |s, a)\)</span>, and a row for every 4-tuple for which <span class="math inline">\(p(s_0 , r |s, a) &gt; 0\)</span>.</p>
 </div>
 </section>
-<section id="goals-and-rewards" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="goals-and-rewards"><span class="header-section-number">2.2</span> Goals and Rewards</h2>
+<section id="goals-and-rewards" class="level2">
+<h2 class="anchored" data-anchor-id="goals-and-rewards">Goals and Rewards</h2>
 </section>
-<section id="returns-and-episodes" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="returns-and-episodes"><span class="header-section-number">2.3</span> Returns and Episodes</h2>
+<section id="returns-and-episodes" class="level2">
+<h2 class="anchored" data-anchor-id="returns-and-episodes">Returns and Episodes</h2>
 </section>
-<section id="unified-notation-for-episodic-and-continuing-tasks" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="unified-notation-for-episodic-and-continuing-tasks"><span class="header-section-number">2.4</span> Unified Notation for Episodic and Continuing Tasks</h2>
+<section id="unified-notation-for-episodic-and-continuing-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="unified-notation-for-episodic-and-continuing-tasks">Unified Notation for Episodic and Continuing Tasks</h2>
 </section>
-<section id="policies-and-value-functions" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="policies-and-value-functions"><span class="header-section-number">2.5</span> Policies and Value Functions</h2>
+<section id="policies-and-value-functions" class="level2">
+<h2 class="anchored" data-anchor-id="policies-and-value-functions">Policies and Value Functions</h2>
 </section>
-<section id="optimal-policies-and-optimal-value-functions" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="optimal-policies-and-optimal-value-functions"><span class="header-section-number">2.6</span> Optimal Policies and Optimal Value Functions</h2>
+<section id="optimal-policies-and-optimal-value-functions" class="level2">
+<h2 class="anchored" data-anchor-id="optimal-policies-and-optimal-value-functions">Optimal Policies and Optimal Value Functions</h2>
 </section>
-<section id="optimality-and-approximation" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="optimality-and-approximation"><span class="header-section-number">2.7</span> Optimality and Approximation</h2>
+<section id="optimality-and-approximation" class="level2">
+<h2 class="anchored" data-anchor-id="optimality-and-approximation">Optimality and Approximation</h2>
 </section>
-<section id="summary" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.8</span> Summary</h2>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -873,13 +738,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./dynamic_programming.html" class="pagination-link" aria-label="The Dynamic Programming Algorithm">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span>
+      <a href="../dynamic_programming.html" class="pagination-link" aria-label="The Dynamic Programming Algorithm">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Dynamic Programming Algorithm</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./dp_rl.html" class="pagination-link" aria-label="Dynamic Programming">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../dp_rl.html" class="pagination-link" aria-label="Dynamic Programming">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -891,7 +756,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/03-finiteMDPs/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
