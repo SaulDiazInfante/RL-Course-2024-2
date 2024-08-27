@@ -30,11 +30,12 @@ book:
     
   chapters:
     - index.qmd
+    - ./01-introduction/general_intro.qmd
     - ./02-introductionToRL/intro.qmd
-    - dynamic_programming.qmd
     - ./03-finiteMDPs/mdp.qmd
-    - dp_rl.qmd
-    - applications.qmd
+    - ./04-dynamicProgramming/dp_rl.qmd
+    - ./05-applications/applications.qmd
+    - ./06-Project/project_proposal.qmd
     - references.qmd
     - ./homeworks/home_works_list.qmd
   downloads: [pdf]
@@ -44,8 +45,13 @@ book:
       - icon: save
 
 bibliography: references.bib
+pdf-engine: lualatex
+
 format:
   html:
     theme: darkly
-  pdf:
-    documentclass: scrreprt
+    toc: true
+  pdf: 
+    include-in-header: |
+      \usepackage{tikz}
+      \usepackage{example-pandoc/fitch}

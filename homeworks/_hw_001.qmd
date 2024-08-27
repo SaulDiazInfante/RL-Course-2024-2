@@ -3,17 +3,59 @@ title: "   "
 author: "SDIV"
 ---
 
-## Homework 001 due date: september 16, 2024-12:00:00 
+## Homework 001 due date: september 16, 2024-12:00:00
 
-1. Read [Sec 1.1, pp 1-2 @Sutton2018] and answer the following.
+1.  Read [Sec 1.1, pp 1-2 @Sutton2018] and answer the following.
 
-Explain why Reinforcement Learning differs for supervised and unsupervised learning.
+Explain why Reinforcement Learning differs for supervised and unsupervised
+learning.
 
-2. See the first Steve Brunton's youtube video about [Reinforcement Learning.](https://www.youtube.com/watch?v=0MNVhXEX9to&list=PLMrJAkhIeNNQe1JXNvaFvURxGY4gE9k74)
-Then accordingly to its presentation explain what is the meaning of the following expression:
-$$
-  V_{\pi}(s) = \mathbb{E}
-    \left(
-      \sum_{t} \gamma ^ {t} r_t | s_0 = s
-    \right).
-$$
+2.  See the first Steve Brunton's youtube video about [Reinforcement
+    Learning.](https://www.youtube.com/watch?v=0MNVhXEX9to&list=PLMrJAkhIeNNQe1JXNvaFvURxGY4gE9k74)
+    Then accordingly to its presentation explain what is the meaning of the
+    following expression: $$
+      V_{\pi}(s) = \mathbb{E}
+     \left(
+       \sum_{t} \gamma ^ {t} r_t | s_0 = s
+     \right).
+    $$
+
+3.  Form [Sec. 1.7 @Sutton2018] obtain a time line pear year from 1950 to 2012.
+    Use the following format [see
+    https://kim.quarto.pub/milestones--bar-timelines/](https://kim.quarto.pub/milestones--bar-timelines/)
+
+```{r}
+library(bibtex)
+## Activate the Core Packages
+biblio <- bibtex::read.bib("../references.bib")
+library(tidyverse) ## Brings in a core of useful functions
+library(gt)        ## Tables
+## Specific packages
+library(milestones)
+## Initialize defaults
+## Initialize defaults
+column <- lolli_styles()
+
+data <- read_csv(col_names=TRUE, show_col_types=FALSE, file='rl_time_line.csv')
+
+## Sort the table by date
+data <- data |>
+  arrange(date)
+
+## Build a table
+gt(data) |>
+  #cols_hide(columns = event) |>
+  tab_style(cell_text(v_align = "top"),
+            locations = cells_body(columns = date)) |>
+  tab_source_note(source_note = "Source: Wikipedia") 
+```
+
+```{r}
+## Adjust some defaults
+column$color <- "orange"
+column$size  <- 15
+column$source_info <- "Source: Wikipedia"
+
+## Milestones timeline
+milestones(datatable = data, styles = column)
+```

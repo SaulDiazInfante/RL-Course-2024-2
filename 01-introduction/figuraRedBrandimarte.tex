@@ -1,0 +1,78 @@
+
+	\begin{tikzpicture}[%
+% 		background rectangle/.style={fill=yellow!15}, 
+% 		show background rectangle,
+		%
+		->,% 
+		>= stealth',%
+		shorten > = 1pt,
+		node distance = 2cm,
+		box/.style={
+			%draw, 
+			minimum size=2em, 
+			text width=4.5em, 
+			text centered
+		},
+		dotsNode/.style={%
+			circle,%
+			very thick,%
+			minimum size=2mm,%
+			node distance=15pt%
+		},
+		roundnode/.style={%
+			circle, 
+			draw=black!60, 
+			fill=black!5,
+			very thick,
+			minimum size=2mm
+		},
+		el/.style = {%
+			inner sep=5pt, 
+			align=left 
+			%sloped
+		}
+	]
+	%Nodes
+	\node[roundnode]	(InitialState)																{0};
+  %Stage 1
+  \node[roundnode]	(Stage1a) [above right=of InitialState]			{1};
+	\node[roundnode]	(Stage1b)	[below right=of InitialState]			{2};
+	% 	
+	\node[roundnode]	(Stage2a) [above right=of Stage1b]					{3};
+	%
+	\node[roundnode]	(Stage3a) [above right=of Stage2a]					{4};
+	\node[roundnode]	(Stage3b)	[below right=of Stage2a]					{5};
+	%
+	\node[roundnode]	(Stage4a) [above right=of Stage3b]					{6};
+	%
+	\node[roundnode]	(Stage5a) [right=of Stage4a]								{7};
+	
+	\path[->]
+% FROM       		 BEND/LOOP POSITION OF LABEL   LABEL   	TO
+	(InitialState) edge     node [el, above]		 {7} (Stage1a)	
+	(InitialState) edge     node [el, above]		 {6} (Stage1b)	
+	%
+	%
+	(Stage1a)			 edge			node [el, below]		 {2} (Stage2a)
+	(Stage1a)			 edge			node [el, above]		 {1} (Stage3a)
+	(Stage1b)			 edge			node [el, above]		 {4} (Stage2a)
+	(Stage1b)			 edge			node [el, below]		 {7} (Stage3b)
+	%
+	%
+	(Stage2a)			 edge			node [el, above]		 {3} (Stage3a)
+	(Stage2a)			 edge			node [el, above]		 {1} (Stage4a)
+	(Stage2a)			 edge			node [el, below]		 {2} (Stage3b)
+	%
+	%
+	(Stage3a)			 edge			node [el, above]		 {10} (Stage5a)
+	%
+	%
+	(Stage3b)			 edge			node [el, above]		 {1} (Stage4a)
+	(Stage3b)			 edge			node [el, below]		 {5} (Stage5a)
+	%
+	%
+	(Stage4a)			 edge			node [el, above]		 {8} (Stage5a)
+	;
+	\end{tikzpicture}
+
+

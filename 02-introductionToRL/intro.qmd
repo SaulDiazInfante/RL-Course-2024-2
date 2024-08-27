@@ -146,7 +146,7 @@ other ap- proaches, we next consider a single example in more detail.
 
 Consider the familiar child’s game of tic-tac-toe.
 
-![](../assets/tic_tac_toe.jpeg)
+![](../assets/tic_tac_toe.jpeg){.lightbox}
 
 Although the tic-tac-toe game is a simple problem, it cannot be satisfactorily
 solved using classical techniques.
@@ -166,3 +166,55 @@ is to first learn a model of the opponent's behavior with a certain level of
 confidence, and then use dynamic programming to calculate an optimal solution
 based on the approximate opponent model.
 
+Sutton and Barto [see pp. 9-12 @Sutton2018] propose the following way to
+approach tic tac toe with Reinforcement Learning:
+
+## Setup: {.unnumbered}
+
+-   First we would set up a table of numbers (or labels), one for each possible
+    state of the game.
+
+-   Each number will be the latest estimate of the probability of our winning
+    from that state.
+
+-   We treat this estimate as the state’s value, and the whole table is the
+    learned value function.
+
+-   State $A$ has higher value than state $B$, or is considered 'better' than
+    state $B$, if the current estimate of the probability of our winning from
+    $A$ is higher than it is from $B$.
+
+-   If we always play $Xs$, then for all states with three $Xs$ in a row the
+    probability of winning is 1, because we have already won.
+
+-   Similarly, for all states with three $Os$ in a row, or that are filled up,
+    the correct probability is 0--we cannot win from them.
+
+-   We set the initial values of all the other states to $0.5$, representing a
+    guess that we have a 50% chance of winning.
+
+## Training: {.unnumbered}
+
+We then play many games against the opponent.
+
+To select our moves we examine the states that would result from each of our
+possible moves (one for each blank space on the board) and look up their current
+values in the table. Most of the time we move greedily,selecting the move that
+leads to the state with greatest value, that is, with the highest estimated
+probability of winning.
+
+Occasionally, however, we select randomly from among the other moves instead.
+These are called exploratory moves because they cause us to experience states
+that we might otherwise never see.
+
+A sequence of moves made and considered during a game can be diagrammed as the
+following figure:
+
+::: {#fig-tic_tac_toc_diag fig-env="figure*"}
+![](../assets/ch_00/diagram_sequence_tictactoe_play.png){.lightbox}
+
+Figure taken from [@Sutton2018]. A sequence of tic-tac-toe moves. Solid black
+lines represents moves taken during a play. Dashed lines represent plausible but
+not taken moves. The $*$ symbol indicates the move currently estimated to be the
+best. Thus the move $e$ denotes an *exploratory* move
+:::
