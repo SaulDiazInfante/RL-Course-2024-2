@@ -4,9 +4,29 @@
     "href": "index.html",
     "title": "From Markov Decision Processes to Reinforcement Learning with Python",
     "section": "",
-    "text": "Preface\nThis notes are based in the course from Berstekas for the MIT see all lectures and other resources for complete the understanding.\n\n\nOutline\nThe textbook for chapter one is Bertsekas’ book (Bertsekas 2005). Chapters 2 and 3 are adapted from Sutton’s book (Ch. 3, Ch. 4, Sutton and Barto 2018). For application and broad connection with more machine learning applications, we refer to (Brunton and Kutz 2019). Also, we recommend a handbook of algorithms (Szepesvári 2022). For applications with implemented code, we follow the books (Bilgin 2020).\n\n\n\n\nBertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control. Vol. I. Third. Athena Scientific, Belmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build Next-Generation, Self-Learning Models Using Reinforcement Learning Techniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science and Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. 2022. Algorithms for Reinforcement Learning. Vol. 9. Synthesis Lectures on Artificial Intelligence and Machine Learning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
+    "text": "Preface\nThis notes are based in the course from Berstekas for the MIT see all lectures and other resources for complete the understanding.",
     "crumbs": [
       "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "From Markov Decision Processes to Reinforcement Learning with Python",
+    "section": "Abstract",
+    "text": "Abstract\nWe present an introduction to the solution of multi-stage optimization problems. Starting from the dynamic programming algorithm, we consider theoretical and computational aspects, mainly of deterministic problems, and discuss how to generalize some of the results to Markovian decision processes.\nThe classic problem with which the essential ideas of dynamic programming can be introduced is the optimal route problem (shortest route considering distances, or cheapest route considering costs) (Bertsekas 2005; Brandimarte 2013). A simple version of this problem is shown schematically in Fig 1. By exhaustion, we deploy the cost of path in Table 1.\n\n\n\n\n\n\nFigure 1: The shortest path\n\n\n\n\n\n\nTable 1: The shortest path by exhaustion see (Brandimarte 2013).\n\n\n\n\n\nPath\nCost\n\n\n\n\n\\(0 \\to 1 \\to 4 \\to 7\\)\n18\n\n\n\\(0 \\to 1 \\to 3 \\to 4 \\to 7\\)\n22\n\n\n\\(0 \\to 1 \\to 3 \\to 6 \\to 7\\)\n18\n\n\n\\(0 \\to 1 \\to 3 \\to 5 \\to 6 \\to 7\\)\n20\n\n\n\\(\\mathbf{0 \\to 1 \\to 3 \\to 5 \\to 7}\\)\n16\n\n\n\\(0 \\to 2 \\to 3 \\to 4 \\to 7\\)\n23\n\n\n\\(0 \\to 2 \\to 3 \\to 6 \\to 7\\)\n19\n\n\n\\(0 \\to 2 \\to 3 \\to 5 \\to 6 \\to 7\\)\n21\n\n\n\\(0 \\to 2 \\to 3 \\to 5 \\to 7\\)\n17\n\n\n\\(0 \\to 2 \\to 5 \\to 6 \\to 7\\)\n22\n\n\n\\(0 \\to 2 \\to 5 \\to 7\\)\n18\n\n\n\n\n\n\nIn this problem, the optimal route to go from the node labeled \\(0\\) to the node labeled \\(7\\) is to be determined. The costs between each pair of nodes connected by an arrow are represented by a number next to it. For example, the cost to go from node 0 to node 2 is 6. The optimal route will be the one for which the sum of their costs is minimum. This optimal route can be obtained by an exhaustive enumeration; generating all possible routes from node \\(0\\) to node \\(7\\) and choosing the minimum cost route.\nEn la [ref:table] se muestran tales rutas y sus respectivos costos. Se observa que la trayectoria óptima es $ 0 $, con un costo de 16.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "01-introduction/general_intro.html",
+    "href": "01-introduction/general_intro.html",
+    "title": "Abstract",
+    "section": "",
+    "text": "We present an introduction to the solution of multi-stage optimization problems. Starting from the dynamic programming algorithm, we consider theoretical and computational aspects, mainly of deterministic problems, and discuss how to generalize some of the results to Markovian decision processes.\nThe classic problem with which the essential ideas of dynamic programming can be introduced is the optimal route problem (shortest route considering distances, or cheapest route considering costs) (Bertsekas 2005; Brandimarte 2013). A simple version of this problem is shown schematically in Fig fig-brandimarte_net. By exhaustion, we deploy the cost of path in Table tbl-brandimarte_paths.\n\n\n\n\n\n\nFigure 1: The shortest path\n\n\n\n\n\n\nTable 1: The shortest path by exhaustion see (Brandimarte 2013).\n\n\n\n\n\nPath\nCost\n\n\n\n\n\\(0 \\to 1 \\to 4 \\to 7\\)\n18\n\n\n\\(0 \\to 1 \\to 3 \\to 4 \\to 7\\)\n22\n\n\n\\(0 \\to 1 \\to 3 \\to 6 \\to 7\\)\n18\n\n\n\\(0 \\to 1 \\to 3 \\to 5 \\to 6 \\to 7\\)\n20\n\n\n\\(\\mathbf{0 \\to 1 \\to 3 \\to 5 \\to 7}\\)\n16\n\n\n\\(0 \\to 2 \\to 3 \\to 4 \\to 7\\)\n23\n\n\n\\(0 \\to 2 \\to 3 \\to 6 \\to 7\\)\n19\n\n\n\\(0 \\to 2 \\to 3 \\to 5 \\to 6 \\to 7\\)\n21\n\n\n\\(0 \\to 2 \\to 3 \\to 5 \\to 7\\)\n17\n\n\n\\(0 \\to 2 \\to 5 \\to 6 \\to 7\\)\n22\n\n\n\\(0 \\to 2 \\to 5 \\to 7\\)\n18\n\n\n\n\n\n\nIn this problem, the optimal route to go from the node labeled \\(0\\) to the node labeled \\(7\\) is to be determined. The costs between each pair of nodes connected by an arrow are represented by a number next to it. For example, the cost to go from node 0 to node 2 is 6. The optimal route will be the one for which the sum of their costs is minimum. This optimal route can be obtained by an exhaustive enumeration; generating all possible routes from node \\(0\\) to node \\(7\\) and choosing the minimum cost route.\nEn la [ref:table] se muestran tales rutas y sus respectivos costos. Se observa que la trayectoria óptima es $ 0 $, con un costo de 16.\n\n\n\nFigure 1: The shortest path\n\n\n\nBertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control. Vol. I. Third. Athena Scientific, Belmont, MA.\n\n\nBrandimarte, Paolo. 2013. Numerical Methods in Finance and Economics: A MATLAB-Based Introduction. 2nd ed. Hoboken, New Jersey: John Wiley & Sons.",
+    "crumbs": [
+      "Abstract"
     ]
   },
   {
@@ -64,79 +84,29 @@
     "href": "02-introductionToRL/intro.html#a-toy-rl-exmaple-tic-tac-toe",
     "title": "Introduction",
     "section": "A toy RL-exmaple: Tic-Tac-Toe",
-    "text": "A toy RL-exmaple: Tic-Tac-Toe\nTo illustrate the general idea of reinforcement learning and contrast it with other ap- proaches, we next consider a single example in more detail.\nConsider the familiar child’s game of tic-tac-toe.\n\nAlthough the tic-tac-toe game is a simple problem, it cannot be satisfactorily solved using classical techniques.\nFor instance, the classical “minimax” solution from game theory is not applicable here because it assumes the opponent’s specific way of playing. A minimax player would never reach a game state from which it could lose. Even if, in reality, it always won from that state due to incorrect play by the opponent. The classical optimization methods for sequential decision problems, like dynamic programming, can find the best solution for any opponent. However, these methods need a detailed description of the opponent as input, including the probabilities of the opponent’s moves in each board state.\nAlternatively, this information can be estimated through experience, such as playing numerous games against the opponent. The best approach to this problem is to first learn a model of the opponent’s behavior with a certain level of confidence, and then use dynamic programming to calculate an optimal solution based on the approximate opponent model.\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
+    "text": "A toy RL-exmaple: Tic-Tac-Toe\nTo illustrate the general idea of reinforcement learning and contrast it with other ap- proaches, we next consider a single example in more detail.\nConsider the familiar child’s game of tic-tac-toe.\n\nAlthough the tic-tac-toe game is a simple problem, it cannot be satisfactorily solved using classical techniques.\nFor instance, the classical “minimax” solution from game theory is not applicable here because it assumes the opponent’s specific way of playing. A minimax player would never reach a game state from which it could lose. Even if, in reality, it always won from that state due to incorrect play by the opponent. The classical optimization methods for sequential decision problems, like dynamic programming, can find the best solution for any opponent. However, these methods need a detailed description of the opponent as input, including the probabilities of the opponent’s moves in each board state.\nAlternatively, this information can be estimated through experience, such as playing numerous games against the opponent. The best approach to this problem is to first learn a model of the opponent’s behavior with a certain level of confidence, and then use dynamic programming to calculate an optimal solution based on the approximate opponent model.\nSutton and Barto (see pp. 9-12 Sutton and Barto 2018) propose the following way to approach tic tac toe with Reinforcement Learning:",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "dynamic_programming.html",
-    "href": "dynamic_programming.html",
-    "title": "2  The Dynamic Programming Algorithm",
-    "section": "",
-    "text": "2.1 Introduction",
+    "objectID": "02-introductionToRL/intro.html#setup",
+    "href": "02-introductionToRL/intro.html#setup",
+    "title": "Introduction",
+    "section": "Setup:",
+    "text": "Setup:\n\nFirst we would set up a table of numbers (or labels), one for each possible state of the game.\nEach number will be the latest estimate of the probability of our winning from that state.\nWe treat this estimate as the state’s value, and the whole table is the learned value function.\nState \\(A\\) has higher value than state \\(B\\), or is considered ‘better’ than state \\(B\\), if the current estimate of the probability of our winning from \\(A\\) is higher than it is from \\(B\\).\nIf we always play \\(Xs\\), then for all states with three \\(Xs\\) in a row the probability of winning is 1, because we have already won.\nSimilarly, for all states with three \\(Os\\) in a row, or that are filled up, the correct probability is 0–we cannot win from them.\nWe set the initial values of all the other states to \\(0.5\\), representing a guess that we have a 50% chance of winning.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "dynamic_programming.html#the-basic-problem",
-    "href": "dynamic_programming.html#the-basic-problem",
-    "title": "2  The Dynamic Programming Algorithm",
-    "section": "2.2 The Basic Problem",
-    "text": "2.2 The Basic Problem",
+    "objectID": "02-introductionToRL/intro.html#training",
+    "href": "02-introductionToRL/intro.html#training",
+    "title": "Introduction",
+    "section": "Training:",
+    "text": "Training:\nWe then play many games against the opponent.\nTo select our moves we examine the states that would result from each of our possible moves (one for each blank space on the board) and look up their current values in the table. Most of the time we move greedily,selecting the move that leads to the state with greatest value, that is, with the highest estimated probability of winning.\nOccasionally, however, we select randomly from among the other moves instead. These are called exploratory moves because they cause us to experience states that we might otherwise never see.\nA sequence of moves made and considered during a game can be diagrammed as the following figure:\n\n\n\n\n\n\nFigure 1: Figure taken from (Sutton and Barto 2018). A sequence of tic-tac-toe moves. Solid black lines represents moves taken during a play. Dashed lines represent plausible but not taken moves. The \\(*\\) symbol indicates the move currently estimated to be the best. Thus the move \\(e\\) denotes an exploratory move\n\n\n\n\n\n\nFigure 1: Figure taken from (Sutton and Barto 2018). A sequence of tic-tac-toe moves. Solid black lines represents moves taken during a play. Dashed lines represent plausible but not taken moves. The \\(*\\) symbol indicates the move currently estimated to be the best. Thus the move \\(e\\) denotes an exploratory move\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
-    ]
-  },
-  {
-    "objectID": "dynamic_programming.html#the-dynamic-programming-algorithm",
-    "href": "dynamic_programming.html#the-dynamic-programming-algorithm",
-    "title": "2  The Dynamic Programming Algorithm",
-    "section": "2.3 The Dynamic Programming Algorithm",
-    "text": "2.3 The Dynamic Programming Algorithm",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
-    ]
-  },
-  {
-    "objectID": "dynamic_programming.html#state-augmentation-and-other-reformulations",
-    "href": "dynamic_programming.html#state-augmentation-and-other-reformulations",
-    "title": "2  The Dynamic Programming Algorithm",
-    "section": "2.4 State Augmentation and Other Reformulations",
-    "text": "2.4 State Augmentation and Other Reformulations",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
-    ]
-  },
-  {
-    "objectID": "dynamic_programming.html#some-mathematical-issues",
-    "href": "dynamic_programming.html#some-mathematical-issues",
-    "title": "2  The Dynamic Programming Algorithm",
-    "section": "2.5 Some Mathematical Issues",
-    "text": "2.5 Some Mathematical Issues",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
-    ]
-  },
-  {
-    "objectID": "dynamic_programming.html#dynamic-programming-and-minimax-control",
-    "href": "dynamic_programming.html#dynamic-programming-and-minimax-control",
-    "title": "2  The Dynamic Programming Algorithm",
-    "section": "2.6 Dynamic Programming and Minimax Control",
-    "text": "2.6 Dynamic Programming and Minimax Control",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
-    ]
-  },
-  {
-    "objectID": "dynamic_programming.html#notes-sources-and-exercises",
-    "href": "dynamic_programming.html#notes-sources-and-exercises",
-    "title": "2  The Dynamic Programming Algorithm",
-    "section": "2.7 Notes, Sources, and Exercises",
-    "text": "2.7 Notes, Sources, and Exercises",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Dynamic Programming Algorithm</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
@@ -146,7 +116,7 @@
     "section": "",
     "text": "The Agent–Environment Interface\n:::{#exm-roboClean}\nA mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set \\(\\mathcal{S} = \\{\\texttt{high}, \\texttt{low} \\}\\). In each state, the agent can decide whether to\nWhen the energy level is high, recharging would always be foolis h, so we do not include it in the action set for this state. The action sets are then \\(\\mathcal{A}(\\texttt{high}) = \\{\\texttt{search}, \\texttt{wait}\\}\\) and \\(\\mathcal{A}(\\texttt{low}) = \\{\\texttt{search}, \\texttt{wait}, \\texttt{recharge}\\}\\).\nThe rewards are zero most of the time, but become positive when the robot secures an empty can, or large and negative if the battery runs all the way down. The best way to find cans is to actively search for them, but this runs down the robot’s battery, whereas waiting does not. Whenever the robot is searching, the possibility exists that its battery will become depleted. In this case the robot must shut down and wait to be rescued (producing a low reward).\nIf the energy level is high, then a period of active search can always be completed without risk of depleting the battery. A period of searching that begins with a high energy level leaves the energy level high with probability \\(\\alpha\\) and reduces it to low with probability \\(1 - \\alpha\\). On the other hand, a period of searching undertaken when the energy level is low leaves it low with probability \\(\\beta\\) and depletes the battery with probability \\(1 - \\beta\\). In the latter case, the robot must be rescued, and the battery is then recharged back to high. Each can collected by the robot counts as a unit reward, whereas a reward of \\(-3\\) results whenever the robot has to be rescued. Let \\(r_{\\texttt{search}}\\) and \\(r_{\\texttt{wait}}\\), with \\(r_{\\texttt{search}} &gt; r_{\\texttt{wait}}\\), denote the expected numbers of cans the robot will collect (and hence the expected reward) while searching and while waiting respectively. Finally, suppose that no cans can be collected during a run home for recharging, and that no cans can be collected on a step in which the battery is depleted. This system is then a finite MDP, and we can write down the transition probabilities and the expected rewards, with dynamics as indicated in the table on the left:",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
@@ -156,7 +126,7 @@
     "section": "",
     "text": "actively search for a can for a certain period of time,\nremain stationary and wait for someone to bring it a can, or\nhead back to its home base to recharge its battery.\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\nExercise 1 Give a table analogous to that in (p.53, Ex. 3.3, Sutton and Barto 2018), but for \\(p(s_0 , r |s, a)\\). It should have columns for \\(s\\), \\(a\\), \\(s_0\\) , \\(r\\), and \\(p(s_0 , r |s, a)\\), and a row for every 4-tuple for which \\(p(s_0 , r |s, a) &gt; 0\\).",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
@@ -166,7 +136,7 @@
     "section": "Goals and Rewards",
     "text": "Goals and Rewards",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
@@ -176,7 +146,7 @@
     "section": "Returns and Episodes",
     "text": "Returns and Episodes",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
@@ -186,7 +156,7 @@
     "section": "Unified Notation for Episodic and Continuing Tasks",
     "text": "Unified Notation for Episodic and Continuing Tasks",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
@@ -196,7 +166,7 @@
     "section": "Policies and Value Functions",
     "text": "Policies and Value Functions",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
@@ -206,7 +176,7 @@
     "section": "Optimal Policies and Optimal Value Functions",
     "text": "Optimal Policies and Optimal Value Functions",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
@@ -216,7 +186,7 @@
     "section": "Optimality and Approximation",
     "text": "Optimality and Approximation",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
@@ -226,117 +196,107 @@
     "section": "Summary",
     "text": "Summary\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
   },
   {
-    "objectID": "dp_rl.html",
-    "href": "dp_rl.html",
-    "title": "4  Dynamic Programming",
+    "objectID": "04-dynamicProgramming/dp_rl.html",
+    "href": "04-dynamicProgramming/dp_rl.html",
+    "title": "Dynamic Programming",
     "section": "",
-    "text": "4.1 Policy Evaluation (Prediction)",
+    "text": "Policy Evaluation (Prediction)",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
-    "objectID": "dp_rl.html#policy-improvement",
-    "href": "dp_rl.html#policy-improvement",
-    "title": "4  Dynamic Programming",
-    "section": "4.2 Policy Improvement",
-    "text": "4.2 Policy Improvement",
+    "objectID": "04-dynamicProgramming/dp_rl.html#policy-improvement",
+    "href": "04-dynamicProgramming/dp_rl.html#policy-improvement",
+    "title": "Dynamic Programming",
+    "section": "Policy Improvement",
+    "text": "Policy Improvement",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
-    "objectID": "dp_rl.html#policy-iteration",
-    "href": "dp_rl.html#policy-iteration",
-    "title": "4  Dynamic Programming",
-    "section": "4.3 Policy Iteration",
-    "text": "4.3 Policy Iteration",
+    "objectID": "04-dynamicProgramming/dp_rl.html#policy-iteration",
+    "href": "04-dynamicProgramming/dp_rl.html#policy-iteration",
+    "title": "Dynamic Programming",
+    "section": "Policy Iteration",
+    "text": "Policy Iteration",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
-    "objectID": "dp_rl.html#value-iteration",
-    "href": "dp_rl.html#value-iteration",
-    "title": "4  Dynamic Programming",
-    "section": "4.4 Value Iteration",
-    "text": "4.4 Value Iteration",
+    "objectID": "04-dynamicProgramming/dp_rl.html#value-iteration",
+    "href": "04-dynamicProgramming/dp_rl.html#value-iteration",
+    "title": "Dynamic Programming",
+    "section": "Value Iteration",
+    "text": "Value Iteration",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
-    "objectID": "dp_rl.html#asynchronous-dynamic-programming",
-    "href": "dp_rl.html#asynchronous-dynamic-programming",
-    "title": "4  Dynamic Programming",
-    "section": "4.5 Asynchronous Dynamic Programming",
-    "text": "4.5 Asynchronous Dynamic Programming",
+    "objectID": "04-dynamicProgramming/dp_rl.html#asynchronous-dynamic-programming",
+    "href": "04-dynamicProgramming/dp_rl.html#asynchronous-dynamic-programming",
+    "title": "Dynamic Programming",
+    "section": "Asynchronous Dynamic Programming",
+    "text": "Asynchronous Dynamic Programming",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
-    "objectID": "dp_rl.html#generalized-policy-iteration",
-    "href": "dp_rl.html#generalized-policy-iteration",
-    "title": "4  Dynamic Programming",
-    "section": "4.6 Generalized Policy Iteration",
-    "text": "4.6 Generalized Policy Iteration",
+    "objectID": "04-dynamicProgramming/dp_rl.html#generalized-policy-iteration",
+    "href": "04-dynamicProgramming/dp_rl.html#generalized-policy-iteration",
+    "title": "Dynamic Programming",
+    "section": "Generalized Policy Iteration",
+    "text": "Generalized Policy Iteration",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
-    "objectID": "dp_rl.html#efficiency-of-dynamic-programming",
-    "href": "dp_rl.html#efficiency-of-dynamic-programming",
-    "title": "4  Dynamic Programming",
-    "section": "4.7 Efficiency of Dynamic Programming",
-    "text": "4.7 Efficiency of Dynamic Programming",
+    "objectID": "04-dynamicProgramming/dp_rl.html#efficiency-of-dynamic-programming",
+    "href": "04-dynamicProgramming/dp_rl.html#efficiency-of-dynamic-programming",
+    "title": "Dynamic Programming",
+    "section": "Efficiency of Dynamic Programming",
+    "text": "Efficiency of Dynamic Programming",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
-    "objectID": "dp_rl.html#summary",
-    "href": "dp_rl.html#summary",
-    "title": "4  Dynamic Programming",
-    "section": "4.8 Summary",
-    "text": "4.8 Summary",
+    "objectID": "04-dynamicProgramming/dp_rl.html#summary",
+    "href": "04-dynamicProgramming/dp_rl.html#summary",
+    "title": "Dynamic Programming",
+    "section": "Summary",
+    "text": "Summary",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Dynamic Programming</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamic Programming</span>"
     ]
   },
   {
-    "objectID": "applications.html",
-    "href": "applications.html",
-    "title": "5  Applications",
+    "objectID": "05-applications/applications.html",
+    "href": "05-applications/applications.html",
+    "title": "Applications",
     "section": "",
-    "text": "5.1 Recycling Robot",
+    "text": "Recycling Robot",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Applications</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Applications</span>"
     ]
   },
   {
-    "objectID": "applications.html#a-robot-with-randomly-moves-in-a-grid-world.",
-    "href": "applications.html#a-robot-with-randomly-moves-in-a-grid-world.",
-    "title": "5  Applications",
-    "section": "5.2 A robot with randomly moves in a grid world.",
-    "text": "5.2 A robot with randomly moves in a grid world.",
+    "objectID": "05-applications/applications.html#a-robot-with-randomly-moves-in-a-grid-world.",
+    "href": "05-applications/applications.html#a-robot-with-randomly-moves-in-a-grid-world.",
+    "title": "Applications",
+    "section": "A robot with randomly moves in a grid world.",
+    "text": "A robot with randomly moves in a grid world.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Applications</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Bertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control.\nVol. I. Third. Athena Scientific,\nBelmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build\nNext-Generation, Self-Learning Models Using Reinforcement Learning\nTechniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science\nand Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement\nLearning: An Introduction. Second. Adaptive Computation and Machine\nLearning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. 2022. Algorithms for Reinforcement Learning.\nVol. 9. Synthesis Lectures on Artificial Intelligence and Machine\nLearning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
-    "crumbs": [
-      "References"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Applications</span>"
     ]
   },
   {
@@ -344,7 +304,7 @@
     "href": "homeworks/home_works_list.html",
     "title": "List of Home Works and due dates",
     "section": "",
-    "text": "Homework 001 due date: september 16, 2024-12:00:00\nExplain why Reinforcement Learning differs for supervised and unsupervised learning.",
+    "text": "Homework 001 due date: september 16, 2024-12:00:00\nExplain why Reinforcement Learning differs for supervised and unsupervised learning.\nlibrary(bibtex)\n## Activate the Core Packages\nbiblio &lt;- bibtex::read.bib(\"../references.bib\")\nlibrary(tidyverse) ## Brings in a core of useful functions\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(gt)        ## Tables\n## Specific packages\nlibrary(milestones)\n## Initialize defaults\n## Initialize defaults\ncolumn &lt;- lolli_styles()\n\ndata &lt;- read_csv(col_names=TRUE, show_col_types=FALSE, file='rl_time_line.csv')\n\n## Sort the table by date\ndata &lt;- data |&gt;\n  arrange(date)\n\n## Build a table\ngt(data) |&gt;\n  #cols_hide(columns = event) |&gt;\n  tab_style(cell_text(v_align = \"top\"),\n            locations = cells_body(columns = date)) |&gt;\n  tab_source_note(source_note = \"Source: Wikipedia\") \n\n\n\n\n\n\n\n\ndate\nevent\nReference\n\n\n\n\n1957\nThe term “optimal control” appears\nMR0090477 Bellman, Richard Dynamic programming. Princeton University Press, Princeton, NJ, 1957. xxv+342 pp.\n\n\nNA\nMDPs\nMR0091859 Bellman, Richard A Markovian decision process.J. Math. Mech.6(1957), 679–684.\n\n\n\nSource: Wikipedia\n## Adjust some defaults\ncolumn$color &lt;- \"orange\"\ncolumn$size  &lt;- 15\ncolumn$source_info &lt;- \"Source: Wikipedia\"\n\n## Milestones timeline\nmilestones(datatable = data, styles = column)\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_text()`).\n\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_segment()`).\n\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_segment()`).",
     "crumbs": [
       "List of Home Works and due dates"
     ]
@@ -354,7 +314,7 @@
     "href": "homeworks/home_works_list.html#homework-001-due-date-september-16-2024-120000",
     "title": "List of Home Works and due dates",
     "section": "",
-    "text": "Read (Sec 1.1, pp 1-2 Sutton and Barto 2018) and answer the following.\n\n\n\nSee the first Steve Brunton’s youtube video about Reinforcement Learning. Then accordingly to its presentation explain what is the meaning of the following expression: \\[\n  V_{\\pi}(s) = \\mathbb{E}\n\\left(\n   \\sum_{t} \\gamma ^ {t} r_t | s_0 = s\n\\right).\n\\]\n\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
+    "text": "Read (Sec 1.1, pp 1-2 Sutton and Barto 2018) and answer the following.\n\n\n\nSee the first Steve Brunton’s youtube video about Reinforcement Learning. Then accordingly to its presentation explain what is the meaning of the following expression: \\[\n  V_{\\pi}(s) = \\mathbb{E}\n\\left(\n   \\sum_{t} \\gamma ^ {t} r_t | s_0 = s\n\\right).\n\\]\nForm (Sec. 1.7 Sutton and Barto 2018) obtain a time line pear year from 1950 to 2012. Use the following format see https://kim.quarto.pub/milestones–bar-timelines/\n\n\n\n\n\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement Learning: An Introduction. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.",
     "crumbs": [
       "List of Home Works and due dates"
     ]
