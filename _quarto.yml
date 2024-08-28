@@ -51,7 +51,3 @@ format:
   html:
     theme: darkly
     toc: true
-  pdf: 
-    include-in-header: |
-      \usepackage{tikz}
-      \usepackage{example-pandoc/fitch}

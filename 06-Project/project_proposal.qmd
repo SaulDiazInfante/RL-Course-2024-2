@@ -3,3 +3,66 @@ title: "Project proposal"
 author: "SDIV"
 editor: visual
 ---
+
+# Formulation and reinforcement learning solution to a problem
+
+of a sequence of decisions.
+
+# Bases
+
+-   The sequence of decision must be based on a finite Markov decision Process.
+    -   The space of states and action must to be finite and discrete.
+
+## 
+
+## Death line
+
+## Subproducts
+
+### Stage 01: Quarto book with MDP formulation
+
+-   The page must encloses the report according to the template
+    `rl_bookdown_prg.qmd`
+
+    -   Introduction
+    -   Formulation of the Mrakov decision process
+    -   Model dynamics
+    -   Description and justification of the Cost (reward)
+    -   Justification of the actions
+
+-   Must include
+
+    -   Figures to illustrates the behavior of the regarding elements:
+
+        1.  Policy
+        2.  Reward
+        3.  Value function eventuated for a one state-action and transition.
+        4.  Environmental model
+
+    -   References via bibtex.
+
+    -   Output compilation for HTML and PDF formats.
+
+    -   The compiled version has to be mounted ing GitHub or Quarto Pub
+
+### Stage 02: Python code Implementation
+
+-   Only code whit out running errors wold be accepted
+-   Code must follows the style guide from PEP 08
+-   All functions must include doc-strings
+-   Extras:
+-   Packing and Documentation `extra 200 xps`
+
+### Stage 03: Video Presentation mounted in youtube with results and instight
+
+of your project
+
+## Suggested project list:
+
+1.  Reinforcement learning simulation of the TIC-TAC-TOE Game with SARSA or
+    Q-learning Algorithms @Bilgin2020
+2.  The movement of a Recycling Robot @Bilgin2020
+3.  The replacement of a bus engine [@Rust1987] from [see pd.pdf, p.130
+    @Starchursky2024]
+4.  Optimal Inventories [see dp.pdf, p. 147 @Starchursky2024]
+5.  Multi-Armed Bandits @Bilgin2020
