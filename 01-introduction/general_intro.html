@@ -268,13 +268,14 @@ window.Quarto = {
 <div id="fig-brandimarte_net" class="lightbox quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-brandimarte_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../assets/ch_00/network_brandimarte_ex.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="../assets/ch_00/network_brandimarte_ex.png" class="img-fluid figure-img"></a>
+<a href="../assets/ch_00/network_brandimarte_ex.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="../assets/ch_00/network_brandimarte_ex.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-brandimarte_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: The shortest path
 </figcaption>
 </figure>
 </div>
+<p>In this problem, the optimal route to go from the node labeled <span class="math inline">\(0\)</span> to the node labeled <span class="math inline">\(7\)</span> is to be determined. The costs between each pair of nodes connected by an arrow are represented by a number next to it. For example, the cost to go from node 0 to node 2 is 6. The optimal route will be the one for which the sum of their costs is minimum. This optimal route can be obtained by an exhaustive enumeration; generating all possible routes from node <span class="math inline">\(0\)</span> to node <span class="math inline">\(7\)</span> and choosing the minimum cost route.</p>
 <div id="tbl-brandimarte_paths" class="hover borderless light quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-brandimarte_paths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -338,8 +339,9 @@ Table&nbsp;1: The shortest path by exhaustion see <span class="citation" data-ci
 </div>
 </figure>
 </div>
-<p>In this problem, the optimal route to go from the node labeled <span class="math inline">\(0\)</span> to the node labeled <span class="math inline">\(7\)</span> is to be determined. The costs between each pair of nodes connected by an arrow are represented by a number next to it. For example, the cost to go from node 0 to node 2 is 6. The optimal route will be the one for which the sum of their costs is minimum. This optimal route can be obtained by an exhaustive enumeration; generating all possible routes from node <span class="math inline">\(0\)</span> to node <span class="math inline">\(7\)</span> and choosing the minimum cost route.</p>
-<p>En la [ref:table] se muestran tales rutas y sus respectivos costos. Se observa que la trayectoria óptima es $ 0 $, con un costo de 16.</p>
+<p>The optimal path is <span class="math display">\[
+  0 \to   1 \to 3 \to 5 \to  7,
+\]</span> with cost 16.</p>
 
 
 <div class="hidden" aria-hidden="true">
@@ -790,7 +792,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

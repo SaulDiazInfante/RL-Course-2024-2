@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -188,7 +208,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#formulation-and-reinforcement-learning-solution-to-a-problem" id="toc-formulation-and-reinforcement-learning-solution-to-a-problem" class="nav-link active" data-scroll-target="#formulation-and-reinforcement-learning-solution-to-a-problem">Formulation and reinforcement learning solution to a problem</a></li>
+  <li><a href="#bases" id="toc-bases" class="nav-link" data-scroll-target="#bases">Bases</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#death-line" id="toc-death-line" class="nav-link" data-scroll-target="#death-line">Death line</a></li>
+  <li><a href="#subproducts" id="toc-subproducts" class="nav-link" data-scroll-target="#subproducts">Subproducts</a>
+  <ul class="collapse">
+  <li><a href="#stage-01-quarto-book-with-mdp-formulation" id="toc-stage-01-quarto-book-with-mdp-formulation" class="nav-link" data-scroll-target="#stage-01-quarto-book-with-mdp-formulation">Stage 01: Quarto book with MDP formulation</a></li>
+  <li><a href="#stage-02-python-code-implementation" id="toc-stage-02-python-code-implementation" class="nav-link" data-scroll-target="#stage-02-python-code-implementation">Stage 02: Python code Implementation</a></li>
+  <li><a href="#stage-03-video-presentation-mounted-in-youtube-with-results-and-instight" id="toc-stage-03-video-presentation-mounted-in-youtube-with-results-and-instight" class="nav-link" data-scroll-target="#stage-03-video-presentation-mounted-in-youtube-with-results-and-instight">Stage 03: Video Presentation mounted in youtube with results and instight</a></li>
+  </ul></li>
+  <li><a href="#suggested-project-list" id="toc-suggested-project-list" class="nav-link" data-scroll-target="#suggested-project-list">Suggested project list:</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/06-Project/project_proposal.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -218,8 +256,91 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="formulation-and-reinforcement-learning-solution-to-a-problem" class="level1">
+<h1>Formulation and reinforcement learning solution to a problem</h1>
+<p>of a sequence of decisions.</p>
+</section>
+<section id="bases" class="level1">
+<h1>Bases</h1>
+<ul>
+<li>The sequence of decision must be based on a finite Markov decision Process.
+<ul>
+<li>The space of states and action must to be finite and discrete.</li>
+</ul></li>
+</ul>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="death-line" class="level2">
+<h2 class="anchored" data-anchor-id="death-line">Death line</h2>
+</section>
+<section id="subproducts" class="level2">
+<h2 class="anchored" data-anchor-id="subproducts">Subproducts</h2>
+<section id="stage-01-quarto-book-with-mdp-formulation" class="level3">
+<h3 class="anchored" data-anchor-id="stage-01-quarto-book-with-mdp-formulation">Stage 01: Quarto book with MDP formulation</h3>
+<ul>
+<li><p>The page must encloses the report according to the template <code>rl_bookdown_prg.qmd</code></p>
+<ul>
+<li>Introduction</li>
+<li>Formulation of the Mrakov decision process</li>
+<li>Model dynamics</li>
+<li>Description and justification of the Cost (reward)</li>
+<li>Justification of the actions</li>
+</ul></li>
+<li><p>Must include</p>
+<ul>
+<li><p>Figures to illustrates the behavior of the regarding elements:</p>
+<ol type="1">
+<li>Policy</li>
+<li>Reward</li>
+<li>Value function eventuated for a one state-action and transition.</li>
+<li>Environmental model</li>
+</ol></li>
+<li><p>References via bibtex.</p></li>
+<li><p>Output compilation for HTML and PDF formats.</p></li>
+<li><p>The compiled version has to be mounted ing GitHub or Quarto Pub</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="stage-02-python-code-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="stage-02-python-code-implementation">Stage 02: Python code Implementation</h3>
+<ul>
+<li>Only code whit out running errors wold be accepted</li>
+<li>Code must follows the style guide from PEP 08</li>
+<li>All functions must include doc-strings</li>
+<li>Extras:</li>
+<li>Packing and Documentation <code>extra 200 xps</code></li>
+</ul>
+</section>
+<section id="stage-03-video-presentation-mounted-in-youtube-with-results-and-instight" class="level3">
+<h3 class="anchored" data-anchor-id="stage-03-video-presentation-mounted-in-youtube-with-results-and-instight">Stage 03: Video Presentation mounted in youtube with results and instight</h3>
+<p>of your project</p>
+</section>
+</section>
+<section id="suggested-project-list" class="level2">
+<h2 class="anchored" data-anchor-id="suggested-project-list">Suggested project list:</h2>
+<ol type="1">
+<li>Reinforcement learning simulation of the TIC-TAC-TOE Game with SARSA or Q-learning Algorithms <span class="citation" data-cites="Bilgin2020">Bilgin (<a href="../references.html#ref-Bilgin2020" role="doc-biblioref">2020</a>)</span></li>
+<li>The movement of a Recycling Robot <span class="citation" data-cites="Bilgin2020">Bilgin (<a href="../references.html#ref-Bilgin2020" role="doc-biblioref">2020</a>)</span></li>
+<li>The replacement of a bus engine <span class="citation" data-cites="Rust1987">(<a href="../references.html#ref-Rust1987" role="doc-biblioref">Rust 1987</a>)</span> from <span class="citation" data-cites="Starchursky2024">(see pd.pdf, p.130 <a href="../references.html#ref-Starchursky2024" role="doc-biblioref">Stachurski. 2024</a>)</span></li>
+<li>Optimal Inventories <span class="citation" data-cites="Starchursky2024">(see dp.pdf, p.&nbsp;147 <a href="../references.html#ref-Starchursky2024" role="doc-biblioref">Stachurski. 2024</a>)</span></li>
+<li>Multi-Armed Bandits <span class="citation" data-cites="Bilgin2020">Bilgin (<a href="../references.html#ref-Bilgin2020" role="doc-biblioref">2020</a>)</span></li>
+</ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Bilgin2020" class="csl-entry" role="listitem">
+Bilgin, E. 2020. <em>Mastering Reinforcement Learning with Python: Build Next-Generation, Self-Learning Models Using Reinforcement Learning Techniques and Best Practices</em>. Packt Publishing. <a href="https://books.google.com.mx/books?id=s0MQEAAAQBAJ">https://books.google.com.mx/books?id=s0MQEAAAQBAJ</a>.
+</div>
+<div id="ref-Rust1987" class="csl-entry" role="listitem">
+Rust, John. 1987. <span>“<span class="nocase">Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher</span>.”</span> <em>Econometrica</em> 55 (5): 999. <a href="https://doi.org/10.2307/1911259">https://doi.org/10.2307/1911259</a>.
+</div>
+<div id="ref-Starchursky2024" class="csl-entry" role="listitem">
+Stachurski., John. 2024. <span>“Dynamic Programming Volume 1.”</span> <em>GitHub Repository</em>. <a href="https://github.com/QuantEcon/book-dp1-public" class="uri">https://github.com/QuantEcon/book-dp1-public</a>; GitHub.
+</div>
+</div>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -651,7 +772,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/06-Project/project_proposal.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/06-Project/project_proposal.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
