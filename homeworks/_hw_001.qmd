@@ -47,14 +47,14 @@ gt(data) |>
   #cols_hide(columns = event) |>
   tab_style(cell_text(v_align = "top"),
             locations = cells_body(columns = date)) |>
-  tab_source_note(source_note = "Source: Wikipedia") 
+  tab_source_note(source_note = "Source: Sutton and Barto (2018)") 
 ```
 
 ```{r}
 ## Adjust some defaults
 column$color <- "orange"
 column$size  <- 15
-column$source_info <- "Source: Wikipedia"
+column$source_info <- "Source: Sutton and Barto (2018)"
 
 ## Milestones timeline
 milestones(datatable = data, styles = column)

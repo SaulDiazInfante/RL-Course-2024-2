@@ -36,6 +36,7 @@ book:
     - ./04-dynamicProgramming/dp_rl.qmd
     - ./05-applications/applications.qmd
     - ./06-Project/project_proposal.qmd
+    - ./07-Evaluation/rubric_evaluation.qmd
     - references.qmd
     - ./homeworks/home_works_list.qmd
   downloads: [pdf]

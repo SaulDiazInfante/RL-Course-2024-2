@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage{amssymb,amsmath} 
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{anysize}
+%\usepackage{slashbox}
+\usepackage[all]{xy}
+\usepackage{enumerate}
+\marginsize{3cm}{3cm}{2cm}{2cm}
+%{izq}{der}{arrib}{abajo}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\e}{\varepsilon}
+\newcommand{\s}{\subseteq}
+
+
+\begin{document}
+  
+%--------------------------------------------------------logos---------------------------------------------------------------------------------------
+\begin{center}
+\vspace{-1cm}
+{\large\bf 
+Reinforcement Learning
+}
+
+Universidad de Sonora
+\end{center}
+
+\begin{center}\textbf{
+Problem set 1}
+\end{center}
+
+\noindent{\sc Due: } September N,  2024
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{enumerate}[1.]
+\item Consider the following \textit{consumption--saving problem} with dynamics
+	\[ x_{k+1} = (1+r)(x_k-a_k),\qquad k=0,1,\ldots,N-1, \]
+and utility function
+		\[  \beta^N(x_N)^{1-\gamma} + \sum_{k=0}^{N-1}\beta^k(a_k)^{1-\gamma}. \]
+Show that the value functions of the DP algorithm take the form 
+$$J_k(x)=A_k\beta^kx^{1-\gamma},$$ 
+where $A_N=1$ and for $k=N-1,\ldots,0$,
+	\[  A_k = [1 + ((1+r)\beta A_{k+1})^{1/\gamma} ]^\gamma.  \] 		
+Show also that the optimal policies are $h_k(x)=A_k^{-1/\gamma} x$.%	 for $k=N-1,\ldots,0$.	
+
+\item Consider now the infinite--horizon version of the above consumption--saving problem. 
+	\begin{enumerate}[(a)]
+	\item Write down the associated Bellman equation.
+	\item Argue why a solution to the Bellman equation should be of the form $$v(x)=cx^{1-\gamma},$$ where $c$ is constant. Find the constant $c$ and the stationary optimal policy.   
+	 
+	 
+\hfill{\footnotesize\it  Hint: Insert $v(x)=cx^{1-\gamma}$ into the Bellman equation and solve the minimization problem.}
+	\end{enumerate}
+
+\item Let $\{\xi_k\}$ be a sequence of iid random variables such that $E[\xi]=0$ and $E[\xi^2]=d$. Consider the dynamics
+	\[ x_{k+1} = x_k + a_k + \xi_k,\qquad k= 0,1,2,\ldots, \]
+and the discounted cost
+	\[  E \sum \beta^k(a_k^2+x_k^2).  \]
+	\begin{enumerate}[(a)]
+	\item Write down the associated Bellman equation.
+	\item Conjecture that the solution to the Bellman equation takes the form $v(x)=ax^2+b$, where $a$ and $b$ are constant. Determine the constants $a$ and $b$.
+	\end{enumerate}
+
+	
+
+%\item 
+
+
+%\item 
+
+\end{enumerate}
+
+
+%		\[
+%f(x) = \left\{
+%\begin{array}{cl}
+  %\frac{1}{x} & \mbox{if } x < 0, \\
+  % 0  & \mbox{if } x\geq 0.
+%\end{array}
+%\right. \] 
+
+
+%\hfill{\footnotesize\it  Hint: .}
+
+
+%\begin{enumerate}[(a)]\item \item \item \end{enumerate}
+
+\end{document}
+

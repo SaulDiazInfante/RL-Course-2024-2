@@ -53,9 +53,10 @@ of a sequence of decisions.
 -   Extras:
 -   Packing and Documentation `extra 200 xps`
 
-### Stage 03: Video Presentation mounted in youtube with results and instight
+### Stage 03: Video Presentation
 
-of your project
+A video mounted in you-tube of at most 20 min with results and insight of your
+project
 
 ## Suggested project list:
 
