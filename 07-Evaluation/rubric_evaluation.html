@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>From Markov Decision Processes to Reinforcement Learning with Python - Finite Markov Decision Processes (MDPs)</title>
+<title>From Markov Decision Processes to Reinforcement Learning with Python - Evaluation Rubric</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,8 +29,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../04-dynamicProgramming/dp_rl.html" rel="next">
-<link href="../02-introductionToRL/intro.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../06-Project/project_proposal.html" rel="prev">
 <link href="../cover_RL.jpeg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -101,35 +81,6 @@ div.csl-indent {
   });
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -161,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-finiteMDPs/mdp.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../07-Evaluation/rubric_evaluation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -196,7 +147,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link active">
+  <a href="../03-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
   </div>
 </li>
@@ -220,7 +171,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../07-Evaluation/rubric_evaluation.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-Evaluation/rubric_evaluation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
   </div>
 </li>
@@ -242,27 +193,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#the-agentenvironment-interface" id="toc-the-agentenvironment-interface" class="nav-link active" data-scroll-target="#the-agentenvironment-interface">The Agent–Environment Interface</a></li>
-  <li><a href="#goals-and-rewards" id="toc-goals-and-rewards" class="nav-link" data-scroll-target="#goals-and-rewards">Goals and Rewards</a></li>
-  <li><a href="#returns-and-episodes" id="toc-returns-and-episodes" class="nav-link" data-scroll-target="#returns-and-episodes">Returns and Episodes</a></li>
-  <li><a href="#unified-notation-for-episodic-and-continuing-tasks" id="toc-unified-notation-for-episodic-and-continuing-tasks" class="nav-link" data-scroll-target="#unified-notation-for-episodic-and-continuing-tasks">Unified Notation for Episodic and Continuing Tasks</a></li>
-  <li><a href="#policies-and-value-functions" id="toc-policies-and-value-functions" class="nav-link" data-scroll-target="#policies-and-value-functions">Policies and Value Functions</a></li>
-  <li><a href="#optimal-policies-and-optimal-value-functions" id="toc-optimal-policies-and-optimal-value-functions" class="nav-link" data-scroll-target="#optimal-policies-and-optimal-value-functions">Optimal Policies and Optimal Value Functions</a></li>
-  <li><a href="#optimality-and-approximation" id="toc-optimality-and-approximation" class="nav-link" data-scroll-target="#optimality-and-approximation">Optimality and Approximation</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/03-finiteMDPs/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Finite Markov Decision Processes (MDPs)</h1>
+<h1 class="title">Evaluation Rubric</h1>
 </div>
 
 
@@ -279,65 +217,8 @@ window.Quarto = {
 </header>
 
 
-<p>That is what ChatGPT would answer to a 5-year-old kid. Alright, let’s imagine you have a little robot friend named Robo. Robo likes to explore and do different things, but Robo doesn’t always know what to do next. A Markov Decision Process (MDP) is like giving Robo a set of rules to help it decide what to do next based on where it is and what it knows.</p>
-<p>Imagine Robo is in a room full of toys. Each toy is like a different choice Robo can make, like playing with blocks or reading a book. But Robo can’t see the whole room at once, so it has to decide what to do based on what it can see and remember.</p>
-<p>In an MDP, Robo learns from its past experiences. If it finds that playing with blocks usually makes it happy, it’s more likely to choose that again next time. But if it tries reading a book and doesn’t like it, it might choose something else next time.</p>
-<p>So, a Markov Decision Process helps Robo make decisions by learning from what it’s done before and what it can see around it, kind of like how you learn from playing with different toys and remembering which ones you like best.</p>
-<section id="the-agentenvironment-interface" class="level2">
-<h2 class="anchored" data-anchor-id="the-agentenvironment-interface">The Agent–Environment Interface</h2>
-<div id="exm-roboClean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set <span class="math inline">\(\mathcal{S} = \{\texttt{high}, \texttt{low} \}\)</span>. In each state, the agent can decide whether to</p>
-<ol type="1">
-<li>actively <strong>search</strong> for a can for a certain period of time,</li>
-<li>remain stationary and <strong>wait</strong> for someone to bring it a can, or</li>
-<li>head back to its home base to <strong>recharge</strong> its battery.</li>
-</ol>
-<p>When the energy level is <strong>high</strong>, recharging would always be foolis h, so we do not include it in the action set for this state. The action sets are then $ () = {, } $ and <span class="math inline">\(\mathcal{A}(\texttt{low}) = \{\texttt{search}, \texttt{wait}, \texttt{recharge}\}\)</span>.</p>
-<p>The rewards are zero most of the time, but become positive when the robot secures an empty can, or large and negative if the battery runs all the way down. The best way to find cans is to actively search for them, but this runs down the robot’s battery, whereas waiting does not. Whenever the robot is searching, the possibility exists that its battery will become depleted. In this case the robot must shut down and wait to be rescued (producing a low reward).</p>
-<p>If the energy level is <strong>high</strong>, then a period of active search can always be completed without risk of depleting the battery. A period of searching that begins with a <strong>high</strong> energy level leaves the energy level high <strong>with</strong> probability <span class="math inline">\(\alpha\)</span> and reduces it to low with probability <span class="math inline">\(1 - \alpha\)</span>. On the other hand, a period of searching undertaken when the energy level is low leaves it low with probability <span class="math inline">\(\beta\)</span> and depletes the battery with probability <span class="math inline">\(1 - \beta\)</span>. In the latter case, the robot must be rescued, and the battery is then recharged back to <strong>high</strong>. Each can collected by the robot counts as a unit reward, whereas a reward of <span class="math inline">\(-3\)</span> results whenever the robot has to be rescued. Let <span class="math inline">\(r_{\texttt{search}}\)</span> and <span class="math inline">\(r_{\texttt{wait}}\)</span>, with <span class="math inline">\(r_{\texttt{search}} &gt; r_{\texttt{wait}}\)</span>, denote the expected numbers of cans the robot will collect (and hence the expected reward) while searching and while waiting respectively. Finally, suppose that no cans can be collected during a run home for recharging, and that no cans can be collected on a step in which the battery is depleted. This system is then a finite MDP, and we can write down the transition probabilities and the expected rewards, with dynamics as indicated in the table on the left:</p>
-<div id="fig-robot-diagram" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/ch_03/recycling_robot_diagram.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
-</figcaption>
-</figure>
-</div>
-</div>
-<div id="exr-001" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> Give a table analogous to that in <span class="citation" data-cites="Sutton2018">(p.53, Ex. 3.3, <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>, but for <span class="math inline">\(p(s_0 , r |s, a)\)</span>. It should have columns for <span class="math inline">\(s\)</span>, <span class="math inline">\(a\)</span>, <span class="math inline">\(s_0\)</span> , <span class="math inline">\(r\)</span>, and <span class="math inline">\(p(s_0 , r |s, a)\)</span>, and a row for every 4-tuple for which <span class="math inline">\(p(s_0 , r |s, a) &gt; 0\)</span>.</p>
-</div>
-</section>
-<section id="goals-and-rewards" class="level2">
-<h2 class="anchored" data-anchor-id="goals-and-rewards">Goals and Rewards</h2>
-</section>
-<section id="returns-and-episodes" class="level2">
-<h2 class="anchored" data-anchor-id="returns-and-episodes">Returns and Episodes</h2>
-</section>
-<section id="unified-notation-for-episodic-and-continuing-tasks" class="level2">
-<h2 class="anchored" data-anchor-id="unified-notation-for-episodic-and-continuing-tasks">Unified Notation for Episodic and Continuing Tasks</h2>
-</section>
-<section id="policies-and-value-functions" class="level2">
-<h2 class="anchored" data-anchor-id="policies-and-value-functions">Policies and Value Functions</h2>
-</section>
-<section id="optimal-policies-and-optimal-value-functions" class="level2">
-<h2 class="anchored" data-anchor-id="optimal-policies-and-optimal-value-functions">Optimal Policies and Optimal Value Functions</h2>
-</section>
-<section id="optimality-and-approximation" class="level2">
-<h2 class="anchored" data-anchor-id="optimality-and-approximation">Optimality and Approximation</h2>
-</section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-Sutton2018" class="csl-entry" role="listitem">
-Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An Introduction</em>. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.
-</div>
-</div>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -751,13 +632,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../02-introductionToRL/intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="../06-Project/project_proposal.html" class="pagination-link" aria-label="Project proposal">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Project proposal</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../04-dynamicProgramming/dp_rl.html" class="pagination-link" aria-label="Dynamic Programming">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -769,7 +650,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/03-finiteMDPs/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/07-Evaluation/rubric_evaluation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
