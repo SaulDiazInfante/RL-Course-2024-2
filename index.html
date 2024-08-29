@@ -62,6 +62,9 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -297,10 +300,10 @@ window.Quarto = {
 <h2 class="unnumbered anchored" data-anchor-id="abstract">Abstract</h2>
 <p>We present an introduction to the solution of multi-stage optimization problems. Starting from the dynamic programming algorithm, we consider theoretical and computational aspects, mainly of deterministic problems, and discuss how to generalize some of the results to Markovian decision processes.</p>
 <p>The classic problem with which the essential ideas of dynamic programming can be introduced is the optimal route problem (shortest route considering distances, or cheapest route considering costs) <span class="citation" data-cites="Bertsekas2005 brandimarte2013numerical">(<a href="references.html#ref-Bertsekas2005" role="doc-biblioref">Bertsekas 2005</a>; <a href="references.html#ref-brandimarte2013numerical" role="doc-biblioref">Brandimarte 2013</a>)</span>. A simple version of this problem is shown schematically in <a href="#fig-brandimarte_net" class="quarto-xref">Fig&nbsp;<span>1</span></a>. By exhaustion, we deploy the cost of path in <a href="#tbl-brandimarte_paths" class="quarto-xref">Table&nbsp;<span>1</span></a>.</p>
-<div id="fig-brandimarte_net" class="light quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-brandimarte_net" class="lightbox quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-brandimarte_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="assets/ch_00/network_brandimarte_ex.png" class="light img-fluid figure-img">
+<a href="assets/ch_00/network_brandimarte_ex.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="assets/ch_00/network_brandimarte_ex.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-brandimarte_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: The shortest path
@@ -381,6 +384,9 @@ Table&nbsp;1: The shortest path by exhaustion see <span class="citation" data-ci
 <p>The textbook for chapter one is Bertsekas’ book <span class="citation" data-cites="Bertsekas2005">(<a href="references.html#ref-Bertsekas2005" role="doc-biblioref">Bertsekas 2005</a>)</span>. Chapters 2 and 3 are adapted from Sutton’s book <span class="citation" data-cites="Sutton2018">(Ch. 3, Ch. 4, <a href="references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>. For application and broad connection with more machine learning applications, we refer to <span class="citation" data-cites="Brunton2019">(<a href="references.html#ref-Brunton2019" role="doc-biblioref">Brunton and Kutz 2019</a>)</span>. Also, we recommend a handbook of algorithms <span class="citation" data-cites="Szepesvari2022">(<a href="references.html#ref-Szepesvari2022" role="doc-biblioref">Szepesvári 2022</a>)</span>. For applications with implemented code, we follow the books <span class="citation" data-cites="Bilgin2020">(<a href="references.html#ref-Bilgin2020" role="doc-biblioref">Bilgin 2020</a>)</span>.</p>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: The shortest path</span>
+</div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Bertsekas2005" class="csl-entry" role="listitem">
 Bertsekas, Dimitri P. 2005. <em>Dynamic Programming and Optimal Control. <span>V</span>ol. <span>I</span></em>. Third. Athena Scientific, Belmont, MA.
@@ -836,6 +842,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
