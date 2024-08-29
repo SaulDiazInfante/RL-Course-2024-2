@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="SDIV">
+<meta name="author" content="SDIV, DGS">
 
 <title>From Markov Decision Processes to Reinforcement Learning with Python - List of Home Works and due dates</title>
 <style>
@@ -299,7 +299,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>SDIV </p>
+             <p>SDIV, DGS </p>
           </div>
   </div>
     
@@ -314,19 +314,22 @@ window.Quarto = {
 
 <section id="homework-001-due-date-september-16-2024-120000" class="level2">
 <h2 class="anchored" data-anchor-id="homework-001-due-date-september-16-2024-120000">Homework 001 due date: september 16, 2024-12:00:00</h2>
-<ol type="1">
-<li>Read <span class="citation" data-cites="Sutton2018">(Sec 1.1, pp 1-2 <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span> and answer the following.</li>
-</ol>
+<div id="exr-hw_001_01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Read <span class="citation" data-cites="Sutton2018">(Sec 1.1, pp 1-2 <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span> and answer the following.</p>
 <p>Explain why Reinforcement Learning differs for supervised and unsupervised learning.</p>
-<ol start="2" type="1">
-<li><p>See the first Steve Brunton’s youtube video about <a href="https://www.youtube.com/watch?v=0MNVhXEX9to&amp;list=PLMrJAkhIeNNQe1JXNvaFvURxGY4gE9k74">Reinforcement Learning.</a> Then accordingly to its presentation explain what is the meaning of the following expression: <span class="math display">\[
+</div>
+<div id="exr-hw_001_02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> See the first Steve Brunton’s youtube video about <a href="https://www.youtube.com/watch?v=0MNVhXEX9to&amp;list=PLMrJAkhIeNNQe1JXNvaFvURxGY4gE9k74">Reinforcement Learning</a>. Then accordingly to its presentation explain what is the meaning of the following expression:</p>
+<p><span class="math display">\[
   V_{\pi}(s) = \mathbb{E}
 \left(
    \sum_{t} \gamma ^ {t} r_t | s_0 = s
 \right).
-\]</span></p></li>
-<li><p>Form <span class="citation" data-cites="Sutton2018">(Sec. 1.7 <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span> obtain a time line pear year from 1950 to 2012. Use the following format <a href="https://kim.quarto.pub/milestones--bar-timelines/">see https://kim.quarto.pub/milestones–bar-timelines/</a></p></li>
-</ol>
+\]</span></p>
+</div>
+<div id="exr-hw_001_03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> Form <span class="citation" data-cites="Sutton2018">(see <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018, sec. 1.7</a>)</span> obtain a time line pear year from 1950 to 2012.</p>
+<p>Use the following format <a href="https://kim.quarto.pub/milestones--bar-timelines/">see https://kim.quarto.pub/milestones–bar-timelines/</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bibtex)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Activate the Core Packages</span></span>
@@ -365,23 +368,23 @@ window.Quarto = {
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source: Sutton and Barto (2018)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<div id="gzkiqflhil" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gzkiqflhil table {
+<div id="tjlzxaovls" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tjlzxaovls table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gzkiqflhil thead, #gzkiqflhil tbody, #gzkiqflhil tfoot, #gzkiqflhil tr, #gzkiqflhil td, #gzkiqflhil th {
+#tjlzxaovls thead, #tjlzxaovls tbody, #tjlzxaovls tfoot, #tjlzxaovls tr, #tjlzxaovls td, #tjlzxaovls th {
   border-style: none;
 }
 
-#gzkiqflhil p {
+#tjlzxaovls p {
   margin: 0;
   padding: 0;
 }
 
-#gzkiqflhil .gt_table {
+#tjlzxaovls .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -407,12 +410,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_caption {
+#tjlzxaovls .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gzkiqflhil .gt_title {
+#tjlzxaovls .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -424,7 +427,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#gzkiqflhil .gt_subtitle {
+#tjlzxaovls .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -436,7 +439,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#gzkiqflhil .gt_heading {
+#tjlzxaovls .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -448,13 +451,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_bottom_border {
+#tjlzxaovls .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_col_headings {
+#tjlzxaovls .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -469,7 +472,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_col_heading {
+#tjlzxaovls .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -489,7 +492,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#gzkiqflhil .gt_column_spanner_outer {
+#tjlzxaovls .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -501,15 +504,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#gzkiqflhil .gt_column_spanner_outer:first-child {
+#tjlzxaovls .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gzkiqflhil .gt_column_spanner_outer:last-child {
+#tjlzxaovls .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gzkiqflhil .gt_column_spanner {
+#tjlzxaovls .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -521,11 +524,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#gzkiqflhil .gt_spanner_row {
+#tjlzxaovls .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gzkiqflhil .gt_group_heading {
+#tjlzxaovls .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -551,7 +554,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#gzkiqflhil .gt_empty_group_heading {
+#tjlzxaovls .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -566,15 +569,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#gzkiqflhil .gt_from_md > :first-child {
+#tjlzxaovls .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gzkiqflhil .gt_from_md > :last-child {
+#tjlzxaovls .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gzkiqflhil .gt_row {
+#tjlzxaovls .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -593,7 +596,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#gzkiqflhil .gt_stub {
+#tjlzxaovls .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -606,7 +609,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#gzkiqflhil .gt_stub_row_group {
+#tjlzxaovls .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -620,15 +623,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#gzkiqflhil .gt_row_group_first td {
+#tjlzxaovls .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gzkiqflhil .gt_row_group_first th {
+#tjlzxaovls .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gzkiqflhil .gt_summary_row {
+#tjlzxaovls .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -638,16 +641,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#gzkiqflhil .gt_first_summary_row {
+#tjlzxaovls .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_first_summary_row.thick {
+#tjlzxaovls .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gzkiqflhil .gt_last_summary_row {
+#tjlzxaovls .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -657,7 +660,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_grand_summary_row {
+#tjlzxaovls .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -667,7 +670,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#gzkiqflhil .gt_first_grand_summary_row {
+#tjlzxaovls .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -677,7 +680,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_last_grand_summary_row_top {
+#tjlzxaovls .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -687,11 +690,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_striped {
+#tjlzxaovls .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gzkiqflhil .gt_table_body {
+#tjlzxaovls .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -700,7 +703,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_footnotes {
+#tjlzxaovls .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -714,7 +717,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_footnote {
+#tjlzxaovls .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -723,7 +726,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#gzkiqflhil .gt_sourcenotes {
+#tjlzxaovls .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -737,7 +740,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#gzkiqflhil .gt_sourcenote {
+#tjlzxaovls .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -745,72 +748,72 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#gzkiqflhil .gt_left {
+#tjlzxaovls .gt_left {
   text-align: left;
 }
 
-#gzkiqflhil .gt_center {
+#tjlzxaovls .gt_center {
   text-align: center;
 }
 
-#gzkiqflhil .gt_right {
+#tjlzxaovls .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gzkiqflhil .gt_font_normal {
+#tjlzxaovls .gt_font_normal {
   font-weight: normal;
 }
 
-#gzkiqflhil .gt_font_bold {
+#tjlzxaovls .gt_font_bold {
   font-weight: bold;
 }
 
-#gzkiqflhil .gt_font_italic {
+#tjlzxaovls .gt_font_italic {
   font-style: italic;
 }
 
-#gzkiqflhil .gt_super {
+#tjlzxaovls .gt_super {
   font-size: 65%;
 }
 
-#gzkiqflhil .gt_footnote_marks {
+#tjlzxaovls .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gzkiqflhil .gt_asterisk {
+#tjlzxaovls .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gzkiqflhil .gt_indent_1 {
+#tjlzxaovls .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gzkiqflhil .gt_indent_2 {
+#tjlzxaovls .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gzkiqflhil .gt_indent_3 {
+#tjlzxaovls .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gzkiqflhil .gt_indent_4 {
+#tjlzxaovls .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gzkiqflhil .gt_indent_5 {
+#tjlzxaovls .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gzkiqflhil .katex-display {
+#tjlzxaovls .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gzkiqflhil div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tjlzxaovls div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -862,22 +865,40 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<ol type="1">
-<li><p>Consider the following <strong>consumption–saving</strong> problem with dynamics <span class="math display">\[ x_{k+1} = (1+r)(x_k-a_k),\qquad k=0,1,\ldots,N-1, \]</span> and utility function</p>
+</div>
+<div id="exr-hw_001_04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> Consider the following <strong>consumption–saving</strong> problem with dynamics <span class="math display">\[
+  x_{k+1}
+  = (1+r)(x_k-a_k),\qquad k=0,1,\ldots,N-1,
+\]</span> and utility function</p>
 <p><span class="math display">\[
   \beta^N(x_N)^{1-\gamma}
     + \sum_{k=0}^{N-1}\beta^k (a_k)^{1-\gamma}.
 \]</span></p>
-<p>Show that the value functions of the DP algorithm take the form</p></li>
+<p>Show that the value functions of the DP algorithm take the form <span class="math display">\[J_k(x)=A_k\beta^kx^{1-\gamma},\]</span> where <span class="math inline">\(A_N=1\)</span> and for <span class="math inline">\(k=N-1,\ldots,0\)</span>,</p>
+<p><span class="math display">\[  A_k = [1 + ((1+r)\beta A_{k+1})^{1/\gamma} ]^\gamma.  \]</span> Show also that the optimal policies are <span class="math inline">\(h_k(x)=A_k^{-1/\gamma} x\)</span>. for <span class="math inline">\(k=N-1,\ldots,0\)</span>.</p>
+</div>
+<div id="exr-hw_001_05" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> Consider now the infinite–horizon version of the above consumption–saving problem.</p>
+<ol type="i">
+<li><p>Write down the associated Bellman equation.</p></li>
+<li><p>Argue why a solution to the Bellman equation should be of the form <span class="math display">\[v(x)=cx^{1-\gamma},\]</span> where <span class="math inline">\(c\)</span> is constant. Find the constant <span class="math inline">\(c\)</span> and the stationary optimal policy <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p></li>
 </ol>
-<p><span class="math display">\[J_k(x)=A_k\beta^kx^{1-\gamma},\]</span> where <span class="math inline">\(A_N=1\)</span> and for <span class="math inline">\(k=N-1,\ldots,0\)</span>, <span class="math display">\[  A_k = [1 + ((1+r)\beta A_{k+1})^{1/\gamma} ]^\gamma.  \]</span> Show also that the optimal policies are <span class="math inline">\(h_k(x)=A_k^{-1/\gamma} x\)</span>. for <span class="math inline">\(k=N-1,\ldots,0\)</span>.</p>
-<ol start="2" type="1">
-<li>Consider now the infinite–horizon version of the above consumption–saving problem.
-<ol type="a">
-<li>Write down the associated Bellman equation.</li>
-<li>Argue why a solution to the Bellman equation should be of the form <span class="math display">\[v(x)=cx^{1-\gamma},\]</span> where <span class="math inline">\(c\)</span> is constant. Find the constant <span class="math inline">\(c\)</span> and the stationary optimal policy. Hint: Insert <span class="math inline">\(v(x)=cx^{1-\gamma}\)</span> into the Bellman equation and solve the minimization problem.</li>
-</ol></li>
+</div>
+<div id="exr-hw_001_06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> Let <span class="math inline">\(\{\xi_k\}\)</span> be a sequence of iid random variables such that <span class="math inline">\(E[\xi]=0\)</span> and <span class="math inline">\(E[\xi^2]=d\)</span>. Consider the dynamics <span class="math display">\[
+  x_{k+1} = x_k + a_k + \xi_k, \qquad
+  k= 0,1,2,\ldots,
+\]</span> and the discounted cost <span class="math display">\[
+  E \sum \beta^k(a_k^2+x_k^2).
+\]</span></p>
+<ol type="i">
+<li><p>Write down the associated Bellman equation.</p></li>
+<li><p>Conjecture that the solution to the Bellman equation takes the form <span class="math inline">\(v(x)=ax^2+b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constant.</p></li>
+<li><p>Determine the constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p></li>
+<li><p>Conjecture that the solution to the Bellman equation takes the form <span class="math inline">\(v(x)=ax^2+b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constant. Determine the constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p></li>
 </ol>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -885,6 +906,12 @@ window.Quarto = {
 Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An Introduction</em>. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Hint: Insert <span class="math inline">\(v(x)=cx^{1-\gamma}\)</span> into the Bellman equation and solve the minimization problem.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
