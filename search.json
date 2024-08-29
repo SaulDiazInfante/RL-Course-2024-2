@@ -340,6 +340,16 @@
     ]
   },
   {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Bertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control.\nVol. I. Third. Athena Scientific,\nBelmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build\nNext-Generation, Self-Learning Models Using Reinforcement Learning\nTechniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrandimarte, Paolo. 2013. Numerical Methods in Finance and\nEconomics: A MATLAB-Based Introduction. 2nd ed. Hoboken, New\nJersey: John Wiley & Sons.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science\nand Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nRust, John. 1987. “Optimal Replacement of GMC\nBus Engines: An Empirical Model of Harold Zurcher.”\nEconometrica 55 (5): 999. https://doi.org/10.2307/1911259.\n\n\nStachurski., John. 2024. “Dynamic Programming Volume 1.”\nGitHub Repository. https://github.com/QuantEcon/book-dp1-public; GitHub.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement\nLearning: An Introduction. Second. Adaptive Computation and Machine\nLearning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. 2022. Algorithms for Reinforcement Learning.\nVol. 9. Synthesis Lectures on Artificial Intelligence and Machine\nLearning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
     "objectID": "homeworks/home_works_list.html",
     "href": "homeworks/home_works_list.html",
     "title": "List of Home Works and due dates",
