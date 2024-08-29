@@ -13,7 +13,7 @@ schematically in [Fig @fig-brandimarte_net]. By exhaustion, we deploy the cost
 of path in @tbl-brandimarte_paths.
 
 ::: {#fig-brandimarte_net}
-![](../assets/ch_00/network_brandimarte_ex.png){.lightbox}
+![](../assets/ch_00/network_brandimarte_ex.png)
 
 The shortest path
 :::

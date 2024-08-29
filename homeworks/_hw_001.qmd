@@ -59,3 +59,25 @@ column$source_info <- "Source: Sutton and Barto (2018)"
 ## Milestones timeline
 milestones(datatable = data, styles = column)
 ```
+
+1.  Consider the following **consumption--saving** problem with dynamics
+    $$ x_{k+1} = (1+r)(x_k-a_k),\qquad k=0,1,\ldots,N-1, $$ and utility function
+
+    $$
+      \beta^N(x_N)^{1-\gamma} 
+        + \sum_{k=0}^{N-1}\beta^k (a_k)^{1-\gamma}. 
+    $$
+
+    Show that the value functions of the DP algorithm take the form
+
+$$J_k(x)=A_k\beta^kx^{1-\gamma},$$ where $A_N=1$ and for $k=N-1,\ldots,0$,
+$$  A_k = [1 + ((1+r)\beta A_{k+1})^{1/\gamma} ]^\gamma.  $$ Show also that the
+optimal policies are $h_k(x)=A_k^{-1/\gamma} x$. for $k=N-1,\ldots,0$.
+
+2.  Consider now the infinite--horizon version of the above consumption--saving
+    problem.
+    a.  Write down the associated Bellman equation.
+    b.  Argue why a solution to the Bellman equation should be of the form
+        $$v(x)=cx^{1-\gamma},$$ where $c$ is constant. Find the constant $c$ and
+        the stationary optimal policy. Hint: Insert $v(x)=cx^{1-\gamma}$ into
+        the Bellman equation and solve the minimization problem.
