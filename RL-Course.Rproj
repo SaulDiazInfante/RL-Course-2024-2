@@ -21,7 +21,7 @@ MarkdownWrapAtColumn: 80
 MarkdownReferences: Section
 
 PythonType: conda
-PythonVersion: 3.12.4
-PythonPath: ~/Insync/sauld@cimat.mx/Google Drive/UNISON/Ponencias/2024/SMUQ-Valencia2024-talk/.conda/bin/python3.12
+PythonVersion: 3.12.2
+PythonPath: ~/anaconda3/bin/python3.12
 
 SpellingDictionary: en_US

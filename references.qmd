@@ -1,5 +1,7 @@
 # References {.unnumbered}
 
+For the cured R-quarto material see
+<https://github.com/SaulDiazInfante/intro-quarto-unison-2024>.
 
 ::: {#refs}
 :::

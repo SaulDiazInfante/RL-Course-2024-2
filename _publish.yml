@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 28f6f3dd-d3f2-48eb-b91a-a66b4cdf1480
+      url: 'https://sauldiazinfante.quarto.pub/from-markov-decision-processes-to-reinforcement-learning-with-python'

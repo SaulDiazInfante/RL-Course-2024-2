@@ -32,11 +32,12 @@ book:
     - index.qmd
     - ./01-introduction/general_intro.qmd
     - ./02-introductionToRL/intro.qmd
-    - ./03-finiteMDPs/mdp.qmd
-    - ./04-dynamicProgramming/dp_rl.qmd
-    - ./05-applications/applications.qmd
-    - ./06-Project/project_proposal.qmd
-    - ./07-Evaluation/rubric_evaluation.qmd
+    - ./03-multiArmedBandit/multiarmed_bandits.qmd
+    - ./04-finiteMDPs/mdp.qmd
+    - ./05-dynamicProgramming/dp_rl.qmd
+    - ./06-applications/applications.qmd
+    - ./07-Project/project_proposal.qmd
+    - ./08-Evaluation/rubric_evaluation.qmd
     - references.qmd
     - ./homeworks/home_works_list.qmd
   downloads: [pdf]
@@ -50,5 +51,10 @@ pdf-engine: lualatex
 
 format:
   html:
-    theme: darkly
+    code-link: true
+    code-fold: true
+    code-tools: true
+    theme:
+      light: flatly
+      dark: darkly
     toc: true
