@@ -402,7 +402,7 @@ R_t \sim \mathcal{N}(q_{*}(A_t), 1)
 </ul>
 </div>
 </div>
-<div id="8a48d95e" class="cell" data-execution_count="1">
+<div id="971ddfa8" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -609,7 +609,11 @@ Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An In
 </section>
 <section id="optimistic-initial-values" class="level1">
 <h1>Optimistic Initial Values</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>*.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="*.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -686,124 +690,130 @@ Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An In
 <span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
 <span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    <span class="co"># with open('./history/OIV_record.pkl', 'wb') as f:</span></span>
 <span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     pickle.dump(record, f)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="ptyhon"><code>import numpy as np
-import matplotlib.pyplot as plt
-import pickle
-
-from utils import get_argmax, bandit
-
-SEED = 200
-np.random.seed(SEED)
-
-# running the k-armed bandit algorithm
-def run_bandit(K:int, 
-            q_star:np.ndarray,
-            rewards:np.ndarray,
-            optim_acts_ratio:np.ndarray,
-            epsilon: float, 
-            num_steps:int=1000) -&gt; None:
-    
-    Q = np.zeros(K)
-    N = np.zeros(K) # The number of times each action been selected    
-    ttl_optim_acts = 0
-
-    for i in range(num_steps):
-        A = None
-        # Get action
-        if np.random.random() &gt; epsilon:
-            A = get_argmax(Q)
-        else:
-            A = np.random.randint(0, K)
-        
-        R, is_optim = bandit(q_star, A)
-        N[A] += 1
-        Q[A] += (R - Q[A]) / N[A]
-
-        ttl_optim_acts += is_optim
-        rewards[i] = R
-        optim_acts_ratio[i] = ttl_optim_acts / (i + 1)
-
-
-# running the bandit algorithm with UCB
-def run_bandit_UCB(K:int, 
-            q_star:np.ndarray,
-            rewards:np.ndarray,
-            optim_acts_ratio: np.ndarray,
-            c: float,
-            num_steps:int=1000) -&gt; None:
-    
-    Q = np.zeros(K)
-    N = np.zeros(K) # The number of times each action been selected    
-    ttl_optim_acts = 0
-
-    for i in range(num_steps):
-        A = None
-
-        # Avoid 0-division:
-        # If there's 0 in N, then choose the action with N = 0
-        if (0 in N):
-            candidates = np.argwhere(N == 0).flatten()
-            A = np.random.choice(candidates)
-        else:
-            confidence = c * np.sqrt(np.log(i) / N)
-            freqs = Q + confidence
-            A = np.argmax(freqs).flatten()
-        
-        R, is_optim = bandit(q_star, A)
-        N[A] += 1
-        Q[A] += (R - Q[A]) / N[A]
-
-        ttl_optim_acts += is_optim
-        rewards[i] = R
-        optim_acts_ratio[i] = ttl_optim_acts / (i + 1)
-
-
-if __name__ == "__main__":
-
-    # Initializing the hyper-parameters
-    K = 10 # Number of arms
-    num_steps = 1000
-    total_rounds = 2000
-    q_star = np.random.normal(loc=0, scale=1.0, size=K)
-    
-    hyper_params = {'UCB': 2, 'epsilon': 0.1}
-
-    rewards = np.zeros(shape=(len(hyper_params), total_rounds, num_steps))
-    optim_acts_ratio = np.zeros(shape=(len(hyper_params), total_rounds, num_steps))
-    
-    # Run bandit alg. with e-greedy
-    for curr_round in range(total_rounds):
-        run_bandit(K, 
-                q_star, 
-                rewards[0, curr_round], 
-                optim_acts_ratio[0, curr_round],
-                epsilon=hyper_params['epsilon'],
-                num_steps=num_steps)
-
-    # Run UCB and get records
-    for curr_round in range(total_rounds):
-        run_bandit_UCB(K, 
-                q_star, 
-                rewards[1, curr_round], 
-                optim_acts_ratio[1, curr_round],
-                c=hyper_params['UCB'],
-                num_steps=num_steps)
-
-    rewards = rewards.mean(axis=1)
-    optim_acts_ratio = optim_acts_ratio.mean(axis=1)
-
-    record = {
-        'hyper_params': hyper_params, 
-        'rewards': rewards,
-        'optim_acts_ratio': optim_acts_ratio
-    }
-
-    for val in optim_acts_ratio:
-        plt.plot(val)
-    plt.show()
-
-    # with open('./history/UCB_record.pkl', 'wb') as f:
-    #     pickle.dump(record, f)</code></pre>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>*.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="*.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_argmax, bandit</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>np.random.seed(SEED)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># running the k-armed bandit algorithm</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_bandit(K:<span class="bu">int</span>, </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            q_star:np.ndarray,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            rewards:np.ndarray,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            optim_acts_ratio:np.ndarray,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            epsilon: <span class="bu">float</span>, </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            num_steps:<span class="bu">int</span><span class="op">=</span><span class="dv">1000</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> np.zeros(K)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> np.zeros(K) <span class="co"># The number of times each action been selected    </span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    ttl_optim_acts <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get action</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.random.random() <span class="op">&gt;</span> epsilon:</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>            A <span class="op">=</span> get_argmax(Q)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            A <span class="op">=</span> np.random.randint(<span class="dv">0</span>, K)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        R, is_optim <span class="op">=</span> bandit(q_star, A)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        N[A] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        Q[A] <span class="op">+=</span> (R <span class="op">-</span> Q[A]) <span class="op">/</span> N[A]</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        ttl_optim_acts <span class="op">+=</span> is_optim</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        rewards[i] <span class="op">=</span> R</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        optim_acts_ratio[i] <span class="op">=</span> ttl_optim_acts <span class="op">/</span> (i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># running the bandit algorithm with UCB</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_bandit_UCB(K:<span class="bu">int</span>, </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>            q_star:np.ndarray,</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>            rewards:np.ndarray,</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>            optim_acts_ratio: np.ndarray,</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>            c: <span class="bu">float</span>,</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>            num_steps:<span class="bu">int</span><span class="op">=</span><span class="dv">1000</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> np.zeros(K)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> np.zeros(K) <span class="co"># The number of times each action been selected    </span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    ttl_optim_acts <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Avoid 0-division:</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>        <span class="co"># If there's 0 in N, then choose the action with N = 0</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="dv">0</span> <span class="kw">in</span> N):</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>            candidates <span class="op">=</span> np.argwhere(N <span class="op">==</span> <span class="dv">0</span>).flatten()</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>            A <span class="op">=</span> np.random.choice(candidates)</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>            confidence <span class="op">=</span> c <span class="op">*</span> np.sqrt(np.log(i) <span class="op">/</span> N)</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>            freqs <span class="op">=</span> Q <span class="op">+</span> confidence</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>            A <span class="op">=</span> np.argmax(freqs).flatten()</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>        R, is_optim <span class="op">=</span> bandit(q_star, A)</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>        N[A] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>        Q[A] <span class="op">+=</span> (R <span class="op">-</span> Q[A]) <span class="op">/</span> N[A]</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>        ttl_optim_acts <span class="op">+=</span> is_optim</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>        rewards[i] <span class="op">=</span> R</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>        optim_acts_ratio[i] <span class="op">=</span> ttl_optim_acts <span class="op">/</span> (i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initializing the hyper-parameters</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    K <span class="op">=</span> <span class="dv">10</span> <span class="co"># Number of arms</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    num_steps <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    total_rounds <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    q_star <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="fl">1.0</span>, size<span class="op">=</span>K)</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    hyper_params <span class="op">=</span> {<span class="st">'UCB'</span>: <span class="dv">2</span>, <span class="st">'epsilon'</span>: <span class="fl">0.1</span>}</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    rewards <span class="op">=</span> np.zeros(shape<span class="op">=</span>(<span class="bu">len</span>(hyper_params), total_rounds, num_steps))</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    optim_acts_ratio <span class="op">=</span> np.zeros(shape<span class="op">=</span>(<span class="bu">len</span>(hyper_params), total_rounds, num_steps))</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run bandit alg. with e-greedy</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> curr_round <span class="kw">in</span> <span class="bu">range</span>(total_rounds):</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>        run_bandit(K, </span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>                q_star, </span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>                rewards[<span class="dv">0</span>, curr_round], </span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>                optim_acts_ratio[<span class="dv">0</span>, curr_round],</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>                epsilon<span class="op">=</span>hyper_params[<span class="st">'epsilon'</span>],</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>                num_steps<span class="op">=</span>num_steps)</span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run UCB and get records</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> curr_round <span class="kw">in</span> <span class="bu">range</span>(total_rounds):</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>        run_bandit_UCB(K, </span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>                q_star, </span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>                rewards[<span class="dv">1</span>, curr_round], </span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>                optim_acts_ratio[<span class="dv">1</span>, curr_round],</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>                c<span class="op">=</span>hyper_params[<span class="st">'UCB'</span>],</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>                num_steps<span class="op">=</span>num_steps)</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>    rewards <span class="op">=</span> rewards.mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>    optim_acts_ratio <span class="op">=</span> optim_acts_ratio.mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> {</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>        <span class="st">'hyper_params'</span>: hyper_params, </span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>        <span class="st">'rewards'</span>: rewards,</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>        <span class="st">'optim_acts_ratio'</span>: optim_acts_ratio</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> val <span class="kw">in</span> optim_acts_ratio:</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>        plt.plot(val)</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>    <span class="co"># with open('./history/UCB_record.pkl', 'wb') as f:</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     pickle.dump(record, f)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 <!-- -->
@@ -1762,87 +1772,87 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a><span class="fu"># Optimistic Initial Values</span></span>
 <span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="in">``` python</span></span>
-<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.python filename="*.py"}</span></span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a><span class="in">import numpy as np</span></span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="in">import matplotlib.pyplot as plt</span></span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="in">import pickle</span></span>
 <span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_argmax, bandit</span>
+<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a><span class="in">from utils import get_argmax, bandit</span></span>
 <span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a>SEED <span class="op">=</span> <span class="dv">200</span></span>
-<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a>np.random.seed(SEED)</span>
+<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a><span class="in">SEED = 200</span></span>
+<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a><span class="in">np.random.seed(SEED)</span></span>
 <span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="co"># running the k-armed bandit algorithm</span></span>
-<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_bandit(K: <span class="bu">int</span>,</span>
-<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a>            q_star: np.ndarray,</span>
-<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a>            rewards: np.ndarray,</span>
-<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a>            optim_acts_ratio: np.ndarray,</span>
-<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a>            epsilon: <span class="bu">float</span>,</span>
-<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a>            num_steps: <span class="bu">int</span><span class="op">=</span><span class="dv">1000</span>,</span>
-<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a>            init_val: <span class="bu">int</span><span class="op">=</span><span class="dv">0</span></span>
-<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> np.ones(K) <span class="op">*</span> init_val   <span class="co"># Initial Q values with OIV</span></span>
-<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a>    ttl_optim_acts <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="in"># running the k-armed bandit algorithm</span></span>
+<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="in">def run_bandit(K: int,</span></span>
+<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a><span class="in">            q_star: np.ndarray,</span></span>
+<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a><span class="in">            rewards: np.ndarray,</span></span>
+<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a><span class="in">            optim_acts_ratio: np.ndarray,</span></span>
+<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a><span class="in">            epsilon: float,</span></span>
+<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a><span class="in">            num_steps: int=1000,</span></span>
+<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a><span class="in">            init_val: int=0</span></span>
+<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a><span class="in">) -&gt; None:</span></span>
+<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a><span class="in">    Q = np.ones(K) * init_val   # Initial Q values with OIV</span></span>
+<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a><span class="in">    ttl_optim_acts = 0</span></span>
+<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a><span class="in">    alpha = 0.1</span></span>
 <span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
-<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a>        <span class="co"># get action</span></span>
-<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.random.random() <span class="op">&gt;</span> epsilon:</span>
-<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a>            A <span class="op">=</span> get_argmax(Q)</span>
-<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a>            A <span class="op">=</span> np.random.randint(<span class="dv">0</span>, K)</span>
-<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a>        R, is_optim <span class="op">=</span> bandit(q_star, A)</span>
-<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a>        Q[A] <span class="op">+=</span> alpha <span class="op">*</span> (R <span class="op">-</span> Q[A])</span>
+<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a><span class="in">    for i in range(num_steps):</span></span>
+<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a><span class="in">        # get action</span></span>
+<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a><span class="in">        A = None</span></span>
+<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a><span class="in">        if np.random.random() &gt; epsilon:</span></span>
+<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a><span class="in">            A = get_argmax(Q)</span></span>
+<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a><span class="in">        else:</span></span>
+<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a><span class="in">            A = np.random.randint(0, K)</span></span>
+<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a><span class="in">        </span></span>
+<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a><span class="in">        R, is_optim = bandit(q_star, A)</span></span>
+<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a><span class="in">        Q[A] += alpha * (R - Q[A])</span></span>
 <span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a>        ttl_optim_acts <span class="op">+=</span> is_optim</span>
-<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a>        rewards[i] <span class="op">=</span> R</span>
-<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a>        optim_acts_ratio[i] <span class="op">=</span> ttl_optim_acts <span class="op">/</span> (i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a><span class="in">        ttl_optim_acts += is_optim</span></span>
+<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a><span class="in">        rewards[i] = R</span></span>
+<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a><span class="in">        optim_acts_ratio[i] = ttl_optim_acts / (i + 1)</span></span>
 <span id="cb6-375"><a href="#cb6-375" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-376"><a href="#cb6-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-377"><a href="#cb6-377" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb6-377"><a href="#cb6-377" aria-hidden="true" tabindex="-1"></a><span class="in">if __name__ == "__main__":</span></span>
 <span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initializing the hyper-parameters</span></span>
-<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a>    K <span class="op">=</span> <span class="dv">10</span> <span class="co"># Number of arms</span></span>
-<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a>    epsilons <span class="op">=</span> [<span class="fl">0.1</span>, <span class="fl">0.0</span>]</span>
-<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a>    init_vals <span class="op">=</span> [<span class="fl">0.0</span>, <span class="fl">5.0</span>]</span>
-<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a>    num_steps <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a>    total_rounds <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a><span class="in">    # Initializing the hyper-parameters</span></span>
+<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a><span class="in">    K = 10 # Number of arms</span></span>
+<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a><span class="in">    epsilons = [0.1, 0.0]</span></span>
+<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a><span class="in">    init_vals = [0.0, 5.0]</span></span>
+<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a><span class="in">    num_steps = 1000</span></span>
+<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a><span class="in">    total_rounds = 2000</span></span>
 <span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize the environment</span></span>
-<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a>    q_star <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="fl">1.0</span>, size<span class="op">=</span>K)</span>
-<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a>    rewards <span class="op">=</span> np.zeros(shape<span class="op">=</span>(<span class="bu">len</span>(epsilons), total_rounds, num_steps))</span>
-<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a>    optim_acts_ratio <span class="op">=</span> np.zeros(shape<span class="op">=</span>(<span class="bu">len</span>(epsilons), total_rounds, num_steps))</span>
-<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run the k-armed bandits alg.</span></span>
-<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, (epsilon, init_val) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(epsilons, init_vals)):</span>
-<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> curr_round <span class="kw">in</span> <span class="bu">range</span>(total_rounds):</span>
-<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a>            run_bandit(K, q_star, </span>
-<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a>                       rewards[i, curr_round], </span>
-<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a>                       optim_acts_ratio[i, curr_round], </span>
-<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a>                       epsilon<span class="op">=</span>epsilon, </span>
-<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a>                       num_steps<span class="op">=</span>num_steps,</span>
-<span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a>                       init_val<span class="op">=</span>init_val)</span>
-<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a>    rewards <span class="op">=</span> rewards.mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a>    optim_acts_ratio <span class="op">=</span> optim_acts_ratio.mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a><span class="in">    # Initialize the environment</span></span>
+<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a><span class="in">    q_star = np.random.normal(loc=0, scale=1.0, size=K)</span></span>
+<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a><span class="in">    rewards = np.zeros(shape=(len(epsilons), total_rounds, num_steps))</span></span>
+<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a><span class="in">    optim_acts_ratio = np.zeros(shape=(len(epsilons), total_rounds, num_steps))</span></span>
+<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a><span class="in">    # Run the k-armed bandits alg.</span></span>
+<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a><span class="in">    for i, (epsilon, init_val) in enumerate(zip(epsilons, init_vals)):</span></span>
+<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a><span class="in">        for curr_round in range(total_rounds):</span></span>
+<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a><span class="in">            run_bandit(K, q_star, </span></span>
+<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a><span class="in">                       rewards[i, curr_round], </span></span>
+<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a><span class="in">                       optim_acts_ratio[i, curr_round], </span></span>
+<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a><span class="in">                       epsilon=epsilon, </span></span>
+<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a><span class="in">                       num_steps=num_steps,</span></span>
+<span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a><span class="in">                       init_val=init_val)</span></span>
+<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a><span class="in">    rewards = rewards.mean(axis=1)</span></span>
+<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a><span class="in">    optim_acts_ratio = optim_acts_ratio.mean(axis=1)</span></span>
 <span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> {</span>
-<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a>        <span class="st">'hyper_params'</span>: [epsilons, init_vals], </span>
-<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a>        <span class="st">'rewards'</span>: rewards,</span>
-<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a>        <span class="st">'optim_acts_ratio'</span>: optim_acts_ratio</span>
-<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a><span class="in">    record = {</span></span>
+<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a><span class="in">        'hyper_params': [epsilons, init_vals], </span></span>
+<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a><span class="in">        'rewards': rewards,</span></span>
+<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a><span class="in">        'optim_acts_ratio': optim_acts_ratio</span></span>
+<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
 <span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> vals <span class="kw">in</span> rewards:</span>
-<span id="cb6-411"><a href="#cb6-411" aria-hidden="true" tabindex="-1"></a>        plt.plot(vals)</span>
-<span id="cb6-412"><a href="#cb6-412" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb6-413"><a href="#cb6-413" aria-hidden="true" tabindex="-1"></a>    <span class="co"># with open('./history/OIV_record.pkl', 'wb') as f:</span></span>
-<span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     pickle.dump(record, f)</span></span>
+<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a><span class="in">    for vals in rewards:</span></span>
+<span id="cb6-411"><a href="#cb6-411" aria-hidden="true" tabindex="-1"></a><span class="in">        plt.plot(vals)</span></span>
+<span id="cb6-412"><a href="#cb6-412" aria-hidden="true" tabindex="-1"></a><span class="in">    plt.show()</span></span>
+<span id="cb6-413"><a href="#cb6-413" aria-hidden="true" tabindex="-1"></a><span class="in">    # with open('./history/OIV_record.pkl', 'wb') as f:</span></span>
+<span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a><span class="in">    #     pickle.dump(record, f)</span></span>
 <span id="cb6-415"><a href="#cb6-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-416"><a href="#cb6-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a><span class="in">``` ptyhon</span></span>
+<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.python filename="*.py"}</span></span>
 <span id="cb6-418"><a href="#cb6-418" aria-hidden="true" tabindex="-1"></a><span class="in">import numpy as np</span></span>
 <span id="cb6-419"><a href="#cb6-419" aria-hidden="true" tabindex="-1"></a><span class="in">import matplotlib.pyplot as plt</span></span>
 <span id="cb6-420"><a href="#cb6-420" aria-hidden="true" tabindex="-1"></a><span class="in">import pickle</span></span>
