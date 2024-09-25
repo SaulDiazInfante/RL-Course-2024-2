@@ -340,21 +340,21 @@
     ]
   },
   {
-    "objectID": "07-Project/project_proposal.html#death-line",
-    "href": "07-Project/project_proposal.html#death-line",
+    "objectID": "07-Project/project_proposal.html#death-line-december-08-2024-235900",
+    "href": "07-Project/project_proposal.html#death-line-december-08-2024-235900",
     "title": "Project proposal",
-    "section": "Death line",
-    "text": "Death line",
+    "section": "Death line: December 08, 2024-23:59:00",
+    "text": "Death line: December 08, 2024-23:59:00",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Project proposal</span>"
     ]
   },
   {
-    "objectID": "07-Project/project_proposal.html#subproducts",
-    "href": "07-Project/project_proposal.html#subproducts",
+    "objectID": "07-Project/project_proposal.html#sub-products",
+    "href": "07-Project/project_proposal.html#sub-products",
     "title": "Project proposal",
-    "section": "Subproducts",
-    "text": "Subproducts\n\nStage 01: Quarto book with MDP formulation\n\nThe page must encloses the report according to the template rl_bookdown_prg.qmd\n\nIntroduction\nFormulation of the Mrakov decision process\nModel dynamics\nDescription and justification of the Cost (reward)\nJustification of the actions\n\nMust include\n\nFigures to illustrates the behavior of the regarding elements:\n\nPolicy\nReward\nValue function eventuated for a one state-action and transition.\nEnvironmental model\n\nReferences via bibtex.\nOutput compilation for HTML and PDF formats.\nThe compiled version has to be mounted ing GitHub or Quarto Pub\n\n\n\n\nStage 02: Python code Implementation\n\nOnly code whit out running errors wold be accepted\nCode must follows the style guide from PEP 08\nAll functions must include doc-strings\nExtras:\nPacking and Documentation extra 200 xps\n\n\n\nStage 03: Video Presentation\nA video mounted in you-tube of at most 20 min with results and insight of your project",
+    "section": "Sub-products",
+    "text": "Sub-products\n\n\n\nDeath lines\n\n\n\n\n\nStage 01\nNovember 02, 2024-23:59\n\n\nStage 02\nDecember 05, 2024-23:59\n\n\n\n\nStage 01: Quarto book with MDP formulation\n\nThe page must encloses the report according to the template rl_bookdown_prg.qmd\n\nIntroduction\nFormulation of the Mrakov decision process\nModel dynamics\nDescription and justification of the Cost (reward)\nJustification of the actions\n\nMust include\n\nFigures to illustrates the behavior of the regarding elements:\n\nPolicy\nReward\nValue function eventuated for a one state-action and transition.\nEnvironmental model\n\nReferences via bibtex.\nOutput compilation for HTML and PDF formats.\nThe compiled version has to be mounted ing GitHub or Quarto Pub\n\n\n\n\nStage 02: Python code Implementation\n\nOnly code whit out running errors wold be accepted\nCode must follows the style guide from PEP 08\nAll functions must include doc-strings\nExtras:\nPacking and Documentation extra 200 xps\n\n\n\nStage 03: Video Presentation\nA video mounted in you-tube of at most 20 min with results and insight of your project",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Project proposal</span>"
     ]
@@ -364,19 +364,19 @@
     "href": "07-Project/project_proposal.html#suggested-project-list",
     "title": "Project proposal",
     "section": "Suggested project list:",
-    "text": "Suggested project list:\n\nReinforcement learning simulation of the TIC-TAC-TOE Game with SARSA or Q-learning Algorithms Bilgin (2020)\nThe movement of a Recycling Robot Bilgin (2020)\nThe replacement of a bus engine (Rust 1987) from (see pd.pdf, p.130 Stachurski. 2024)\nOptimal Inventories (see dp.pdf, p. 147 Stachurski. 2024)\nMulti-Armed Bandits Bilgin (2020)\n\n\n\n\n\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build Next-Generation, Self-Learning Models Using Reinforcement Learning Techniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nRust, John. 1987. “Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher.” Econometrica 55 (5): 999. https://doi.org/10.2307/1911259.\n\n\nStachurski., John. 2024. “Dynamic Programming Volume 1.” GitHub Repository. https://github.com/QuantEcon/book-dp1-public; GitHub.",
+    "text": "Suggested project list:\n\nReinforcement learning simulation of the TIC-TAC-TOE Game with SARSA or Q-learning Algorithms Bilgin (2020)\nThe movement of a Recycling Robot Bilgin (2020)\nThe replacement of a bus engine (Rust 1987) from (see pd.pdf, p.130 Stachurski. 2024)\nOptimal Inventories (see dp.pdf, p. 147 Stachurski. 2024)\nMulti-Armed Bandits Bilgin (2020)",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Project proposal</span>"
     ]
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "For the cured R-quarto material see https://github.com/SaulDiazInfante/intro-quarto-unison-2024.\n\n\nBertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control.\nVol. I. Third. Athena Scientific,\nBelmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build\nNext-Generation, Self-Learning Models Using Reinforcement Learning\nTechniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrandimarte, Paolo. 2013. Numerical Methods in Finance and\nEconomics: A MATLAB-Based Introduction. 2nd ed. Hoboken, New\nJersey: John Wiley & Sons.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science\nand Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nRust, John. 1987. “Optimal Replacement of GMC\nBus Engines: An Empirical Model of Harold Zurcher.”\nEconometrica 55 (5): 999. https://doi.org/10.2307/1911259.\n\n\nStachurski., John. 2024. “Dynamic Programming Volume 1.”\nGitHub Repository. https://github.com/QuantEcon/book-dp1-public; GitHub.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement\nLearning: An Introduction. Second. Adaptive Computation and Machine\nLearning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. 2022. Algorithms for Reinforcement Learning.\nVol. 9. Synthesis Lectures on Artificial Intelligence and Machine\nLearning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
+    "objectID": "07-Project/project_proposal.html#project-lits",
+    "href": "07-Project/project_proposal.html#project-lits",
+    "title": "Project proposal",
+    "section": "Project Lits",
+    "text": "Project Lits\n\nProject list\n\n\n\n\n\n\n\nProject\nAuthor\nReference\n\n\n\n\nDynamic Portfolio Analysis\nGABRIEL MIRANDA GAMEZ\nSec. 4.3, Bertsekas, 2005. Dynamic Programming and Optimal Control. Vol. I. Third. Athena Scientific, Belmont, MA\n\n\nLearning the Best Diabetes Medication\nEDGAR EVERARDO MARTINEZ GARCIA\nPowell, Sequential Decision Analytics and Modeling: Modeling with Python\n\n\nA MDP model for the collective behavior in vaccination campaigns\nIRASEMA PEDROZA MEZA\n\n\n\nModelo de inventario para alimentos pedecederos\nDAVID PEÑA PERALTA\nStachurski., John. 2024. “Dynamic Programming Volume 1.” GitHub Repository. https://github.com/QuantEcon/book-dp1-public; GitHub.\n\n\nA inventory model OR The great War Fish\nJAZMIN SARAHI FLORES GOMEZ\n(Levhari and Mirman 1982) Jazmin Master Thesis, Levhari, D. A. V. I. D., & Mirman, L. J. (1982). The great fish war: An example using a dynamic Cournot-Nash solution. Essays in the Economics of Renewable Resources, LJ Mirman and DF Spulber (Eds.), North-Holland, 243-258.\n\n\nAnalyzing Learned Markov Decision Processes using Model Checking for Providing Tactical Advice in Professional Soccer\nJOSE ITALO SANCHEZ BERMUDEZ\n(Van Roy et al. 2021) Van Roy, M., Yang, W. C., De Raedt, L., & Davis, J. (2021, September). Analyzing learned Markov decision processes using model checking for providing tactical advice in professional soccer. In Ai for sports analytics (aisa) workshop at ijcai.\n\n\n\n\n\n\n\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build Next-Generation, Self-Learning Models Using Reinforcement Learning Techniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nLevhari, DAVID, and Leonard J Mirman. 1982. “The Great Fish War: An Example Using a Dynamic Cournot-Nash Solution.” Essays in the Economics of Renewable Resources, LJ Mirman and DF Spulber (Eds.), North-Holland, 243–58.\n\n\nRust, John. 1987. “Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher.” Econometrica 55 (5): 999. https://doi.org/10.2307/1911259.\n\n\nStachurski., John. 2024. “Dynamic Programming Volume 1.” GitHub Repository. https://github.com/QuantEcon/book-dp1-public; GitHub.\n\n\nVan Roy, Maaike, Wen-Chi Yang, Luc De Raedt, and Jesse Davis. 2021. “Analyzing Learned Markov Decision Processes Using Model Checking for Providing Tactical Advice in Professional Soccer.” In Ai for Sports Analytics (Aisa) Workshop at Ijcai.",
     "crumbs": [
-      "References"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Project proposal</span>"
     ]
   },
   {
