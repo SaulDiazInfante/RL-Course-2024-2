@@ -309,21 +309,27 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/bibtex">bibtex</a></span><span class="op">)</span></span>
 <span><span class="co">## Activate the Core Packages</span></span>
-<span><span class="va">biblio</span> <span class="op">&lt;-</span> <span class="fu">bibtex</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/bibtex/reference/read.bib.html">read.bib</a></span><span class="op">(</span><span class="st">"../references.bib"</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co">## Brings in a core of useful functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">biblio</span> <span class="op">&lt;-</span> <span class="fu">bibtex</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/bibtex/reference/read.bib.html">read.bib</a></span><span class="op">(</span><span class="st">"../references.bib"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
+<pre><code>ignoring entry 'powell2022sequential' (line 154) because :
+    A bibentry of bibtype 'Article' has to specify the field: journal</code></pre>
+</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co">## Brings in a core of useful functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
 ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✔ purrr     1.0.2     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span>        <span class="co">## Tables</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span>        <span class="co">## Tables</span></span>
 <span><span class="co">## Specific packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://kim.quarto.pub/milestones--bar-timelines">milestones</a></span><span class="op">)</span></span>
 <span><span class="co">## Initialize defaults</span></span>
@@ -337,7 +343,7 @@ e.g.:
   dat &lt;- vroom(...)
   problems(dat)</code></pre>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Sort the table by date</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Sort the table by date</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span></span>
 <span></span>
@@ -349,23 +355,23 @@ e.g.:
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_source_note.html">tab_source_note</a></span><span class="op">(</span>source_note <span class="op">=</span> <span class="st">"Source: Sutton and Barto (2018)"</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<div id="tqjncldnzz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tqjncldnzz table {
+<div id="ejlzqrlmrc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ejlzqrlmrc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tqjncldnzz thead, #tqjncldnzz tbody, #tqjncldnzz tfoot, #tqjncldnzz tr, #tqjncldnzz td, #tqjncldnzz th {
+#ejlzqrlmrc thead, #ejlzqrlmrc tbody, #ejlzqrlmrc tfoot, #ejlzqrlmrc tr, #ejlzqrlmrc td, #ejlzqrlmrc th {
   border-style: none;
 }
 
-#tqjncldnzz p {
+#ejlzqrlmrc p {
   margin: 0;
   padding: 0;
 }
 
-#tqjncldnzz .gt_table {
+#ejlzqrlmrc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -391,12 +397,12 @@ e.g.:
   border-left-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_caption {
+#ejlzqrlmrc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tqjncldnzz .gt_title {
+#ejlzqrlmrc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -408,7 +414,7 @@ e.g.:
   border-bottom-width: 0;
 }
 
-#tqjncldnzz .gt_subtitle {
+#ejlzqrlmrc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -420,7 +426,7 @@ e.g.:
   border-top-width: 0;
 }
 
-#tqjncldnzz .gt_heading {
+#ejlzqrlmrc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -432,13 +438,13 @@ e.g.:
   border-right-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_bottom_border {
+#ejlzqrlmrc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_col_headings {
+#ejlzqrlmrc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -453,7 +459,7 @@ e.g.:
   border-right-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_col_heading {
+#ejlzqrlmrc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -473,7 +479,7 @@ e.g.:
   overflow-x: hidden;
 }
 
-#tqjncldnzz .gt_column_spanner_outer {
+#ejlzqrlmrc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -485,15 +491,15 @@ e.g.:
   padding-right: 4px;
 }
 
-#tqjncldnzz .gt_column_spanner_outer:first-child {
+#ejlzqrlmrc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tqjncldnzz .gt_column_spanner_outer:last-child {
+#ejlzqrlmrc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tqjncldnzz .gt_column_spanner {
+#ejlzqrlmrc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -505,11 +511,11 @@ e.g.:
   width: 100%;
 }
 
-#tqjncldnzz .gt_spanner_row {
+#ejlzqrlmrc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tqjncldnzz .gt_group_heading {
+#ejlzqrlmrc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -535,7 +541,7 @@ e.g.:
   text-align: left;
 }
 
-#tqjncldnzz .gt_empty_group_heading {
+#ejlzqrlmrc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -550,15 +556,15 @@ e.g.:
   vertical-align: middle;
 }
 
-#tqjncldnzz .gt_from_md > :first-child {
+#ejlzqrlmrc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tqjncldnzz .gt_from_md > :last-child {
+#ejlzqrlmrc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tqjncldnzz .gt_row {
+#ejlzqrlmrc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -577,7 +583,7 @@ e.g.:
   overflow-x: hidden;
 }
 
-#tqjncldnzz .gt_stub {
+#ejlzqrlmrc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -590,7 +596,7 @@ e.g.:
   padding-right: 5px;
 }
 
-#tqjncldnzz .gt_stub_row_group {
+#ejlzqrlmrc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -604,15 +610,15 @@ e.g.:
   vertical-align: top;
 }
 
-#tqjncldnzz .gt_row_group_first td {
+#ejlzqrlmrc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tqjncldnzz .gt_row_group_first th {
+#ejlzqrlmrc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tqjncldnzz .gt_summary_row {
+#ejlzqrlmrc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -622,16 +628,16 @@ e.g.:
   padding-right: 5px;
 }
 
-#tqjncldnzz .gt_first_summary_row {
+#ejlzqrlmrc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_first_summary_row.thick {
+#ejlzqrlmrc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tqjncldnzz .gt_last_summary_row {
+#ejlzqrlmrc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -641,7 +647,7 @@ e.g.:
   border-bottom-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_grand_summary_row {
+#ejlzqrlmrc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -651,7 +657,7 @@ e.g.:
   padding-right: 5px;
 }
 
-#tqjncldnzz .gt_first_grand_summary_row {
+#ejlzqrlmrc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -661,7 +667,7 @@ e.g.:
   border-top-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_last_grand_summary_row_top {
+#ejlzqrlmrc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -671,11 +677,11 @@ e.g.:
   border-bottom-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_striped {
+#ejlzqrlmrc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tqjncldnzz .gt_table_body {
+#ejlzqrlmrc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -684,7 +690,7 @@ e.g.:
   border-bottom-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_footnotes {
+#ejlzqrlmrc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -698,7 +704,7 @@ e.g.:
   border-right-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_footnote {
+#ejlzqrlmrc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -707,7 +713,7 @@ e.g.:
   padding-right: 5px;
 }
 
-#tqjncldnzz .gt_sourcenotes {
+#ejlzqrlmrc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -721,7 +727,7 @@ e.g.:
   border-right-color: #D3D3D3;
 }
 
-#tqjncldnzz .gt_sourcenote {
+#ejlzqrlmrc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -729,72 +735,72 @@ e.g.:
   padding-right: 5px;
 }
 
-#tqjncldnzz .gt_left {
+#ejlzqrlmrc .gt_left {
   text-align: left;
 }
 
-#tqjncldnzz .gt_center {
+#ejlzqrlmrc .gt_center {
   text-align: center;
 }
 
-#tqjncldnzz .gt_right {
+#ejlzqrlmrc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tqjncldnzz .gt_font_normal {
+#ejlzqrlmrc .gt_font_normal {
   font-weight: normal;
 }
 
-#tqjncldnzz .gt_font_bold {
+#ejlzqrlmrc .gt_font_bold {
   font-weight: bold;
 }
 
-#tqjncldnzz .gt_font_italic {
+#ejlzqrlmrc .gt_font_italic {
   font-style: italic;
 }
 
-#tqjncldnzz .gt_super {
+#ejlzqrlmrc .gt_super {
   font-size: 65%;
 }
 
-#tqjncldnzz .gt_footnote_marks {
+#ejlzqrlmrc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tqjncldnzz .gt_asterisk {
+#ejlzqrlmrc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tqjncldnzz .gt_indent_1 {
+#ejlzqrlmrc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tqjncldnzz .gt_indent_2 {
+#ejlzqrlmrc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tqjncldnzz .gt_indent_3 {
+#ejlzqrlmrc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tqjncldnzz .gt_indent_4 {
+#ejlzqrlmrc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tqjncldnzz .gt_indent_5 {
+#ejlzqrlmrc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tqjncldnzz .katex-display {
+#ejlzqrlmrc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tqjncldnzz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ejlzqrlmrc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -850,7 +856,7 @@ e.g.:
 </div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Adjust some defaults</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Adjust some defaults</span></span>
 <span><span class="va">column</span><span class="op">$</span><span class="va">color</span> <span class="op">&lt;-</span> <span class="st">"orange"</span></span>
 <span><span class="va">column</span><span class="op">$</span><span class="va">size</span>  <span class="op">&lt;-</span> <span class="fl">15</span></span>
 <span><span class="va">column</span><span class="op">$</span><span class="va">source_info</span> <span class="op">&lt;-</span> <span class="st">"Source: Sutton and Barto (2018)"</span></span>
@@ -1521,10 +1527,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-next">
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># List of Home Works and due dates {.unnumbered}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>{{&lt; include _hw_001.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># List of Home Works and due dates {.unnumbered}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>{{&lt; include _hw_001.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
