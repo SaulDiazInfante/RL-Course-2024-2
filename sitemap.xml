@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/index.html</loc>
-    <lastmod>2024-09-18T17:50:40.522Z</lastmod>
+    <lastmod>2024-10-07T21:36:55.257Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/01-introduction/general_intro.html</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/03-multiArmedBandit/multiarmed_bandits.html</loc>
-    <lastmod>2024-10-04T20:03:31.198Z</lastmod>
+    <lastmod>2024-10-07T21:07:40.371Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/04-finiteMDPs/mdp.html</loc>
@@ -42,6 +42,6 @@
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/homeworks/home_works_list.html</loc>
-    <lastmod>2024-08-06T17:48:06.262Z</lastmod>
+    <lastmod>2024-10-07T18:06:07.929Z</lastmod>
   </url>
 </urlset>
