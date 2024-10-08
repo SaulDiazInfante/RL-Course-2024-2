@@ -16,7 +16,7 @@ A very important feature distinguishing reinforcement learning from other types
 of learning is that it uses training information to evaluate the actions taken,
 rather than instruct by giving correct actions.
 
-# A $k$-armed Bandit Problem
+## A $k$-armed Bandit Problem
 
 We consider the following setup:
 
@@ -125,8 +125,8 @@ $$
     $$
 :::
 
-```{python}
-
+```{.python filename="k_armed_testbed.py"}
+#k_armed_testbed.py
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -184,3 +184,668 @@ plt.tight_layout()
 plt.show()
 
 ```
+
+We consider a set of 2000 randomly generated $k$-armed bandit problems with $k$
+= 10. For each bandit problem, such as the one shown in the output of the above
+code. The action values, $q_{*} (a), a = 1, . . . , 10$, were selected according
+to a normal (Gaussian) distribution with mean 0 and variance 1. Thus when we
+apply a learning method to this problem, the selected action $A_t$ a time step
+$t$ the regarding reward $R_t$ is sampling from a normal distribution $$
+  R_{t} \sim \mathcal{N}(q_{*}(A_t), 1).
+$$ Sutton and Barto [@Sutton2018, p.28] calls this suite of test tasks the
+10-armed test-bed. By using this suit of benchmarks, we can measure the
+performance of any learning method. In fact we also can observe its behavior
+while the learning improves with experience of 1000 time steps, when it is
+applied to a selected bandit of this bed. This makes up one run. Thus, if we
+**iterate 2000** independent runs, each with different bandit problem, we can
+obtain a measure of learning algorithm's average behavior.
+
+Next we code functions to deploy the above experiment with $\epsilon$-greedy
+actions
+
+``` {.python filename="utils.py"}
+from typing import Any
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy import dtype, ndarray, signedinteger
+
+
+# Get the action with the max Q value
+def get_argmax(G:np.ndarray) -> ndarray[Any, dtype[signedinteger[Any]]]:
+    candidates = np.argwhere(G == G.max()).flatten()
+    # return the only index if there's only one max
+    if len(candidates) == 1:
+        return candidates[0]
+    else:
+        # instead break the tie randomly
+        return np.random.choice(candidates)
+
+
+# Select arm and get the reward
+def bandit(q_star:np.ndarray, 
+           act:int) -> tuple:
+    real_rewards = np.random.normal(q_star, 1.0)
+    # optim_choice = int(real_rewards[act] == real_rewards.max())
+    optim_choice = int(q_star[act] == q_star.max())
+    return real_rewards[act], optim_choice
+```
+
+Please save the above script as `utils.py` in the firs level of the regrding
+project such that we can imported by the ist name fora example by
+`from utils import bandit, plots`
+
+## Incremental Implementation
+
+Certainly! To express a more efficient method for estimating action values, we
+focus on using an **incremental update formula** rather than recalculating the
+average based on all past observations. The goal is to maintain a constant
+memory footprint and fixed computation per time step.
+
+### Incremental Update Formula for Action-Value Estimation
+
+Let $R_i$ denote the reward received after the $i$-th selection of the
+action.$Q_n$ denote the estimate of the action value after the action has been
+chosen $n-1$ times.
+
+Instead of computing $Q_n$ as the sample average of all observed rewards (which
+requires storing and summing all rewards), we use the **incremental formula**:
+
+$$
+    Q_n = Q_{n-1} + \alpha \left(R_n - Q_{n-1}\right) 
+$$
+
+Where: $Q_{n-1}$ is the previous estimate of the action value. $R_n$ is the
+reward received on the $n$-th selection. $\alpha$ is a **constant step size**,
+often set as $\dfrac{1}{n}$ to mimic the behavior of sample averaging when the
+number of observations grows.
+
+### Derivation of the Incremental Formula
+
+1.  Start with the definition of the action value as the sample mean:
+    $\displaystyle Q_n =\dfrac{1}{n} \sum_{i=1}^{n} R_i$
+
+2.  Express $Q_n$ in terms of $Q_{n-1}$: $$
+    Q_n = \frac{1}{n}
+    \left[ \sum_{i=1}^{n-1} R_i + R_n \right]
+    $$
+
+This can be rearranged as: $$
+        Q_n = \frac{n-1}{n} \cdot Q_{n-1} +
+    \frac{1}{n} \cdot R_n. 
+$$
+
+3.  Notice that 
+		$\displaystyle
+    	\frac{n-1}{n} \cdot Q_{n-1} = Q_{n-1} - \frac{1}{n}\cdot Q_{n-1}
+    $, so: 
+    $$ 
+    	Q_n = Q_{n-1} + \frac{1}{n} \left(R_n -Q_{n-1}\right)
+    $$
+
+Here, $\alpha = \dfrac{1}{n}$ adapts to the number of observations, ensuring the
+update balances the influence of new and past rewards.
+
+### Advantages of the Incremental Method
+
+-   **Constant Memory**: The method only requires storing $Q_{n-1}$ and $R_n$,
+    avoiding the need to keep all past rewards.
+-   **Fixed Computation**: Each update involves a fixed, small number of
+    operations, regardless of $n$.
+
+This approach efficiently updates the action-value estimate with minimal
+resources, making it suitable for online learning algorithms and scenarios where
+computational efficiency is critical.
+
+![Incremental
+algorithm](/assets/ch_03/mab_simple_algorithm.png){fig-align="center"
+fig-env="figure"}
+
+Bellow a python implementation.
+
+``` {.python filename="example_2_2_bandits_algo.py"}
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.use('qt5agg')
+import pickle
+
+from utils import get_argmax, bandit
+
+#SEED = 123456
+#np.random.seed(SEED)
+
+# running the k-armed bandit algorithm
+def run_bandit(K:int, 
+            q_star:np.ndarray,
+            rewards:np.ndarray,
+            optim_acts_ratio:np.ndarray,
+            epsilon:float, 
+            num_steps:int=1000) -> None:
+    
+    Q = np.zeros(K)     # Initialize Q values
+    N = np.zeros(K)     # The number of times each action been selected
+    ttl_optim_acts = 0
+
+    for i in range(num_steps):
+        # get action
+        A = None
+        if np.random.random() > epsilon:
+            A = get_argmax(Q)
+        else:
+            A = np.random.randint(0, K)
+        
+        R, is_optim = bandit(q_star, A)
+        N[A] += 1
+        Q[A] += (R - Q[A]) / N[A]
+
+        ttl_optim_acts += is_optim
+        rewards[i] = R
+        optim_acts_ratio[i] = ttl_optim_acts / (i + 1)
+
+
+if __name__ == "__main__":
+
+    # Initializing the hyperparameters
+    K = 10  # Number of arms
+    epsilons = [0.0, 0.01, 0.1]
+    num_steps = 1000
+    total_rounds = 1000
+
+    # Initialize the environment
+    q_star = np.random.normal(loc=0, scale=1.0, size=K)
+    rewards = np.zeros(shape=(len(epsilons), total_rounds, num_steps))
+    optim_acts_ratio = np.zeros(shape=(len(epsilons), total_rounds, num_steps))
+    
+    # Run the k-armed bandits alg.
+    for i, epsilon in enumerate(epsilons):
+        for curr_round in range(total_rounds):
+            run_bandit(K, q_star, 
+                       rewards[i, curr_round], 
+                       optim_acts_ratio[i, curr_round], 
+                       epsilon, 
+                       num_steps)
+    
+    rewards = rewards.mean(axis=1)
+    optim_acts_ratio = optim_acts_ratio.mean(axis=1)
+
+    record = {
+        'hyper_params': epsilons, 
+        'rewards': rewards,
+        'optim_acts_ratio': optim_acts_ratio
+    }
+
+    fig_01, ax_01 = plt.subplots()
+    fig_02, ax_02 = plt.subplots()
+    for i, ratio in enumerate(optim_acts_ratio):
+        ax_01.plot(
+                ratio,
+                label=r'$\epsilon={epsilon_i}$'.format(epsilon_i=epsilons[i])
+        )
+    
+    for i, reward in enumerate(rewards):
+        ax_02.plot(
+                reward,
+                label=r'$\epsilon={epsilon_i}$'.format(epsilon_i=epsilons[i])
+                )
+    ax_01.set_xlabel(r'$t$', fontsize=12)
+    ax_01.set_ylabel(r'Optimal Action', fontsize=12)
+    ax_01.legend(loc='best')
+    ax_02.set_xlabel(r'$t$', fontsize=12)
+    ax_02.set_ylabel(r'Reward', fontsize=12)
+    ax_02.legend(loc='best')
+    plt.show()
+    
+    # with open('./history/record.pkl', 'wb') as f:
+    #     pickle.dump(record, f)
+```
+
+## Tracking a Nonstationary Problem
+
+The averaging methods we have discussed are suitable for stationary bandit
+problems, where the reward probabilities remain constant over time. However, in
+reinforcement learning, we often encounter non-stationary problems where it
+makes more sense to give greater weight to recent rewards than to rewards from a
+long time ago. One popular approach to achieve this is by using a constant
+step-size parameter.
+
+#TODO: Formulation with constant alpha and implications
+
+## Optimistic Initial Values
+
+``` {.python filename="example_2_3_OIV.py"}
+import numpy as np
+import matplotlib.pyplot as plt
+import pickle
+
+from utils import get_argmax, bandit
+
+SEED = 200
+np.random.seed(SEED)
+
+
+# running the k-armed bandit algorithm
+def run_bandit(K: int,
+            q_star: np.ndarray,
+            rewards: np.ndarray,
+            optim_acts_ratio: np.ndarray,
+            epsilon: float,
+            num_steps: int=1000,
+            init_val: int=0
+) -> None:
+    Q = np.ones(K) * init_val   # Initial Q values with OIV
+    ttl_optim_acts = 0
+    alpha = 0.1
+
+    for i in range(num_steps):
+        # get action
+        A = None
+        if np.random.random() > epsilon:
+            A = get_argmax(Q)
+        else:
+            A = np.random.randint(0, K)
+        
+        R, is_optim = bandit(q_star, A)
+        Q[A] += alpha * (R - Q[A])
+
+        ttl_optim_acts += is_optim
+        rewards[i] = R
+        optim_acts_ratio[i] = ttl_optim_acts / (i + 1)
+
+
+if __name__ == "__main__":
+
+    # Initializing the hyper-parameters
+    K = 10 # Number of arms
+    epsilons = [0.1, 0.0]
+    init_vals = [0.0, 5.0]
+    num_steps = 1000
+    total_rounds = 2000
+
+    # Initialize the environment
+    q_star = np.random.normal(loc=0, scale=1.0, size=K)
+    rewards = np.zeros(shape=(len(epsilons), total_rounds, num_steps))
+    optim_acts_ratio = np.zeros(shape=(len(epsilons), total_rounds, num_steps))
+    
+    # Run the k-armed bandits alg.
+    for i, (epsilon, init_val) in enumerate(zip(epsilons, init_vals)):
+        for curr_round in range(total_rounds):
+            run_bandit(K, q_star, 
+                       rewards[i, curr_round], 
+                       optim_acts_ratio[i, curr_round], 
+                       epsilon=epsilon, 
+                       num_steps=num_steps,
+                       init_val=init_val)
+    
+    rewards = rewards.mean(axis=1)
+    optim_acts_ratio = optim_acts_ratio.mean(axis=1)
+
+    record = {
+        'hyper_params': [epsilons, init_vals], 
+        'rewards': rewards,
+        'optim_acts_ratio': optim_acts_ratio
+    }
+
+    for vals in rewards:
+        plt.plot(vals)
+    plt.show()
+    # with open('./history/OIV_record.pkl', 'wb') as f:
+    #     pickle.dump(record, f)
+```
+
+## Upper-Confidence-Bound Action Selection
+
+``` {.python filename="example_2_4_UCB.py"}
+from typing import Any
+import numpy as np
+import matplotlib.pyplot as plt
+import pickle
+from numpy import dtype, ndarray
+from tqdm import tqdm
+from utils import get_argmax, bandit
+
+SEED = 200
+np.random.seed(SEED)
+
+
+# running the k-armed bandit algorithm
+def run_bandit(
+        K: int,
+        q_star: np.ndarray,
+        rewards: np.ndarray,
+        optim_acts_ratio: np.ndarray,
+        epsilon: float,
+        num_steps: int = 1000
+        ) -> None:
+    Q = np.zeros(K)
+    N = np.zeros(K)  # The number of times each action been selected
+    ttl_optim_acts = 0
+    
+    for i in range(num_steps):
+        A = None
+        # Get action
+        if np.random.random() > epsilon:
+            A = get_argmax(Q)
+        else:
+            A = np.random.randint(0, K)
+        
+        R, is_optim = bandit(q_star, A)
+        N[A] += 1
+        Q[A] += (R - Q[A]) / N[A]
+        
+        ttl_optim_acts += is_optim
+        rewards[i] = R
+        optim_acts_ratio[i] = ttl_optim_acts / (i + 1)
+
+
+# running the bandit algorithm with UCB
+def run_bandit_UCB(
+        K: int,
+        q_star: np.ndarray,
+        rewards: np.ndarray,
+        optim_acts_ratio: np.ndarray,
+        c: float,
+        num_steps: int = 1000
+        ) -> None:
+    Q = np.zeros(K)
+    N = np.zeros(K)  # The number of times each action been selected
+    ttl_optim_acts = 0
+    
+    for i in range(num_steps):
+        A = None
+        
+        # Avoid 0-division:
+        # If there's 0 in N, then choose the action with N = 0
+        if 0 in N:
+            candidates = np.argwhere(N == 0).flatten()
+            A = np.random.choice(candidates)
+        else:
+            confidence = c * np.sqrt(np.log(i) / N)
+            freqs: ndarray[Any, dtype[Any]] | Any = Q + confidence
+            A = np.argmax(freqs).flatten()
+        
+        R, is_optim = bandit(q_star, A)
+        N[A] += 1
+        Q[A] += (R - Q[A]) / N[A]
+        
+        ttl_optim_acts += is_optim
+        rewards[i] = R
+        optim_acts_ratio[i] = ttl_optim_acts / (i + 1)
+
+
+if __name__ == "__main__":
+    
+    # Initializing the hyper-parameters
+    K = 10  # Number of arms
+    num_steps = 1000
+    total_rounds = 100
+    q_star = np.random.normal(loc=0, scale=1.0, size=K)
+    hyper_params = {'UCB': 2, 'epsilon': 0.1}
+    rewards = np.zeros(shape=(len(hyper_params), total_rounds, num_steps))
+    optim_acts_ratio = np.zeros(
+            shape=(len(hyper_params), total_rounds, num_steps)
+            )
+    
+    # Run bandit alg. with e-greedy
+    for curr_round in tqdm(range(total_rounds)):
+        # for curr_round in range(total_rounds):
+        run_bandit(
+                K,
+                q_star,
+                rewards[0, curr_round],
+                optim_acts_ratio[0, curr_round],
+                epsilon=hyper_params['epsilon'],
+                num_steps=num_steps
+                )
+    
+    # Run UCB and get records
+    for curr_round in tqdm(range(total_rounds)):
+        # for curr_round in range(total_rounds):
+        run_bandit_UCB(
+                K,
+                q_star,
+                rewards[1, curr_round],
+                optim_acts_ratio[1, curr_round],
+                c=hyper_params['UCB'],
+                num_steps=num_steps
+                )
+    
+    rewards = rewards.mean(axis=1)
+    optim_acts_ratio = optim_acts_ratio.mean(axis=1)
+    
+    record = {
+            'hyper_params': hyper_params,
+            'rewards': rewards,
+            'optim_acts_ratio': optim_acts_ratio
+            }
+    data = rewards
+    plt.figure(figsize=(10, 6), dpi=150)
+    plt.grid(c='lightgray')
+    plt.margins(0.02)
+    # revers the loop for a better visualization
+    # colors = ['cornflowerblue', 'tomato', 'lightseagreen']
+    colors = ['r', 'b']
+    meta = record['hyper_params']
+    optim_ratio = (optim_acts_ratio * 100)
+    legends = [f'$\epsilon$-greedy $\epsilon$={meta["epsilon"]}',
+               f'UCB c={meta["UCB"]}']
+    fontdict = {
+            'fontsize': 12,
+            'fontweight': 'bold',
+            }
+    plt.plot(rewards[0, :], linestyle='-', linewidth=2 )
+    plt.plot(rewards[1, :], linestyle='-', linewidth=2)
+    plt.tick_params(axis='both', labelsize=10)
+    plt.xlabel('step', fontdict=fontdict)
+    plt.ylabel('reward', fontdict=fontdict)
+    plt.legend(loc=4, fontsize=13)
+plt.show()
+
+with open('./history/UCB_record.pkl', 'wb') as f:
+    pickle.dump(record, f)
+```
+
+## Gradient Bandit method
+
+``` {.python filename="example_2_5_gradient.py"}
+import numpy as np
+import matplotlib.pyplot as plt
+import pickle
+import itertools
+
+from utils import bandit
+
+SEED = 50
+np.random.seed(SEED)
+
+
+def update_policy(H: np.ndarray) -> np.ndarray:
+    return np.exp(H) / np.exp(H).sum()
+
+
+def update_H(
+        H: np.ndarray,
+        policy: np.ndarray,
+        alpha: float,
+        A: int,
+        curr_reward: float,
+        avg_reward: float
+        ) -> np.ndarray:
+    selec = np.zeros(len(H), dtype=np.float32)
+    selec[A] = 1.0
+    H = H + alpha * (curr_reward - avg_reward) * (selec - policy)
+    return H
+
+
+# running the k-armed bandit algorithm
+def run_bandit(
+        K: int,
+        q_star: np.ndarray,
+        rewards: np.ndarray,
+        optim_acts_ratio: np.ndarray,
+        alpha: float,
+        baseline: bool,
+        num_steps: int = 1000
+        ) -> None:
+    H = np.zeros(K, dtype=np.float32)  # initialize preference
+    policy = np.ones(K, dtype=np.float32) / K
+    ttl_reward = 0
+    ttl_optim_acts = 0
+    
+    for i in range(num_steps):
+        
+        A = np.random.choice(np.arange(K), p=policy)
+        reward, is_optim = bandit(q_star, A)
+        avg_reward = 0
+        
+        if baseline:
+            # Get average reward unitl timestep=i
+            avg_reward = ttl_reward / i if i > 0 else reward
+        
+        # Update preference and policy
+        H = update_H(H, policy, alpha, A, reward, avg_reward)
+        policy = update_policy(H)
+        
+        ttl_reward += reward
+        ttl_optim_acts += is_optim
+        rewards[i] = reward
+        optim_acts_ratio[i] = ttl_optim_acts / (i + 1)
+
+
+if __name__ == "__main__":
+    
+    # Initializing the hyperparameters
+    K = 10  # Number of arms
+    alphas = [0.1, 0.4]
+    baselines = [False, True]
+    hyper_params = list(itertools.product(baselines, alphas))
+    
+    num_steps = 1000
+    total_rounds = 2000
+    
+    rewards = np.zeros(shape=(len(hyper_params), total_rounds, num_steps))
+    optim_acts_ratio = np.zeros(
+        shape=(len(hyper_params), total_rounds, num_steps)
+        )
+    q_star = np.random.normal(loc=4.0, scale=1.0, size=K)
+    
+    print(hyper_params)
+    for i, (is_baseline, alpha) in enumerate(hyper_params):
+        for curr_round in range(total_rounds):
+            run_bandit(
+                K,
+                q_star,
+                rewards[i, curr_round],
+                optim_acts_ratio[i, curr_round],
+                alpha,
+                is_baseline,
+                num_steps
+                )
+    
+    optim_acts_ratio = optim_acts_ratio.mean(axis=1)
+    
+    for val in optim_acts_ratio:
+        plt.plot(val)
+    plt.show()
+    
+    record = {
+            'hyper_params': hyper_params,
+            'optim_acts_ratio': optim_acts_ratio
+            }
+    
+    with open('./history/sga_record.pkl', 'wb') as f:
+         pickle.dump(record, f)
+```
+
+## Scripts for visualization
+
+Run the following script and save the output.
+
+``` {.python filename="plot_gradient.py"}
+
+import matplotlib.pyplot as plt
+import pickle
+import numpy as np
+
+
+# Plot results
+def plot(
+        data: np.ndarray,
+        legends: list,
+        xlabel: str,
+        ylabel: str,
+        filename: str = None,
+        fn=lambda: None, ) -> None:
+    fontdict = {
+            'fontsize': 12,
+            'fontweight': 'bold',
+            }
+    
+    plt.figure(figsize=(10, 6), dpi=150)
+    plt.grid(c='lightgray')
+    plt.margins(0.02)
+    
+    # revers the loop for a better visualization
+    colors = ['navy', 'lightblue', 'tomato', 'pink']
+    for i in range(len(data) - 1, -1, -1):
+        # data[i] = uniform_filter(data[i])
+        plt.plot(data[i], label=legends[i], linewidth=1.5, c=colors[i])
+    
+    # get rid of the top/right frame lines
+    for i, spine in enumerate(plt.gca().spines.values()):
+        if i in [0, 2]:
+            spine.set_linewidth(1.5)
+            continue
+        spine.set_visible(False)
+    
+    plt.tick_params(axis='both', labelsize=10)
+    plt.xlabel(xlabel, fontdict=fontdict)
+    plt.ylabel(ylabel, fontdict=fontdict)
+    # plt.legend(loc=4, fontsize=13)
+    fn()
+    
+    plt.text(500, 57, s="$\\alpha = 0.4$", c=colors[3], fontsize=14)
+    plt.text(500, 28, s="$\\alpha = 0.4$", c=colors[1], fontsize=14)
+    plt.text(900, 72, s="$\\alpha = 0.1$", c=colors[2], fontsize=14)
+    plt.text(900, 52, s="$\\alpha = 0.1$", c=colors[0], fontsize=14)
+    
+    plt.text(770, 65, s="with baseline", c=colors[2], fontsize=12)
+    plt.text(770, 42, s="without baseline", c=colors[0], fontsize=12)
+    
+    if not filename:
+        plt.show()
+    else:
+        plt.savefig(f'./plots/{filename}')
+
+
+def plot_result(
+        optim_ratio: np.ndarray,
+        legends: list,
+        output_name: str = None
+        ):
+    # Set tick labels
+    fn = lambda: plt.yticks(
+        np.arange(0, 100, 10), labels=[f'{val}%' for val in range(0, 100, 10)]
+        )
+    plot(
+        optim_ratio,
+        legends,
+        xlabel='Time step',
+        ylabel='% Optimal actions',
+        filename=output_name,
+        fn=fn
+        )
+
+
+if __name__ == "__main__":
+    with open('./history/sga_record.pkl', 'rb') as f:
+        history = pickle.load(f)
+    
+    optim_ratio = history['optim_acts_ratio'] * 100
+    hyper_params = history['hyper_params']
+    
+    # plot_result(optim_ratio, hyper_params, output_name="example_2_5_sga.png")
+    plot_result(optim_ratio, hyper_params, output_name=None)
+    
+```
+
+{{< include summary_mab.qmd >}}

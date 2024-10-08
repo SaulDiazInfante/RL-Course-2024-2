@@ -15,9 +15,14 @@ of a sequence of decisions.
 
 ## 
 
-## Death line
+## Death line: December 08, 2024-23:59:00
 
-## Subproducts
+## Sub-products
+
+| **Death lines** |                             |
+|-----------------|:---------------------------:|
+| Stage 01        | **November 02, 2024-23:59** |
+| Stage 02        | **December 05, 2024-23:59** |
 
 ### Stage 01: Quarto book with MDP formulation
 
@@ -67,3 +72,19 @@ project
     @Starchursky2024]
 4.  Optimal Inventories [see dp.pdf, p. 147 @Starchursky2024]
 5.  Multi-Armed Bandits @Bilgin2020
+
+## Project Lits
+
+| Project | Author | Reference |
+|----|----|----|
+| Dynamic Portfolio Analysis | GABRIEL MIRANDA GAMEZ | [Sec. 4.3, @Bertsekas2005] |
+| Learning the Best Diabetes Medication | EDGAR EVERARDO MARTINEZ GARCIA | [Ch.4 4, @powell2022sequential] |
+| A MDP model for the collective behavior in vaccination campaigns | IRASEMA PEDROZA MEZA |  |
+| Modelo de inventario para alimentos pedecederos | DAVID PEÑA PERALTA | [@Starchursky2024] |
+| A inventory model | JAZMIN SARAHI FLORES GOMEZ | [@levhari1982great] |
+
+: Project list {.striped .hover}
+
+## Configuration to build with Spanish language
+
+{{< include ./project_template.qmd >}}

@@ -1,3 +1,9 @@
 date, event, Reference
 1957,The term  “optimal control” appears,"MR0090477 Bellman, Richard Dynamic programming. Princeton University Press, Princeton, NJ, 1957. xxv+342 pp."
 1957,Definition of the term MDPs ,"MR0091859 Bellman, Richard A Markovian decision process.J. Math. Mech.6(1957), 679–684."
+1991, Partial observable MDP, MR1105166 Lovejoy, William S.A survey of algorithmic methods for partially observed Markov decision processes.Ann. Oper. Res.28(1991), no.1-4, 47–65.
+1985, Application of MDPs, MR1295629 White, D. J. Markov decision processes.John Wiley & Sons, Ltd., Chichester, 1993. xiv+224 pp. ISBN:0-471-93627-8
+1988, Applications of MDPs, MR1295629 White, D. J. Markov decision processes.John Wiley & Sons, Ltd., Chichester, 1993. xiv+224 pp. ISBN:0-471-93627-8
+1993, Applications of MDPs, MR1200993 White, D. J.Markov decision processes: discounted expected reward or average expected reward?.J. Math. Anal. Appl.172(1993), no.2, 375–384.
+1996, Numerical DP, MR1416619 Rust, John Numerical dynamic programming in economics.Handbook of computational economics, Vol. I, 619–729. Handbooks in Econom., 13 North-Holland Publishing Co., Amsterdam, 1996 ISBN:0-444-89857-3
+

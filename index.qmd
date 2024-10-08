@@ -11,5 +11,9 @@ The textbook for chapter one is Bertsekas' book [@Bertsekas2005]. Chapters 2 and
 3 are adapted from Sutton's book [Ch. 3, Ch. 4, @Sutton2018]. For application
 and broad connection with more machine learning applications, we refer to
 [@Brunton2019]. Also, we recommend a handbook of algorithms [@Szepesvari2022].
-For applications with implemented code, we follow the books [@Bilgin2020].
+For applications with implemented code, we follow the books 
+[@Bilgin2020; @Starchursky2024].
+
+The source code for multiarmed bandits algorhims:
+[https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git](https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git)
 
