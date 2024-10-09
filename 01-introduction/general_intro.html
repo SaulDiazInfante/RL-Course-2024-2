@@ -282,6 +282,12 @@ window.Quarto = {
  <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks/_hw_grades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Homework grades</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -317,7 +323,7 @@ window.Quarto = {
 <div id="fig-brandimarte_net" class="lightbox quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-brandimarte_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="assets/ch_00/network_brandimarte_ex.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="assets/ch_00/network_brandimarte_ex.png" class="img-fluid figure-img"></a>
+<a href="assets/ch_00/network_brandimarte_ex.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="assets/ch_00/network_brandimarte_ex.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-brandimarte_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: The shortest path
@@ -1024,55 +1030,55 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abstract {.unnumbered}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>We present an introduction to the solution of multi-stage optimization problems.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Starting from the dynamic programming algorithm, we consider theoretical and</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>computational aspects, mainly of deterministic problems, and discuss how to</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>generalize some of the results to Markovian decision processes.</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>The classic problem with which the essential ideas of dynamic programming can be</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>introduced is the optimal route problem (shortest route considering distances,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>or cheapest route considering costs) [@Bertsekas2005;</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>@brandimarte2013numerical]. A simple version of this problem is shown</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>schematically in <span class="co">[</span><span class="ot">Fig @fig-brandimarte_net</span><span class="co">]</span>. By exhaustion, we deploy the cost</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>of path in @tbl-brandimarte_paths.</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>::: {#fig-brandimarte_net}</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="al">![](assets/ch_00/network_brandimarte_ex.png)</span>{.lightbox}</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>The shortest path</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>In this problem, the optimal route to go from the node labeled $0$ to the node</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>labeled $7$ is to be determined. The costs between each pair of nodes connected</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>by an arrow are represented by a number next to it. For example, the cost to go</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>from node 0 to node 2 is 6. The optimal route will be the one for which the sum</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>of their costs is minimum. This optimal route can be obtained by an exhaustive</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>enumeration; generating all possible routes from node $0$ to node $7$ and</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>choosing the minimum cost route.</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>::: {#tbl-brandimarte_paths .hover .borderless .light}</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>| Path                                 |  Cost  |</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>|--------------------------------------|:------:|</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>| $0 \to 1 \to 4 \to 7$                |   18   |</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>| $0 \to 1 \to 3 \to 4 \to 7$          |   22   |</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>| $0 \to 1 \to 3 \to 6 \to 7$          |   18   |</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>| $0 \to 1 \to 3 \to 5 \to 6 \to 7$    |   20   |</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>| $\mathbf{0 \to 1 \to 3 \to 5 \to 7}$ | **16** |</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>| $0 \to 2 \to 3 \to 4 \to 7$          |   23   |</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>| $0 \to 2 \to 3 \to 6 \to 7$          |   19   |</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>| $0 \to 2 \to 3 \to 5 \to 6 \to 7$    |   21   |</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>| $0 \to 2 \to 3 \to 5 \to 7$          |   17   |</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>| $0 \to 2 \to 5 \to 6 \to 7$          |   22   |</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>| $0 \to 2 \to 5 \to 7$                |   18   |</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>The shortest path by exhaustion see <span class="co">[</span><span class="ot">@brandimarte2013numerical</span><span class="co">]</span>.</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>The optimal path is $$</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  0 \to   1 \to 3 \to 5 \to  7,</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>$$ with cost 16.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">## Abstract {.unnumbered}</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>We present an introduction to the solution of multi-stage optimization problems.</span>
+<span id="cb1-4"><a href="#cb1-4"></a>Starting from the dynamic programming algorithm, we consider theoretical and</span>
+<span id="cb1-5"><a href="#cb1-5"></a>computational aspects, mainly of deterministic problems, and discuss how to</span>
+<span id="cb1-6"><a href="#cb1-6"></a>generalize some of the results to Markovian decision processes.</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>The classic problem with which the essential ideas of dynamic programming can be</span>
+<span id="cb1-9"><a href="#cb1-9"></a>introduced is the optimal route problem (shortest route considering distances,</span>
+<span id="cb1-10"><a href="#cb1-10"></a>or cheapest route considering costs) [@Bertsekas2005;</span>
+<span id="cb1-11"><a href="#cb1-11"></a>@brandimarte2013numerical]. A simple version of this problem is shown</span>
+<span id="cb1-12"><a href="#cb1-12"></a>schematically in <span class="co">[</span><span class="ot">Fig @fig-brandimarte_net</span><span class="co">]</span>. By exhaustion, we deploy the cost</span>
+<span id="cb1-13"><a href="#cb1-13"></a>of path in @tbl-brandimarte_paths.</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>::: {#fig-brandimarte_net}</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="al">![](assets/ch_00/network_brandimarte_ex.png)</span>{.lightbox}</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>The shortest path</span>
+<span id="cb1-19"><a href="#cb1-19"></a>:::</span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a>In this problem, the optimal route to go from the node labeled $0$ to the node</span>
+<span id="cb1-22"><a href="#cb1-22"></a>labeled $7$ is to be determined. The costs between each pair of nodes connected</span>
+<span id="cb1-23"><a href="#cb1-23"></a>by an arrow are represented by a number next to it. For example, the cost to go</span>
+<span id="cb1-24"><a href="#cb1-24"></a>from node 0 to node 2 is 6. The optimal route will be the one for which the sum</span>
+<span id="cb1-25"><a href="#cb1-25"></a>of their costs is minimum. This optimal route can be obtained by an exhaustive</span>
+<span id="cb1-26"><a href="#cb1-26"></a>enumeration; generating all possible routes from node $0$ to node $7$ and</span>
+<span id="cb1-27"><a href="#cb1-27"></a>choosing the minimum cost route.</span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a>::: {#tbl-brandimarte_paths .hover .borderless .light}</span>
+<span id="cb1-30"><a href="#cb1-30"></a>| Path                                 |  Cost  |</span>
+<span id="cb1-31"><a href="#cb1-31"></a>|--------------------------------------|:------:|</span>
+<span id="cb1-32"><a href="#cb1-32"></a>| $0 \to 1 \to 4 \to 7$                |   18   |</span>
+<span id="cb1-33"><a href="#cb1-33"></a>| $0 \to 1 \to 3 \to 4 \to 7$          |   22   |</span>
+<span id="cb1-34"><a href="#cb1-34"></a>| $0 \to 1 \to 3 \to 6 \to 7$          |   18   |</span>
+<span id="cb1-35"><a href="#cb1-35"></a>| $0 \to 1 \to 3 \to 5 \to 6 \to 7$    |   20   |</span>
+<span id="cb1-36"><a href="#cb1-36"></a>| $\mathbf{0 \to 1 \to 3 \to 5 \to 7}$ | **16** |</span>
+<span id="cb1-37"><a href="#cb1-37"></a>| $0 \to 2 \to 3 \to 4 \to 7$          |   23   |</span>
+<span id="cb1-38"><a href="#cb1-38"></a>| $0 \to 2 \to 3 \to 6 \to 7$          |   19   |</span>
+<span id="cb1-39"><a href="#cb1-39"></a>| $0 \to 2 \to 3 \to 5 \to 6 \to 7$    |   21   |</span>
+<span id="cb1-40"><a href="#cb1-40"></a>| $0 \to 2 \to 3 \to 5 \to 7$          |   17   |</span>
+<span id="cb1-41"><a href="#cb1-41"></a>| $0 \to 2 \to 5 \to 6 \to 7$          |   22   |</span>
+<span id="cb1-42"><a href="#cb1-42"></a>| $0 \to 2 \to 5 \to 7$                |   18   |</span>
+<span id="cb1-43"><a href="#cb1-43"></a></span>
+<span id="cb1-44"><a href="#cb1-44"></a>The shortest path by exhaustion see <span class="co">[</span><span class="ot">@brandimarte2013numerical</span><span class="co">]</span>.</span>
+<span id="cb1-45"><a href="#cb1-45"></a>:::</span>
+<span id="cb1-46"><a href="#cb1-46"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a>The optimal path is $$</span>
+<span id="cb1-48"><a href="#cb1-48"></a>  0 \to   1 \to 3 \to 5 \to  7,</span>
+<span id="cb1-49"><a href="#cb1-49"></a>$$ with cost 16.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1088,7 +1094,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

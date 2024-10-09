@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>From Markov Decision Processes to Reinforcement Learning with Python - List of Home Works and due dates</title>
+<title>From Markov Decision Processes to Reinforcement Learning with Python - Homework grades</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,27 +51,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -79,8 +59,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../homeworks/_hw_grades.html" rel="next">
-<link href="../references.html" rel="prev">
+<link href="../homeworks/home_works_list.html" rel="prev">
 <link href="../cover_RL.jpeg" rel="icon" type="image/jpeg">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -127,31 +106,6 @@ div.csl-indent {
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
-</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
 </script>
 </head>
 <body class="nav-sidebar floating nav-fixed">
@@ -179,7 +133,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../homeworks/home_works_list.html">List of Home Works and due dates</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../homeworks/_hw_grades.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Homework grades</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -252,13 +206,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link active">
+  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../homeworks/_hw_grades.html" class="sidebar-item-text sidebar-link">
+  <a href="../homeworks/_hw_grades.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Homework grades</span></span></a>
   </div>
 </li>
@@ -267,16 +221,11 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-<li><a href="#homework-001-due-date-september-20-2024-120000" id="toc-homework-001-due-date-september-20-2024-120000" class="nav-link active" data-scroll-target="#homework-001-due-date-september-20-2024-120000">Homework 001 due date: september 20, 2024-12:00:00</a></li>
-  <li><a href="#homework-002-due-date-october-25-2024-120000" id="toc-homework-002-due-date-october-25-2024-120000" class="nav-link" data-scroll-target="#homework-002-due-date-october-25-2024-120000">Homework 002 due date: October 25, 2024-12:00:00</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/homeworks/home_works_list.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">List of Home Works and due dates</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Homework grades</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -290,89 +239,72 @@ window.Quarto = {
   
 
 
-</header><section id="homework-001-due-date-september-20-2024-120000" class="level2"><h2 class="anchored" data-anchor-id="homework-001-due-date-september-20-2024-120000">Homework 001 due date: september 20, 2024-12:00:00</h2>
-<div id="exr-hw_001_01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> Read <span class="citation" data-cites="Sutton2018">(Sec 1.1, pp 1-2 <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span> and answer the following.</p>
-<p>Explain why Reinforcement Learning differs for supervised and unsupervised learning.</p>
-</div>
-<div id="exr-hw_001_02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> See the first Steve Brunton’s youtube video about <a href="https://www.youtube.com/watch?v=0MNVhXEX9to&amp;list=PLMrJAkhIeNNQe1JXNvaFvURxGY4gE9k74">Reinforcement Learning</a>. Then accordingly to its presentation explain what is the meaning of the following expression:</p>
-<p><span class="math display">\[
-  V_{\pi}(s) = \mathbb{E}
-\left(
-   \sum_{t} \gamma ^ {t} r_t | s_0 = s
-\right).
-\]</span></p>
-</div>
-<div id="exr-hw_001_03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3</strong></span> Form <span class="citation" data-cites="Sutton2018">(see <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018, sec. 1.7</a>)</span> obtain a time line pear year from 1950 to 2012.</p>
-<p>Use the following format <a href="https://kim.quarto.pub/milestones--bar-timelines/">see https://kim.quarto.pub/milestones–bar-timelines/</a></p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(bibtex)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="do">## Activate the Core Packages</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>biblio <span class="ot">&lt;-</span> bibtex<span class="sc">::</span><span class="fu">read.bib</span>(<span class="st">"../references.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>ignoring entry 'powell2022sequential' (line 154) because :
-    A bibentry of bibtype 'Article' has to specify the field: journal</code></pre>
-</div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyverse) <span class="do">## Brings in a core of useful functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</header><div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
 ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(gt)        <span class="do">## Tables</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="do">## Specific packages</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">library</span>(milestones)</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="do">## Initialize defaults</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="do">## Initialize defaults</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>column <span class="ot">&lt;-</span> <span class="fu">lolli_styles</span>()</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">col_names=</span><span class="cn">TRUE</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>, <span class="at">file=</span><span class="st">'rl_time_line.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
-e.g.:
-  dat &lt;- vroom(...)
-  problems(dat)</code></pre>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(gt)        <span class="do">## Tables</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">library</span>(milestones)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>column <span class="ot">&lt;-</span> <span class="fu">lolli_styles</span>()</span>
+<span id="cb3-4"><a href="#cb3-4"></a>path_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="at">dpp =</span> <span class="st">'david_peña_peralta.csv'</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="at">jisb =</span> <span class="st">'jose_italo_sanchez_bermudez.csv'</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a>path <span class="ot">&lt;-</span> <span class="st">'david_peña_peralta.csv'</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a>print_hw_grade <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">file_path=</span><span class="st">'david_peña_peralta.csv'</span>){</span>
+<span id="cb3-12"><a href="#cb3-12"></a>    data <span class="ot">&lt;-</span> </span>
+<span id="cb3-13"><a href="#cb3-13"></a>    <span class="fu">read_csv</span>(</span>
+<span id="cb3-14"><a href="#cb3-14"></a>        <span class="at">col_names=</span><span class="cn">TRUE</span>,</span>
+<span id="cb3-15"><a href="#cb3-15"></a>        <span class="at">show_col_types=</span><span class="cn">FALSE</span>,</span>
+<span id="cb3-16"><a href="#cb3-16"></a>        <span class="at">file=</span>file_path</span>
+<span id="cb3-17"><a href="#cb3-17"></a>    )</span>
+<span id="cb3-18"><a href="#cb3-18"></a>    data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(data)</span>
+<span id="cb3-19"><a href="#cb3-19"></a>    data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>    <span class="fu">mutate</span>(<span class="at">grade =</span> <span class="fu">sum</span>(ex_01 <span class="sc">+</span> ex_02 <span class="sc">+</span> ex_03 <span class="sc">+</span> ex_04 <span class="sc">+</span> ex_05 <span class="sc">+</span> ex_06 ))</span>
+<span id="cb3-21"><a href="#cb3-21"></a>    <span class="do">## Build a table</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>    gt_table <span class="ot">&lt;-</span> <span class="fu">gt</span>(data) <span class="sc">|&gt;</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>    <span class="fu">tab_style</span>(<span class="fu">cell_text</span>(<span class="at">v_align =</span> <span class="st">"top"</span>),</span>
+<span id="cb3-24"><a href="#cb3-24"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">columns =</span> hw)) <span class="sc">|&gt;</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>    <span class="fu">tab_source_note</span>(</span>
+<span id="cb3-26"><a href="#cb3-26"></a>        <span class="at">source_note =</span> <span class="fu">paste</span>(<span class="st">"Grade: "</span>, data<span class="sc">$</span>grade) </span>
+<span id="cb3-27"><a href="#cb3-27"></a>        ) </span>
+<span id="cb3-28"><a href="#cb3-28"></a>    <span class="fu">return</span>(gt_table)</span>
+<span id="cb3-29"><a href="#cb3-29"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="do">## Sort the table by date</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">arrange</span>(date)</span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="do">## Build a table</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">gt</span>(data) <span class="sc">|&gt;</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a>  <span class="co">#cols_hide(columns = event) |&gt;</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a>  <span class="fu">tab_style</span>(<span class="fu">cell_text</span>(<span class="at">v_align =</span> <span class="st">"top"</span>),</span>
-<span id="cb8-9"><a href="#cb8-9"></a>            <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">columns =</span> date)) <span class="sc">|&gt;</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a>  <span class="fu">tab_source_note</span>(<span class="at">source_note =</span> <span class="st">"Source: Sutton and Barto (2018)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div>
-<div id="lpuhuungmh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lpuhuungmh table {
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(path_list, print_hw_grade)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>knitr<span class="sc">::</span><span class="fu">knit_print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+$dpp
+<div id="jyvwvsazuu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jyvwvsazuu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lpuhuungmh thead, #lpuhuungmh tbody, #lpuhuungmh tfoot, #lpuhuungmh tr, #lpuhuungmh td, #lpuhuungmh th {
+#jyvwvsazuu thead, #jyvwvsazuu tbody, #jyvwvsazuu tfoot, #jyvwvsazuu tr, #jyvwvsazuu td, #jyvwvsazuu th {
   border-style: none;
 }
 
-#lpuhuungmh p {
+#jyvwvsazuu p {
   margin: 0;
   padding: 0;
 }
 
-#lpuhuungmh .gt_table {
+#jyvwvsazuu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -398,12 +330,12 @@ e.g.:
   border-left-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_caption {
+#jyvwvsazuu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lpuhuungmh .gt_title {
+#jyvwvsazuu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -415,7 +347,7 @@ e.g.:
   border-bottom-width: 0;
 }
 
-#lpuhuungmh .gt_subtitle {
+#jyvwvsazuu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -427,7 +359,7 @@ e.g.:
   border-top-width: 0;
 }
 
-#lpuhuungmh .gt_heading {
+#jyvwvsazuu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -439,13 +371,13 @@ e.g.:
   border-right-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_bottom_border {
+#jyvwvsazuu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_col_headings {
+#jyvwvsazuu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -460,7 +392,7 @@ e.g.:
   border-right-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_col_heading {
+#jyvwvsazuu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -480,7 +412,7 @@ e.g.:
   overflow-x: hidden;
 }
 
-#lpuhuungmh .gt_column_spanner_outer {
+#jyvwvsazuu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -492,15 +424,15 @@ e.g.:
   padding-right: 4px;
 }
 
-#lpuhuungmh .gt_column_spanner_outer:first-child {
+#jyvwvsazuu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lpuhuungmh .gt_column_spanner_outer:last-child {
+#jyvwvsazuu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lpuhuungmh .gt_column_spanner {
+#jyvwvsazuu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -512,11 +444,11 @@ e.g.:
   width: 100%;
 }
 
-#lpuhuungmh .gt_spanner_row {
+#jyvwvsazuu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lpuhuungmh .gt_group_heading {
+#jyvwvsazuu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -542,7 +474,7 @@ e.g.:
   text-align: left;
 }
 
-#lpuhuungmh .gt_empty_group_heading {
+#jyvwvsazuu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -557,15 +489,15 @@ e.g.:
   vertical-align: middle;
 }
 
-#lpuhuungmh .gt_from_md > :first-child {
+#jyvwvsazuu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lpuhuungmh .gt_from_md > :last-child {
+#jyvwvsazuu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lpuhuungmh .gt_row {
+#jyvwvsazuu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -584,7 +516,7 @@ e.g.:
   overflow-x: hidden;
 }
 
-#lpuhuungmh .gt_stub {
+#jyvwvsazuu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -597,7 +529,7 @@ e.g.:
   padding-right: 5px;
 }
 
-#lpuhuungmh .gt_stub_row_group {
+#jyvwvsazuu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -611,15 +543,15 @@ e.g.:
   vertical-align: top;
 }
 
-#lpuhuungmh .gt_row_group_first td {
+#jyvwvsazuu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lpuhuungmh .gt_row_group_first th {
+#jyvwvsazuu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lpuhuungmh .gt_summary_row {
+#jyvwvsazuu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -629,16 +561,16 @@ e.g.:
   padding-right: 5px;
 }
 
-#lpuhuungmh .gt_first_summary_row {
+#jyvwvsazuu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_first_summary_row.thick {
+#jyvwvsazuu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lpuhuungmh .gt_last_summary_row {
+#jyvwvsazuu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -648,7 +580,7 @@ e.g.:
   border-bottom-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_grand_summary_row {
+#jyvwvsazuu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -658,7 +590,7 @@ e.g.:
   padding-right: 5px;
 }
 
-#lpuhuungmh .gt_first_grand_summary_row {
+#jyvwvsazuu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -668,7 +600,7 @@ e.g.:
   border-top-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_last_grand_summary_row_top {
+#jyvwvsazuu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -678,11 +610,11 @@ e.g.:
   border-bottom-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_striped {
+#jyvwvsazuu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lpuhuungmh .gt_table_body {
+#jyvwvsazuu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -691,7 +623,7 @@ e.g.:
   border-bottom-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_footnotes {
+#jyvwvsazuu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -705,7 +637,7 @@ e.g.:
   border-right-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_footnote {
+#jyvwvsazuu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -714,7 +646,7 @@ e.g.:
   padding-right: 5px;
 }
 
-#lpuhuungmh .gt_sourcenotes {
+#jyvwvsazuu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -728,7 +660,7 @@ e.g.:
   border-right-color: #D3D3D3;
 }
 
-#lpuhuungmh .gt_sourcenote {
+#jyvwvsazuu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -736,214 +668,651 @@ e.g.:
   padding-right: 5px;
 }
 
-#lpuhuungmh .gt_left {
+#jyvwvsazuu .gt_left {
   text-align: left;
 }
 
-#lpuhuungmh .gt_center {
+#jyvwvsazuu .gt_center {
   text-align: center;
 }
 
-#lpuhuungmh .gt_right {
+#jyvwvsazuu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lpuhuungmh .gt_font_normal {
+#jyvwvsazuu .gt_font_normal {
   font-weight: normal;
 }
 
-#lpuhuungmh .gt_font_bold {
+#jyvwvsazuu .gt_font_bold {
   font-weight: bold;
 }
 
-#lpuhuungmh .gt_font_italic {
+#jyvwvsazuu .gt_font_italic {
   font-style: italic;
 }
 
-#lpuhuungmh .gt_super {
+#jyvwvsazuu .gt_super {
   font-size: 65%;
 }
 
-#lpuhuungmh .gt_footnote_marks {
+#jyvwvsazuu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lpuhuungmh .gt_asterisk {
+#jyvwvsazuu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lpuhuungmh .gt_indent_1 {
+#jyvwvsazuu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lpuhuungmh .gt_indent_2 {
+#jyvwvsazuu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lpuhuungmh .gt_indent_3 {
+#jyvwvsazuu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lpuhuungmh .gt_indent_4 {
+#jyvwvsazuu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lpuhuungmh .gt_indent_5 {
+#jyvwvsazuu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lpuhuungmh .katex-display {
+#jyvwvsazuu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lpuhuungmh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jyvwvsazuu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
-<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead><tr class="header gt_col_headings">
-<th id="date" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">date</th>
-<th id="event" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">event</th>
-<th id="Reference" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Reference</th>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="hw">
+hw
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_01">
+ex_01
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_02">
+ex_02
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_03">
+ex_03
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_04">
+ex_04
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_05">
+ex_05
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_06">
+ex_06
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="grade">
+grade
+</th>
 </tr></thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="date" style="vertical-align: top">1957</td>
-<td class="gt_row gt_left" headers="event">The term “optimal control” appears</td>
-<td class="gt_row gt_left" headers="Reference">MR0090477 Bellman, Richard Dynamic programming. Princeton University Press, Princeton, NJ, 1957. xxv+342 pp.</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="date" style="vertical-align: top">1957</td>
-<td class="gt_row gt_left" headers="event">Definition of the term MDPs</td>
-<td class="gt_row gt_left" headers="Reference">MR0091859 Bellman, Richard A Markovian decision process.J. Math. Mech.6(1957), 679–684.</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="date" style="vertical-align: top">1985</td>
-<td class="gt_row gt_left" headers="event">Application of MDPs</td>
-<td class="gt_row gt_left" headers="Reference">MR1295629 White, D. J. Markov decision processes.John Wiley &amp; Sons, Ltd., Chichester, 1993. xiv+224 pp. ISBN:0-471-93627-8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="date" style="vertical-align: top">1988</td>
-<td class="gt_row gt_left" headers="event">Applications of MDPs</td>
-<td class="gt_row gt_left" headers="Reference">MR1295629 White, D. J. Markov decision processes.John Wiley &amp; Sons, Ltd., Chichester, 1993. xiv+224 pp. ISBN:0-471-93627-8</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="date" style="vertical-align: top">1991</td>
-<td class="gt_row gt_left" headers="event">Partial observable MDP</td>
-<td class="gt_row gt_left" headers="Reference">MR1105166 Lovejoy, William S.A survey of algorithmic methods for partially observed Markov decision processes.Ann. Oper. Res.28(1991), no.1-4, 47–65.</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="date" style="vertical-align: top">1993</td>
-<td class="gt_row gt_left" headers="event">Applications of MDPs</td>
-<td class="gt_row gt_left" headers="Reference">MR1200993 White, D. J.Markov decision processes: discounted expected reward or average expected reward?.J. Math. Anal. Appl.172(1993), no.2, 375–384.</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="date" style="vertical-align: top">1996</td>
-<td class="gt_row gt_left" headers="event">Numerical DP</td>
-<td class="gt_row gt_left" headers="Reference">MR1416619 Rust, John Numerical dynamic programming in economics.Handbook of computational economics, Vol. I, 619–729. Handbooks in Econom., 13 North-Holland Publishing Co., Amsterdam, 1996 ISBN:0-444-89857-3</td>
-</tr>
-</tbody>
-<tfoot class="gt_sourcenotes"><tr class="even">
-<td colspan="3" class="gt_sourcenote">Source: Sutton and Barto (2018)</td>
+<tbody class="gt_table_body"><tr>
+<td headers="hw" class="gt_row gt_right" style="vertical-align: top;">
+1
+</td>
+<td headers="ex_01" class="gt_row gt_right">
+10
+</td>
+<td headers="ex_02" class="gt_row gt_right">
+10
+</td>
+<td headers="ex_03" class="gt_row gt_right">
+20
+</td>
+<td headers="ex_04" class="gt_row gt_right">
+20
+</td>
+<td headers="ex_05" class="gt_row gt_right">
+20
+</td>
+<td headers="ex_06" class="gt_row gt_right">
+15
+</td>
+<td headers="grade" class="gt_row gt_right">
+95
+</td>
+</tr></tbody>
+<tfoot class="gt_sourcenotes"><tr>
+<td class="gt_sourcenote" colspan="8">
+Grade: 95
+</td>
 </tr></tfoot>
 </table>
 </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="do">## Adjust some defaults</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>column<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="st">"orange"</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>column<span class="sc">$</span>size  <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>column<span class="sc">$</span>source_info <span class="ot">&lt;-</span> <span class="st">"Source: Sutton and Barto (2018)"</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="do">## Milestones timeline</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="fu">milestones</span>(<span class="at">datatable =</span> data, <span class="at">styles =</span> column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="home_works_list_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="exr-hw_001_04" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4</strong></span> Consider the following <strong>consumption–saving</strong> problem with dynamics <span class="math display">\[
-  x_{k+1}
-  = (1+r)(x_k-a_k),\qquad k=0,1,\ldots,N-1,
-\]</span> and utility function</p>
-<p><span class="math display">\[
-  \beta^N(x_N)^{1-\gamma}
-    + \sum_{k=0}^{N-1}\beta^k (a_k)^{1-\gamma}.
-\]</span></p>
-<p>Show that the value functions of the DP algorithm take the form <span class="math display">\[J_k(x)=A_k\beta^kx^{1-\gamma},\]</span> where <span class="math inline">\(A_N=1\)</span> and for <span class="math inline">\(k=N-1,\ldots,0\)</span>,</p>
-<p><span class="math display">\[  A_k = [1 + ((1+r)\beta A_{k+1})^{1/\gamma} ]^\gamma.  \]</span> Show also that the optimal policies are <span class="math inline">\(h_k(x)=A_k^{-1/\gamma} x\)</span>. for <span class="math inline">\(k=N-1,\ldots,0\)</span>.</p>
-</div>
-<div id="exr-hw_001_05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5</strong></span> Consider now the infinite–horizon version of the above consumption–saving problem.</p>
-<ol type="i">
-<li><p>Write down the associated Bellman equation.</p></li>
-<li><p>Argue why a solution to the Bellman equation should be of the form <span class="math display">\[v(x)=cx^{1-\gamma},\]</span> where <span class="math inline">\(c\)</span> is constant. Find the constant <span class="math inline">\(c\)</span> and the stationary optimal policy <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p></li>
-</ol>
-</div>
-<div id="exr-hw_001_06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6</strong></span> Let <span class="math inline">\(\{\xi_k\}\)</span> be a sequence of iid random variables such that <span class="math inline">\(E[\xi]=0\)</span> and <span class="math inline">\(E[\xi^2]=d\)</span>. Consider the dynamics <span class="math display">\[
-  x_{k+1} = x_k + a_k + \xi_k, \qquad
-  k= 0,1,2,\ldots,
-\]</span> and the discounted cost <span class="math display">\[
-  E \sum \beta^k(a_k^2+x_k^2).
-\]</span></p>
-<ol type="i">
-<li><p>Write down the associated Bellman equation.</p></li>
-<li><p>Conjecture that the solution to the Bellman equation takes the form <span class="math inline">\(v(x)=ax^2+b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constant.</p></li>
-<li><p>Determine the constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p></li>
-<li><p>Conjecture that the solution to the Bellman equation takes the form <span class="math inline">\(v(x)=ax^2+b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constant. Determine the constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p></li>
-</ol>
-</div>
-</section><section id="homework-002-due-date-october-25-2024-120000" class="level2"><h2 class="anchored" data-anchor-id="homework-002-due-date-october-25-2024-120000">Homework 002 due date: October 25, 2024-12:00:00</h2>
-<div id="exr-hw_002_01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7</strong></span> Make the docstrings regarding all python source code for each reported script.</p>
-<ul>
-<li>Incremental Implementation</li>
-<li>Optimistic Initial Values</li>
-<li>Upper-Confidence-Bound Action Selection</li>
-<li>Gradient Bandit method</li>
-<li>Scripts for visualization</li>
-</ul>
-</div>
-<div id="exr-hw_002_02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8</strong></span> Explain and illustrate the experiments about optimistic initial values. Include the plots similar to Figure 2.2 from <span class="citation" data-cites="Sutton2018">(p.&nbsp;29, <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>.</p>
-</div>
-<div id="exr-hw_002_03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9</strong></span> Explain and illustrate the experiments about optimistic initial values. Include the plots similar to Figure 2.3 from <span class="citation" data-cites="Sutton2018">(p.&nbsp;34, <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>.</p>
-</div>
-<div id="exr-hw_002_04" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10</strong></span> Explain and describe the experiments about average performance of UCB. Include the plots similar to Figure 2.4 from <span class="citation" data-cites="Sutton2018">(p.&nbsp;36, <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>.</p>
-</div>
-<div id="exr-hw_002_05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11</strong></span> Explain and describe the experiments about average performance of the gradient bandit algorithm with and without a reward baseline. Include the plots similar to Figure 2.5 from <span class="citation" data-cites="Sutton2018">(p.&nbsp;38 <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>.</p>
-</div>
-<div id="exr-hw_002_06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12</strong></span> Show that for two actions, the soft-max (Boltzmann or Gibbs) distribution is equivalent to the logistic, or sigmoid, function commonly used in statistics and artificial neural networks.</p>
+$jisb
+<div id="bdpnoeolek" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bdpnoeolek table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bdpnoeolek thead, #bdpnoeolek tbody, #bdpnoeolek tfoot, #bdpnoeolek tr, #bdpnoeolek td, #bdpnoeolek th {
+  border-style: none;
+}
+
+#bdpnoeolek p {
+  margin: 0;
+  padding: 0;
+}
+
+#bdpnoeolek .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bdpnoeolek .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bdpnoeolek .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bdpnoeolek .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bdpnoeolek .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bdpnoeolek .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bdpnoeolek .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bdpnoeolek .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bdpnoeolek .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bdpnoeolek .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bdpnoeolek .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bdpnoeolek .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bdpnoeolek .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bdpnoeolek .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bdpnoeolek .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdpnoeolek .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bdpnoeolek .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bdpnoeolek .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bdpnoeolek .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdpnoeolek .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bdpnoeolek .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdpnoeolek .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bdpnoeolek .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdpnoeolek .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bdpnoeolek .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdpnoeolek .gt_left {
+  text-align: left;
+}
+
+#bdpnoeolek .gt_center {
+  text-align: center;
+}
+
+#bdpnoeolek .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bdpnoeolek .gt_font_normal {
+  font-weight: normal;
+}
+
+#bdpnoeolek .gt_font_bold {
+  font-weight: bold;
+}
+
+#bdpnoeolek .gt_font_italic {
+  font-style: italic;
+}
+
+#bdpnoeolek .gt_super {
+  font-size: 65%;
+}
+
+#bdpnoeolek .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bdpnoeolek .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bdpnoeolek .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bdpnoeolek .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bdpnoeolek .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bdpnoeolek .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bdpnoeolek .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bdpnoeolek .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bdpnoeolek div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="hw">
+hw
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_01">
+ex_01
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_02">
+ex_02
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_03">
+ex_03
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_04">
+ex_04
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_05">
+ex_05
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="ex_06">
+ex_06
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="grade">
+grade
+</th>
+</tr></thead>
+<tbody class="gt_table_body"><tr>
+<td headers="hw" class="gt_row gt_right" style="vertical-align: top;">
+1
+</td>
+<td headers="ex_01" class="gt_row gt_right">
+10
+</td>
+<td headers="ex_02" class="gt_row gt_right">
+10
+</td>
+<td headers="ex_03" class="gt_row gt_right">
+20
+</td>
+<td headers="ex_04" class="gt_row gt_right">
+20
+</td>
+<td headers="ex_05" class="gt_row gt_right">
+20
+</td>
+<td headers="ex_06" class="gt_row gt_right">
+15
+</td>
+<td headers="grade" class="gt_row gt_right">
+95
+</td>
+</tr></tbody>
+<tfoot class="gt_sourcenotes"><tr>
+<td class="gt_sourcenote" colspan="8">
+Grade: 95
+</td>
+</tr></tfoot>
+</table>
 </div>
 
 
 <!-- -->
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-Sutton2018" class="csl-entry" role="listitem">
-Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An Introduction</em>. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.
-</div>
-</div>
-</section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
-<ol>
-<li id="fn1"><p>Hint: Insert <span class="math inline">\(v(x)=cx^{1-\gamma}\)</span> into the Bellman equation and solve the minimization problem.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1547,22 +1916,56 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="../homeworks/home_works_list.html" class="pagination-link" aria-label="List of Home Works and due dates">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">List of Home Works and due dates</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../homeworks/_hw_grades.html" class="pagination-link" aria-label="Homework grades">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Homework grades</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu"># List of Home Works and due dates {.unnumbered}</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a></span>
-<span id="cb10-3"><a href="#cb10-3"></a></span>
-<span id="cb10-4"><a href="#cb10-4"></a>{{&lt; include _hw_001.qmd &gt;}}</span>
-<span id="cb10-5"><a href="#cb10-5"></a></span>
-<span id="cb10-6"><a href="#cb10-6"></a>{{&lt; include _hw_002.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu"># Homework grades</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="in">```{r}</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">library</span>(gt)        <span class="do">## Tables</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="fu">library</span>(milestones)</span>
+<span id="cb5-9"><a href="#cb5-9"></a>column <span class="ot">&lt;-</span> <span class="fu">lolli_styles</span>()</span>
+<span id="cb5-10"><a href="#cb5-10"></a>path_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="at">dpp =</span> <span class="st">'david_peña_peralta.csv'</span>,</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="at">jisb =</span> <span class="st">'jose_italo_sanchez_bermudez.csv'</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>)</span>
+<span id="cb5-14"><a href="#cb5-14"></a>path <span class="ot">&lt;-</span> <span class="st">'david_peña_peralta.csv'</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a></span>
+<span id="cb5-17"><a href="#cb5-17"></a>print_hw_grade <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">file_path=</span><span class="st">'david_peña_peralta.csv'</span>){</span>
+<span id="cb5-18"><a href="#cb5-18"></a>    data <span class="ot">&lt;-</span> </span>
+<span id="cb5-19"><a href="#cb5-19"></a>    <span class="fu">read_csv</span>(</span>
+<span id="cb5-20"><a href="#cb5-20"></a>        <span class="at">col_names=</span><span class="cn">TRUE</span>,</span>
+<span id="cb5-21"><a href="#cb5-21"></a>        <span class="at">show_col_types=</span><span class="cn">FALSE</span>,</span>
+<span id="cb5-22"><a href="#cb5-22"></a>        <span class="at">file=</span>file_path</span>
+<span id="cb5-23"><a href="#cb5-23"></a>    )</span>
+<span id="cb5-24"><a href="#cb5-24"></a>    data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(data)</span>
+<span id="cb5-25"><a href="#cb5-25"></a>    data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a>    <span class="fu">mutate</span>(<span class="at">grade =</span> <span class="fu">sum</span>(ex_01 <span class="sc">+</span> ex_02 <span class="sc">+</span> ex_03 <span class="sc">+</span> ex_04 <span class="sc">+</span> ex_05 <span class="sc">+</span> ex_06 ))</span>
+<span id="cb5-27"><a href="#cb5-27"></a>    <span class="do">## Build a table</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a>    gt_table <span class="ot">&lt;-</span> <span class="fu">gt</span>(data) <span class="sc">|&gt;</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a>    <span class="fu">tab_style</span>(<span class="fu">cell_text</span>(<span class="at">v_align =</span> <span class="st">"top"</span>),</span>
+<span id="cb5-30"><a href="#cb5-30"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">columns =</span> hw)) <span class="sc">|&gt;</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a>    <span class="fu">tab_source_note</span>(</span>
+<span id="cb5-32"><a href="#cb5-32"></a>        <span class="at">source_note =</span> <span class="fu">paste</span>(<span class="st">"Grade: "</span>, data<span class="sc">$</span>grade) </span>
+<span id="cb5-33"><a href="#cb5-33"></a>        ) </span>
+<span id="cb5-34"><a href="#cb5-34"></a>    <span class="fu">return</span>(gt_table)</span>
+<span id="cb5-35"><a href="#cb5-35"></a>}</span>
+<span id="cb5-36"><a href="#cb5-36"></a></span>
+<span id="cb5-37"><a href="#cb5-37"></a></span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="in">```</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="in">```{r, results='asis'}</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="in">data &lt;- lapply(path_list, print_hw_grade)</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="in">knitr::knit_print(data)</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
@@ -1571,7 +1974,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/homeworks/home_works_list.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/homeworks/_hw_grades.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
