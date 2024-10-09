@@ -1,0 +1,42 @@
+# Homework grades
+
+```{r}
+library(tidyverse)
+library(gt)        ## Tables
+library(milestones)
+column <- lolli_styles()
+path_list <- list(
+	dpp = 'david_peña_peralta.csv',
+	jisb = 'jose_italo_sanchez_bermudez.csv'
+)
+path <- 'david_peña_peralta.csv'
+
+
+print_hw_grade <- function(file_path='david_peña_peralta.csv'){
+	data <- 
+	read_csv(
+		col_names=TRUE,
+		show_col_types=FALSE,
+		file=file_path
+	)
+	data <- data.frame(data)
+	data <- data |>
+  	mutate(grade = sum(ex_01 + ex_02 + ex_03 + ex_04 + ex_05 + ex_06 ))
+	## Build a table
+	gt_table <- gt(data) |>
+  	tab_style(cell_text(v_align = "top"),
+  	locations = cells_body(columns = hw)) |>
+  	tab_source_note(
+  		source_note = paste("Grade: ", data$grade) 
+		) 
+	return(gt_table)
+}
+
+
+```
+
+```{r, results='asis'}
+
+data <- lapply(path_list, print_hw_grade)
+knitr::knit_print(data)
+```

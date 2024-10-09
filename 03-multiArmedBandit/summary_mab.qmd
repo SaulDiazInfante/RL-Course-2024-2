@@ -110,7 +110,7 @@ The preferences are updated based on the received reward as follows:
 $$
 \begin{aligned}
 	H_{t+1}(a) &= 
-		H_t(a) + \alpha (R_t - \bar{R}\_t)(1 - \pi*t(a))
+		H_t(a) + \alpha (R_t - \bar{R}_t)(1 - \pi_t(a))
 		\quad \text{if action } a \text{ was chosen} 
 		\\	
 	H_{t+1}(b) &=

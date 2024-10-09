@@ -1,40 +1,38 @@
----
-title: "Homework 002"
-author: "SDIV"
----
-
 ## Homework 002 due date: October 25, 2024-12:00:00
 
 ::: {#exr-hw_002_01}
-	Make the docstrings regarding all python source code for each 
-	reported script.
-	- Incremental Implementation
-	- Optimistic Initial Values
-	- Upper-Confidence-Bound Action Selection
-	- Gradient Bandit method
-	- Scripts for visualization
+
+Make the docstrings regarding all python source code for each 
+reported script.
+
+- Incremental Implementation
+- Optimistic Initial Values
+- Upper-Confidence-Bound Action Selection
+- Gradient Bandit method
+- Scripts for visualization
+
 :::
 
 
-::: {#exr-hw_002_02}
-	Explain and illustrate the experiments about optimistic initial values.
-	Include the plots similar to Figure 2.2 from [@Sutton2018] p. 29.
+:::{#exr-hw_002_02}
 
+Explain and illustrate the experiments about optimistic initial values. Include the plots similar to Figure 2.2 from [p. 29, @Sutton2018].
 :::
 
 ::: {#exr-hw_002_03}
-	Explain and illustrate the experiments about optimistic initial values.
-	Include the plots similar to Figure 2.3 from [@Sutton2018] p. 34.
+Explain and illustrate the experiments about optimistic initial values. Include the plots similar to Figure 2.3 from [p. 34, @Sutton2018].
 :::
 
 ::: {#exr-hw_002_04}
 
+Explain and describe the experiments about average performance of UCB. Include the plots similar to Figure 2.4 from [p. 36, @Sutton2018].
+
 :::
 
 ::: {#exr-hw_002_05}
-
+Explain and describe the experiments about average performance of the gradient bandit algorithm with and without a reward baseline. Include the plots similar to Figure 2.5 from [p. 38 @Sutton2018].
 :::
 
 ::: {#exr-hw_002_06}
-
+Show that for two actions, the soft-max (Boltzmann or Gibbs) distribution is equivalent to the logistic, or sigmoid, function commonly used in statistics and artificial neural networks.
 :::

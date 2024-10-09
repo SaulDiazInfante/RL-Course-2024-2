@@ -1,8 +1,3 @@
----
-title: "Homework 001"
-author: "SDIV, DGS"
----
-
 ## Homework 001 due date: september 20, 2024-12:00:00
 
 ::: {#exr-hw_001_01}
