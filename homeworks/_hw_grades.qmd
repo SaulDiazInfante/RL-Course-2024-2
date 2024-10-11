@@ -1,13 +1,17 @@
 # Homework grades
 
-```{r}
+```{r echo=FALSE}
 library(tidyverse)
 library(gt)        ## Tables
 library(milestones)
 column <- lolli_styles()
 path_list <- list(
 	dpp = 'david_peña_peralta.csv',
-	jisb = 'jose_italo_sanchez_bermudez.csv'
+	jisb = 'jose_italo_sanchez_bermudez.csv',
+	ipm = 'irasema_perdoza_meza.csv',
+	jsfg = 'jazmin_sarahi_flores_gomez.csv',
+	gmg = 'gabriel_miranda_gamez.csv',
+	evmg = 'edgar_everardo_martinez_garcia.csv'
 )
 path <- 'david_peña_peralta.csv'
 

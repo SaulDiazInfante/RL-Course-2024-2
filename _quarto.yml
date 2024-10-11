@@ -40,6 +40,7 @@ book:
     - ./08-Evaluation/rubric_evaluation.qmd
     - references.qmd
     - ./homeworks/home_works_list.qmd
+    #- ./homeworks/_hw_grades.qmd
   downloads: [pdf]
   sidebar:
     pinned: true
@@ -54,7 +55,10 @@ format:
     code-fold: true
     code-tools: true
     code-link: true
+    code-line-numbers: true
+    code-annotations: true
     theme:
       dark: darkly
       light: flatly
     toc: true
+number-sections: true
