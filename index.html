@@ -1072,24 +1072,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu"># Preface {.unnumbered}</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>This notes are based in the course from Berstekas for the MIT see all lectures</span>
-<span id="cb1-4"><a href="#cb1-4"></a>and other resources for complete the understanding.</span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a>{{&lt; include ./01-introduction/general_intro.qmd &gt;}}</span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">output:</span><span class="co"> html_document</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu"># Preface {.unnumbered}</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu"># Outline {.unnumbered}</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a>The textbook for chapter one is Bertsekas' book <span class="co">[</span><span class="ot">@Bertsekas2005</span><span class="co">]</span>. Chapters 2 and</span>
-<span id="cb1-11"><a href="#cb1-11"></a>3 are adapted from Sutton's book <span class="co">[</span><span class="ot">Ch. 3, Ch. 4, @Sutton2018</span><span class="co">]</span>. For application</span>
-<span id="cb1-12"><a href="#cb1-12"></a>and broad connection with more machine learning applications, we refer to</span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">[</span><span class="ot">@Brunton2019</span><span class="co">]</span>. Also, we recommend a handbook of algorithms <span class="co">[</span><span class="ot">@Szepesvari2022</span><span class="co">]</span>.</span>
-<span id="cb1-14"><a href="#cb1-14"></a>For applications with implemented code, we follow the books </span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="co">[</span><span class="ot">@Bilgin2020; @Starchursky2024</span><span class="co">]</span>.</span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a>The source code for multiarmed bandits algorhims:</span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="co">[</span><span class="ot">https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git</span><span class="co">](https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8"></a>This notes are based in the course from Berstekas for the MIT see all lectures</span>
+<span id="cb1-9"><a href="#cb1-9"></a>and other resources for complete the understanding.</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>{{&lt; include ./01-introduction/general_intro.qmd &gt;}}</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="fu"># Outline {.unnumbered}</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>The textbook for chapter one is Bertsekas' book <span class="co">[</span><span class="ot">@Bertsekas2005</span><span class="co">]</span>. Chapters 2 and</span>
+<span id="cb1-16"><a href="#cb1-16"></a>3 are adapted from Sutton's book <span class="co">[</span><span class="ot">Ch. 3, Ch. 4, @Sutton2018</span><span class="co">]</span>. For application</span>
+<span id="cb1-17"><a href="#cb1-17"></a>and broad connection with more machine learning applications, we refer to</span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co">[</span><span class="ot">@Brunton2019</span><span class="co">]</span>. Also, we recommend a handbook of algorithms <span class="co">[</span><span class="ot">@Szepesvari2022</span><span class="co">]</span>.</span>
+<span id="cb1-19"><a href="#cb1-19"></a>For applications with implemented code, we follow the books </span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co">[</span><span class="ot">@Bilgin2020; @Starchursky2024</span><span class="co">]</span>.</span>
+<span id="cb1-21"><a href="#cb1-21"></a></span>
+<span id="cb1-22"><a href="#cb1-22"></a>The source code for multiarmed bandits algorhims:</span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="co">[</span><span class="ot">https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git</span><span class="co">](https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1105,7 +1110,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
