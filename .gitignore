@@ -5,7 +5,6 @@
 *.aux
 *.toc
 .Rhistory
-*.json
 *.html
 *.xml
 .nojekyll
