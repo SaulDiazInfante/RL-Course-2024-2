@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -77,6 +97,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -270,33 +293,6 @@ window.Quarto = {
    
   <ul>
   <li><a href="#the-agentenvironment-interface" id="toc-the-agentenvironment-interface" class="nav-link active" data-scroll-target="#the-agentenvironment-interface">The Agent–Environment Interface</a></li>
-  <li><a href="#goals-and-rewards" id="toc-goals-and-rewards" class="nav-link" data-scroll-target="#goals-and-rewards">Goals and Rewards</a>
-  <ul class="collapse">
-  <li><a href="#key-points-of-the-reward-hypothesis" id="toc-key-points-of-the-reward-hypothesis" class="nav-link" data-scroll-target="#key-points-of-the-reward-hypothesis">Key Points of the Reward Hypothesis:</a></li>
-  <li><a href="#importance-in-reinforcement-learning" id="toc-importance-in-reinforcement-learning" class="nav-link" data-scroll-target="#importance-in-reinforcement-learning">Importance in Reinforcement Learning:</a></li>
-  </ul></li>
-  <li><a href="#returns-and-episodes" id="toc-returns-and-episodes" class="nav-link" data-scroll-target="#returns-and-episodes">Returns and Episodes</a>
-  <ul class="collapse">
-  <li><a href="#the-reward-sequence" id="toc-the-reward-sequence" class="nav-link" data-scroll-target="#the-reward-sequence">1. <strong>The Reward Sequence</strong>:</a></li>
-  <li><a href="#defining-the-return" id="toc-defining-the-return" class="nav-link" data-scroll-target="#defining-the-return">2. <strong>Defining the Return</strong>:</a></li>
-  <li><a href="#discounted-return" id="toc-discounted-return" class="nav-link" data-scroll-target="#discounted-return">3. <strong>Discounted Return</strong>:</a></li>
-  <li><a href="#maximizing-the-expected-return" id="toc-maximizing-the-expected-return" class="nav-link" data-scroll-target="#maximizing-the-expected-return">4. <strong>Maximizing the Expected Return</strong>:</a></li>
-  <li><a href="#two-types-of-tasks" id="toc-two-types-of-tasks" class="nav-link" data-scroll-target="#two-types-of-tasks">5. <strong>Two Types of Tasks</strong>:</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion:</a></li>
-  </ul></li>
-  <li><a href="#unified-notation-for-episodic-and-continuing-tasks" id="toc-unified-notation-for-episodic-and-continuing-tasks" class="nav-link" data-scroll-target="#unified-notation-for-episodic-and-continuing-tasks">Unified Notation for Episodic and Continuing Tasks</a></li>
-  <li><a href="#policies-and-value-functions" id="toc-policies-and-value-functions" class="nav-link" data-scroll-target="#policies-and-value-functions">Policies and Value Functions</a>
-  <ul class="collapse">
-  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts:</a></li>
-  <li><a href="#q-learning-off-policy-learning-algorithm" id="toc-q-learning-off-policy-learning-algorithm" class="nav-link" data-scroll-target="#q-learning-off-policy-learning-algorithm"><span class="math inline">\(Q\)</span>-<strong>Learning</strong> (Off-policy learning algorithm)</a></li>
-  <li><a href="#policy-iteration-on-policy-learning-algorithm" id="toc-policy-iteration-on-policy-learning-algorithm" class="nav-link" data-scroll-target="#policy-iteration-on-policy-learning-algorithm"><strong>Policy Iteration</strong> (On-policy learning algorithm)</a></li>
-  <li><a href="#value-iteration" id="toc-value-iteration" class="nav-link" data-scroll-target="#value-iteration"><strong>Value Iteration</strong></a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary:</a></li>
-  <li><a href="#pick-and-drop-example" id="toc-pick-and-drop-example" class="nav-link" data-scroll-target="#pick-and-drop-example">Pick and drop example</a></li>
-  </ul></li>
-  <li><a href="#optimal-policies-and-optimal-value-functions" id="toc-optimal-policies-and-optimal-value-functions" class="nav-link" data-scroll-target="#optimal-policies-and-optimal-value-functions">Optimal Policies and Optimal Value Functions</a></li>
-  <li><a href="#optimality-and-approximation" id="toc-optimality-and-approximation" class="nav-link" data-scroll-target="#optimality-and-approximation">Optimality and Approximation</a></li>
-  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">Summary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/04-finiteMDPs/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -329,7 +325,7 @@ window.Quarto = {
 <section id="the-agentenvironment-interface" class="level2">
 <h2 class="anchored" data-anchor-id="the-agentenvironment-interface">The Agent–Environment Interface</h2>
 <div id="exm-roboClean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set <span class="math inline">\(\mathcal{S} = \{\texttt{high}, \texttt{low} \}\)</span>. In each state, the agent can decide whether to</p>
+<p><span class="theorem-title"><strong>Example 3</strong></span> A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set <span class="math inline">\(\mathcal{S} = \{\texttt{high}, \texttt{low} \}\)</span>. In each state, the agent can decide whether to</p>
 <ol type="1">
 <li>actively <strong>search</strong> for a can for a certain period of time,</li>
 <li>remain stationary and <strong>wait</strong> for someone to bring it a can, or</li>
@@ -338,18 +334,26 @@ window.Quarto = {
 <p>When the energy level is <strong>high</strong>, recharging would always be foolish h, so we do not include it in the action set for this state. The action sets are then <span class="math inline">\(\mathcal{A}(\texttt{high}) = \{\texttt{search}, \texttt{wait}\}\)</span> and <span class="math inline">\(\mathcal{A}(\texttt{low}) = \{\texttt{search}, \texttt{wait}, \texttt{recharge}\}\)</span>.</p>
 <p>The rewards are zero most of the time, but become positive when the robot secures an empty can, or large and negative if the battery runs all the way down. The best way to find cans is to actively search for them, but this runs down the robot’s battery, whereas waiting does not. Whenever the robot is searching, the possibility exists that its battery will become depleted. In this case the robot must shut down and wait to be rescued (producing a low reward).</p>
 <p>If the energy level is <strong>high</strong>, then a period of active search can always be completed without risk of depleting the battery. A period of searching that begins with a <strong>high</strong> energy level leaves the energy level high <strong>with</strong> probability <span class="math inline">\(\alpha\)</span> and reduces it to low with probability <span class="math inline">\(1 - \alpha\)</span>. On the other hand, a period of searching undertaken when the energy level is low leaves it low with probability <span class="math inline">\(\beta\)</span> and depletes the battery with probability <span class="math inline">\(1 - \beta\)</span>. In the latter case, the robot must be rescued, and the battery is then recharged back to <strong>high</strong>. Each can collected by the robot counts as a unit reward, whereas a reward of <span class="math inline">\(-3\)</span> results whenever the robot has to be rescued. Let <span class="math inline">\(r_{\texttt{search}}\)</span> and <span class="math inline">\(r_{\texttt{wait}}\)</span>, with <span class="math inline">\(r_{\texttt{search}} &gt; r_{\texttt{wait}}\)</span>, denote the expected numbers of cans the robot will collect (and hence the expected reward) while searching and while waiting respectively. Finally, suppose that no cans can be collected during a run home for recharging, and that no cans can be collected on a step in which the battery is depleted. This system is then a finite MDP, and we can write down the transition probabilities and the expected rewards, with dynamics as indicated in the table on the left:</p>
-<div id="fig-robot-diagram" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
+<div id="fig-robot-diagram" class="lightbox quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/ch_03/recycling_robot_diagram.png" class="img-fluid figure-img">
+<a href="../assets/ch_03/recycling_robot_diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="../assets/ch_03/recycling_robot_diagram.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Recycling-robot’s graph. Taken from <span class="citation" data-cites="Sutton2018">(<a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>
 </figcaption>
 </figure>
 </div>
+<div id="fig-robot-table" class="lightbox quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-robot-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../assets/ch_03/recycling_robot_table.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Transitions and rewards for the recycling robot"><img src="../assets/ch_03/recycling_robot_table.png" class="img-fluid figure-img"></a>
 </div>
-</section>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-robot-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
 <section id="goals-and-rewards" class="level2">
 <h2 class="anchored" data-anchor-id="goals-and-rewards">Goals and Rewards</h2>
 <p>In reinforcement learning, <strong>the reward hypothesis</strong> serves as the foundation for defining the objectives of an agent operating within an environment. According to this hypothesis, the agent’s goal can be represented by the maximization of the <strong>expected cumulative reward</strong> over time, based on scalar feedback signals received from the environment.</p>
@@ -521,16 +525,34 @@ V(s) \leftarrow \max_a \sum_{s'} P(s' \mid s, a) \left[ R(s, a, s') + \gamma V(s
 </section>
 <section id="pick-and-drop-example" class="level3">
 <h3 class="anchored" data-anchor-id="pick-and-drop-example">Pick and drop example</h3>
+<div id="fig-pick_and_drop_exm" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pick_and_drop_exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../assets/ch_03/drop_game.png" class="img-fluid figure-img"></p>
-<figcaption>Drop game example</figcaption>
+<p><a href="../assets/ch_03/drop_game.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Pick and Drop game"><img src="../assets/ch_03/drop_game.png" class="img-fluid figure-img"></a></p>
+<figcaption>Pick and Drop game</figcaption>
 </figure>
 </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pick_and_drop_exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Pick and Drop game. See python implementation below.
+</figcaption>
+</figure>
+</div>
+<div id="fig-pick_and_drop_rules" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pick_and_drop_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../assets/ch_03/rules_drop_game.png" class="img-fluid figure-img"></p>
+<p><a href="../assets/ch_03/rules_drop_game.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Rewards rules for the drop game"><img src="../assets/ch_03/rules_drop_game.png" class="img-fluid figure-img"></a></p>
 <figcaption>Rewards rules for the drop game</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pick_and_drop_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Rewards rules for the drop game. See the above scheme for reference.
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -840,14 +862,43 @@ Next we apply the <span class="math inline">\(Q-\)</span>learning algorithm for 
 </div>
 </div>
 <div id="exm-grid_world" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Gridworld)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 1 (Gridworld)</strong></span> &nbsp;</p>
+<ul>
+<li><p>Actions: <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code></p></li>
+<li><p>Rewards:</p>
+<ul>
+<li>Actions would take the agent off the grid leave its location unchanged, but also results in a reward of-1;</li>
+<li>Other actions result in a reward of 0, except those that in states A and B;</li>
+<li>From state A , all four actions yield a reward of +10 and take the agent toA’ ;</li>
+<li>From state B , all four actions yield a reward of +5 and take the agentto B’ ;</li>
+<li>The learning rate (<span class="math inline">\(\gamma\)</span>) for this example is 0.9</li>
+</ul></li>
+</ul>
+<div id="fig-grid-world-exm" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-grid-world-exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/ch_04/grid_world_exm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Grid World example. Problem scheme , possible actions and sampling reward"><img src="../assets/ch_04/grid_world_exm.png" class="img-fluid figure-img"></a></p>
+<figcaption>Grid World example. Problem scheme , possible actions and sampling reward</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grid-world-exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Grid World example. Problem scheme , possible actions and sampling reward
+</figcaption>
+</figure>
+</div>
+<div class="{exm-grid_world}">
+<p>The Bellman equation must hold for each state for the value function <span class="math inline">\(v_{\pi}\)</span> shown in <a href="#fig-grid-world-exm" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-grid-world-exm</span></a> (right). Show numerically that this equation holds for the center state, valued at +0.7, with respect to its four neighboring states, valued at +2.3, +0.4, 0.4, and +0.7. (These numbers are accurate only to one decimal place.)</p>
+</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-python implementation
+python implementation for the grid-world example
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1048,6 +1099,24 @@ python implementation
 </div>
 </div>
 </div>
+<div id="exm-golf" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> The state is the location of the ball. The value of a state is the negative of the number of strokes to the hole from that location. Our actions are how we aim and swing at the ball, of course, and which club we select. Let us take the former as given and consider just the choice of club, which we assume is either a putter or a driver. The upper part of Figure shows a possible state-value function, <span class="math inline">\(v_{\text{putt}} (s)\)</span>, for the policy that always uses the putter.</p>
+</div>
+<div id="fig-golf-exm" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-golf-exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/ch_04/golf_exm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Golf example"><img src="../assets/ch_04/golf_exm.png" title="Golf example." class="img-fluid figure-img" data-fig-env="figure"></a></p>
+<figcaption>Golf example</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-golf-exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Gol example. At top the reward value of each state (ball curren position).
+</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="optimal-policies-and-optimal-value-functions" class="level2">
@@ -1058,10 +1127,25 @@ python implementation
 </section>
 <section id="summary-1" class="level2">
 <h2 class="anchored" data-anchor-id="summary-1">Summary</h2>
+</section>
+</div>
 
 
 <!-- -->
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: Recycling-robot’s graph. Taken from <span class="citation" data-cites="Sutton2018">(<a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span></span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: </span>
+<span class="glightbox-desc lightbox-desc-3">Pick and Drop game</span>
+<span class="glightbox-desc lightbox-desc-4">Rewards rules for the drop game</span>
+<span class="glightbox-desc lightbox-desc-5">Grid World example. Problem scheme , possible actions and sampling reward</span>
+<span class="glightbox-desc lightbox-desc-6">Golf example</span>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Sutton2018" class="csl-entry" role="listitem">
+Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An Introduction</em>. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1705,7 +1789,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-22"><a href="#cb6-22"></a></span>
 <span id="cb6-23"><a href="#cb6-23"></a><span class="fu">## The Agent–Environment Interface</span></span>
 <span id="cb6-24"><a href="#cb6-24"></a></span>
-<span id="cb6-25"><a href="#cb6-25"></a>:::: {#exm-roboClean}</span>
+<span id="cb6-25"><a href="#cb6-25"></a>::::: {#exm-roboClean}</span>
 <span id="cb6-26"><a href="#cb6-26"></a>A mobile robot has the job of collecting empty soda cans in an office</span>
 <span id="cb6-27"><a href="#cb6-27"></a>environment. It has sensors for detecting cans, and an arm and gripper that can</span>
 <span id="cb6-28"><a href="#cb6-28"></a>pick them up and place them in an onboard bin; it runs on a rechargeable</span>
@@ -1752,157 +1836,165 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-69"><a href="#cb6-69"></a>indicated in the table on the left:</span>
 <span id="cb6-70"><a href="#cb6-70"></a></span>
 <span id="cb6-71"><a href="#cb6-71"></a>::: {#fig-robot-diagram fig-env="figure*"}</span>
-<span id="cb6-72"><a href="#cb6-72"></a><span class="al">![](../assets/ch_03/recycling_robot_diagram.png)</span> Recycling-robot's graph. Taken</span>
-<span id="cb6-73"><a href="#cb6-73"></a>from <span class="co">[</span><span class="ot">@Sutton2018</span><span class="co">]</span></span>
-<span id="cb6-74"><a href="#cb6-74"></a>:::</span>
-<span id="cb6-75"><a href="#cb6-75"></a>::::</span>
+<span id="cb6-72"><a href="#cb6-72"></a><span class="al">![](../assets/ch_03/recycling_robot_diagram.png)</span>{.lightbox}</span>
+<span id="cb6-73"><a href="#cb6-73"></a></span>
+<span id="cb6-74"><a href="#cb6-74"></a>Recycling-robot's graph. Taken from <span class="co">[</span><span class="ot">@Sutton2018</span><span class="co">]</span></span>
+<span id="cb6-75"><a href="#cb6-75"></a>:::</span>
 <span id="cb6-76"><a href="#cb6-76"></a></span>
-<span id="cb6-77"><a href="#cb6-77"></a><span class="fu">## Goals and Rewards</span></span>
-<span id="cb6-78"><a href="#cb6-78"></a></span>
-<span id="cb6-79"><a href="#cb6-79"></a>In reinforcement learning, **the reward hypothesis** serves as the foundation</span>
-<span id="cb6-80"><a href="#cb6-80"></a>for defining the objectives of an agent operating within an environment.</span>
-<span id="cb6-81"><a href="#cb6-81"></a>According to this hypothesis, the agent's goal can be represented by the</span>
-<span id="cb6-82"><a href="#cb6-82"></a>maximization of the **expected cumulative reward** over time, based on scalar</span>
-<span id="cb6-83"><a href="#cb6-83"></a>feedback signals received from the environment.</span>
-<span id="cb6-84"><a href="#cb6-84"></a></span>
-<span id="cb6-85"><a href="#cb6-85"></a><span class="fu">### Key Points of the Reward Hypothesis:</span></span>
-<span id="cb6-86"><a href="#cb6-86"></a></span>
-<span id="cb6-87"><a href="#cb6-87"></a><span class="ss">1.  </span>**Reward as a Scalar Signal**: At every time step, the environment provides</span>
-<span id="cb6-88"><a href="#cb6-88"></a>    the agent with a simple numerical signal, $(R_t \in \mathbb{R}$, which</span>
-<span id="cb6-89"><a href="#cb6-89"></a>    represents the immediate reward based on the agent’s actions and the current</span>
-<span id="cb6-90"><a href="#cb6-90"></a>    state of the environment. This reward acts as feedback for the agent,</span>
-<span id="cb6-91"><a href="#cb6-91"></a>    helping it learn and adjust its strategy to achieve its ultimate goal.</span>
-<span id="cb6-92"><a href="#cb6-92"></a></span>
-<span id="cb6-93"><a href="#cb6-93"></a><span class="ss">2.  </span>**Maximizing Cumulative Reward**: The agent’s goal is not just to maximize</span>
-<span id="cb6-94"><a href="#cb6-94"></a>    the immediate reward, but to focus on the long-term sum of rewards, known as</span>
-<span id="cb6-95"><a href="#cb6-95"></a>    the **cumulative reward**. This ensures that the agent does not become</span>
-<span id="cb6-96"><a href="#cb6-96"></a>    short-sighted by only pursuing short-term benefits, but rather seeks</span>
-<span id="cb6-97"><a href="#cb6-97"></a>    strategies that maximize its total reward across time.</span>
-<span id="cb6-98"><a href="#cb6-98"></a></span>
-<span id="cb6-99"><a href="#cb6-99"></a><span class="ss">3.  </span>**Expected Value of the Reward**: Since reinforcement learning involves</span>
-<span id="cb6-100"><a href="#cb6-100"></a>    interaction in environments that can be stochastic (involving randomness or</span>
-<span id="cb6-101"><a href="#cb6-101"></a>    uncertainty), the agent aims to maximize the **expected value** of the</span>
-<span id="cb6-102"><a href="#cb6-102"></a>    cumulative reward, accounting for different possible future states and</span>
-<span id="cb6-103"><a href="#cb6-103"></a>    outcomes. This means the agent is interested in the average cumulative</span>
-<span id="cb6-104"><a href="#cb6-104"></a>    reward it would obtain over many possible sequences of interactions, rather</span>
-<span id="cb6-105"><a href="#cb6-105"></a>    than specific individual outcomes.</span>
-<span id="cb6-106"><a href="#cb6-106"></a></span>
-<span id="cb6-107"><a href="#cb6-107"></a><span class="ss">4.  </span>**Formalizing Goals and Purposes**: According to the reward hypothesis, all</span>
-<span id="cb6-108"><a href="#cb6-108"></a>    goals, objectives, or purposes of the agent can be **quantified** by</span>
-<span id="cb6-109"><a href="#cb6-109"></a>    maximizing this cumulative scalar signal (reward). In other words, the</span>
-<span id="cb6-110"><a href="#cb6-110"></a>    "purpose" of the agent is simply to optimize the feedback it receives in the</span>
-<span id="cb6-111"><a href="#cb6-111"></a>    form of rewards, and this concept encapsulates everything the agent is</span>
-<span id="cb6-112"><a href="#cb6-112"></a>    designed to achieve.</span>
+<span id="cb6-77"><a href="#cb6-77"></a>::: {#fig-robot-table fig-env="figure*"}</span>
+<span id="cb6-78"><a href="#cb6-78"></a>![Transitions and rewards for the recycling</span>
+<span id="cb6-79"><a href="#cb6-79"></a>robot](/assets/ch_03/recycling_robot_table.png){.lightbox}</span>
+<span id="cb6-80"><a href="#cb6-80"></a>Transitions and rewards for the recycling</span>
+<span id="cb6-81"><a href="#cb6-81"></a>robot</span>
+<span id="cb6-82"><a href="#cb6-82"></a>:::</span>
+<span id="cb6-83"><a href="#cb6-83"></a></span>
+<span id="cb6-84"><a href="#cb6-84"></a><span class="fu">## Goals and Rewards</span></span>
+<span id="cb6-85"><a href="#cb6-85"></a></span>
+<span id="cb6-86"><a href="#cb6-86"></a>In reinforcement learning, **the reward hypothesis** serves as the foundation</span>
+<span id="cb6-87"><a href="#cb6-87"></a>for defining the objectives of an agent operating within an environment.</span>
+<span id="cb6-88"><a href="#cb6-88"></a>According to this hypothesis, the agent's goal can be represented by the</span>
+<span id="cb6-89"><a href="#cb6-89"></a>maximization of the **expected cumulative reward** over time, based on scalar</span>
+<span id="cb6-90"><a href="#cb6-90"></a>feedback signals received from the environment.</span>
+<span id="cb6-91"><a href="#cb6-91"></a></span>
+<span id="cb6-92"><a href="#cb6-92"></a><span class="fu">### Key Points of the Reward Hypothesis:</span></span>
+<span id="cb6-93"><a href="#cb6-93"></a></span>
+<span id="cb6-94"><a href="#cb6-94"></a><span class="ss">1.  </span>**Reward as a Scalar Signal**: At every time step, the environment provides</span>
+<span id="cb6-95"><a href="#cb6-95"></a>    the agent with a simple numerical signal, $(R_t \in \mathbb{R}$, which</span>
+<span id="cb6-96"><a href="#cb6-96"></a>    represents the immediate reward based on the agent’s actions and the current</span>
+<span id="cb6-97"><a href="#cb6-97"></a>    state of the environment. This reward acts as feedback for the agent,</span>
+<span id="cb6-98"><a href="#cb6-98"></a>    helping it learn and adjust its strategy to achieve its ultimate goal.</span>
+<span id="cb6-99"><a href="#cb6-99"></a></span>
+<span id="cb6-100"><a href="#cb6-100"></a><span class="ss">2.  </span>**Maximizing Cumulative Reward**: The agent’s goal is not just to maximize</span>
+<span id="cb6-101"><a href="#cb6-101"></a>    the immediate reward, but to focus on the long-term sum of rewards, known as</span>
+<span id="cb6-102"><a href="#cb6-102"></a>    the **cumulative reward**. This ensures that the agent does not become</span>
+<span id="cb6-103"><a href="#cb6-103"></a>    short-sighted by only pursuing short-term benefits, but rather seeks</span>
+<span id="cb6-104"><a href="#cb6-104"></a>    strategies that maximize its total reward across time.</span>
+<span id="cb6-105"><a href="#cb6-105"></a></span>
+<span id="cb6-106"><a href="#cb6-106"></a><span class="ss">3.  </span>**Expected Value of the Reward**: Since reinforcement learning involves</span>
+<span id="cb6-107"><a href="#cb6-107"></a>    interaction in environments that can be stochastic (involving randomness or</span>
+<span id="cb6-108"><a href="#cb6-108"></a>    uncertainty), the agent aims to maximize the **expected value** of the</span>
+<span id="cb6-109"><a href="#cb6-109"></a>    cumulative reward, accounting for different possible future states and</span>
+<span id="cb6-110"><a href="#cb6-110"></a>    outcomes. This means the agent is interested in the average cumulative</span>
+<span id="cb6-111"><a href="#cb6-111"></a>    reward it would obtain over many possible sequences of interactions, rather</span>
+<span id="cb6-112"><a href="#cb6-112"></a>    than specific individual outcomes.</span>
 <span id="cb6-113"><a href="#cb6-113"></a></span>
-<span id="cb6-114"><a href="#cb6-114"></a><span class="fu">### Importance in Reinforcement Learning:</span></span>
-<span id="cb6-115"><a href="#cb6-115"></a></span>
-<span id="cb6-116"><a href="#cb6-116"></a>This hypothesis is central to how reinforcement learning problems are</span>
-<span id="cb6-117"><a href="#cb6-117"></a>structured. It reduces complex goals and objectives into a single, scalar value</span>
-<span id="cb6-118"><a href="#cb6-118"></a>(the reward) that the agent can track and optimize over time. This abstraction</span>
-<span id="cb6-119"><a href="#cb6-119"></a>makes it possible to design agents that can handle a wide variety of tasks, as</span>
-<span id="cb6-120"><a href="#cb6-120"></a>long as those tasks can be expressed in terms of rewards provided by the</span>
-<span id="cb6-121"><a href="#cb6-121"></a>environment.</span>
+<span id="cb6-114"><a href="#cb6-114"></a><span class="ss">4.  </span>**Formalizing Goals and Purposes**: According to the reward hypothesis, all</span>
+<span id="cb6-115"><a href="#cb6-115"></a>    goals, objectives, or purposes of the agent can be **quantified** by</span>
+<span id="cb6-116"><a href="#cb6-116"></a>    maximizing this cumulative scalar signal (reward). In other words, the</span>
+<span id="cb6-117"><a href="#cb6-117"></a>    "purpose" of the agent is simply to optimize the feedback it receives in the</span>
+<span id="cb6-118"><a href="#cb6-118"></a>    form of rewards, and this concept encapsulates everything the agent is</span>
+<span id="cb6-119"><a href="#cb6-119"></a>    designed to achieve.</span>
+<span id="cb6-120"><a href="#cb6-120"></a></span>
+<span id="cb6-121"><a href="#cb6-121"></a><span class="fu">### Importance in Reinforcement Learning:</span></span>
 <span id="cb6-122"><a href="#cb6-122"></a></span>
-<span id="cb6-123"><a href="#cb6-123"></a><span class="fu">## Returns and Episodes</span></span>
-<span id="cb6-124"><a href="#cb6-124"></a></span>
-<span id="cb6-125"><a href="#cb6-125"></a>To formalize the objective of learning in reinforcement learning, we introduce</span>
-<span id="cb6-126"><a href="#cb6-126"></a>the concept of **return**. The **return**, denoted $G_t$, is a function of the</span>
-<span id="cb6-127"><a href="#cb6-127"></a>future rewards that the agent will receive after time step $t$. The agent aims</span>
-<span id="cb6-128"><a href="#cb6-128"></a>to maximize the **expected return** to achieve its goal. Let’s break down this</span>
-<span id="cb6-129"><a href="#cb6-129"></a>formalization step by step:</span>
-<span id="cb6-130"><a href="#cb6-130"></a></span>
-<span id="cb6-131"><a href="#cb6-131"></a><span class="fu">### 1. **The Reward Sequence**:</span></span>
-<span id="cb6-132"><a href="#cb6-132"></a></span>
-<span id="cb6-133"><a href="#cb6-133"></a>At each time step $t$, the agent receives a reward $R_{t+1}, R_{t+2},\dots,$ as</span>
-<span id="cb6-134"><a href="#cb6-134"></a>a result of interacting with the environment. This sequence of rewards</span>
-<span id="cb6-135"><a href="#cb6-135"></a>represents the feedback the agent receives over time based on its actions.</span>
-<span id="cb6-136"><a href="#cb6-136"></a></span>
-<span id="cb6-137"><a href="#cb6-137"></a><span class="fu">### 2. **Defining the Return**:</span></span>
-<span id="cb6-138"><a href="#cb6-138"></a></span>
-<span id="cb6-139"><a href="#cb6-139"></a>The **return** at time step $t$, denoted $G_t$, is the total accumulated reward</span>
-<span id="cb6-140"><a href="#cb6-140"></a>from time step $t$ onward. In reinforcement learning, the return can be defined</span>
-<span id="cb6-141"><a href="#cb6-141"></a>in different ways, but it generally involves summing the future rewards, often</span>
-<span id="cb6-142"><a href="#cb6-142"></a>discounted to account for the uncertainty or diminishing value of rewards</span>
-<span id="cb6-143"><a href="#cb6-143"></a>received further in the future.</span>
-<span id="cb6-144"><a href="#cb6-144"></a></span>
-<span id="cb6-145"><a href="#cb6-145"></a>The **undiscounted return** would simply be the sum of all future rewards: $$</span>
-<span id="cb6-146"><a href="#cb6-146"></a>   G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots = \sum_{k=0}^{\infty} R_{t+k+1}</span>
-<span id="cb6-147"><a href="#cb6-147"></a>$$ This sum may be infinite if the task never ends, which can be problematic.</span>
-<span id="cb6-148"><a href="#cb6-148"></a>Thus, in many cases, a **discount factor** is applied to weight future rewards</span>
-<span id="cb6-149"><a href="#cb6-149"></a>less than immediate rewards.</span>
-<span id="cb6-150"><a href="#cb6-150"></a></span>
-<span id="cb6-151"><a href="#cb6-151"></a>Likewise if the MDP has finite horizont $T$ then</span>
-<span id="cb6-152"><a href="#cb6-152"></a>$$G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots + R_{T}$$</span>
-<span id="cb6-153"><a href="#cb6-153"></a></span>
-<span id="cb6-154"><a href="#cb6-154"></a><span class="fu">### 3. **Discounted Return**:</span></span>
-<span id="cb6-155"><a href="#cb6-155"></a></span>
-<span id="cb6-156"><a href="#cb6-156"></a>To address this issue, we introduce a discount factor $\gamma$, where </span>
-<span id="cb6-157"><a href="#cb6-157"></a>$0\leq \gamma \leq 1$. The discount factor controls how much emphasis is placed</span>
-<span id="cb6-158"><a href="#cb6-158"></a>on future rewards. When $\gamma$ is close to 1, future rewards are considered</span>
-<span id="cb6-159"><a href="#cb6-159"></a>nearly as valuable as immediate rewards. When $\gamma$ is closer to 0, the</span>
-<span id="cb6-160"><a href="#cb6-160"></a>agent focuses more on immediate rewards.</span>
-<span id="cb6-161"><a href="#cb6-161"></a></span>
-<span id="cb6-162"><a href="#cb6-162"></a>The **discounted return** is defined as: </span>
-<span id="cb6-163"><a href="#cb6-163"></a>$$</span>
-<span id="cb6-164"><a href="#cb6-164"></a>G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots </span>
-<span id="cb6-165"><a href="#cb6-165"></a>    = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}</span>
-<span id="cb6-166"><a href="#cb6-166"></a>$$ Here, each future reward is multiplied by ( \gamma\^k ), where ( k ) is the</span>
-<span id="cb6-167"><a href="#cb6-167"></a>number of time steps into the future. This ensures that the agent values</span>
-<span id="cb6-168"><a href="#cb6-168"></a>immediate rewards more highly than rewards far into the future, which is often</span>
-<span id="cb6-169"><a href="#cb6-169"></a>desirable in practical applications.</span>
-<span id="cb6-170"><a href="#cb6-170"></a></span>
-<span id="cb6-171"><a href="#cb6-171"></a><span class="fu">### 4. **Maximizing the Expected Return**:</span></span>
-<span id="cb6-172"><a href="#cb6-172"></a></span>
-<span id="cb6-173"><a href="#cb6-173"></a>Since the environment in reinforcement learning is often stochastic, the agent</span>
-<span id="cb6-174"><a href="#cb6-174"></a>cannot guarantee a specific sequence of rewards, but it can aim to maximize the</span>
-<span id="cb6-175"><a href="#cb6-175"></a>**expected return**. The expected return is the average return the agent would</span>
-<span id="cb6-176"><a href="#cb6-176"></a>obtain by following a specific policy $\pi$, which defines the agent’s behavior.</span>
-<span id="cb6-177"><a href="#cb6-177"></a></span>
-<span id="cb6-178"><a href="#cb6-178"></a>Formally, the agent’s objective is to maximize the expected return: </span>
-<span id="cb6-179"><a href="#cb6-179"></a>$$</span>
-<span id="cb6-180"><a href="#cb6-180"></a>    \mathbb{E}<span class="co">[</span><span class="ot">G_t | \pi</span><span class="co">]</span> </span>
-<span id="cb6-181"><a href="#cb6-181"></a>            = \mathbb{E}\left<span class="co">[</span><span class="ot">\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \Big| \pi\right</span><span class="co">]</span></span>
-<span id="cb6-182"><a href="#cb6-182"></a>$$ where $\pi$ is the policy being followed. This equation tells us that the</span>
-<span id="cb6-183"><a href="#cb6-183"></a>agent should choose actions in a way that maximizes the long-term expected</span>
-<span id="cb6-184"><a href="#cb6-184"></a>reward, considering both immediate and future rewards.</span>
-<span id="cb6-185"><a href="#cb6-185"></a></span>
-<span id="cb6-186"><a href="#cb6-186"></a><span class="fu">### 5. **Two Types of Tasks**:</span></span>
-<span id="cb6-187"><a href="#cb6-187"></a></span>
-<span id="cb6-188"><a href="#cb6-188"></a><span class="ss">-   </span>**Finite-Horizon Tasks**: These tasks have a fixed time limit, and the</span>
-<span id="cb6-189"><a href="#cb6-189"></a>    agent’s goal is to maximize the sum of rewards within that time limit. In</span>
-<span id="cb6-190"><a href="#cb6-190"></a>    such cases, the discount factor $\gamma$ may not be necessary, and the</span>
-<span id="cb6-191"><a href="#cb6-191"></a>    return is just the sum of the finite rewards received before the task ends.</span>
-<span id="cb6-192"><a href="#cb6-192"></a><span class="ss">-   </span>**Infinite-Horizon Tasks**: In tasks that continue indefinitely, the</span>
-<span id="cb6-193"><a href="#cb6-193"></a>    discount factor $\gamma$ ensures that the return remains finite by reducing</span>
-<span id="cb6-194"><a href="#cb6-194"></a>    the impact of rewards far into the future.</span>
-<span id="cb6-195"><a href="#cb6-195"></a></span>
-<span id="cb6-196"><a href="#cb6-196"></a><span class="fu">### Conclusion:</span></span>
-<span id="cb6-197"><a href="#cb6-197"></a></span>
-<span id="cb6-198"><a href="#cb6-198"></a>Thus, in reinforcement learning, the agent's formal objective is to maximize the</span>
-<span id="cb6-199"><a href="#cb6-199"></a>**expected return**, $\mathbb{E}<span class="co">[</span><span class="ot">G_t</span><span class="co">]</span>$, where the return $G_t$ is the</span>
-<span id="cb6-200"><a href="#cb6-200"></a>**discounted sum** of future rewards. The use of the discount factor $\gamma$</span>
-<span id="cb6-201"><a href="#cb6-201"></a>helps the agent focus more on immediate rewards, while still considering future</span>
-<span id="cb6-202"><a href="#cb6-202"></a>rewards to some degree. This formalization ensures that the agent’s behavior is</span>
-<span id="cb6-203"><a href="#cb6-203"></a>guided not just by immediate rewards but by a balanced approach to long-term</span>
-<span id="cb6-204"><a href="#cb6-204"></a>success.</span>
-<span id="cb6-205"><a href="#cb6-205"></a></span>
-<span id="cb6-206"><a href="#cb6-206"></a><span class="fu">## Unified Notation for Episodic and Continuing Tasks</span></span>
-<span id="cb6-207"><a href="#cb6-207"></a></span>
-<span id="cb6-208"><a href="#cb6-208"></a><span class="fu">## Policies and Value Functions</span></span>
-<span id="cb6-209"><a href="#cb6-209"></a></span>
-<span id="cb6-210"><a href="#cb6-210"></a>{{&lt; include policy_and_value_functions.qmd &gt;}}</span>
-<span id="cb6-211"><a href="#cb6-211"></a></span>
-<span id="cb6-212"><a href="#cb6-212"></a><span class="fu">### Pick and drop example</span></span>
-<span id="cb6-213"><a href="#cb6-213"></a></span>
-<span id="cb6-214"><a href="#cb6-214"></a>{{&lt; include pick_and_drop_exm.qmd .qmd &gt;}}</span>
-<span id="cb6-215"><a href="#cb6-215"></a></span>
-<span id="cb6-216"><a href="#cb6-216"></a>{{&lt; include gridworld_exm.qmd &gt;}}</span>
-<span id="cb6-217"><a href="#cb6-217"></a></span>
-<span id="cb6-218"><a href="#cb6-218"></a><span class="fu">## Optimal Policies and Optimal Value Functions</span></span>
-<span id="cb6-219"><a href="#cb6-219"></a></span>
-<span id="cb6-220"><a href="#cb6-220"></a><span class="fu">## Optimality and Approximation</span></span>
-<span id="cb6-221"><a href="#cb6-221"></a></span>
-<span id="cb6-222"><a href="#cb6-222"></a><span class="fu">## Summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-123"><a href="#cb6-123"></a>This hypothesis is central to how reinforcement learning problems are</span>
+<span id="cb6-124"><a href="#cb6-124"></a>structured. It reduces complex goals and objectives into a single, scalar value</span>
+<span id="cb6-125"><a href="#cb6-125"></a>(the reward) that the agent can track and optimize over time. This abstraction</span>
+<span id="cb6-126"><a href="#cb6-126"></a>makes it possible to design agents that can handle a wide variety of tasks, as</span>
+<span id="cb6-127"><a href="#cb6-127"></a>long as those tasks can be expressed in terms of rewards provided by the</span>
+<span id="cb6-128"><a href="#cb6-128"></a>environment.</span>
+<span id="cb6-129"><a href="#cb6-129"></a></span>
+<span id="cb6-130"><a href="#cb6-130"></a><span class="fu">## Returns and Episodes</span></span>
+<span id="cb6-131"><a href="#cb6-131"></a></span>
+<span id="cb6-132"><a href="#cb6-132"></a>To formalize the objective of learning in reinforcement learning, we introduce</span>
+<span id="cb6-133"><a href="#cb6-133"></a>the concept of **return**. The **return**, denoted $G_t$, is a function of the</span>
+<span id="cb6-134"><a href="#cb6-134"></a>future rewards that the agent will receive after time step $t$. The agent aims</span>
+<span id="cb6-135"><a href="#cb6-135"></a>to maximize the **expected return** to achieve its goal. Let’s break down this</span>
+<span id="cb6-136"><a href="#cb6-136"></a>formalization step by step:</span>
+<span id="cb6-137"><a href="#cb6-137"></a></span>
+<span id="cb6-138"><a href="#cb6-138"></a><span class="fu">### 1. **The Reward Sequence**:</span></span>
+<span id="cb6-139"><a href="#cb6-139"></a></span>
+<span id="cb6-140"><a href="#cb6-140"></a>At each time step $t$, the agent receives a reward $R_{t+1}, R_{t+2},\dots,$ as</span>
+<span id="cb6-141"><a href="#cb6-141"></a>a result of interacting with the environment. This sequence of rewards</span>
+<span id="cb6-142"><a href="#cb6-142"></a>represents the feedback the agent receives over time based on its actions.</span>
+<span id="cb6-143"><a href="#cb6-143"></a></span>
+<span id="cb6-144"><a href="#cb6-144"></a><span class="fu">### 2. **Defining the Return**:</span></span>
+<span id="cb6-145"><a href="#cb6-145"></a></span>
+<span id="cb6-146"><a href="#cb6-146"></a>The **return** at time step $t$, denoted $G_t$, is the total accumulated reward</span>
+<span id="cb6-147"><a href="#cb6-147"></a>from time step $t$ onward. In reinforcement learning, the return can be defined</span>
+<span id="cb6-148"><a href="#cb6-148"></a>in different ways, but it generally involves summing the future rewards, often</span>
+<span id="cb6-149"><a href="#cb6-149"></a>discounted to account for the uncertainty or diminishing value of rewards</span>
+<span id="cb6-150"><a href="#cb6-150"></a>received further in the future.</span>
+<span id="cb6-151"><a href="#cb6-151"></a></span>
+<span id="cb6-152"><a href="#cb6-152"></a>The **undiscounted return** would simply be the sum of all future rewards: $$</span>
+<span id="cb6-153"><a href="#cb6-153"></a>   G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots = \sum_{k=0}^{\infty} R_{t+k+1}</span>
+<span id="cb6-154"><a href="#cb6-154"></a>$$ This sum may be infinite if the task never ends, which can be problematic.</span>
+<span id="cb6-155"><a href="#cb6-155"></a>Thus, in many cases, a **discount factor** is applied to weight future rewards</span>
+<span id="cb6-156"><a href="#cb6-156"></a>less than immediate rewards.</span>
+<span id="cb6-157"><a href="#cb6-157"></a></span>
+<span id="cb6-158"><a href="#cb6-158"></a>Likewise if the MDP has finite horizont $T$ then</span>
+<span id="cb6-159"><a href="#cb6-159"></a>$$G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots + R_{T}$$</span>
+<span id="cb6-160"><a href="#cb6-160"></a></span>
+<span id="cb6-161"><a href="#cb6-161"></a><span class="fu">### 3. **Discounted Return**:</span></span>
+<span id="cb6-162"><a href="#cb6-162"></a></span>
+<span id="cb6-163"><a href="#cb6-163"></a>To address this issue, we introduce a discount factor $\gamma$, where</span>
+<span id="cb6-164"><a href="#cb6-164"></a>$0\leq \gamma \leq 1$. The discount factor controls how much emphasis is placed</span>
+<span id="cb6-165"><a href="#cb6-165"></a>on future rewards. When $\gamma$ is close to 1, future rewards are considered</span>
+<span id="cb6-166"><a href="#cb6-166"></a>nearly as valuable as immediate rewards. When $\gamma$ is closer to 0, the agent</span>
+<span id="cb6-167"><a href="#cb6-167"></a>focuses more on immediate rewards.</span>
+<span id="cb6-168"><a href="#cb6-168"></a></span>
+<span id="cb6-169"><a href="#cb6-169"></a>The **discounted return** is defined as: $$</span>
+<span id="cb6-170"><a href="#cb6-170"></a>G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots </span>
+<span id="cb6-171"><a href="#cb6-171"></a>    = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}</span>
+<span id="cb6-172"><a href="#cb6-172"></a>$$ Here, each future reward is multiplied by ( \gamma\^k ), where ( k ) is the</span>
+<span id="cb6-173"><a href="#cb6-173"></a>number of time steps into the future. This ensures that the agent values</span>
+<span id="cb6-174"><a href="#cb6-174"></a>immediate rewards more highly than rewards far into the future, which is often</span>
+<span id="cb6-175"><a href="#cb6-175"></a>desirable in practical applications.</span>
+<span id="cb6-176"><a href="#cb6-176"></a></span>
+<span id="cb6-177"><a href="#cb6-177"></a><span class="fu">### 4. **Maximizing the Expected Return**:</span></span>
+<span id="cb6-178"><a href="#cb6-178"></a></span>
+<span id="cb6-179"><a href="#cb6-179"></a>Since the environment in reinforcement learning is often stochastic, the agent</span>
+<span id="cb6-180"><a href="#cb6-180"></a>cannot guarantee a specific sequence of rewards, but it can aim to maximize the</span>
+<span id="cb6-181"><a href="#cb6-181"></a>**expected return**. The expected return is the average return the agent would</span>
+<span id="cb6-182"><a href="#cb6-182"></a>obtain by following a specific policy $\pi$, which defines the agent’s behavior.</span>
+<span id="cb6-183"><a href="#cb6-183"></a></span>
+<span id="cb6-184"><a href="#cb6-184"></a>Formally, the agent’s objective is to maximize the expected return: $$</span>
+<span id="cb6-185"><a href="#cb6-185"></a>    \mathbb{E}<span class="co">[</span><span class="ot">G_t | \pi</span><span class="co">]</span> </span>
+<span id="cb6-186"><a href="#cb6-186"></a>            = \mathbb{E}\left<span class="co">[</span><span class="ot">\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \Big| \pi\right</span><span class="co">]</span></span>
+<span id="cb6-187"><a href="#cb6-187"></a>$$ where $\pi$ is the policy being followed. This equation tells us that the</span>
+<span id="cb6-188"><a href="#cb6-188"></a>agent should choose actions in a way that maximizes the long-term expected</span>
+<span id="cb6-189"><a href="#cb6-189"></a>reward, considering both immediate and future rewards.</span>
+<span id="cb6-190"><a href="#cb6-190"></a></span>
+<span id="cb6-191"><a href="#cb6-191"></a><span class="fu">### 5. **Two Types of Tasks**:</span></span>
+<span id="cb6-192"><a href="#cb6-192"></a></span>
+<span id="cb6-193"><a href="#cb6-193"></a><span class="ss">-   </span>**Finite-Horizon Tasks**: These tasks have a fixed time limit, and the</span>
+<span id="cb6-194"><a href="#cb6-194"></a>    agent’s goal is to maximize the sum of rewards within that time limit. In</span>
+<span id="cb6-195"><a href="#cb6-195"></a>    such cases, the discount factor $\gamma$ may not be necessary, and the</span>
+<span id="cb6-196"><a href="#cb6-196"></a>    return is just the sum of the finite rewards received before the task ends.</span>
+<span id="cb6-197"><a href="#cb6-197"></a><span class="ss">-   </span>**Infinite-Horizon Tasks**: In tasks that continue indefinitely, the</span>
+<span id="cb6-198"><a href="#cb6-198"></a>    discount factor $\gamma$ ensures that the return remains finite by reducing</span>
+<span id="cb6-199"><a href="#cb6-199"></a>    the impact of rewards far into the future.</span>
+<span id="cb6-200"><a href="#cb6-200"></a></span>
+<span id="cb6-201"><a href="#cb6-201"></a><span class="fu">### Conclusion:</span></span>
+<span id="cb6-202"><a href="#cb6-202"></a></span>
+<span id="cb6-203"><a href="#cb6-203"></a>Thus, in reinforcement learning, the agent's formal objective is to maximize the</span>
+<span id="cb6-204"><a href="#cb6-204"></a>**expected return**, $\mathbb{E}<span class="co">[</span><span class="ot">G_t</span><span class="co">]</span>$, where the return $G_t$ is the</span>
+<span id="cb6-205"><a href="#cb6-205"></a>**discounted sum** of future rewards. The use of the discount factor $\gamma$</span>
+<span id="cb6-206"><a href="#cb6-206"></a>helps the agent focus more on immediate rewards, while still considering future</span>
+<span id="cb6-207"><a href="#cb6-207"></a>rewards to some degree. This formalization ensures that the agent’s behavior is</span>
+<span id="cb6-208"><a href="#cb6-208"></a>guided not just by immediate rewards but by a balanced approach to long-term</span>
+<span id="cb6-209"><a href="#cb6-209"></a>success.</span>
+<span id="cb6-210"><a href="#cb6-210"></a></span>
+<span id="cb6-211"><a href="#cb6-211"></a><span class="fu">## Unified Notation for Episodic and Continuing Tasks</span></span>
+<span id="cb6-212"><a href="#cb6-212"></a></span>
+<span id="cb6-213"><a href="#cb6-213"></a><span class="fu">## Policies and Value Functions</span></span>
+<span id="cb6-214"><a href="#cb6-214"></a></span>
+<span id="cb6-215"><a href="#cb6-215"></a>{{&lt; include policy_and_value_functions.qmd &gt;}}</span>
+<span id="cb6-216"><a href="#cb6-216"></a></span>
+<span id="cb6-217"><a href="#cb6-217"></a><span class="fu">### Pick and drop example</span></span>
+<span id="cb6-218"><a href="#cb6-218"></a></span>
+<span id="cb6-219"><a href="#cb6-219"></a>{{&lt; include pick_and_drop_exm.qmd &gt;}}</span>
+<span id="cb6-220"><a href="#cb6-220"></a></span>
+<span id="cb6-221"><a href="#cb6-221"></a>{{&lt; include gridworld_exm.qmd &gt;}}</span>
+<span id="cb6-222"><a href="#cb6-222"></a></span>
+<span id="cb6-223"><a href="#cb6-223"></a>{{&lt; include golf_exm.qmd &gt;}}</span>
+<span id="cb6-224"><a href="#cb6-224"></a></span>
+<span id="cb6-225"><a href="#cb6-225"></a><span class="fu">## Optimal Policies and Optimal Value Functions</span></span>
+<span id="cb6-226"><a href="#cb6-226"></a></span>
+<span id="cb6-227"><a href="#cb6-227"></a><span class="fu">## Optimality and Approximation</span></span>
+<span id="cb6-228"><a href="#cb6-228"></a></span>
+<span id="cb6-229"><a href="#cb6-229"></a><span class="fu">## Summary</span></span>
+<span id="cb6-230"><a href="#cb6-230"></a>:::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1918,6 +2010,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
