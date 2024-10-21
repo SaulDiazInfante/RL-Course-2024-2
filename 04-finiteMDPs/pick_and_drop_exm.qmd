@@ -1,0 +1,273 @@
+::: {#fig-pick_and_drop_exm fig-env="figure*"}
+![Pick and Drop game](/assets/ch_03/drop_game.png){.lightbox}
+
+Pick and Drop game. See python implementation below.
+
+:::
+
+::: {#fig-pick_and_drop_rules fig-env="figure*"}
+
+![Rewards rules for the drop game](/assets/ch_03/rules_drop_game.png){.lightbox}
+
+Rewards rules for the drop game. See the above scheme for reference.
+
+:::
+
+::: {.callout-tip collapse=true icon=false}
+
+## We use the following class to simulate the pick and drop game accordingly the
+above figure and rules.
+
+```{.python filename=pick_and_drop_game.py}
+class Field:
+    def __init__(self, size, item_pickup, item_dropout, start_position):
+        self.size = size
+        self.item_pickup = item_pickup
+        self.item_dropout = item_dropout
+        self.position = start_position
+        self.item_in_car = False
+    
+    def get_number_of_states(self):
+        return self.size * self.size * self.size * self.size * 2
+    
+    def get_state(self):
+        state = self.position[0] * self.size * self.size * self.size * 2
+        state = state + self.position[1] * self.size * self.size * 2
+        state = state + self.item_pickup[0] * self.size * 2
+        state = state + self.item_pickup[1] * 2
+        
+        if self.item_in_car:
+            state = state + 1
+        return state
+    
+    def make_action(self, action):
+        (x, y) = self.position
+        if action == 0:  # down
+            if y == self.size - 1:
+                return -10, False
+            else:
+                self.position = (x, y + 1)
+                return -1, False
+        
+        elif action == 1:  # up
+            if y == 0:
+                return -10, False
+            else:
+                self.position = (x, y - 1)
+                return -1, False
+        
+        elif action == 2:  # left
+            if x == 0:
+                return -10, False
+            else:
+                self.position = (x - 1, y)
+                return -1, False
+        
+        elif action == 3:  # right
+            if x == self.size - 1:
+                return -10, False
+            else:
+                self.position = (x + 1, y)
+                return -1, False
+        
+        elif action == 4:  # pickup
+            if self.item_in_car:
+                return -10, False
+            elif self.item_pickup != (x, y):
+                return -10, False
+            else:
+                self.item_in_car = True
+                return 20, False
+        
+        elif action == 5:  # dropout
+            if not self.item_in_car:
+                return -10, False
+            elif self.item_dropout != (x, y):
+                self.item_pickup = (x, y)
+                self.item_in_car = False
+                return -10, False
+            else:
+                self.item_in_car = False
+                return 20, True
+```
+:::
+
+::: {.callout-tip collapse=true icon=false}
+
+## To illustrate how works this class
+
+```{.python filename=test_pick_and_drop_game.py }
+from pick_and_drop_game import Field
+size = 10
+item_pickup = (0, 0)
+item_dropout = (9, 9)
+start_position = (9, 0)
+
+
+
+if __name__ == '__main__':
+    field = Field(size, item_pickup, item_dropout, start_position)
+    print(field.position)
+    
+# manual solution
+field.make_action(2)
+field.make_action(2)
+field.make_action(2)
+field.make_action(2)
+field.make_action(2)
+field.make_action(2)
+field.make_action(2)
+field.make_action(2)
+field.make_action(2)
+# pick
+field.make_action(4)
+
+field.make_action(0)
+field.make_action(0)
+field.make_action(0)
+field.make_action(0)
+field.make_action(0)
+field.make_action(0)
+field.make_action(0)
+field.make_action(0)
+field.make_action(0)
+
+field.make_action(3)
+field.make_action(3)
+field.make_action(3)
+field.make_action(3)
+field.make_action(3)
+field.make_action(3)
+field.make_action(3)
+field.make_action(3)
+field.make_action(3)
+
+field.make_action(5)
+```
+:::
+
+::: {.callout-tip collapse=true icon=false}
+
+## Now we implement a random but naive solution
+
+```{.python filename=pick_and_drop_naive_random_solution.py}
+from matplotlib import pyplot as plt
+
+from pick_and_drop_game import Field
+import random
+import numpy as np
+
+
+def random_solution():
+    size = 10
+    item_pickup = (0, 0)
+    item_dropout = (9, 9)
+    start_position = (9, 0)
+    
+    field = Field(size, item_pickup, item_dropout, start_position)
+    
+    done = False
+    steps = 0
+    
+    while not done:
+        action = random.randint(0, 5)
+        reward, done = field.make_action(action)
+        steps = steps + 1
+    
+    return steps
+
+
+if __name__ == '__main__':
+    steps = random_solution()
+    print(steps)
+    sampling_size = 100
+    sample = [random_solution() for _ in range(sampling_size)]
+    sample = np.array(sample)
+    no_steps_mean = sample.mean()
+    print('Mean of # steps for reach goal {:n}'.format(no_steps_mean))
+    plt.show()
+
+```
+:::
+
+::: {.callout-tip collapse=true icon=false}
+
+## Next we apply the $Q-$learning algorithm for impove the above solution.
+
+```{.python filename=pick_and_drop_q_learning_solution.py}
+	def q_learning_solution():
+    epsilon = 0.1
+    alpha = 0.1
+    gamma = 0.6
+    
+    field = Field(size, item_pickup, item_drop_out, start_position)
+    done = False
+    steps = 0
+    
+    while not done:
+        state = field.get_state()
+        if random.uniform(0, 1) < epsilon:
+            action = random.randint(0, 5)  # Explore
+        else:
+            action = np.argmax(q_table[state])  # Exploit
+        
+        reward, done = field.make_action(action)
+        
+        new_state = field.get_state()
+        new_state_max = np.max(q_table[new_state])
+        
+        q_table[state, action] = \
+            (1 - alpha) * q_table[state, action] \
+            + alpha * (
+                    reward + gamma * new_state_max
+                    - q_table[state, action]
+            )
+        steps = steps + 1
+    return steps
+
+
+size = 10
+item_pickup = (0, 0)
+item_drop_out = (9, 9)
+start_position = (9, 0)
+
+field = Field(size, item_pickup, item_drop_out, start_position)
+
+number_of_states = field.get_number_of_states()
+number_of_actions = 6
+q_table = np.zeros((number_of_states, number_of_actions))
+epsilon = 0.1
+alpha = 0.1
+gamma = 0.6
+n_training = 100000
+# Training phase
+
+for _ in range(n_training):
+    field = Field(size, item_pickup, item_drop_out, start_position)
+    done = False
+    while not done:
+        state = field.get_state()
+        if random.uniform(0, 1) < epsilon:
+            action = random.randint(0, 5)  # Explore
+        else:
+            action = np.argmax(q_table[state])  # Exploit
+        reward, done = field.make_action(action)
+        new_state = field.get_state()
+        new_state_max = np.max(q_table[new_state])
+        # q_learning iteration as ascendant grad
+        q_table[state, action] = \
+            (1.0 - alpha) * q_table[state, action] \
+            + alpha * (
+                reward + gamma * new_state_max - q_table[state, action]
+            )
+
+q_learning_sampling = [q_learning_solution() for _ in range(10000)]
+fig, ax = plt.subplots()
+ax.hist(q_learning_sampling, bins=100)
+ax.set_title('distribution of the No. of steps with the Q-Learning sol')
+ax.set_xlabel('No. of steps')
+ax.set_ylabel('Count')
+fig.savefig("histogram_q_learning_solution.png")
+plt.show()
+```
+:::

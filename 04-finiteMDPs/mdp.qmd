@@ -22,7 +22,7 @@ playing with different toys and remembering which ones you like best.
 
 ## The Agent–Environment Interface
 
-::: {#exm-roboClean}
+::::: {#exm-roboClean}
 A mobile robot has the job of collecting empty soda cans in an office
 environment. It has sensors for detecting cans, and an arm and gripper that can
 pick them up and place them in an onboard bin; it runs on a rechargeable
@@ -38,9 +38,9 @@ state, the agent can decide whether to
 2.  remain stationary and **wait** for someone to bring it a can, or
 3.  head back to its home base to **recharge** its battery.
 
-When the energy level is **high**, recharging would always be foolis h, so we do
-not include it in the action set for this state. The action sets are then \$
-\mathcal{A}(\texttt{high}) = {\texttt{search}, \texttt{wait}} \$ and
+When the energy level is **high**, recharging would always be foolish h, so we
+do not include it in the action set for this state. The action sets are then
+$\mathcal{A}(\texttt{high}) = \{\texttt{search}, \texttt{wait}\}$ and
 $\mathcal{A}(\texttt{low}) = \{\texttt{search}, \texttt{wait}, \texttt{recharge}\}$.
 
 The rewards are zero most of the time, but become positive when the robot
@@ -69,28 +69,164 @@ the transition probabilities and the expected rewards, with dynamics as
 indicated in the table on the left:
 
 ::: {#fig-robot-diagram fig-env="figure*"}
-![](../assets/ch_03/recycling_robot_diagram.png) Recycling-robot's graph. Taken
-from [@Sutton2018]
-:::
+![](../assets/ch_03/recycling_robot_diagram.png){.lightbox}
+
+Recycling-robot's graph. Taken from [@Sutton2018]
 :::
 
-::: {#exr-001}
-Give a table analogous to that in [p.53, Ex. 3.3, @Sutton2018], but for
-$p(s_0 , r |s, a)$. It should have columns for $s$, $a$, $s_0$ , $r$, and
-$p(s_0 , r |s, a)$, and a row for every 4-tuple for which
-$p(s_0 , r |s, a) > 0$.
+::: {#fig-robot-table fig-env="figure*"}
+![Transitions and rewards for the recycling
+robot](/assets/ch_03/recycling_robot_table.png){.lightbox}
+Transitions and rewards for the recycling
+robot
 :::
 
 ## Goals and Rewards
 
+In reinforcement learning, **the reward hypothesis** serves as the foundation
+for defining the objectives of an agent operating within an environment.
+According to this hypothesis, the agent's goal can be represented by the
+maximization of the **expected cumulative reward** over time, based on scalar
+feedback signals received from the environment.
+
+### Key Points of the Reward Hypothesis:
+
+1.  **Reward as a Scalar Signal**: At every time step, the environment provides
+    the agent with a simple numerical signal, $(R_t \in \mathbb{R}$, which
+    represents the immediate reward based on the agent’s actions and the current
+    state of the environment. This reward acts as feedback for the agent,
+    helping it learn and adjust its strategy to achieve its ultimate goal.
+
+2.  **Maximizing Cumulative Reward**: The agent’s goal is not just to maximize
+    the immediate reward, but to focus on the long-term sum of rewards, known as
+    the **cumulative reward**. This ensures that the agent does not become
+    short-sighted by only pursuing short-term benefits, but rather seeks
+    strategies that maximize its total reward across time.
+
+3.  **Expected Value of the Reward**: Since reinforcement learning involves
+    interaction in environments that can be stochastic (involving randomness or
+    uncertainty), the agent aims to maximize the **expected value** of the
+    cumulative reward, accounting for different possible future states and
+    outcomes. This means the agent is interested in the average cumulative
+    reward it would obtain over many possible sequences of interactions, rather
+    than specific individual outcomes.
+
+4.  **Formalizing Goals and Purposes**: According to the reward hypothesis, all
+    goals, objectives, or purposes of the agent can be **quantified** by
+    maximizing this cumulative scalar signal (reward). In other words, the
+    "purpose" of the agent is simply to optimize the feedback it receives in the
+    form of rewards, and this concept encapsulates everything the agent is
+    designed to achieve.
+
+### Importance in Reinforcement Learning:
+
+This hypothesis is central to how reinforcement learning problems are
+structured. It reduces complex goals and objectives into a single, scalar value
+(the reward) that the agent can track and optimize over time. This abstraction
+makes it possible to design agents that can handle a wide variety of tasks, as
+long as those tasks can be expressed in terms of rewards provided by the
+environment.
+
 ## Returns and Episodes
+
+To formalize the objective of learning in reinforcement learning, we introduce
+the concept of **return**. The **return**, denoted $G_t$, is a function of the
+future rewards that the agent will receive after time step $t$. The agent aims
+to maximize the **expected return** to achieve its goal. Let’s break down this
+formalization step by step:
+
+### 1. **The Reward Sequence**:
+
+At each time step $t$, the agent receives a reward $R_{t+1}, R_{t+2},\dots,$ as
+a result of interacting with the environment. This sequence of rewards
+represents the feedback the agent receives over time based on its actions.
+
+### 2. **Defining the Return**:
+
+The **return** at time step $t$, denoted $G_t$, is the total accumulated reward
+from time step $t$ onward. In reinforcement learning, the return can be defined
+in different ways, but it generally involves summing the future rewards, often
+discounted to account for the uncertainty or diminishing value of rewards
+received further in the future.
+
+The **undiscounted return** would simply be the sum of all future rewards: $$
+   G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots = \sum_{k=0}^{\infty} R_{t+k+1}
+$$ This sum may be infinite if the task never ends, which can be problematic.
+Thus, in many cases, a **discount factor** is applied to weight future rewards
+less than immediate rewards.
+
+Likewise if the MDP has finite horizont $T$ then
+$$G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots + R_{T}$$
+
+### 3. **Discounted Return**:
+
+To address this issue, we introduce a discount factor $\gamma$, where
+$0\leq \gamma \leq 1$. The discount factor controls how much emphasis is placed
+on future rewards. When $\gamma$ is close to 1, future rewards are considered
+nearly as valuable as immediate rewards. When $\gamma$ is closer to 0, the agent
+focuses more on immediate rewards.
+
+The **discounted return** is defined as: $$
+G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots 
+    = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
+$$ Here, each future reward is multiplied by ( \gamma\^k ), where ( k ) is the
+number of time steps into the future. This ensures that the agent values
+immediate rewards more highly than rewards far into the future, which is often
+desirable in practical applications.
+
+### 4. **Maximizing the Expected Return**:
+
+Since the environment in reinforcement learning is often stochastic, the agent
+cannot guarantee a specific sequence of rewards, but it can aim to maximize the
+**expected return**. The expected return is the average return the agent would
+obtain by following a specific policy $\pi$, which defines the agent’s behavior.
+
+Formally, the agent’s objective is to maximize the expected return: $$
+    \mathbb{E}[G_t | \pi] 
+            = \mathbb{E}\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \Big| \pi\right]
+$$ where $\pi$ is the policy being followed. This equation tells us that the
+agent should choose actions in a way that maximizes the long-term expected
+reward, considering both immediate and future rewards.
+
+### 5. **Two Types of Tasks**:
+
+-   **Finite-Horizon Tasks**: These tasks have a fixed time limit, and the
+    agent’s goal is to maximize the sum of rewards within that time limit. In
+    such cases, the discount factor $\gamma$ may not be necessary, and the
+    return is just the sum of the finite rewards received before the task ends.
+-   **Infinite-Horizon Tasks**: In tasks that continue indefinitely, the
+    discount factor $\gamma$ ensures that the return remains finite by reducing
+    the impact of rewards far into the future.
+
+### Conclusion:
+
+Thus, in reinforcement learning, the agent's formal objective is to maximize the
+**expected return**, $\mathbb{E}[G_t]$, where the return $G_t$ is the
+**discounted sum** of future rewards. The use of the discount factor $\gamma$
+helps the agent focus more on immediate rewards, while still considering future
+rewards to some degree. This formalization ensures that the agent’s behavior is
+guided not just by immediate rewards but by a balanced approach to long-term
+success.
 
 ## Unified Notation for Episodic and Continuing Tasks
 
 ## Policies and Value Functions
+
+{{< include policy_and_value_functions.qmd >}}
+
+### Pick and drop example
+
+{{< include pick_and_drop_exm.qmd >}}
+
+{{< include gridworld_exm.qmd >}}
+
+{{< include golf_exm.qmd >}}
+
+
 
 ## Optimal Policies and Optimal Value Functions
 
 ## Optimality and Approximation
 
 ## Summary
+:::::

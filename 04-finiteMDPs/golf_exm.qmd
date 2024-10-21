@@ -1,0 +1,16 @@
+::: {#exm-golf}
+The state is the location of the ball. The value of a state is the negative of
+the number of strokes to the hole from that location. Our actions are how we aim
+and swing at the ball, of course, and which club we select. Let us take the
+former as given and consider just the choice of club, which we assume is either
+a putter or a driver. The upper part of Figure shows a possible state-value
+function, $v_{\text{putt}} (s)$, for the policy that always uses the putter.
+:::
+
+:::{#fig-golf-exm fig-env="figure*"}
+
+![Golf example](/assets/ch_04/golf_exm.png "Golf example."){fig-env="figure".lightbox}
+
+Gol example. At top the reward value of each state (ball curren position).
+
+:::

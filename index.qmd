@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Preface {.unnumbered}
 
 This notes are based in the course from Berstekas for the MIT see all lectures
