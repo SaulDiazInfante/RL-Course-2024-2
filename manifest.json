@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "locale": "es_MX",
+  "platform": "4.3.1",
+  "metadata": {
+    "appmode": "quarto-static",
+    "primary_rmd": "index.qmd",
+    "primary_html": null,
+    "content_category": null,
+    "has_parameters": false
+  },
+  "quarto": {
+    "version": "1.3.450",
+    "engines": ["markdown"]
+  },
+  "packages": null,
+  "files": {
+    ".nojekyll": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    ".RData": {
+      "checksum": "4b049bcda93b52325d630a95baece633"
+    },
+    ".vscode/settings.json": {
+      "checksum": "e6010cb5fc2c0694784dc1cb80867700"
+    },
+    "_extensions/danmackinlay/tikz/_extension.yml": {
+      "checksum": "4d7c726a567edc1434f276782139b567"
+    },
+    "_extensions/danmackinlay/tikz/tikz.lua": {
+      "checksum": "989134e1570b4dd14e28e4879dd29fae"
+    },
+    "_extensions/dialoa/imagify/_extension.yml": {
+      "checksum": "e710b290998c024a7a20a1d0d6bc832f"
+    },
+    "_extensions/dialoa/imagify/imagify.lua": {
+      "checksum": "87d467cf7a0800d098a7229ee0df8cee"
+    },
+    "_publish.yml": {
+      "checksum": "f94ffc45f7394c5f38c83312843a1235"
+    },
+    "_quarto.yml": {
+      "checksum": "7895b6119c01f419708577838749df67"
+    },
+    "01-introduction/figuraRedBrandimarte.tex": {
+      "checksum": "f0d09da8ad87ecb5bc4b35cfaa38643a"
+    },
+    "01-introduction/general_intro.qmd": {
+      "checksum": "ca2072284729b4b00e0739a7dbe7695a"
+    },
+    "02-introductionToRL/intro.qmd": {
+      "checksum": "2ac25bdce8f1ae3abec32de8f05b2e57"
+    },
+    "03-multiArmedBandit/02-multiarmed_bandits.pdf": {
+      "checksum": "5c5c7e2210e22c1a6cc927c651b95b24"
+    },
+    "03-multiArmedBandit/multiarmed_bandits.qmd": {
+      "checksum": "bac732ad0086c5494637271de2ace633"
+    },
+    "03-multiArmedBandit/summary_mab.qmd": {
+      "checksum": "95783b9e60d304ed668f2338a951a4f4"
+    },
+    "04-finiteMDPs/mdp.qmd": {
+      "checksum": "2b43bb75263ab23306baee03b1bb8fae"
+    },
+    "04-finiteMDPs/Pick and Drop Game.ipynb": {
+      "checksum": "853663c9bc3668531657bf1962ff2ca4"
+    },
+    "04-finiteMDPs/recycling_robots.ipynb": {
+      "checksum": "29e062ffef3e1803062191d7e16bdf90"
+    },
+    "05-dynamicProgramming/dp_rl.qmd": {
+      "checksum": "32940386471408dc721a6bd5f27c1941"
+    },
+    "06-applications/applications.qmd": {
+      "checksum": "31a42ae3ce1aac4b3c5b7a415ea720f1"
+    },
+    "07-Project/project_proposal.qmd": {
+      "checksum": "ce7d13c5164344161c6f756377bf9121"
+    },
+    "07-Project/project_template.qmd": {
+      "checksum": "d83514d540dc477d3f359f4fbccd3de7"
+    },
+    "08-Evaluation/rubric_evaluation.qmd": {
+      "checksum": "b8ae00429876acbddd8bbfc02b764f34"
+    },
+    "assets/ch_00/diagram_sequence_tictactoe_play.png": {
+      "checksum": "b17fb4652516011abf2ec2c5286c9612"
+    },
+    "assets/ch_00/Makalah-Matdis-2021(148).pdf": {
+      "checksum": "9d5c2bb766b66276187ea67466d8c036"
+    },
+    "assets/ch_00/network_brandimarte_ex.png": {
+      "checksum": "0e45b5401ce6f4df99a14ed271f4e22b"
+    },
+    "assets/ch_00/Reward_01.png": {
+      "checksum": "bd8b5516994066a8c809c5bc46c2ea77"
+    },
+    "assets/ch_00/Reward_02.png": {
+      "checksum": "80c1a6ad5834e306a2089db4e327972e"
+    },
+    "assets/ch_03/drop_game.png": {
+      "checksum": "44cb9e6268232dc0a1dc0c610385d61e"
+    },
+    "assets/ch_03/mab_simple_algorithm.png": {
+      "checksum": "03e779546ac13e75f1b2d666f2d0b3e6"
+    },
+    "assets/ch_03/recycling_robot_diagram.png": {
+      "checksum": "e352f4bd91d922be617c2dc37c464e0b"
+    },
+    "assets/ch_03/rules_drop_game.png": {
+      "checksum": "ecf99f4350dddb37f68f92deff3da5ef"
+    },
+    "assets/ProjectSelectedList.csv": {
+      "checksum": "bed0fbca7eaee6d403e6be06de76ab59"
+    },
+    "assets/RL-Book.jpeg": {
+      "checksum": "89e25923405b067d79de0607330cc7c2"
+    },
+    "assets/setup_tex.tex": {
+      "checksum": "16ce7f5726357b1cb60b2cfa384d18ac"
+    },
+    "assets/spanish_config.yml": {
+      "checksum": "7946893093d86e188bea640377d02825"
+    },
+    "assets/tic_tac_toe.jpeg": {
+      "checksum": "8e3a589b3a17290c80bcf8aac9c3512b"
+    },
+    "cover_RL.jpeg": {
+      "checksum": "a924007d5d9b50c46144c576bbb44d25"
+    },
+    "docs/.nojekyll": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "docs/cover_RL.jpeg": {
+      "checksum": "a924007d5d9b50c46144c576bbb44d25"
+    },
+    "docs/From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf": {
+      "checksum": "71b56e92baf55562f0e11bc4ce00f3e9"
+    },
+    "docs/index.html": {
+      "checksum": "2d730e5a56eac3a555c8e84e4fea8ad6"
+    },
+    "docs/references.html": {
+      "checksum": "840a6417da14b7fee992f1923fa84c3a"
+    },
+    "docs/robots.txt": {
+      "checksum": "d684669cbbbb9d143f029a484697294c"
+    },
+    "docs/search.json": {
+      "checksum": "53f64f6a62958a3d0549ec0a1508308b"
+    },
+    "docs/site_libs/bootstrap/bootstrap-icons.css": {
+      "checksum": "7b398b1069853b0425186226963a7aad"
+    },
+    "docs/site_libs/bootstrap/bootstrap-icons.woff": {
+      "checksum": "1a51dfbe5467607389d603c02a77cd10"
+    },
+    "docs/site_libs/bootstrap/bootstrap.min.css": {
+      "checksum": "5d36b79b0da674ace2967a0b5a4c926b"
+    },
+    "docs/site_libs/bootstrap/bootstrap.min.js": {
+      "checksum": "13e7cde0b66bf81424927231819f2616"
+    },
+    "docs/site_libs/clipboard/clipboard.min.js": {
+      "checksum": "722242f7b6e0fa3b8d25070388a5c826"
+    },
+    "docs/site_libs/quarto-html/anchor.min.js": {
+      "checksum": "1d0d5a0fbdee0fe4cad01b18ca781d13"
+    },
+    "docs/site_libs/quarto-html/popper.min.js": {
+      "checksum": "c04c707933aaedbb017737dfe0a0de7f"
+    },
+    "docs/site_libs/quarto-html/quarto-syntax-highlighting-dark.css": {
+      "checksum": "3b377ce0d2199010ac692f1601011221"
+    },
+    "docs/site_libs/quarto-html/quarto.js": {
+      "checksum": "fa9ec11d1c69dc53ca056e8b8d84bec6"
+    },
+    "docs/site_libs/quarto-html/tippy.css": {
+      "checksum": "ebd6f8ce46a677e1a4f5f8a8317109a9"
+    },
+    "docs/site_libs/quarto-html/tippy.umd.min.js": {
+      "checksum": "c767a9ffc932cac8690dd2e0321a121d"
+    },
+    "docs/site_libs/quarto-nav/quarto-nav.js": {
+      "checksum": "bf6e8f9c70336637c7112e7d3830011a"
+    },
+    "docs/site_libs/quarto-search/autocomplete.umd.js": {
+      "checksum": "31a896fbd1167d8fa62c4e152fa9c4f3"
+    },
+    "docs/site_libs/quarto-search/fuse.min.js": {
+      "checksum": "5f8e6fb5de2ff90ffb8678b5236ec4ad"
+    },
+    "docs/site_libs/quarto-search/quarto-search.js": {
+      "checksum": "81ea45ff3fed14945c6385f830ca54de"
+    },
+    "docs/sitemap.xml": {
+      "checksum": "2c0088f5e38d4c949d6d1b17ffdaa203"
+    },
+    "From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf": {
+      "checksum": "71b56e92baf55562f0e11bc4ce00f3e9"
+    },
+    "homeworks/_hw_001.qmd": {
+      "checksum": "54a9c56ed5ce42bd34e2475479ce2545"
+    },
+    "homeworks/_hw_002.qmd": {
+      "checksum": "da8ac1c6ccf9e53421a03f6d82e57bda"
+    },
+    "homeworks/_hw_grades.qmd": {
+      "checksum": "d1193ce58584190a7555015f2959cd48"
+    },
+    "homeworks/david_peña_peralta.csv": {
+      "checksum": "581f47f76ca6f36d855cc641a237937a"
+    },
+    "homeworks/edgar_everardo_martinez_garcia.csv": {
+      "checksum": "3b062b945a9c874c1a870932a4f8775b"
+    },
+    "homeworks/gabriel_miranda_gamez.csv": {
+      "checksum": "547e9155aff47e4409ab95085cd5ffda"
+    },
+    "homeworks/home_works_list.qmd": {
+      "checksum": "a837ce9d90b8a2ece1b933b16a567e8e"
+    },
+    "homeworks/irasema_perdoza_meza.csv": {
+      "checksum": "ceae41f9547f5a17c2534b2484cdb946"
+    },
+    "homeworks/jazmin_sarahi_flores_gomez.csv": {
+      "checksum": "581f47f76ca6f36d855cc641a237937a"
+    },
+    "homeworks/jose_italo_sanchez_bermudez.csv": {
+      "checksum": "581f47f76ca6f36d855cc641a237937a"
+    },
+    "homeworks/ProblemSet1.pdf": {
+      "checksum": "3e7670fb8cff646adab1ac6fc62396e1"
+    },
+    "homeworks/ProblemSet1.tex": {
+      "checksum": "ad0622bce5e2ea0df8a2857ee738d007"
+    },
+    "homeworks/rl_time_line.csv": {
+      "checksum": "137ef2636df60627bf4019a5c466c40e"
+    },
+    "index.qmd": {
+      "checksum": "554efaeba75ca91c16ae83baaa3499ff"
+    },
+    "index.tex": {
+      "checksum": "7fcef2b5c4103342b2b094fb7a353afb"
+    },
+    "Mastering_Reinforcement_Learning_with_Py.bib": {
+      "checksum": "ae7978112c6b666f6bc8f43e0e5a8579"
+    },
+    "mkp_and_rl.qmd": {
+      "checksum": "b967355ea9e4e3fb5b14d3198e7452af"
+    },
+    "references.bib": {
+      "checksum": "e02762918dfc4a3a36ea1f2af878f2e3"
+    },
+    "references.qmd": {
+      "checksum": "cff0355f080f5e1664d917de6d5b101c"
+    },
+    "summary.qmd": {
+      "checksum": "40d210c2ba29bc61a4e0c474c8f202d3"
+    },
+    "tabular_rl.qmd": {
+      "checksum": "a72f20f5156d82586f80057cd29624b7"
+    }
+  },
+  "users": null
+}
