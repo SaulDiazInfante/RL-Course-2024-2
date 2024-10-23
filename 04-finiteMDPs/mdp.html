@@ -97,6 +97,8 @@ div.csl-indent {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -139,6 +141,24 @@ div.csl-indent {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
+<script>
+MathJax = {
+  loader: {
+    load: ['[tex]/boldsymbol']
+  },
+  tex: {
+    tags: "all",
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    packages: {
+      '[+]': ['boldsymbol']
+    }
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -337,7 +357,7 @@ window.Quarto = {
 <div id="fig-robot-diagram" class="lightbox quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../assets/ch_03/recycling_robot_diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="../assets/ch_03/recycling_robot_diagram.png" class="img-fluid figure-img"></a>
+<a href="../assets/ch_03/recycling_robot_diagram.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="../assets/ch_03/recycling_robot_diagram.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Recycling-robot’s graph. Taken from <span class="citation" data-cites="Sutton2018">(<a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>
@@ -347,7 +367,7 @@ Figure&nbsp;1: Recycling-robot’s graph. Taken from <span class="citation" data
 <div id="fig-robot-table" class="lightbox quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-robot-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../assets/ch_03/recycling_robot_table.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Transitions and rewards for the recycling robot"><img src="../assets/ch_03/recycling_robot_table.png" class="img-fluid figure-img"></a>
+<a href="../assets/ch_03/recycling_robot_table.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Transitions and rewards for the recycling robot"><img src="../assets/ch_03/recycling_robot_table.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-robot-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2
@@ -530,7 +550,7 @@ V(s) \leftarrow \max_a \sum_{s'} P(s' \mid s, a) \left[ R(s, a, s') + \gamma V(s
 <div aria-describedby="fig-pick_and_drop_exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../assets/ch_03/drop_game.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Pick and Drop game"><img src="../assets/ch_03/drop_game.png" class="img-fluid figure-img"></a></p>
+<p><a href="../assets/ch_03/drop_game.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Pick and Drop game"><img src="../assets/ch_03/drop_game.png" class="img-fluid figure-img"></a></p>
 <figcaption>Pick and Drop game</figcaption>
 </figure>
 </div>
@@ -545,7 +565,7 @@ Figure&nbsp;3: Pick and Drop game. See python implementation below.
 <div aria-describedby="fig-pick_and_drop_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../assets/ch_03/rules_drop_game.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Rewards rules for the drop game"><img src="../assets/ch_03/rules_drop_game.png" class="img-fluid figure-img"></a></p>
+<p><a href="../assets/ch_03/rules_drop_game.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Rewards rules for the drop game"><img src="../assets/ch_03/rules_drop_game.png" class="img-fluid figure-img"></a></p>
 <figcaption>Rewards rules for the drop game</figcaption>
 </figure>
 </div>
@@ -879,7 +899,7 @@ Next we apply the <span class="math inline">\(Q-\)</span>learning algorithm for 
 <div aria-describedby="fig-grid-world-exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../assets/ch_04/grid_world_exm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Grid World example. Problem scheme , possible actions and sampling reward"><img src="../assets/ch_04/grid_world_exm.png" class="img-fluid figure-img"></a></p>
+<p><a href="../assets/ch_04/grid_world_exm.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Grid World example. Problem scheme , possible actions and sampling reward"><img src="../assets/ch_04/grid_world_exm.png" class="img-fluid figure-img"></a></p>
 <figcaption>Grid World example. Problem scheme , possible actions and sampling reward</figcaption>
 </figure>
 </div>
@@ -1107,7 +1127,7 @@ python implementation for the grid-world example
 <div aria-describedby="fig-golf-exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../assets/ch_04/golf_exm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Golf example"><img src="../assets/ch_04/golf_exm.png" title="Golf example." class="img-fluid figure-img" data-fig-env="figure"></a></p>
+<p><a href="../assets/ch_04/golf_exm.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Golf example"><img src="../assets/ch_04/golf_exm.png" title="Golf example." class="img-fluid figure-img" data-fig-env="figure"></a></p>
 <figcaption>Golf example</figcaption>
 </figure>
 </div>
@@ -1989,12 +2009,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-222"><a href="#cb6-222"></a></span>
 <span id="cb6-223"><a href="#cb6-223"></a>{{&lt; include golf_exm.qmd &gt;}}</span>
 <span id="cb6-224"><a href="#cb6-224"></a></span>
-<span id="cb6-225"><a href="#cb6-225"></a><span class="fu">## Optimal Policies and Optimal Value Functions</span></span>
+<span id="cb6-225"><a href="#cb6-225"></a></span>
 <span id="cb6-226"><a href="#cb6-226"></a></span>
-<span id="cb6-227"><a href="#cb6-227"></a><span class="fu">## Optimality and Approximation</span></span>
+<span id="cb6-227"><a href="#cb6-227"></a><span class="fu">## Optimal Policies and Optimal Value Functions</span></span>
 <span id="cb6-228"><a href="#cb6-228"></a></span>
-<span id="cb6-229"><a href="#cb6-229"></a><span class="fu">## Summary</span></span>
-<span id="cb6-230"><a href="#cb6-230"></a>:::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-229"><a href="#cb6-229"></a><span class="fu">## Optimality and Approximation</span></span>
+<span id="cb6-230"><a href="#cb6-230"></a></span>
+<span id="cb6-231"><a href="#cb6-231"></a><span class="fu">## Summary</span></span>
+<span id="cb6-232"><a href="#cb6-232"></a>:::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -2010,7 +2032,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox"});
+    <script type="text/javascript">
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let pseudocodeOptions = {
+          indentSize: el.dataset.indentSize || "1.2em",
+          commentDelimiter: el.dataset.commentDelimiter || "//",
+          lineNumber: el.dataset.lineNumber === "true" ? true : false,
+          lineNumberPunc: el.dataset.lineNumberPunc || ":",
+          noEnd: el.dataset.noEnd === "true" ? true : false,
+          titlePrefix: el.dataset.captionPrefix || "Algorithm"
+        };
+        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+      });
+    })(document);
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+        if (captionSpan !== null) {
+          let captionPrefix = el.dataset.captionPrefix + " ";
+          let captionNumber = "";
+          if (el.dataset.pseudocodeNumber) {
+            captionNumber = el.dataset.pseudocodeNumber + " ";
+            if (el.dataset.chapterLevel) {
+              captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+            }
+          }
+          captionSpan.innerHTML = captionPrefix + captionNumber;
+        }
+      });
+    })(document);
+    </script>
+  
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
