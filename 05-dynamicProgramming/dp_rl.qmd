@@ -12,7 +12,8 @@ easier and faster.
 
 ## Policy Evaluation (Prediction)
 
-```{pseudocode}
+```pseudocode
+#| label: alg-test-text-style
 #| html-indent-size: "1.2em"
 #| html-comment-delimiter: "//"
 #| html-line-number: true
@@ -22,30 +23,23 @@ easier and faster.
 #| pdf-line-number: true
 
 \begin{algorithm}
-\caption{Quicksort}
-\begin{algorithmic}
-\Procedure{Quicksort}{$A, p, r$}
-  \If{$p < r$}
-    \State $q = $ \Call{Partition}{$A, p, r$}
-    \State \Call{Quicksort}{$A, p, q - 1$}
-    \State \Call{Quicksort}{$A, q + 1, r$}
-  \EndIf
-\EndProcedure
-\Procedure{Partition}{$A, p, r$}
-  \State $x = A[r]$
-  \State $i = p - 1$
-  \For{$j = p$ \To $r - 1$}
-    \If{$A[j] < x$}
-      \State $i = i + 1$
-      \State exchange
-      $A[i]$ with     $A[j]$
-    \EndIf
-    \State exchange $A[i]$ with $A[r]$
-  \EndFor
-\EndProcedure
-\end{algorithmic}
+	\caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$}
+	\begin{algorithmic}
+		\Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision
+		\Ensure $|v- V(s)|< \theta$
+		\Procedure{Policy-Evaluation}{$\pi$, $\theta$}
+			\State $cond \leftarrow$ True
+			\While{cond}
+  			\For{$s \in \mathcal{S}$}
+  				\State $v \leftarrow V(s)$
+  				\State $V(s) \leftarrow \sum_{a}$ 
+  			\EndFor
+  		\EndWhile
+		\EndProcedure
+	\end{algorithmic}
 \end{algorithm}
 ```
+
 
 ## Policy Improvement
 
