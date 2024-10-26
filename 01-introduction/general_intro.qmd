@@ -1,32 +1,35 @@
-## Abstract {.unnumbered}
+---
+title: "Abstract"
+author: "Saúl Díaz Infante Velasco"
+format:
+  html:
+    grid:
+      margin-width: 350px
+  pdf: default
+reference-location: margin
+citation-location: margin
+number-sections: true
+number-depth: 3
+---
+
+## To fix ideas
+
 
 We present an introduction to the solution of multi-stage optimization problems.
 Starting from the dynamic programming algorithm, we consider theoretical and
 computational aspects, mainly of deterministic problems, and discuss how to
 generalize some of the results to Markovian decision processes.
 
-The classic problem with which the essential ideas of dynamic programming can be
-introduced is the optimal route problem (shortest route considering distances,
-or cheapest route considering costs) [@Bertsekas2005;
-@brandimarte2013numerical]. A simple version of this problem is shown
-schematically in [Fig @fig-brandimarte_net]. By exhaustion, we deploy the cost
-of path in @tbl-brandimarte_paths.
-
 ::: {#fig-brandimarte_net}
-![](assets/ch_00/network_brandimarte_ex.png){.lightbox}
+
+![](../assets/ch_00/network_brandimarte_ex.png){.lightbox}
 
 The shortest path
+
 :::
 
-In this problem, the optimal route to go from the node labeled $0$ to the node
-labeled $7$ is to be determined. The costs between each pair of nodes connected
-by an arrow are represented by a number next to it. For example, the cost to go
-from node 0 to node 2 is 6. The optimal route will be the one for which the sum
-of their costs is minimum. This optimal route can be obtained by an exhaustive
-enumeration; generating all possible routes from node $0$ to node $7$ and
-choosing the minimum cost route.
-
 ::: {#tbl-brandimarte_paths .hover .borderless .light}
+
 | Path                                 |  Cost  |
 |--------------------------------------|:------:|
 | $0 \to 1 \to 4 \to 7$                |   18   |
@@ -42,7 +45,18 @@ choosing the minimum cost route.
 | $0 \to 2 \to 5 \to 7$                |   18   |
 
 The shortest path by exhaustion see [@brandimarte2013numerical].
+
 :::
+
+The classic problem with which the essential ideas of dynamic programming can be introduced is the optimal route problem (shortest route considering distances,or cheapest route considering costs) [@Bertsekas2005;@brandimarte2013numerical]. A simple version of this problem is shown schematically in @fig-brandimarte_net. By exhaustion, we deploy the cost of path in @tbl-brandimarte_paths.
+
+In this problem, the optimal route to go from the node labeled $0$ to the node
+labeled $7$ is to be determined. The costs between each pair of nodes connected
+by an arrow are represented by a number next to it. For example, the cost to go
+from node 0 to node 2 is 6. The optimal route will be the one for which the sum
+of their costs is minimum. This optimal route can be obtained by an exhaustive
+enumeration; generating all possible routes from node $0$ to node $7$ and
+choosing the minimum cost route.
 
 The optimal path is $$
   0 \to   1 \to 3 \to 5 \to  7,

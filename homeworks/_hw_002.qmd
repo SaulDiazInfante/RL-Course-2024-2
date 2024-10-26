@@ -14,7 +14,7 @@ reported script.
 :::
 
 
-:::{#exr-hw_002_02}
+::: {#exr-hw_002_02}
 
 Explain and illustrate the experiments about optimistic initial values. Include the plots similar to Figure 2.2 from [p. 29, @Sutton2018].
 :::

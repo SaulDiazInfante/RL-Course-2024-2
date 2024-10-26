@@ -29,6 +29,8 @@ one decimal place.)
 ## python implementation for the grid-world example
 
 ``` {.python filename="gridworld.py"}
+#| lst-label: lst-import
+#| lst-cap: Import pyplot
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np

@@ -8,9 +8,9 @@ format:
   pdf: default
 reference-location: margin
 citation-location: margin
+number-sections: true
+number-depth: 3
 ---
-
-# Multi-armed Bandits
 
 A very important feature distinguishing reinforcement learning from other types
 of learning is that it uses training information to evaluate the actions taken,
