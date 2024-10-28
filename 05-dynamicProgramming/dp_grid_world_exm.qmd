@@ -1,4 +1,4 @@
-:::: {#exm-four-times-four-grid-world}
+::: {#exm-four-times-four-grid-world}
 The non-terminal states are $\mathcal{S} = \{1, 2, \dots, 14\}$. There are four
 actions possible in each state,
 $\mathcal{A} = \{\verb|up, down, right, left|\}$, which deterministically cause
@@ -126,4 +126,4 @@ if __name__ == '__main__':
     figure_4_1()
 ```
 :::
-::::
+:::

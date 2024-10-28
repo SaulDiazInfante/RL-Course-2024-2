@@ -12,7 +12,7 @@ number-sections: true
 number-depth: 3
 ---
 
-## To fix ideas
+# To fix ideas
 
 
 We present an introduction to the solution of multi-stage optimization problems.
@@ -61,3 +61,8 @@ choosing the minimum cost route.
 The optimal path is $$
   0 \to   1 \to 3 \to 5 \to  7,
 $$ with cost 16.
+
+## Bibliography {.sectionbibliography}
+
+::: {.sectionrefs}
+:::

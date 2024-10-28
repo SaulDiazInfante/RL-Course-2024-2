@@ -26,6 +26,7 @@ one decimal place.)
 :::
 
 ::: {.callout-tip collapse="true" icon="false"}
+
 ## python implementation for the grid-world example
 
 ``` {.python filename="gridworld.py"}
@@ -219,4 +220,5 @@ if __name__ == '__main__':
     figure_3_5()
 ```
 :::
+
 ::::::

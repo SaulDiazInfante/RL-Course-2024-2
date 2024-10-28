@@ -9,6 +9,7 @@ format:
 reference-location: margin
 citation-location: margin
 number-sections: true
+
 number-depth: 3
 ---
 
@@ -156,6 +157,8 @@ of old ones on the right-hand side of @eq-policy-evaluation .
 {{< include policy_improvement.qmd >}}
 
 ## Policy Iteration
+
+{{< include policy_iteration.qmd >}}
 
 ## Value Iteration
 

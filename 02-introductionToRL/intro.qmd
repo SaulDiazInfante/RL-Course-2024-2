@@ -231,3 +231,9 @@ not taken moves. The $*$ symbol indicates the move currently estimated to be the
 best. Thus the move $e$ denotes an *exploratory* move
 
 :::
+
+## Bibliography {.sectionbibliography}
+
+
+::: {.sectionrefs}
+:::

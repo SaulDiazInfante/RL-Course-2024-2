@@ -16,7 +16,7 @@ A very important feature distinguishing reinforcement learning from other types
 of learning is that it uses training information to evaluate the actions taken,
 rather than instruct by giving correct actions.
 
-## A $k$-armed Bandit Problem
+# A $k$-armed Bandit Problem
 
 We consider the following setup:
 
@@ -77,7 +77,7 @@ applications.
 The guarantees of optimality or bounded loss for these methods offer little
 comfort when the assumptions of their theory do not apply.
 
-## Action-value Methods
+# Action-value Methods
 
 One natural way to estimate the value of a given action is by averaging the
 rewards actually received. In mathematical symbols reads
@@ -101,12 +101,12 @@ $\epsilon$-probability, select randomly from all the actions with equal
 probability, regardless of the action-value estimates. We call methods using
 this near-greedy action selection rule $\epsilon$-greedy methods.
 
-## The 10-armed Testbed
+# The 10-armed Testbed
 
 To evaluate the relative effectiveness of the greedy and $\epsilon$-greedy
 action-value methods, we compared them numerically on a suite of test problems.
 
-### Set up
+## Set up
 
 ::: callout-tip
 ## The experiment runs as follows.
@@ -234,14 +234,14 @@ Please save the above script as `utils.py` in the firs level of the regrding
 project such that we can imported by the ist name fora example by
 `from utils import bandit, plots`
 
-## Incremental Implementation
+# Incremental Implementation
 
 Certainly! To express a more efficient method for estimating action values, we
 focus on using an **incremental update formula** rather than recalculating the
 average based on all past observations. The goal is to maintain a constant
 memory footprint and fixed computation per time step.
 
-### Incremental Update Formula for Action-Value Estimation
+## Incremental Update Formula for Action-Value Estimation
 
 Let $R_i$ denote the reward received after the $i$-th selection of the
 action.$Q_n$ denote the estimate of the action value after the action has been
@@ -259,7 +259,7 @@ reward received on the $n$-th selection. $\alpha$ is a **constant step size**,
 often set as $\dfrac{1}{n}$ to mimic the behavior of sample averaging when the
 number of observations grows.
 
-### Derivation of the Incremental Formula
+## Derivation of the Incremental Formula
 
 1.  Start with the definition of the action value as the sample mean:
     $\displaystyle Q_n =\dfrac{1}{n} \sum_{i=1}^{n} R_i$
@@ -285,7 +285,7 @@ $$
 Here, $\alpha = \dfrac{1}{n}$ adapts to the number of observations, ensuring the
 update balances the influence of new and past rewards.
 
-### Advantages of the Incremental Method
+## Advantages of the Incremental Method
 
 -   **Constant Memory**: The method only requires storing $Q_{n-1}$ and $R_n$,
     avoiding the need to keep all past rewards.
@@ -399,7 +399,7 @@ if __name__ == "__main__":
     #     pickle.dump(record, f)
 ```
 
-## Tracking a Nonstationary Problem
+# Tracking a Nonstationary Problem
 
 The averaging methods we have discussed are suitable for stationary bandit
 problems, where the reward probabilities remain constant over time. However, in
@@ -410,7 +410,7 @@ step-size parameter.
 
 #TODO: Formulation with constant alpha and implications
 
-## Optimistic Initial Values
+# Optimistic Initial Values
 
 ``` {.python filename="example_2_3_OIV.py"}
 import numpy as np
@@ -492,7 +492,7 @@ if __name__ == "__main__":
     #     pickle.dump(record, f)
 ```
 
-## Upper-Confidence-Bound Action Selection
+# Upper-Confidence-Bound Action Selection
 
 ``` {.python filename="example_2_4_UCB.py"}
 from typing import Any
@@ -644,7 +644,7 @@ with open('./history/UCB_record.pkl', 'wb') as f:
     pickle.dump(record, f)
 ```
 
-## Gradient Bandit method
+# Gradient Bandit method
 
 ``` {.python filename="example_2_5_gradient.py"}
 import numpy as np
@@ -849,3 +849,8 @@ if __name__ == "__main__":
 ```
 
 {{< include summary_mab.qmd >}}
+
+## Bibliography {.sectionbibliography}
+
+::: {.sectionrefs}
+:::
