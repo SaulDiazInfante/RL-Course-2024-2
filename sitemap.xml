@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/index.html</loc>
-    <lastmod>2024-10-16T18:04:20.203Z</lastmod>
+    <lastmod>2024-10-28T19:44:40.843Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/01-introduction/general_intro.html</loc>
-    <lastmod>2024-08-29T16:37:02.889Z</lastmod>
+    <lastmod>2024-10-28T18:25:49.602Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/02-introductionToRL/intro.html</loc>
-    <lastmod>2024-08-20T00:42:43.106Z</lastmod>
+    <lastmod>2024-10-28T18:43:00.471Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/03-multiArmedBandit/multiarmed_bandits.html</loc>
-    <lastmod>2024-10-07T21:07:40.371Z</lastmod>
+    <lastmod>2024-10-28T18:31:58.399Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/04-finiteMDPs/mdp.html</loc>
-    <lastmod>2024-10-21T23:56:40.799Z</lastmod>
+    <lastmod>2024-10-28T18:38:05.143Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/05-dynamicProgramming/dp_rl.html</loc>
-    <lastmod>2024-10-23T20:06:03.765Z</lastmod>
+    <lastmod>2024-10-26T01:23:22.665Z</lastmod>
   </url>
   <url>
     <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/06-applications/applications.html</loc>
@@ -37,11 +37,15 @@
     <lastmod>2024-08-28T20:40:18.582Z</lastmod>
   </url>
   <url>
-    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/references.html</loc>
-    <lastmod>2024-09-09T17:42:50.612Z</lastmod>
+    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/homeworks/home_works_list.html</loc>
+    <lastmod>2024-10-28T19:49:13.258Z</lastmod>
   </url>
   <url>
-    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/homeworks/home_works_list.html</loc>
-    <lastmod>2024-10-14T16:52:00.710Z</lastmod>
+    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/homeworks/_hw_grades.html</loc>
+    <lastmod>2024-10-10T17:59:38.800Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sauldiazinfante.github.io/RL-Course-2024-2/references.html</loc>
+    <lastmod>2024-10-28T18:25:55.979Z</lastmod>
   </url>
 </urlset>

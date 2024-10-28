@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saúl Díaz Infante Velasco">
 
 <title>From Markov Decision Processes to Reinforcement Learning with Python - Introduction</title>
 <style>
@@ -97,11 +98,11 @@ div.csl-indent {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
-<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -192,7 +193,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -205,7 +206,6 @@ window.Quarto = {
   </div>
         <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -221,7 +221,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-introductionToRL/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02-introductionToRL/intro.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -239,67 +239,73 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-introduction/general_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Abstract</span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Abstract</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-introductionToRL/intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-multiArmedBandit/multiarmed_bandits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-dynamicProgramming/dp_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dynamic Programming (DP)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../06-applications/applications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../07-Project/project_proposal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project proposal</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Project proposal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../08-Evaluation/rubric_evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">List of Home Works and due dates</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks/_hw_grades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Homework grades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
     </ul>
@@ -311,22 +317,29 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#trial-error" id="toc-trial-error" class="nav-link active" data-scroll-target="#trial-error">Trial-Error</a>
   <ul class="collapse">
   <li><a href="#sensation-action-and-goal" id="toc-sensation-action-and-goal" class="nav-link" data-scroll-target="#sensation-action-and-goal">Sensation action and goal</a></li>
+  <li><a href="#bibliography--1" id="toc-bibliography--1" class="nav-link" data-scroll-target="#bibliography--1">Refrences</a></li>
   </ul></li>
   <li><a href="#exploration-exploration-dilemma-and-uncertainty" id="toc-exploration-exploration-dilemma-and-uncertainty" class="nav-link" data-scroll-target="#exploration-exploration-dilemma-and-uncertainty">Exploration-exploration dilemma and uncertainty</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   <li><a href="#the-possible-4-elements-of-reinforcement-learning" id="toc-the-possible-4-elements-of-reinforcement-learning" class="nav-link" data-scroll-target="#the-possible-4-elements-of-reinforcement-learning">The (possible) 4 elements of Reinforcement Learning</a></li>
-  <li><a href="#a-toy-rl-exmaple-tic-tac-toe" id="toc-a-toy-rl-exmaple-tic-tac-toe" class="nav-link" data-scroll-target="#a-toy-rl-exmaple-tic-tac-toe">A toy RL-exmaple: Tic-Tac-Toe</a></li>
+  <li><a href="#a-toy-rl-exmaple-tic-tac-toe" id="toc-a-toy-rl-exmaple-tic-tac-toe" class="nav-link" data-scroll-target="#a-toy-rl-exmaple-tic-tac-toe">A toy RL-exmaple: Tic-Tac-Toe</a>
+  <ul class="collapse">
+  <li><a href="#bibliography--5" id="toc-bibliography--5" class="nav-link" data-scroll-target="#bibliography--5">Refrences</a></li>
+  </ul></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup:</a></li>
-  <li><a href="#training" id="toc-training" class="nav-link" data-scroll-target="#training">Training:</a></li>
+  <li><a href="#training" id="toc-training" class="nav-link" data-scroll-target="#training">Training:</a>
+  <ul class="collapse">
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/02-introductionToRL/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/02-introductionToRL/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -337,6 +350,12 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saúl Díaz Infante Velasco </p>
+          </div>
+  </div>
     
   
     
@@ -348,23 +367,31 @@ window.Quarto = {
 
 
 <p>Reinforcement Learning is part of a decades-long trend within artificial intelligence and machine learning toward greater integration with statistics, optimization, and other mathematical subjects. For example, the ability of some reinforcement learning methods to learn with parameterized approximators addresses the classical “curse of dimensionality” in operations research and control theory. More distinctively, reinforcement learning has also interacted strongly with psychology and neuroscience, with substantial benefits going both ways. Of all the forms of machine learning, reinforcement learning is the closest to the kind of learning that humans and other animals do, and many of the core algorithms of reinforcement learning were originally inspired by biological learning systems.</p>
-<section id="trial-error" class="level2">
-<h2 class="anchored" data-anchor-id="trial-error">Trial-Error</h2>
-<p>According to Richard S. Sutton and Andrew G. Barto <span class="citation" data-cites="Sutton2018">Sutton and Barto (<a href="../references.html#ref-Sutton2018" role="doc-biblioref">2018</a>)</span>–the first authors to use the term–Reinforced Learning Reinforcement learning is about what to do, that is, how to map situations to action so that we optimize a reward. <strong>The learner must discover which action yield the best reward by trying them.</strong> In the most general sense, action may not only affect immediate reward but also the next situation and, through that, all subsequent rewards.</p>
-<section id="sensation-action-and-goal" class="level3">
-<h3 class="anchored" data-anchor-id="sensation-action-and-goal">Sensation action and goal</h3>
+<section id="trial-error" class="level1 page-columns page-full">
+<h1>Trial-Error</h1>
+<p>According to Richard S. Sutton and Andrew G. Barto <span class="citation" data-cites="Sutton2018--1">[<a href="../references.html#ref-Sutton2018--1" role="doc-biblioref">1</a>]</span>–the first authors to use the term–Reinforced Learning Reinforcement learning is about what to do, that is, how to map situations to action so that we optimize a reward. <strong>The learner must discover which action yield the best reward by trying them.</strong> In the most general sense, action may not only affect immediate reward but also the next situation and, through that, all subsequent rewards.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Sutton2018--1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.</div>
+</div></div><section id="sensation-action-and-goal" class="level2">
+<h2 class="anchored" data-anchor-id="sensation-action-and-goal">Sensation action and goal</h2>
 <p>At the same time, Reinforcement Learning encloses a problem, a class of solution methods, and the field that studies this problem and its solutions. Its formalism is based on the theory of controlled dynamical systems, with a strong focus on the optimal control of partially known Markov decision processes. Then, the core idea consists of capturing the essence of the problem when an agent learns through experience and interaction to reach a goal. This agent can sense the state of its environment to some extent and must be able to take action that affects the state. The agent also must have a goal or goals related to the state of the environment.</p>
 <p>MDPs are designed to incorporate three essential elements: sensation, action, and goal. Therefore, any approach suitable for solving such problems should be considered a potential method for Reinforcement Learning.</p>
 </section>
+<section id="bibliography--1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliography--1">Refrences</h2>
+<div id="refs--1" class="references csl-bib-body" data-entry-spacing="0" role="list">
+
+</div>
 </section>
-<section id="exploration-exploration-dilemma-and-uncertainty" class="level2">
-<h2 class="anchored" data-anchor-id="exploration-exploration-dilemma-and-uncertainty">Exploration-exploration dilemma and uncertainty</h2>
+</section>
+<section id="exploration-exploration-dilemma-and-uncertainty" class="level1">
+<h1>Exploration-exploration dilemma and uncertainty</h1>
 <p>To obtain the best reward, the agent must prefer actions used in the past and perceived as effective to produce a reward. However, to discover such actions, the agent must try actions never used before. So, there is a delicate trade-off between exploiting and exploring. The agent has to exploit its knowledge to produce a reward but simultaneously has to explore to improve its reward in the future. Here, our dilemma is that neither exploration nor exploitation can be pursued exclusively without failing the task.</p>
 <p>Another essential aspect of reinforcement learning is that it specifically deals with the entire process of a goal-directed agent interacting with an uncertain environment. This aspect differs from many approaches that only focus on subproblems rather than considering how they might contribute to the bigger picture. For example, many machine learning researchers have studied supervised Learning without specifying how such an ability would ultimately be helpful. Other researchers have developed planning theories with general goals without considering planning’s role in real-time decision-making or whether the predictive models necessary for planning are well suited. Although these approaches have produced valuable results, their focus on isolated subproblems leads to significant limitations.</p>
 <p>Reinforcement learning takes the opposite approach, beginning with a fully interactive, goal-seeking agent. In reinforcement learning, the agent has explicit goals, can sense aspects of their environment, and can choose actions to influence its environment.</p>
 </section>
-<section id="examples" class="level2">
-<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<section id="examples" class="level1">
+<h1>Examples</h1>
 <ul>
 <li><p>A master chess player makes a move.</p></li>
 <li><p>An adaptive controller adjusts parameters of a petroleum refinery’s operation in real time.</p></li>
@@ -373,8 +400,8 @@ window.Quarto = {
 <li><p>Phil prepares his breakfast</p></li>
 </ul>
 </section>
-<section id="the-possible-4-elements-of-reinforcement-learning" class="level2">
-<h2 class="anchored" data-anchor-id="the-possible-4-elements-of-reinforcement-learning">The (possible) 4 elements of Reinforcement Learning</h2>
+<section id="the-possible-4-elements-of-reinforcement-learning" class="level1">
+<h1>The (possible) 4 elements of Reinforcement Learning</h1>
 <p>Given an agent, we identify four main element in a reinforcement learning model:</p>
 <blockquote class="blockquote">
 <p>a <strong>policy</strong>, a <strong>reward</strong>, a value function and (optionally) a model of the <strong>environment</strong>.</p>
@@ -390,8 +417,7 @@ window.Quarto = {
 </dd>
 <dt>Value function</dt>
 <dd>
-<p>Whereas the reward signal indicates what is good in the immediate sense, a value function specifies what is good in the long run. In simple terms, the value of a state represents the total reward an agent can anticipate to receive in the future, beginning from that state. While rewards reflect the immediate appeal of environmental states, values signify the long-term appeal of states, considering the potential future states and the rewards they offer. For example, a state might consistently yield a low immediate reward but still have a high value because it is regularly followed by other states that yield high rewards. Alternatively, the opposite could also be true. Rewards can be compared to pleasure (when high) and pain (when low). At the same time, values represent a more precise and long-term assessment of how satisfied or dissatisfied we are with the state of our environment. In a sense, rewards are primary, whereas values, as predictions of rewards, are secondary. Without rewards, there could be no values, and the only purpose of estimating values is to achieve more rewards.</p>
-<p>Action choices are made based on value judgments. We seek actions that bring about states of highest value, not highest reward, because these actions obtain the greatest amount of reward for us over the long run. In fact, the most important component of almost all reinforcement learning algorithms we consider is a method for efficiently estimating values.</p>
+<p>Whereas the reward signal indicates what is good in the immediate sense, a value function specifies what is good in the long run. In simple terms, the value of a state represents the total reward an agent can anticipate to receive in the future, beginning from that state. While rewards reflect the immediate appeal of environmental states, values signify the long-term appeal of states, considering the potential future states and the rewards they offer. For example, a state might consistently yield a low immediate reward but still have a high value because it is regularly followed by other states that yield high rewards. Alternatively, the opposite could also be true. Rewards can be compared to pleasure (when high) and pain (when low). At the same time, values represent a more precise and long-term assessment of how satisfied or dissatisfied we are with the state of our environment. In a sense, rewards are primary, whereas values, as predictions of rewards, are secondary. Without rewards, there could be no values, and the only purpose of estimating values is to achieve more rewards. Action choices are made based on value judgments. We seek actions that bring about states of highest value, not highest reward, because these actions obtain the greatest amount of reward for us over the long run. In fact, the most important component of almost all reinforcement learning algorithms we consider is a method for efficiently estimating values.</p>
 </dd>
 <dt>Environment model</dt>
 <dd>
@@ -399,18 +425,26 @@ window.Quarto = {
 </dd>
 </dl>
 </section>
-<section id="a-toy-rl-exmaple-tic-tac-toe" class="level2">
-<h2 class="anchored" data-anchor-id="a-toy-rl-exmaple-tic-tac-toe">A toy RL-exmaple: Tic-Tac-Toe</h2>
+<section id="a-toy-rl-exmaple-tic-tac-toe" class="level1 page-columns page-full">
+<h1>A toy RL-exmaple: Tic-Tac-Toe</h1>
 <p>To illustrate the general idea of reinforcement learning and contrast it with other ap- proaches, we next consider a single example in more detail.</p>
 <p>Consider the familiar child’s game of tic-tac-toe.</p>
 <p><a href="../assets/tic_tac_toe.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../assets/tic_tac_toe.jpeg" class="img-fluid"></a></p>
 <p>Although the tic-tac-toe game is a simple problem, it cannot be satisfactorily solved using classical techniques.</p>
 <p>For instance, the classical “<em>minimax</em>” solution from game theory is not applicable here because it assumes the opponent’s specific way of playing. A <em>minimax</em> player would never reach a game state from which it could lose. Even if, in reality, it always won from that state due to incorrect play by the opponent. The classical optimization methods for sequential decision problems, like dynamic programming, can find the best solution for any opponent. However, these methods need a detailed description of the opponent as input, including the probabilities of the opponent’s moves in each board state.</p>
 <p>Alternatively, this information can be estimated through experience, such as playing numerous games against the opponent. The best approach to this problem is to first learn a model of the opponent’s behavior with a certain level of confidence, and then use dynamic programming to calculate an optimal solution based on the approximate opponent model.</p>
-<p>Sutton and Barto <span class="citation" data-cites="Sutton2018">(see pp.&nbsp;9-12 <a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span> propose the following way to approach tic tac toe with Reinforcement Learning:</p>
+<p>Sutton and Barto <span class="citation" data-cites="Sutton2018--5">[see pp.&nbsp;9-12 <a href="../references.html#ref-Sutton2018--5" role="doc-biblioref">1</a>]</span> propose the following way to approach tic tac toe with Reinforcement Learning:</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Sutton2018--5" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.</div>
+</div></div><section id="bibliography--5" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliography--5">Refrences</h2>
+<div id="refs--5" class="references csl-bib-body" data-entry-spacing="0" role="list">
+
+</div>
 </section>
-<section id="setup" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="setup">Setup:</h2>
+</section>
+<section id="setup" class="level1">
+<h1>Setup:</h1>
 <ul>
 <li><p>First we would set up a table of numbers (or labels), one for each possible state of the game.</p></li>
 <li><p>Each number will be the latest estimate of the probability of our winning from that state.</p></li>
@@ -421,34 +455,37 @@ window.Quarto = {
 <li><p>We set the initial values of all the other states to <span class="math inline">\(0.5\)</span>, representing a guess that we have a 50% chance of winning.</p></li>
 </ul>
 </section>
-<section id="training" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="training">Training:</h2>
+<section id="training" class="level1 page-columns page-full">
+<h1>Training:</h1>
 <p>We then play many games against the opponent.</p>
 <p>To select our moves we examine the states that would result from each of our possible moves (one for each blank space on the board) and look up their current values in the table. Most of the time we move greedily,selecting the move that leads to the state with greatest value, that is, with the highest estimated probability of winning.</p>
 <p>Occasionally, however, we select randomly from among the other moves instead. These are called exploratory moves because they cause us to experience states that we might otherwise never see.</p>
 <p>A sequence of moves made and considered during a game can be diagrammed as the following figure:</p>
-<div id="fig-tic_tac_toc_diag" class="lightbox quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
-<figure class="quarto-float quarto-float-fig figure">
+<div id="fig-tic_tac_toc_diag" class="lightbox quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-tic_tac_toc_diag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../assets/ch_00/diagram_sequence_tictactoe_play.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="../assets/ch_00/diagram_sequence_tictactoe_play.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tic_tac_toc_diag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Figure taken from <span class="citation" data-cites="Sutton2018">(<a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>. A sequence of tic-tac-toe moves. Solid black lines represents moves taken during a play. Dashed lines represent plausible but not taken moves. The <span class="math inline">\(*\)</span> symbol indicates the move currently estimated to be the best. Thus the move <span class="math inline">\(e\)</span> denotes an <em>exploratory</em> move
+Figure&nbsp;7.1: Figure taken from <span class="citation" data-cites="Sutton2018--7">[<a href="../references.html#ref-Sutton2018--7" role="doc-biblioref">1</a>]</span>. A sequence of tic-tac-toe moves. Solid black lines represents moves taken during a play. Dashed lines represent plausible but not taken moves. The <span class="math inline">\(*\)</span> symbol indicates the move currently estimated to be the best. Thus the move <span class="math inline">\(e\)</span> denotes an <em>exploratory</em> move
 </figcaption>
-</figure>
+<div class="no-row-height column-margin column-container"></div></figure>
+</div>
+<section id="bibliography" class="level2 sectionbibliography page-columns page-full">
+<h2 class="sectionbibliography anchored" data-anchor-id="bibliography">Bibliography</h2>
+<div id="refs--7" class="sectionrefs references csl-bib-body" data-entry-spacing="0" role="list">
+
 </div>
 
 
 <!-- -->
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;1: Figure taken from <span class="citation" data-cites="Sutton2018">(<a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>. A sequence of tic-tac-toe moves. Solid black lines represents moves taken during a play. Dashed lines represent plausible but not taken moves. The <span class="math inline">\(*\)</span> symbol indicates the move currently estimated to be the best. Thus the move <span class="math inline">\(e\)</span> denotes an <em>exploratory</em> move</span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;7.1: Figure taken from <span class="citation" data-cites="Sutton2018--7">[<a href="../references.html#ref-Sutton2018--7" role="doc-biblioref">1</a>]</span>. A sequence of tic-tac-toe moves. Solid black lines represents moves taken during a play. Dashed lines represent plausible but not taken moves. The <span class="math inline">\(*\)</span> symbol indicates the move currently estimated to be the best. Thus the move <span class="math inline">\(e\)</span> denotes an <em>exploratory</em> move</span>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-Sutton2018" class="csl-entry" role="listitem">
-Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An Introduction</em>. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.
-</div>
-</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Sutton2018--7" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.</div>
+</div></div></section>
 </section>
 
 </main> <!-- /main -->
@@ -1059,235 +1096,254 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../01-introduction/general_intro.html" class="pagination-link" aria-label="Abstract">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Abstract</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Abstract</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../03-multiArmedBandit/multiarmed_bandits.html" class="pagination-link" aria-label="Multi-armed Bandits">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu"># Introduction</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>Reinforcement Learning is part of a decades-long trend within artificial</span>
-<span id="cb1-4"><a href="#cb1-4"></a>intelligence and machine learning toward greater integration with statistics,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>optimization, and other mathematical subjects. For example, the ability of some</span>
-<span id="cb1-6"><a href="#cb1-6"></a>reinforcement learning methods to learn with parameterized approximators</span>
-<span id="cb1-7"><a href="#cb1-7"></a>addresses the classical “curse of dimensionality” in operations research and</span>
-<span id="cb1-8"><a href="#cb1-8"></a>control theory. More distinctively, reinforcement learning has also interacted</span>
-<span id="cb1-9"><a href="#cb1-9"></a>strongly with psychology and neuroscience, with substantial benefits going both</span>
-<span id="cb1-10"><a href="#cb1-10"></a>ways. Of all the forms of machine learning, reinforcement learning is the</span>
-<span id="cb1-11"><a href="#cb1-11"></a>closest to the kind of learning that humans and other animals do, and many of</span>
-<span id="cb1-12"><a href="#cb1-12"></a>the core algorithms of reinforcement learning were originally inspired by</span>
-<span id="cb1-13"><a href="#cb1-13"></a>biological learning systems.</span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Introduction"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">author:</span><span class="co"> "Saúl Díaz Infante Velasco"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="an">format:</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">  html:</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">    grid:</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">      margin-width: 350px</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">  pdf: default</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="an">reference-location:</span><span class="co"> margin</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="an">citation-location:</span><span class="co"> margin</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="an">number-depth:</span><span class="co"> 3</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">---</span></span>
 <span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="fu">## Trial-Error</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a>According to Richard S. Sutton and Andrew G. Barto @Sutton2018--the first</span>
-<span id="cb1-18"><a href="#cb1-18"></a>authors to use the term--Reinforced Learning Reinforcement learning is about</span>
-<span id="cb1-19"><a href="#cb1-19"></a>what to do, that is, how to map situations to action so that we optimize a</span>
-<span id="cb1-20"><a href="#cb1-20"></a>reward. **The learner must discover which action yield the best reward by trying</span>
-<span id="cb1-21"><a href="#cb1-21"></a>them.** In the most general sense, action may not only affect immediate reward</span>
-<span id="cb1-22"><a href="#cb1-22"></a>but also the next situation and, through that, all subsequent rewards.</span>
-<span id="cb1-23"><a href="#cb1-23"></a></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="fu">### Sensation action and goal</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a></span>
-<span id="cb1-26"><a href="#cb1-26"></a>At the same time, Reinforcement Learning encloses a problem, a class of solution</span>
-<span id="cb1-27"><a href="#cb1-27"></a>methods, and the field that studies this problem and its solutions. Its</span>
-<span id="cb1-28"><a href="#cb1-28"></a>formalism is based on the theory of controlled dynamical systems, with a strong</span>
-<span id="cb1-29"><a href="#cb1-29"></a>focus on the optimal control of partially known Markov decision processes. Then,</span>
-<span id="cb1-30"><a href="#cb1-30"></a>the core idea consists of capturing the essence of the problem when an agent</span>
-<span id="cb1-31"><a href="#cb1-31"></a>learns through experience and interaction to reach a goal. This agent can sense</span>
-<span id="cb1-32"><a href="#cb1-32"></a>the state of its environment to some extent and must be able to take action that</span>
-<span id="cb1-33"><a href="#cb1-33"></a>affects the state. The agent also must have a goal or goals related to the state</span>
-<span id="cb1-34"><a href="#cb1-34"></a>of the environment.</span>
+<span id="cb1-15"><a href="#cb1-15"></a>Reinforcement Learning is part of a decades-long trend within artificial</span>
+<span id="cb1-16"><a href="#cb1-16"></a>intelligence and machine learning toward greater integration with statistics,</span>
+<span id="cb1-17"><a href="#cb1-17"></a>optimization, and other mathematical subjects. For example, the ability of some</span>
+<span id="cb1-18"><a href="#cb1-18"></a>reinforcement learning methods to learn with parameterized approximators</span>
+<span id="cb1-19"><a href="#cb1-19"></a>addresses the classical “curse of dimensionality” in operations research and</span>
+<span id="cb1-20"><a href="#cb1-20"></a>control theory. More distinctively, reinforcement learning has also interacted</span>
+<span id="cb1-21"><a href="#cb1-21"></a>strongly with psychology and neuroscience, with substantial benefits going both</span>
+<span id="cb1-22"><a href="#cb1-22"></a>ways. Of all the forms of machine learning, reinforcement learning is the</span>
+<span id="cb1-23"><a href="#cb1-23"></a>closest to the kind of learning that humans and other animals do, and many of</span>
+<span id="cb1-24"><a href="#cb1-24"></a>the core algorithms of reinforcement learning were originally inspired by</span>
+<span id="cb1-25"><a href="#cb1-25"></a>biological learning systems.</span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="fu"># Trial-Error</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a>According to Richard S. Sutton and Andrew G. Barto <span class="co">[</span><span class="ot">@Sutton2018</span><span class="co">]</span>--the first</span>
+<span id="cb1-30"><a href="#cb1-30"></a>authors to use the term--Reinforced Learning Reinforcement learning is about</span>
+<span id="cb1-31"><a href="#cb1-31"></a>what to do, that is, how to map situations to action so that we optimize a</span>
+<span id="cb1-32"><a href="#cb1-32"></a>reward. **The learner must discover which action yield the best reward by trying</span>
+<span id="cb1-33"><a href="#cb1-33"></a>them.** In the most general sense, action may not only affect immediate reward</span>
+<span id="cb1-34"><a href="#cb1-34"></a>but also the next situation and, through that, all subsequent rewards.</span>
 <span id="cb1-35"><a href="#cb1-35"></a></span>
-<span id="cb1-36"><a href="#cb1-36"></a>MDPs are designed to incorporate three essential elements: sensation, action,</span>
-<span id="cb1-37"><a href="#cb1-37"></a>and goal. Therefore, any approach suitable for solving such problems should be</span>
-<span id="cb1-38"><a href="#cb1-38"></a>considered a potential method for Reinforcement Learning.</span>
-<span id="cb1-39"><a href="#cb1-39"></a></span>
-<span id="cb1-40"><a href="#cb1-40"></a><span class="fu">## Exploration-exploration dilemma and uncertainty</span></span>
-<span id="cb1-41"><a href="#cb1-41"></a></span>
-<span id="cb1-42"><a href="#cb1-42"></a>To obtain the best reward, the agent must prefer actions used in the past and</span>
-<span id="cb1-43"><a href="#cb1-43"></a>perceived as effective to produce a reward. However, to discover such actions,</span>
-<span id="cb1-44"><a href="#cb1-44"></a>the agent must try actions never used before. So, there is a delicate trade-off</span>
-<span id="cb1-45"><a href="#cb1-45"></a>between exploiting and exploring. The agent has to exploit its knowledge to</span>
-<span id="cb1-46"><a href="#cb1-46"></a>produce a reward but simultaneously has to explore to improve its reward in the</span>
-<span id="cb1-47"><a href="#cb1-47"></a>future. Here, our dilemma is that neither exploration nor exploitation can be</span>
-<span id="cb1-48"><a href="#cb1-48"></a>pursued exclusively without failing the task.</span>
-<span id="cb1-49"><a href="#cb1-49"></a></span>
-<span id="cb1-50"><a href="#cb1-50"></a>Another essential aspect of reinforcement learning is that it specifically deals</span>
-<span id="cb1-51"><a href="#cb1-51"></a>with the entire process of a goal-directed agent interacting with an uncertain</span>
-<span id="cb1-52"><a href="#cb1-52"></a>environment. This aspect differs from many approaches that only focus on</span>
-<span id="cb1-53"><a href="#cb1-53"></a>subproblems rather than considering how they might contribute to the bigger</span>
-<span id="cb1-54"><a href="#cb1-54"></a>picture. For example, many machine learning researchers have studied supervised</span>
-<span id="cb1-55"><a href="#cb1-55"></a>Learning without specifying how such an ability would ultimately be helpful.</span>
-<span id="cb1-56"><a href="#cb1-56"></a>Other researchers have developed planning theories with general goals without</span>
-<span id="cb1-57"><a href="#cb1-57"></a>considering planning's role in real-time decision-making or whether the</span>
-<span id="cb1-58"><a href="#cb1-58"></a>predictive models necessary for planning are well suited. Although these</span>
-<span id="cb1-59"><a href="#cb1-59"></a>approaches have produced valuable results, their focus on isolated subproblems</span>
-<span id="cb1-60"><a href="#cb1-60"></a>leads to significant limitations.</span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="fu">## Sensation action and goal</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a></span>
+<span id="cb1-38"><a href="#cb1-38"></a>At the same time, Reinforcement Learning encloses a problem, a class of solution</span>
+<span id="cb1-39"><a href="#cb1-39"></a>methods, and the field that studies this problem and its solutions. Its</span>
+<span id="cb1-40"><a href="#cb1-40"></a>formalism is based on the theory of controlled dynamical systems, with a strong</span>
+<span id="cb1-41"><a href="#cb1-41"></a>focus on the optimal control of partially known Markov decision processes. Then,</span>
+<span id="cb1-42"><a href="#cb1-42"></a>the core idea consists of capturing the essence of the problem when an agent</span>
+<span id="cb1-43"><a href="#cb1-43"></a>learns through experience and interaction to reach a goal. This agent can sense</span>
+<span id="cb1-44"><a href="#cb1-44"></a>the state of its environment to some extent and must be able to take action that</span>
+<span id="cb1-45"><a href="#cb1-45"></a>affects the state. The agent also must have a goal or goals related to the state</span>
+<span id="cb1-46"><a href="#cb1-46"></a>of the environment.</span>
+<span id="cb1-47"><a href="#cb1-47"></a></span>
+<span id="cb1-48"><a href="#cb1-48"></a>MDPs are designed to incorporate three essential elements: sensation, action,</span>
+<span id="cb1-49"><a href="#cb1-49"></a>and goal. Therefore, any approach suitable for solving such problems should be</span>
+<span id="cb1-50"><a href="#cb1-50"></a>considered a potential method for Reinforcement Learning.</span>
+<span id="cb1-51"><a href="#cb1-51"></a></span>
+<span id="cb1-52"><a href="#cb1-52"></a><span class="fu"># Exploration-exploration dilemma and uncertainty</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a></span>
+<span id="cb1-54"><a href="#cb1-54"></a>To obtain the best reward, the agent must prefer actions used in the past and</span>
+<span id="cb1-55"><a href="#cb1-55"></a>perceived as effective to produce a reward. However, to discover such actions,</span>
+<span id="cb1-56"><a href="#cb1-56"></a>the agent must try actions never used before. So, there is a delicate trade-off</span>
+<span id="cb1-57"><a href="#cb1-57"></a>between exploiting and exploring. The agent has to exploit its knowledge to</span>
+<span id="cb1-58"><a href="#cb1-58"></a>produce a reward but simultaneously has to explore to improve its reward in the</span>
+<span id="cb1-59"><a href="#cb1-59"></a>future. Here, our dilemma is that neither exploration nor exploitation can be</span>
+<span id="cb1-60"><a href="#cb1-60"></a>pursued exclusively without failing the task.</span>
 <span id="cb1-61"><a href="#cb1-61"></a></span>
-<span id="cb1-62"><a href="#cb1-62"></a>Reinforcement learning takes the opposite approach, beginning with a fully</span>
-<span id="cb1-63"><a href="#cb1-63"></a>interactive, goal-seeking agent. In reinforcement learning, the agent has</span>
-<span id="cb1-64"><a href="#cb1-64"></a>explicit goals, can sense aspects of their environment, and can choose actions</span>
-<span id="cb1-65"><a href="#cb1-65"></a>to influence its environment.</span>
-<span id="cb1-66"><a href="#cb1-66"></a></span>
-<span id="cb1-67"><a href="#cb1-67"></a><span class="fu">## Examples</span></span>
-<span id="cb1-68"><a href="#cb1-68"></a></span>
-<span id="cb1-69"><a href="#cb1-69"></a><span class="ss">-   </span>A master chess player makes a move.</span>
-<span id="cb1-70"><a href="#cb1-70"></a></span>
-<span id="cb1-71"><a href="#cb1-71"></a><span class="ss">-   </span>An adaptive controller adjusts parameters of a petroleum refinery’s</span>
-<span id="cb1-72"><a href="#cb1-72"></a>    operation in real time.</span>
+<span id="cb1-62"><a href="#cb1-62"></a>Another essential aspect of reinforcement learning is that it specifically deals</span>
+<span id="cb1-63"><a href="#cb1-63"></a>with the entire process of a goal-directed agent interacting with an uncertain</span>
+<span id="cb1-64"><a href="#cb1-64"></a>environment. This aspect differs from many approaches that only focus on</span>
+<span id="cb1-65"><a href="#cb1-65"></a>subproblems rather than considering how they might contribute to the bigger</span>
+<span id="cb1-66"><a href="#cb1-66"></a>picture. For example, many machine learning researchers have studied supervised</span>
+<span id="cb1-67"><a href="#cb1-67"></a>Learning without specifying how such an ability would ultimately be helpful.</span>
+<span id="cb1-68"><a href="#cb1-68"></a>Other researchers have developed planning theories with general goals without</span>
+<span id="cb1-69"><a href="#cb1-69"></a>considering planning's role in real-time decision-making or whether the</span>
+<span id="cb1-70"><a href="#cb1-70"></a>predictive models necessary for planning are well suited. Although these</span>
+<span id="cb1-71"><a href="#cb1-71"></a>approaches have produced valuable results, their focus on isolated subproblems</span>
+<span id="cb1-72"><a href="#cb1-72"></a>leads to significant limitations.</span>
 <span id="cb1-73"><a href="#cb1-73"></a></span>
-<span id="cb1-74"><a href="#cb1-74"></a><span class="ss">-   </span>A gazelle calf struggles to its feet minutes after being born.</span>
-<span id="cb1-75"><a href="#cb1-75"></a></span>
-<span id="cb1-76"><a href="#cb1-76"></a><span class="ss">-   </span>A mobile robot decides whether it should enter a new room in search of more</span>
-<span id="cb1-77"><a href="#cb1-77"></a>    trash to collect or start trying to find its way back to its battery</span>
-<span id="cb1-78"><a href="#cb1-78"></a>    recharging station.</span>
-<span id="cb1-79"><a href="#cb1-79"></a></span>
-<span id="cb1-80"><a href="#cb1-80"></a><span class="ss">-   </span>Phil prepares his breakfast</span>
-<span id="cb1-81"><a href="#cb1-81"></a></span>
-<span id="cb1-82"><a href="#cb1-82"></a><span class="fu">## The (possible) 4 elements of Reinforcement Learning</span></span>
-<span id="cb1-83"><a href="#cb1-83"></a></span>
-<span id="cb1-84"><a href="#cb1-84"></a>Given an agent, we identify four main element in a reinforcement learning model:</span>
+<span id="cb1-74"><a href="#cb1-74"></a>Reinforcement learning takes the opposite approach, beginning with a fully</span>
+<span id="cb1-75"><a href="#cb1-75"></a>interactive, goal-seeking agent. In reinforcement learning, the agent has</span>
+<span id="cb1-76"><a href="#cb1-76"></a>explicit goals, can sense aspects of their environment, and can choose actions</span>
+<span id="cb1-77"><a href="#cb1-77"></a>to influence its environment.</span>
+<span id="cb1-78"><a href="#cb1-78"></a></span>
+<span id="cb1-79"><a href="#cb1-79"></a><span class="fu"># Examples</span></span>
+<span id="cb1-80"><a href="#cb1-80"></a></span>
+<span id="cb1-81"><a href="#cb1-81"></a><span class="ss">-   </span>A master chess player makes a move.</span>
+<span id="cb1-82"><a href="#cb1-82"></a></span>
+<span id="cb1-83"><a href="#cb1-83"></a><span class="ss">-   </span>An adaptive controller adjusts parameters of a petroleum refinery’s</span>
+<span id="cb1-84"><a href="#cb1-84"></a>    operation in real time.</span>
 <span id="cb1-85"><a href="#cb1-85"></a></span>
-<span id="cb1-86"><a href="#cb1-86"></a><span class="at">&gt; a **policy**, a **reward**, a value function and (optionally) a model of the</span></span>
-<span id="cb1-87"><a href="#cb1-87"></a><span class="at">&gt; **environment**.</span></span>
-<span id="cb1-88"><a href="#cb1-88"></a></span>
-<span id="cb1-89"><a href="#cb1-89"></a>Policy</span>
-<span id="cb1-90"><a href="#cb1-90"></a></span>
-<span id="cb1-91"><a href="#cb1-91"></a>:   A policy is as a set of actions that guide the agent to respond according to</span>
-<span id="cb1-92"><a href="#cb1-92"></a>    its perception of the environment. It's like a set of instructions that tell</span>
-<span id="cb1-93"><a href="#cb1-93"></a>    the agent what to do when it encounters a certain situation. In general,</span>
-<span id="cb1-94"><a href="#cb1-94"></a>    policies may be stochastic, specifying probabilities for each action.</span>
+<span id="cb1-86"><a href="#cb1-86"></a><span class="ss">-   </span>A gazelle calf struggles to its feet minutes after being born.</span>
+<span id="cb1-87"><a href="#cb1-87"></a></span>
+<span id="cb1-88"><a href="#cb1-88"></a><span class="ss">-   </span>A mobile robot decides whether it should enter a new room in search of more</span>
+<span id="cb1-89"><a href="#cb1-89"></a>    trash to collect or start trying to find its way back to its battery</span>
+<span id="cb1-90"><a href="#cb1-90"></a>    recharging station.</span>
+<span id="cb1-91"><a href="#cb1-91"></a></span>
+<span id="cb1-92"><a href="#cb1-92"></a><span class="ss">-   </span>Phil prepares his breakfast</span>
+<span id="cb1-93"><a href="#cb1-93"></a></span>
+<span id="cb1-94"><a href="#cb1-94"></a><span class="fu"># The (possible) 4 elements of Reinforcement Learning</span></span>
 <span id="cb1-95"><a href="#cb1-95"></a></span>
-<span id="cb1-96"><a href="#cb1-96"></a>Reward</span>
+<span id="cb1-96"><a href="#cb1-96"></a>Given an agent, we identify four main element in a reinforcement learning model:</span>
 <span id="cb1-97"><a href="#cb1-97"></a></span>
-<span id="cb1-98"><a href="#cb1-98"></a>:   The reward signal thus defines what are the good and bad events for the</span>
-<span id="cb1-99"><a href="#cb1-99"></a>    agent. In a biological system, we might think of rewards as analogous to the</span>
-<span id="cb1-100"><a href="#cb1-100"></a>    experiences of pleasure or pain. They are the immediate and defining</span>
-<span id="cb1-101"><a href="#cb1-101"></a>    features of the problem faced by the agent. The reward signal is the primary</span>
-<span id="cb1-102"><a href="#cb1-102"></a>    basis for altering the policy; if an action selected by the policy is</span>
-<span id="cb1-103"><a href="#cb1-103"></a>    followed by low reward, then the policy may be changed to select some other</span>
-<span id="cb1-104"><a href="#cb1-104"></a>    action in that situation in the future. In general, reward signals may be</span>
-<span id="cb1-105"><a href="#cb1-105"></a>    stochastic functions of the state of the environment and the actions taken.</span>
-<span id="cb1-106"><a href="#cb1-106"></a></span>
-<span id="cb1-107"><a href="#cb1-107"></a>Value function</span>
-<span id="cb1-108"><a href="#cb1-108"></a></span>
-<span id="cb1-109"><a href="#cb1-109"></a>:   Whereas the reward signal indicates what is good in the immediate sense, a</span>
-<span id="cb1-110"><a href="#cb1-110"></a>    value function specifies what is good in the long run. In simple terms, the</span>
-<span id="cb1-111"><a href="#cb1-111"></a>    value of a state represents the total reward an agent can anticipate to</span>
-<span id="cb1-112"><a href="#cb1-112"></a>    receive in the future, beginning from that state. While rewards reflect the</span>
-<span id="cb1-113"><a href="#cb1-113"></a>    immediate appeal of environmental states, values signify the long-term</span>
-<span id="cb1-114"><a href="#cb1-114"></a>    appeal of states, considering the potential future states and the rewards</span>
-<span id="cb1-115"><a href="#cb1-115"></a>    they offer. For example, a state might consistently yield a low immediate</span>
-<span id="cb1-116"><a href="#cb1-116"></a>    reward but still have a high value because it is regularly followed by other</span>
-<span id="cb1-117"><a href="#cb1-117"></a>    states that yield high rewards. Alternatively, the opposite could also be</span>
-<span id="cb1-118"><a href="#cb1-118"></a>    true. Rewards can be compared to pleasure (when high) and pain (when low).</span>
-<span id="cb1-119"><a href="#cb1-119"></a>    At the same time, values represent a more precise and long-term assessment</span>
-<span id="cb1-120"><a href="#cb1-120"></a>    of how satisfied or dissatisfied we are with the state of our environment.</span>
-<span id="cb1-121"><a href="#cb1-121"></a>    In a sense, rewards are primary, whereas values, as predictions of rewards,</span>
-<span id="cb1-122"><a href="#cb1-122"></a>    are secondary. Without rewards, there could be no values, and the only</span>
-<span id="cb1-123"><a href="#cb1-123"></a>    purpose of estimating values is to achieve more rewards.</span>
-<span id="cb1-124"><a href="#cb1-124"></a></span>
-<span id="cb1-125"><a href="#cb1-125"></a><span class="in">    Action choices are made based on value judgments. We seek actions that bring</span></span>
-<span id="cb1-126"><a href="#cb1-126"></a><span class="in">    about states of highest value, not highest reward, because these actions</span></span>
-<span id="cb1-127"><a href="#cb1-127"></a><span class="in">    obtain the greatest amount of reward for us over the long run. In fact, the</span></span>
-<span id="cb1-128"><a href="#cb1-128"></a><span class="in">    most important component of almost all reinforcement learning algorithms we</span></span>
-<span id="cb1-129"><a href="#cb1-129"></a><span class="in">    consider is a method for efficiently estimating values.</span></span>
-<span id="cb1-130"><a href="#cb1-130"></a></span>
-<span id="cb1-131"><a href="#cb1-131"></a>Environment model</span>
-<span id="cb1-132"><a href="#cb1-132"></a></span>
-<span id="cb1-133"><a href="#cb1-133"></a>:   The environment model is something that mimics the behavior of the</span>
-<span id="cb1-134"><a href="#cb1-134"></a>    environment or, more generally, that allows inferences to be made about how</span>
-<span id="cb1-135"><a href="#cb1-135"></a>    the environment will behave. For example, given a state and action, the</span>
-<span id="cb1-136"><a href="#cb1-136"></a>    model might predict the resultant next state and next reward. Models are</span>
-<span id="cb1-137"><a href="#cb1-137"></a>    used for planning. This means making decisions by considering potential</span>
-<span id="cb1-138"><a href="#cb1-138"></a>    future situations before they occur. For our purposes, the environment can</span>
-<span id="cb1-139"><a href="#cb1-139"></a>    be represented as a dynamic system through an ordinary differential equation</span>
-<span id="cb1-140"><a href="#cb1-140"></a>    or a discrete finite difference equation.</span>
+<span id="cb1-98"><a href="#cb1-98"></a><span class="at">&gt; a **policy**, a **reward**, a value function and (optionally) a model of the</span></span>
+<span id="cb1-99"><a href="#cb1-99"></a><span class="at">&gt; **environment**.</span></span>
+<span id="cb1-100"><a href="#cb1-100"></a></span>
+<span id="cb1-101"><a href="#cb1-101"></a>Policy</span>
+<span id="cb1-102"><a href="#cb1-102"></a></span>
+<span id="cb1-103"><a href="#cb1-103"></a>:   A policy is as a set of actions that guide the agent to respond according to</span>
+<span id="cb1-104"><a href="#cb1-104"></a>    its perception of the environment. It's like a set of instructions that tell</span>
+<span id="cb1-105"><a href="#cb1-105"></a>    the agent what to do when it encounters a certain situation. In general,</span>
+<span id="cb1-106"><a href="#cb1-106"></a>    policies may be stochastic, specifying probabilities for each action.</span>
+<span id="cb1-107"><a href="#cb1-107"></a></span>
+<span id="cb1-108"><a href="#cb1-108"></a>Reward</span>
+<span id="cb1-109"><a href="#cb1-109"></a></span>
+<span id="cb1-110"><a href="#cb1-110"></a>:   The reward signal thus defines what are the good and bad events for the</span>
+<span id="cb1-111"><a href="#cb1-111"></a>    agent. In a biological system, we might think of rewards as analogous to the</span>
+<span id="cb1-112"><a href="#cb1-112"></a>    experiences of pleasure or pain. They are the immediate and defining</span>
+<span id="cb1-113"><a href="#cb1-113"></a>    features of the problem faced by the agent. The reward signal is the primary</span>
+<span id="cb1-114"><a href="#cb1-114"></a>    basis for altering the policy; if an action selected by the policy is</span>
+<span id="cb1-115"><a href="#cb1-115"></a>    followed by low reward, then the policy may be changed to select some other</span>
+<span id="cb1-116"><a href="#cb1-116"></a>    action in that situation in the future. In general, reward signals may be</span>
+<span id="cb1-117"><a href="#cb1-117"></a>    stochastic functions of the state of the environment and the actions taken.</span>
+<span id="cb1-118"><a href="#cb1-118"></a></span>
+<span id="cb1-119"><a href="#cb1-119"></a>Value function</span>
+<span id="cb1-120"><a href="#cb1-120"></a></span>
+<span id="cb1-121"><a href="#cb1-121"></a>:   Whereas the reward signal indicates what is good in the immediate sense, a</span>
+<span id="cb1-122"><a href="#cb1-122"></a>    value function specifies what is good in the long run. In simple terms, the</span>
+<span id="cb1-123"><a href="#cb1-123"></a>    value of a state represents the total reward an agent can anticipate to</span>
+<span id="cb1-124"><a href="#cb1-124"></a>    receive in the future, beginning from that state. While rewards reflect the</span>
+<span id="cb1-125"><a href="#cb1-125"></a>    immediate appeal of environmental states, values signify the long-term</span>
+<span id="cb1-126"><a href="#cb1-126"></a>    appeal of states, considering the potential future states and the rewards</span>
+<span id="cb1-127"><a href="#cb1-127"></a>    they offer. For example, a state might consistently yield a low immediate</span>
+<span id="cb1-128"><a href="#cb1-128"></a>    reward but still have a high value because it is regularly followed by other</span>
+<span id="cb1-129"><a href="#cb1-129"></a>    states that yield high rewards. Alternatively, the opposite could also be</span>
+<span id="cb1-130"><a href="#cb1-130"></a>    true. Rewards can be compared to pleasure (when high) and pain (when low).</span>
+<span id="cb1-131"><a href="#cb1-131"></a>    At the same time, values represent a more precise and long-term assessment</span>
+<span id="cb1-132"><a href="#cb1-132"></a>    of how satisfied or dissatisfied we are with the state of our environment.</span>
+<span id="cb1-133"><a href="#cb1-133"></a>    In a sense, rewards are primary, whereas values, as predictions of rewards,</span>
+<span id="cb1-134"><a href="#cb1-134"></a>    are secondary. Without rewards, there could be no values, and the only</span>
+<span id="cb1-135"><a href="#cb1-135"></a>    purpose of estimating values is to achieve more rewards.</span>
+<span id="cb1-136"><a href="#cb1-136"></a>    Action choices are made based on value judgments. We seek actions that bring</span>
+<span id="cb1-137"><a href="#cb1-137"></a>    about states of highest value, not highest reward, because these actions</span>
+<span id="cb1-138"><a href="#cb1-138"></a>    obtain the greatest amount of reward for us over the long run. In fact, the</span>
+<span id="cb1-139"><a href="#cb1-139"></a>    most important component of almost all reinforcement learning algorithms we</span>
+<span id="cb1-140"><a href="#cb1-140"></a>    consider is a method for efficiently estimating values.</span>
 <span id="cb1-141"><a href="#cb1-141"></a></span>
-<span id="cb1-142"><a href="#cb1-142"></a><span class="fu">## A toy RL-exmaple: Tic-Tac-Toe</span></span>
+<span id="cb1-142"><a href="#cb1-142"></a>Environment model</span>
 <span id="cb1-143"><a href="#cb1-143"></a></span>
-<span id="cb1-144"><a href="#cb1-144"></a>To illustrate the general idea of reinforcement learning and contrast it with</span>
-<span id="cb1-145"><a href="#cb1-145"></a>other ap- proaches, we next consider a single example in more detail.</span>
-<span id="cb1-146"><a href="#cb1-146"></a></span>
-<span id="cb1-147"><a href="#cb1-147"></a>Consider the familiar child’s game of tic-tac-toe.</span>
-<span id="cb1-148"><a href="#cb1-148"></a></span>
-<span id="cb1-149"><a href="#cb1-149"></a><span class="al">![](../assets/tic_tac_toe.jpeg)</span>{.lightbox}</span>
-<span id="cb1-150"><a href="#cb1-150"></a></span>
-<span id="cb1-151"><a href="#cb1-151"></a>Although the tic-tac-toe game is a simple problem, it cannot be satisfactorily</span>
-<span id="cb1-152"><a href="#cb1-152"></a>solved using classical techniques.</span>
-<span id="cb1-153"><a href="#cb1-153"></a></span>
-<span id="cb1-154"><a href="#cb1-154"></a>For instance, the classical "*minimax*" solution from game theory is not</span>
-<span id="cb1-155"><a href="#cb1-155"></a>applicable here because it assumes the opponent's specific way of playing. A</span>
-<span id="cb1-156"><a href="#cb1-156"></a>*minimax* player would never reach a game state from which it could lose. Even</span>
-<span id="cb1-157"><a href="#cb1-157"></a>if, in reality, it always won from that state due to incorrect play by the</span>
-<span id="cb1-158"><a href="#cb1-158"></a>opponent. The classical optimization methods for sequential decision problems,</span>
-<span id="cb1-159"><a href="#cb1-159"></a>like dynamic programming, can find the best solution for any opponent. However,</span>
-<span id="cb1-160"><a href="#cb1-160"></a>these methods need a detailed description of the opponent as input, including</span>
-<span id="cb1-161"><a href="#cb1-161"></a>the probabilities of the opponent's moves in each board state.</span>
-<span id="cb1-162"><a href="#cb1-162"></a></span>
-<span id="cb1-163"><a href="#cb1-163"></a>Alternatively, this information can be estimated through experience, such as</span>
-<span id="cb1-164"><a href="#cb1-164"></a>playing numerous games against the opponent. The best approach to this problem</span>
-<span id="cb1-165"><a href="#cb1-165"></a>is to first learn a model of the opponent's behavior with a certain level of</span>
-<span id="cb1-166"><a href="#cb1-166"></a>confidence, and then use dynamic programming to calculate an optimal solution</span>
-<span id="cb1-167"><a href="#cb1-167"></a>based on the approximate opponent model.</span>
-<span id="cb1-168"><a href="#cb1-168"></a></span>
-<span id="cb1-169"><a href="#cb1-169"></a>Sutton and Barto <span class="co">[</span><span class="ot">see pp. 9-12 @Sutton2018</span><span class="co">]</span> propose the following way to</span>
-<span id="cb1-170"><a href="#cb1-170"></a>approach tic tac toe with Reinforcement Learning:</span>
-<span id="cb1-171"><a href="#cb1-171"></a></span>
-<span id="cb1-172"><a href="#cb1-172"></a><span class="fu">## Setup: {.unnumbered}</span></span>
+<span id="cb1-144"><a href="#cb1-144"></a>:   The environment model is something that mimics the behavior of the</span>
+<span id="cb1-145"><a href="#cb1-145"></a>    environment or, more generally, that allows inferences to be made about how</span>
+<span id="cb1-146"><a href="#cb1-146"></a>    the environment will behave. For example, given a state and action, the</span>
+<span id="cb1-147"><a href="#cb1-147"></a>    model might predict the resultant next state and next reward. Models are</span>
+<span id="cb1-148"><a href="#cb1-148"></a>    used for planning. This means making decisions by considering potential</span>
+<span id="cb1-149"><a href="#cb1-149"></a>    future situations before they occur. For our purposes, the environment can</span>
+<span id="cb1-150"><a href="#cb1-150"></a>    be represented as a dynamic system through an ordinary differential equation</span>
+<span id="cb1-151"><a href="#cb1-151"></a>    or a discrete finite difference equation.</span>
+<span id="cb1-152"><a href="#cb1-152"></a></span>
+<span id="cb1-153"><a href="#cb1-153"></a><span class="fu"># A toy RL-exmaple: Tic-Tac-Toe</span></span>
+<span id="cb1-154"><a href="#cb1-154"></a></span>
+<span id="cb1-155"><a href="#cb1-155"></a>To illustrate the general idea of reinforcement learning and contrast it with</span>
+<span id="cb1-156"><a href="#cb1-156"></a>other ap- proaches, we next consider a single example in more detail.</span>
+<span id="cb1-157"><a href="#cb1-157"></a></span>
+<span id="cb1-158"><a href="#cb1-158"></a>Consider the familiar child’s game of tic-tac-toe.</span>
+<span id="cb1-159"><a href="#cb1-159"></a></span>
+<span id="cb1-160"><a href="#cb1-160"></a><span class="al">![](../assets/tic_tac_toe.jpeg)</span>{.lightbox}</span>
+<span id="cb1-161"><a href="#cb1-161"></a></span>
+<span id="cb1-162"><a href="#cb1-162"></a>Although the tic-tac-toe game is a simple problem, it cannot be satisfactorily</span>
+<span id="cb1-163"><a href="#cb1-163"></a>solved using classical techniques.</span>
+<span id="cb1-164"><a href="#cb1-164"></a></span>
+<span id="cb1-165"><a href="#cb1-165"></a>For instance, the classical "*minimax*" solution from game theory is not</span>
+<span id="cb1-166"><a href="#cb1-166"></a>applicable here because it assumes the opponent's specific way of playing. A</span>
+<span id="cb1-167"><a href="#cb1-167"></a>*minimax* player would never reach a game state from which it could lose. Even</span>
+<span id="cb1-168"><a href="#cb1-168"></a>if, in reality, it always won from that state due to incorrect play by the</span>
+<span id="cb1-169"><a href="#cb1-169"></a>opponent. The classical optimization methods for sequential decision problems,</span>
+<span id="cb1-170"><a href="#cb1-170"></a>like dynamic programming, can find the best solution for any opponent. However,</span>
+<span id="cb1-171"><a href="#cb1-171"></a>these methods need a detailed description of the opponent as input, including</span>
+<span id="cb1-172"><a href="#cb1-172"></a>the probabilities of the opponent's moves in each board state.</span>
 <span id="cb1-173"><a href="#cb1-173"></a></span>
-<span id="cb1-174"><a href="#cb1-174"></a><span class="ss">-   </span>First we would set up a table of numbers (or labels), one for each possible</span>
-<span id="cb1-175"><a href="#cb1-175"></a>    state of the game.</span>
-<span id="cb1-176"><a href="#cb1-176"></a></span>
-<span id="cb1-177"><a href="#cb1-177"></a><span class="ss">-   </span>Each number will be the latest estimate of the probability of our winning</span>
-<span id="cb1-178"><a href="#cb1-178"></a>    from that state.</span>
+<span id="cb1-174"><a href="#cb1-174"></a>Alternatively, this information can be estimated through experience, such as</span>
+<span id="cb1-175"><a href="#cb1-175"></a>playing numerous games against the opponent. The best approach to this problem</span>
+<span id="cb1-176"><a href="#cb1-176"></a>is to first learn a model of the opponent's behavior with a certain level of</span>
+<span id="cb1-177"><a href="#cb1-177"></a>confidence, and then use dynamic programming to calculate an optimal solution</span>
+<span id="cb1-178"><a href="#cb1-178"></a>based on the approximate opponent model.</span>
 <span id="cb1-179"><a href="#cb1-179"></a></span>
-<span id="cb1-180"><a href="#cb1-180"></a><span class="ss">-   </span>We treat this estimate as the state’s value, and the whole table is the</span>
-<span id="cb1-181"><a href="#cb1-181"></a>    learned value function.</span>
+<span id="cb1-180"><a href="#cb1-180"></a>Sutton and Barto <span class="co">[</span><span class="ot">see pp. 9-12 @Sutton2018</span><span class="co">]</span> propose the following way to</span>
+<span id="cb1-181"><a href="#cb1-181"></a>approach tic tac toe with Reinforcement Learning:</span>
 <span id="cb1-182"><a href="#cb1-182"></a></span>
-<span id="cb1-183"><a href="#cb1-183"></a><span class="ss">-   </span>State $A$ has higher value than state $B$, or is considered 'better' than</span>
-<span id="cb1-184"><a href="#cb1-184"></a>    state $B$, if the current estimate of the probability of our winning from</span>
-<span id="cb1-185"><a href="#cb1-185"></a>    $A$ is higher than it is from $B$.</span>
-<span id="cb1-186"><a href="#cb1-186"></a></span>
-<span id="cb1-187"><a href="#cb1-187"></a><span class="ss">-   </span>If we always play $Xs$, then for all states with three $Xs$ in a row the</span>
-<span id="cb1-188"><a href="#cb1-188"></a>    probability of winning is 1, because we have already won.</span>
-<span id="cb1-189"><a href="#cb1-189"></a></span>
-<span id="cb1-190"><a href="#cb1-190"></a><span class="ss">-   </span>Similarly, for all states with three $Os$ in a row, or that are filled up,</span>
-<span id="cb1-191"><a href="#cb1-191"></a>    the correct probability is 0--we cannot win from them.</span>
-<span id="cb1-192"><a href="#cb1-192"></a></span>
-<span id="cb1-193"><a href="#cb1-193"></a><span class="ss">-   </span>We set the initial values of all the other states to $0.5$, representing a</span>
-<span id="cb1-194"><a href="#cb1-194"></a>    guess that we have a 50% chance of winning.</span>
-<span id="cb1-195"><a href="#cb1-195"></a></span>
-<span id="cb1-196"><a href="#cb1-196"></a><span class="fu">## Training: {.unnumbered}</span></span>
+<span id="cb1-183"><a href="#cb1-183"></a><span class="fu"># Setup:</span></span>
+<span id="cb1-184"><a href="#cb1-184"></a></span>
+<span id="cb1-185"><a href="#cb1-185"></a><span class="ss">-   </span>First we would set up a table of numbers (or labels), one for each possible</span>
+<span id="cb1-186"><a href="#cb1-186"></a>    state of the game.</span>
+<span id="cb1-187"><a href="#cb1-187"></a></span>
+<span id="cb1-188"><a href="#cb1-188"></a><span class="ss">-   </span>Each number will be the latest estimate of the probability of our winning</span>
+<span id="cb1-189"><a href="#cb1-189"></a>    from that state.</span>
+<span id="cb1-190"><a href="#cb1-190"></a></span>
+<span id="cb1-191"><a href="#cb1-191"></a><span class="ss">-   </span>We treat this estimate as the state’s value, and the whole table is the</span>
+<span id="cb1-192"><a href="#cb1-192"></a>    learned value function.</span>
+<span id="cb1-193"><a href="#cb1-193"></a></span>
+<span id="cb1-194"><a href="#cb1-194"></a><span class="ss">-   </span>State $A$ has higher value than state $B$, or is considered 'better' than</span>
+<span id="cb1-195"><a href="#cb1-195"></a>    state $B$, if the current estimate of the probability of our winning from</span>
+<span id="cb1-196"><a href="#cb1-196"></a>    $A$ is higher than it is from $B$.</span>
 <span id="cb1-197"><a href="#cb1-197"></a></span>
-<span id="cb1-198"><a href="#cb1-198"></a>We then play many games against the opponent.</span>
-<span id="cb1-199"><a href="#cb1-199"></a></span>
-<span id="cb1-200"><a href="#cb1-200"></a>To select our moves we examine the states that would result from each of our</span>
-<span id="cb1-201"><a href="#cb1-201"></a>possible moves (one for each blank space on the board) and look up their current</span>
-<span id="cb1-202"><a href="#cb1-202"></a>values in the table. Most of the time we move greedily,selecting the move that</span>
-<span id="cb1-203"><a href="#cb1-203"></a>leads to the state with greatest value, that is, with the highest estimated</span>
-<span id="cb1-204"><a href="#cb1-204"></a>probability of winning.</span>
-<span id="cb1-205"><a href="#cb1-205"></a></span>
-<span id="cb1-206"><a href="#cb1-206"></a>Occasionally, however, we select randomly from among the other moves instead.</span>
-<span id="cb1-207"><a href="#cb1-207"></a>These are called exploratory moves because they cause us to experience states</span>
-<span id="cb1-208"><a href="#cb1-208"></a>that we might otherwise never see.</span>
-<span id="cb1-209"><a href="#cb1-209"></a></span>
-<span id="cb1-210"><a href="#cb1-210"></a>A sequence of moves made and considered during a game can be diagrammed as the</span>
-<span id="cb1-211"><a href="#cb1-211"></a>following figure:</span>
-<span id="cb1-212"><a href="#cb1-212"></a></span>
-<span id="cb1-213"><a href="#cb1-213"></a>::: {#fig-tic_tac_toc_diag fig-env="figure*"}</span>
-<span id="cb1-214"><a href="#cb1-214"></a><span class="al">![](../assets/ch_00/diagram_sequence_tictactoe_play.png)</span>{.lightbox}</span>
-<span id="cb1-215"><a href="#cb1-215"></a></span>
-<span id="cb1-216"><a href="#cb1-216"></a>Figure taken from <span class="co">[</span><span class="ot">@Sutton2018</span><span class="co">]</span>. A sequence of tic-tac-toe moves. Solid black</span>
-<span id="cb1-217"><a href="#cb1-217"></a>lines represents moves taken during a play. Dashed lines represent plausible but</span>
-<span id="cb1-218"><a href="#cb1-218"></a>not taken moves. The $*$ symbol indicates the move currently estimated to be the</span>
-<span id="cb1-219"><a href="#cb1-219"></a>best. Thus the move $e$ denotes an *exploratory* move</span>
-<span id="cb1-220"><a href="#cb1-220"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-198"><a href="#cb1-198"></a><span class="ss">-   </span>If we always play $Xs$, then for all states with three $Xs$ in a row the</span>
+<span id="cb1-199"><a href="#cb1-199"></a>    probability of winning is 1, because we have already won.</span>
+<span id="cb1-200"><a href="#cb1-200"></a></span>
+<span id="cb1-201"><a href="#cb1-201"></a><span class="ss">-   </span>Similarly, for all states with three $Os$ in a row, or that are filled up,</span>
+<span id="cb1-202"><a href="#cb1-202"></a>    the correct probability is 0--we cannot win from them.</span>
+<span id="cb1-203"><a href="#cb1-203"></a></span>
+<span id="cb1-204"><a href="#cb1-204"></a><span class="ss">-   </span>We set the initial values of all the other states to $0.5$, representing a</span>
+<span id="cb1-205"><a href="#cb1-205"></a>    guess that we have a 50% chance of winning.</span>
+<span id="cb1-206"><a href="#cb1-206"></a></span>
+<span id="cb1-207"><a href="#cb1-207"></a><span class="fu"># Training:</span></span>
+<span id="cb1-208"><a href="#cb1-208"></a></span>
+<span id="cb1-209"><a href="#cb1-209"></a>We then play many games against the opponent.</span>
+<span id="cb1-210"><a href="#cb1-210"></a></span>
+<span id="cb1-211"><a href="#cb1-211"></a>To select our moves we examine the states that would result from each of our</span>
+<span id="cb1-212"><a href="#cb1-212"></a>possible moves (one for each blank space on the board) and look up their current</span>
+<span id="cb1-213"><a href="#cb1-213"></a>values in the table. Most of the time we move greedily,selecting the move that</span>
+<span id="cb1-214"><a href="#cb1-214"></a>leads to the state with greatest value, that is, with the highest estimated</span>
+<span id="cb1-215"><a href="#cb1-215"></a>probability of winning.</span>
+<span id="cb1-216"><a href="#cb1-216"></a></span>
+<span id="cb1-217"><a href="#cb1-217"></a>Occasionally, however, we select randomly from among the other moves instead.</span>
+<span id="cb1-218"><a href="#cb1-218"></a>These are called exploratory moves because they cause us to experience states</span>
+<span id="cb1-219"><a href="#cb1-219"></a>that we might otherwise never see.</span>
+<span id="cb1-220"><a href="#cb1-220"></a></span>
+<span id="cb1-221"><a href="#cb1-221"></a>A sequence of moves made and considered during a game can be diagrammed as the</span>
+<span id="cb1-222"><a href="#cb1-222"></a>following figure:</span>
+<span id="cb1-223"><a href="#cb1-223"></a></span>
+<span id="cb1-224"><a href="#cb1-224"></a>::: {#fig-tic_tac_toc_diag fig-env="figure*"}</span>
+<span id="cb1-225"><a href="#cb1-225"></a></span>
+<span id="cb1-226"><a href="#cb1-226"></a><span class="al">![](../assets/ch_00/diagram_sequence_tictactoe_play.png)</span>{.lightbox}</span>
+<span id="cb1-227"><a href="#cb1-227"></a></span>
+<span id="cb1-228"><a href="#cb1-228"></a>Figure taken from <span class="co">[</span><span class="ot">@Sutton2018</span><span class="co">]</span>. A sequence of tic-tac-toe moves. Solid black</span>
+<span id="cb1-229"><a href="#cb1-229"></a>lines represents moves taken during a play. Dashed lines represent plausible but</span>
+<span id="cb1-230"><a href="#cb1-230"></a>not taken moves. The $*$ symbol indicates the move currently estimated to be the</span>
+<span id="cb1-231"><a href="#cb1-231"></a>best. Thus the move $e$ denotes an *exploratory* move</span>
+<span id="cb1-232"><a href="#cb1-232"></a></span>
+<span id="cb1-233"><a href="#cb1-233"></a>:::</span>
+<span id="cb1-234"><a href="#cb1-234"></a></span>
+<span id="cb1-235"><a href="#cb1-235"></a><span class="fu">## Bibliography {.sectionbibliography}</span></span>
+<span id="cb1-236"><a href="#cb1-236"></a></span>
+<span id="cb1-237"><a href="#cb1-237"></a></span>
+<span id="cb1-238"><a href="#cb1-238"></a>::: {.sectionrefs}</span>
+<span id="cb1-239"><a href="#cb1-239"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1299,10 +1355,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/02-introductionToRL/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+      &nbsp;
+    </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
     <script type="text/javascript">
     (function(d) {
       d.querySelectorAll(".pseudocode-container").forEach(function(el) {
@@ -1335,31 +1416,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     })(document);
     </script>
   
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 

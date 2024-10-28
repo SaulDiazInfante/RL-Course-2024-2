@@ -100,9 +100,6 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -161,39 +158,10 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -206,7 +174,6 @@ window.Quarto = {
   </div>
         <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -222,7 +189,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -240,67 +207,73 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-introduction/general_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Abstract</span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Abstract</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-introductionToRL/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-multiArmedBandit/multiarmed_bandits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-dynamicProgramming/dp_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dynamic Programming (DP)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-applications/applications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-Project/project_proposal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project proposal</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Project proposal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-Evaluation/rubric_evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">List of Home Works and due dates</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./homeworks/_hw_grades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Homework grades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
     </ul>
@@ -312,21 +285,20 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
   <ul class="collapse">
-  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline"><span class="header-section-number">1</span> Outline</a>
+  <ul class="collapse">
+  <li><a href="#bibliography--1" id="toc-bibliography--1" class="nav-link" data-scroll-target="#bibliography--1">Refrences</a></li>
   </ul></li>
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">From Markov Decision Processes to Reinforcement Learning with Python</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Preface</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -355,127 +327,38 @@ window.Quarto = {
 </header>
 
 
-
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1><p><img src="cover_RL.jpeg" title="From Markov Decision Processes to Reinforcement Learning with Python" class="quarto-cover-image img-fluid"></p>
+<p><img src="cover_RL.jpeg" title="From Markov Decision Processes to Reinforcement Learning with Python" class="quarto-cover-image img-fluid"></p>
 <p>This notes are based in the course from Berstekas for the MIT see all lectures and other resources for complete the understanding.</p>
-<section id="abstract" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="abstract">Abstract</h2>
-<p>We present an introduction to the solution of multi-stage optimization problems. Starting from the dynamic programming algorithm, we consider theoretical and computational aspects, mainly of deterministic problems, and discuss how to generalize some of the results to Markovian decision processes.</p>
-<p>The classic problem with which the essential ideas of dynamic programming can be introduced is the optimal route problem (shortest route considering distances, or cheapest route considering costs) <span class="citation" data-cites="Bertsekas2005 brandimarte2013numerical">(<a href="references.html#ref-Bertsekas2005" role="doc-biblioref">Bertsekas 2005</a>; <a href="references.html#ref-brandimarte2013numerical" role="doc-biblioref">Brandimarte 2013</a>)</span>. A simple version of this problem is shown schematically in <a href="#fig-brandimarte_net" class="quarto-xref">Fig&nbsp;<span>1</span></a>. By exhaustion, we deploy the cost of path in <a href="#tbl-brandimarte_paths" class="quarto-xref">Table&nbsp;<span>1</span></a>.</p>
-<div id="fig-brandimarte_net" class="lightbox quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-brandimarte_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="assets/ch_00/network_brandimarte_ex.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="assets/ch_00/network_brandimarte_ex.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-brandimarte_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The shortest path
-</figcaption>
-</figure>
-</div>
-<p>In this problem, the optimal route to go from the node labeled <span class="math inline">\(0\)</span> to the node labeled <span class="math inline">\(7\)</span> is to be determined. The costs between each pair of nodes connected by an arrow are represented by a number next to it. For example, the cost to go from node 0 to node 2 is 6. The optimal route will be the one for which the sum of their costs is minimum. This optimal route can be obtained by an exhaustive enumeration; generating all possible routes from node <span class="math inline">\(0\)</span> to node <span class="math inline">\(7\)</span> and choosing the minimum cost route.</p>
-<div id="tbl-brandimarte_paths" class="hover borderless light quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-brandimarte_paths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: The shortest path by exhaustion see <span class="citation" data-cites="brandimarte2013numerical">(<a href="references.html#ref-brandimarte2013numerical" role="doc-biblioref">Brandimarte 2013</a>)</span>.
-</figcaption>
-<div aria-describedby="tbl-brandimarte_paths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-hover table-borderless table-light table">
-<thead>
-<tr class="header">
-<th>Path</th>
-<th style="text-align: center;">Cost</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0 \to 1 \to 4 \to 7\)</span></td>
-<td style="text-align: center;">18</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0 \to 1 \to 3 \to 4 \to 7\)</span></td>
-<td style="text-align: center;">22</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0 \to 1 \to 3 \to 6 \to 7\)</span></td>
-<td style="text-align: center;">18</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0 \to 1 \to 3 \to 5 \to 6 \to 7\)</span></td>
-<td style="text-align: center;">20</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\mathbf{0 \to 1 \to 3 \to 5 \to 7}\)</span></td>
-<td style="text-align: center;"><strong>16</strong></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0 \to 2 \to 3 \to 4 \to 7\)</span></td>
-<td style="text-align: center;">23</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0 \to 2 \to 3 \to 6 \to 7\)</span></td>
-<td style="text-align: center;">19</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0 \to 2 \to 3 \to 5 \to 6 \to 7\)</span></td>
-<td style="text-align: center;">21</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0 \to 2 \to 3 \to 5 \to 7\)</span></td>
-<td style="text-align: center;">17</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0 \to 2 \to 5 \to 6 \to 7\)</span></td>
-<td style="text-align: center;">22</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0 \to 2 \to 5 \to 7\)</span></td>
-<td style="text-align: center;">18</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>The optimal path is <span class="math display">\[
-  0 \to   1 \to 3 \to 5 \to  7,
-\]</span> with cost 16.</p>
-</section>
-</section>
-<section id="outline" class="level1 unnumbered">
-<h1 class="unnumbered">Outline</h1>
-<p>The textbook for chapter one is Bertsekas’ book <span class="citation" data-cites="Bertsekas2005">(<a href="references.html#ref-Bertsekas2005" role="doc-biblioref">Bertsekas 2005</a>)</span>. Chapters 2 and 3 are adapted from Sutton’s book <span class="citation" data-cites="Sutton2018">(Ch. 3, Ch. 4, <a href="references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>. For application and broad connection with more machine learning applications, we refer to <span class="citation" data-cites="Brunton2019">(<a href="references.html#ref-Brunton2019" role="doc-biblioref">Brunton and Kutz 2019</a>)</span>. Also, we recommend a handbook of algorithms <span class="citation" data-cites="Szepesvari2022">(<a href="references.html#ref-Szepesvari2022" role="doc-biblioref">Szepesvári 2022</a>)</span>. For applications with implemented code, we follow the books <span class="citation" data-cites="Bilgin2020 Starchursky2024">(<a href="references.html#ref-Bilgin2020" role="doc-biblioref">Bilgin 2020</a>; <a href="references.html#ref-Starchursky2024" role="doc-biblioref">Stachurski. 2024</a>)</span>.</p>
-<p>The source code for multiarmed bandits algorhims: <a href="https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git">https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git</a></p>
+<section id="outline" class="level1 page-columns page-full">
+<h1><span class="header-section-number">1</span> Outline</h1>
+<p>The textbook for chapter one is Bertsekas’ book <span class="citation" data-cites="Bertsekas2005--1">[<a href="references.html#ref-Bertsekas2005--1" role="doc-biblioref">1</a>]</span>. Chapters 2 and 3 are adapted from Sutton’s book <span class="citation" data-cites="Sutton2018--1">[Ch. 3, Ch. 4, <a href="references.html#ref-Sutton2018--1" role="doc-biblioref">5</a>]</span>. For application and broad connection with more machine learning applications, we refer to <span class="citation" data-cites="Brunton2019--1">[<a href="references.html#ref-Brunton2019--1" role="doc-biblioref">3</a>]</span>. Also, we recommend a handbook of algorithms <span class="citation" data-cites="Szepesvari2022--1">[<a href="references.html#ref-Szepesvari2022--1" role="doc-biblioref">6</a>]</span>. For applications with implemented code, we follow the books <span class="citation" data-cites="Bilgin2020--1 Starchursky2024--1">[<a href="references.html#ref-Bilgin2020--1" role="doc-biblioref">2</a>,<a href="references.html#ref-Starchursky2024--1" role="doc-biblioref">4</a>]</span>. The source code for multiarmed bandits algorhims: <a href="https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git">https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git</a></p>
 
 
 <!-- -->
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: The shortest path</span>
+<div class="no-row-height column-margin column-container"><div id="ref-Bertsekas2005--1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">D.P. Bertsekas, Dynamic programming and optimal control. <span>V</span>ol. <span>I</span>, Third, Athena Scientific, Belmont, MA, 2005.</div>
+</div><div id="ref-Sutton2018--1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.</div>
+</div><div id="ref-Brunton2019--1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">S.L. Brunton, J.N. Kutz, <a href="https://doi.org/10.1017/9781108380690">Data-driven science and engineering</a>, Cambridge University Press, Cambridge, 2019.</div>
+</div><div id="ref-Szepesvari2022--1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">C. Szepesvári, <a href="https://doi.org/10.1007/978-3-031-01551-9">Algorithms for reinforcement learning</a>, Springer, Cham, 2022.</div>
+</div><div id="ref-Bilgin2020--1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">E. Bilgin, <a href="https://books.google.com.mx/books?id=s0MQEAAAQBAJ">Mastering reinforcement learning with python: Build next-generation, self-learning models using reinforcement learning techniques and best practices</a>, Packt Publishing, 2020.</div>
+</div><div id="ref-Starchursky2024--1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">J. Stachurski., Dynamic programming volume 1, GitHub Repository. (2024).</div>
+</div></div><section id="bibliography--1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliography--1">Refrences</h2>
+<div id="refs--1" class="references csl-bib-body" data-entry-spacing="0" role="list">
+
+
+
+
+
+
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-Bertsekas2005" class="csl-entry" role="listitem">
-Bertsekas, Dimitri P. 2005. <em>Dynamic Programming and Optimal Control. <span>V</span>ol. <span>I</span></em>. Third. Athena Scientific, Belmont, MA.
-</div>
-<div id="ref-Bilgin2020" class="csl-entry" role="listitem">
-Bilgin, E. 2020. <em>Mastering Reinforcement Learning with Python: Build Next-Generation, Self-Learning Models Using Reinforcement Learning Techniques and Best Practices</em>. Packt Publishing. <a href="https://books.google.com.mx/books?id=s0MQEAAAQBAJ">https://books.google.com.mx/books?id=s0MQEAAAQBAJ</a>.
-</div>
-<div id="ref-brandimarte2013numerical" class="csl-entry" role="listitem">
-Brandimarte, Paolo. 2013. <em>Numerical Methods in Finance and Economics: A MATLAB-Based Introduction</em>. 2nd ed. Hoboken, New Jersey: John Wiley &amp; Sons.
-</div>
-<div id="ref-Brunton2019" class="csl-entry" role="listitem">
-Brunton, Steven L., and J. Nathan Kutz. 2019. <em>Data-Driven Science and Engineering</em>. Cambridge University Press, Cambridge. <a href="https://doi.org/10.1017/9781108380690">https://doi.org/10.1017/9781108380690</a>.
-</div>
-<div id="ref-Starchursky2024" class="csl-entry" role="listitem">
-Stachurski., John. 2024. <span>“Dynamic Programming Volume 1.”</span> <em>GitHub Repository</em>. <a href="https://github.com/QuantEcon/book-dp1-public" class="uri">https://github.com/QuantEcon/book-dp1-public</a>; GitHub.
-</div>
-<div id="ref-Sutton2018" class="csl-entry" role="listitem">
-Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An Introduction</em>. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.
-</div>
-<div id="ref-Szepesvari2022" class="csl-entry" role="listitem">
-Szepesvári, Csaba. 2022. <em>Algorithms for Reinforcement Learning</em>. Vol. 9. Synthesis Lectures on Artificial Intelligence and Machine Learning. Springer, Cham. <a href="https://doi.org/10.1007/978-3-031-01551-9">https://doi.org/10.1007/978-3-031-01551-9</a>.
-</div>
-</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1088,33 +971,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./01-introduction/general_intro.html" class="pagination-link" aria-label="Abstract">
-        <span class="nav-page-text">Abstract</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Abstract</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">output:</span><span class="co"> html_document</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="an">editor_options:</span><span class="co"> </span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">  chunk_output_type: console</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">---</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu"># Preface {.unnumbered}</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a>This notes are based in the course from Berstekas for the MIT see all lectures</span>
-<span id="cb1-9"><a href="#cb1-9"></a>and other resources for complete the understanding.</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>{{&lt; include ./01-introduction/general_intro.qmd &gt;}}</span>
-<span id="cb1-12"><a href="#cb1-12"></a></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="fu"># Outline {.unnumbered}</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a>The textbook for chapter one is Bertsekas' book <span class="co">[</span><span class="ot">@Bertsekas2005</span><span class="co">]</span>. Chapters 2 and</span>
-<span id="cb1-16"><a href="#cb1-16"></a>3 are adapted from Sutton's book <span class="co">[</span><span class="ot">Ch. 3, Ch. 4, @Sutton2018</span><span class="co">]</span>. For application</span>
-<span id="cb1-17"><a href="#cb1-17"></a>and broad connection with more machine learning applications, we refer to</span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="co">[</span><span class="ot">@Brunton2019</span><span class="co">]</span>. Also, we recommend a handbook of algorithms <span class="co">[</span><span class="ot">@Szepesvari2022</span><span class="co">]</span>.</span>
-<span id="cb1-19"><a href="#cb1-19"></a>For applications with implemented code, we follow the books </span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="co">[</span><span class="ot">@Bilgin2020; @Starchursky2024</span><span class="co">]</span>.</span>
-<span id="cb1-21"><a href="#cb1-21"></a></span>
-<span id="cb1-22"><a href="#cb1-22"></a>The source code for multiarmed bandits algorhims:</span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co">[</span><span class="ot">https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git</span><span class="co">](https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Preface"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">format:</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">  html:</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">    grid:</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">      margin-width: 350px</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">  pdf: default</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="an">reference-location:</span><span class="co"> margin</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="an">citation-location:</span><span class="co"> margin</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="an">number-depth:</span><span class="co"> 3</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">---</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>This notes are based in the course from Berstekas for the MIT see all lectures</span>
+<span id="cb1-15"><a href="#cb1-15"></a>and other resources for complete the understanding.</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="fu"># Outline </span></span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a>The textbook for chapter one is Bertsekas' book <span class="co">[</span><span class="ot">@Bertsekas2005</span><span class="co">]</span>. Chapters 2 and 3 are adapted from Sutton's book <span class="co">[</span><span class="ot">Ch. 3, Ch. 4, @Sutton2018</span><span class="co">]</span>. For application and broad connection with more machine learning applications, we refer to <span class="co">[</span><span class="ot">@Brunton2019</span><span class="co">]</span>. Also, we recommend a handbook of algorithms <span class="co">[</span><span class="ot">@Szepesvari2022</span><span class="co">]</span>. For applications with implemented code, we follow the books <span class="co">[</span><span class="ot">@Bilgin2020; @Starchursky2024</span><span class="co">]</span>. </span>
+<span id="cb1-20"><a href="#cb1-20"></a>The source code for multiarmed bandits algorhims:</span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="co">[</span><span class="ot">https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git</span><span class="co">](https://github.com/terrence-ou/Reinforcement-Learning-2nd-Edition-Notes-Codes.git)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1126,8 +1007,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+      &nbsp;
+    </div>
   </div>
 </footer>
     <script type="text/javascript">
@@ -1162,31 +1043,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     })(document);
     </script>
   
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 

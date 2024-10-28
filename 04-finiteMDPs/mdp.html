@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saúl Díaz Infante Velasco">
 
 <title>From Markov Decision Processes to Reinforcement Learning with Python - Finite Markov Decision Processes (MDPs)</title>
 <style>
@@ -97,11 +98,11 @@ div.csl-indent {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
-<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -192,7 +193,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -205,7 +206,6 @@ window.Quarto = {
   </div>
         <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -221,7 +221,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../04-finiteMDPs/mdp.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../04-finiteMDPs/mdp.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -239,67 +239,73 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-introduction/general_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Abstract</span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Abstract</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-introductionToRL/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-multiArmedBandit/multiarmed_bandits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-dynamicProgramming/dp_rl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dynamic Programming (DP)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../06-applications/applications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../07-Project/project_proposal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project proposal</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Project proposal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../08-Evaluation/rubric_evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">List of Home Works and due dates</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks/_hw_grades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Homework grades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
     </ul>
@@ -311,13 +317,38 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#the-agentenvironment-interface" id="toc-the-agentenvironment-interface" class="nav-link active" data-scroll-target="#the-agentenvironment-interface">The Agent–Environment Interface</a></li>
+  <li><a href="#goals-and-rewards" id="toc-goals-and-rewards" class="nav-link" data-scroll-target="#goals-and-rewards">Goals and Rewards</a>
+  <ul class="collapse">
+  <li><a href="#key-points-of-the-reward-hypothesis" id="toc-key-points-of-the-reward-hypothesis" class="nav-link" data-scroll-target="#key-points-of-the-reward-hypothesis">Key Points of the Reward Hypothesis:</a></li>
+  <li><a href="#importance-in-reinforcement-learning" id="toc-importance-in-reinforcement-learning" class="nav-link" data-scroll-target="#importance-in-reinforcement-learning">Importance in Reinforcement Learning:</a></li>
+  </ul></li>
+  <li><a href="#returns-and-episodes" id="toc-returns-and-episodes" class="nav-link" data-scroll-target="#returns-and-episodes">Returns and Episodes</a>
+  <ul class="collapse">
+  <li><a href="#the-reward-sequence" id="toc-the-reward-sequence" class="nav-link" data-scroll-target="#the-reward-sequence">1. <strong>The Reward Sequence</strong>:</a></li>
+  <li><a href="#defining-the-return" id="toc-defining-the-return" class="nav-link" data-scroll-target="#defining-the-return">2. <strong>Defining the Return</strong>:</a></li>
+  <li><a href="#discounted-return" id="toc-discounted-return" class="nav-link" data-scroll-target="#discounted-return">3. <strong>Discounted Return</strong>:</a></li>
+  <li><a href="#maximizing-the-expected-return" id="toc-maximizing-the-expected-return" class="nav-link" data-scroll-target="#maximizing-the-expected-return">4. <strong>Maximizing the Expected Return</strong>:</a></li>
+  <li><a href="#two-types-of-tasks" id="toc-two-types-of-tasks" class="nav-link" data-scroll-target="#two-types-of-tasks">5. <strong>Two Types of Tasks</strong>:</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion:</a></li>
+  </ul></li>
+  <li><a href="#unified-notation-for-episodic-and-continuing-tasks" id="toc-unified-notation-for-episodic-and-continuing-tasks" class="nav-link" data-scroll-target="#unified-notation-for-episodic-and-continuing-tasks">Unified Notation for Episodic and Continuing Tasks</a></li>
+  <li><a href="#policies-and-value-functions" id="toc-policies-and-value-functions" class="nav-link" data-scroll-target="#policies-and-value-functions">Policies and Value Functions</a>
+  <ul class="collapse">
+  <li><a href="#pick-and-drop-example" id="toc-pick-and-drop-example" class="nav-link" data-scroll-target="#pick-and-drop-example">Pick and drop example</a></li>
+  </ul></li>
+  <li><a href="#optimal-policies-and-optimal-value-functions" id="toc-optimal-policies-and-optimal-value-functions" class="nav-link" data-scroll-target="#optimal-policies-and-optimal-value-functions">Optimal Policies and Optimal Value Functions</a></li>
+  <li><a href="#optimality-and-approximation" id="toc-optimality-and-approximation" class="nav-link" data-scroll-target="#optimality-and-approximation">Optimality and Approximation</a></li>
+  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">Summary</a>
+  <ul class="collapse">
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/04-finiteMDPs/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/04-finiteMDPs/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -328,6 +359,12 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saúl Díaz Infante Velasco </p>
+          </div>
+  </div>
     
   
     
@@ -345,7 +382,7 @@ window.Quarto = {
 <section id="the-agentenvironment-interface" class="level2">
 <h2 class="anchored" data-anchor-id="the-agentenvironment-interface">The Agent–Environment Interface</h2>
 <div id="exm-roboClean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3</strong></span> A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set <span class="math inline">\(\mathcal{S} = \{\texttt{high}, \texttt{low} \}\)</span>. In each state, the agent can decide whether to</p>
+<p><span class="theorem-title"><strong>Example 1</strong></span> A mobile robot has the job of collecting empty soda cans in an office environment. It has sensors for detecting cans, and an arm and gripper that can pick them up and place them in an onboard bin; it runs on a rechargeable battery. The robot’s control system has components for interpreting sensory information, for navigating, and for controlling the arm and gripper. High-level decisions about how to search for cans are made by a reinforcement learning agent based on the current charge level of the battery. To make a simple example, we assume that only two charge levels can be distinguished, comprising a small state set <span class="math inline">\(\mathcal{S} = \{\texttt{high}, \texttt{low} \}\)</span>. In each state, the agent can decide whether to</p>
 <ol type="1">
 <li>actively <strong>search</strong> for a can for a certain period of time,</li>
 <li>remain stationary and <strong>wait</strong> for someone to bring it a can, or</li>
@@ -360,7 +397,7 @@ window.Quarto = {
 <a href="../assets/ch_03/recycling_robot_diagram.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="../assets/ch_03/recycling_robot_diagram.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-robot-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Recycling-robot’s graph. Taken from <span class="citation" data-cites="Sutton2018">(<a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span>
+Figure&nbsp;1: Recycling-robot’s graph. Taken from <span class="citation" data-cites="Sutton2018">[@Sutton2018]</span>
 </figcaption>
 </figure>
 </div>
@@ -374,11 +411,13 @@ Figure&nbsp;2
 </figcaption>
 </figure>
 </div>
-<section id="goals-and-rewards" class="level2">
-<h2 class="anchored" data-anchor-id="goals-and-rewards">Goals and Rewards</h2>
+</div>
+</section>
+<section id="goals-and-rewards" class="level1">
+<h1>Goals and Rewards</h1>
 <p>In reinforcement learning, <strong>the reward hypothesis</strong> serves as the foundation for defining the objectives of an agent operating within an environment. According to this hypothesis, the agent’s goal can be represented by the maximization of the <strong>expected cumulative reward</strong> over time, based on scalar feedback signals received from the environment.</p>
-<section id="key-points-of-the-reward-hypothesis" class="level3">
-<h3 class="anchored" data-anchor-id="key-points-of-the-reward-hypothesis">Key Points of the Reward Hypothesis:</h3>
+<section id="key-points-of-the-reward-hypothesis" class="level2">
+<h2 class="anchored" data-anchor-id="key-points-of-the-reward-hypothesis">Key Points of the Reward Hypothesis:</h2>
 <ol type="1">
 <li><p><strong>Reward as a Scalar Signal</strong>: At every time step, the environment provides the agent with a simple numerical signal, <span class="math inline">\((R_t \in \mathbb{R}\)</span>, which represents the immediate reward based on the agent’s actions and the current state of the environment. This reward acts as feedback for the agent, helping it learn and adjust its strategy to achieve its ultimate goal.</p></li>
 <li><p><strong>Maximizing Cumulative Reward</strong>: The agent’s goal is not just to maximize the immediate reward, but to focus on the long-term sum of rewards, known as the <strong>cumulative reward</strong>. This ensures that the agent does not become short-sighted by only pursuing short-term benefits, but rather seeks strategies that maximize its total reward across time.</p></li>
@@ -386,59 +425,59 @@ Figure&nbsp;2
 <li><p><strong>Formalizing Goals and Purposes</strong>: According to the reward hypothesis, all goals, objectives, or purposes of the agent can be <strong>quantified</strong> by maximizing this cumulative scalar signal (reward). In other words, the “purpose” of the agent is simply to optimize the feedback it receives in the form of rewards, and this concept encapsulates everything the agent is designed to achieve.</p></li>
 </ol>
 </section>
-<section id="importance-in-reinforcement-learning" class="level3">
-<h3 class="anchored" data-anchor-id="importance-in-reinforcement-learning">Importance in Reinforcement Learning:</h3>
+<section id="importance-in-reinforcement-learning" class="level2">
+<h2 class="anchored" data-anchor-id="importance-in-reinforcement-learning">Importance in Reinforcement Learning:</h2>
 <p>This hypothesis is central to how reinforcement learning problems are structured. It reduces complex goals and objectives into a single, scalar value (the reward) that the agent can track and optimize over time. This abstraction makes it possible to design agents that can handle a wide variety of tasks, as long as those tasks can be expressed in terms of rewards provided by the environment.</p>
 </section>
 </section>
-<section id="returns-and-episodes" class="level2">
-<h2 class="anchored" data-anchor-id="returns-and-episodes">Returns and Episodes</h2>
+<section id="returns-and-episodes" class="level1">
+<h1>Returns and Episodes</h1>
 <p>To formalize the objective of learning in reinforcement learning, we introduce the concept of <strong>return</strong>. The <strong>return</strong>, denoted <span class="math inline">\(G_t\)</span>, is a function of the future rewards that the agent will receive after time step <span class="math inline">\(t\)</span>. The agent aims to maximize the <strong>expected return</strong> to achieve its goal. Let’s break down this formalization step by step:</p>
-<section id="the-reward-sequence" class="level3">
-<h3 class="anchored" data-anchor-id="the-reward-sequence">1. <strong>The Reward Sequence</strong>:</h3>
+<section id="the-reward-sequence" class="level2">
+<h2 class="anchored" data-anchor-id="the-reward-sequence">1. <strong>The Reward Sequence</strong>:</h2>
 <p>At each time step <span class="math inline">\(t\)</span>, the agent receives a reward <span class="math inline">\(R_{t+1}, R_{t+2},\dots,\)</span> as a result of interacting with the environment. This sequence of rewards represents the feedback the agent receives over time based on its actions.</p>
 </section>
-<section id="defining-the-return" class="level3">
-<h3 class="anchored" data-anchor-id="defining-the-return">2. <strong>Defining the Return</strong>:</h3>
+<section id="defining-the-return" class="level2">
+<h2 class="anchored" data-anchor-id="defining-the-return">2. <strong>Defining the Return</strong>:</h2>
 <p>The <strong>return</strong> at time step <span class="math inline">\(t\)</span>, denoted <span class="math inline">\(G_t\)</span>, is the total accumulated reward from time step <span class="math inline">\(t\)</span> onward. In reinforcement learning, the return can be defined in different ways, but it generally involves summing the future rewards, often discounted to account for the uncertainty or diminishing value of rewards received further in the future.</p>
 <p>The <strong>undiscounted return</strong> would simply be the sum of all future rewards: <span class="math display">\[
    G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots = \sum_{k=0}^{\infty} R_{t+k+1}
 \]</span> This sum may be infinite if the task never ends, which can be problematic. Thus, in many cases, a <strong>discount factor</strong> is applied to weight future rewards less than immediate rewards.</p>
 <p>Likewise if the MDP has finite horizont <span class="math inline">\(T\)</span> then <span class="math display">\[G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots + R_{T}\]</span></p>
 </section>
-<section id="discounted-return" class="level3">
-<h3 class="anchored" data-anchor-id="discounted-return">3. <strong>Discounted Return</strong>:</h3>
+<section id="discounted-return" class="level2">
+<h2 class="anchored" data-anchor-id="discounted-return">3. <strong>Discounted Return</strong>:</h2>
 <p>To address this issue, we introduce a discount factor <span class="math inline">\(\gamma\)</span>, where <span class="math inline">\(0\leq \gamma \leq 1\)</span>. The discount factor controls how much emphasis is placed on future rewards. When <span class="math inline">\(\gamma\)</span> is close to 1, future rewards are considered nearly as valuable as immediate rewards. When <span class="math inline">\(\gamma\)</span> is closer to 0, the agent focuses more on immediate rewards.</p>
 <p>The <strong>discounted return</strong> is defined as: <span class="math display">\[
 G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots
     = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
 \]</span> Here, each future reward is multiplied by ( ^k ), where ( k ) is the number of time steps into the future. This ensures that the agent values immediate rewards more highly than rewards far into the future, which is often desirable in practical applications.</p>
 </section>
-<section id="maximizing-the-expected-return" class="level3">
-<h3 class="anchored" data-anchor-id="maximizing-the-expected-return">4. <strong>Maximizing the Expected Return</strong>:</h3>
+<section id="maximizing-the-expected-return" class="level2">
+<h2 class="anchored" data-anchor-id="maximizing-the-expected-return">4. <strong>Maximizing the Expected Return</strong>:</h2>
 <p>Since the environment in reinforcement learning is often stochastic, the agent cannot guarantee a specific sequence of rewards, but it can aim to maximize the <strong>expected return</strong>. The expected return is the average return the agent would obtain by following a specific policy <span class="math inline">\(\pi\)</span>, which defines the agent’s behavior.</p>
 <p>Formally, the agent’s objective is to maximize the expected return: <span class="math display">\[
     \mathbb{E}[G_t | \pi]
             = \mathbb{E}\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \Big| \pi\right]
 \]</span> where <span class="math inline">\(\pi\)</span> is the policy being followed. This equation tells us that the agent should choose actions in a way that maximizes the long-term expected reward, considering both immediate and future rewards.</p>
 </section>
-<section id="two-types-of-tasks" class="level3">
-<h3 class="anchored" data-anchor-id="two-types-of-tasks">5. <strong>Two Types of Tasks</strong>:</h3>
+<section id="two-types-of-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="two-types-of-tasks">5. <strong>Two Types of Tasks</strong>:</h2>
 <ul>
 <li><strong>Finite-Horizon Tasks</strong>: These tasks have a fixed time limit, and the agent’s goal is to maximize the sum of rewards within that time limit. In such cases, the discount factor <span class="math inline">\(\gamma\)</span> may not be necessary, and the return is just the sum of the finite rewards received before the task ends.</li>
 <li><strong>Infinite-Horizon Tasks</strong>: In tasks that continue indefinitely, the discount factor <span class="math inline">\(\gamma\)</span> ensures that the return remains finite by reducing the impact of rewards far into the future.</li>
 </ul>
 </section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion:</h3>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion:</h2>
 <p>Thus, in reinforcement learning, the agent’s formal objective is to maximize the <strong>expected return</strong>, <span class="math inline">\(\mathbb{E}[G_t]\)</span>, where the return <span class="math inline">\(G_t\)</span> is the <strong>discounted sum</strong> of future rewards. The use of the discount factor <span class="math inline">\(\gamma\)</span> helps the agent focus more on immediate rewards, while still considering future rewards to some degree. This formalization ensures that the agent’s behavior is guided not just by immediate rewards but by a balanced approach to long-term success.</p>
 </section>
 </section>
-<section id="unified-notation-for-episodic-and-continuing-tasks" class="level2">
-<h2 class="anchored" data-anchor-id="unified-notation-for-episodic-and-continuing-tasks">Unified Notation for Episodic and Continuing Tasks</h2>
+<section id="unified-notation-for-episodic-and-continuing-tasks" class="level1">
+<h1>Unified Notation for Episodic and Continuing Tasks</h1>
 </section>
-<section id="policies-and-value-functions" class="level2">
-<h2 class="anchored" data-anchor-id="policies-and-value-functions">Policies and Value Functions</h2>
+<section id="policies-and-value-functions" class="level1">
+<h1>Policies and Value Functions</h1>
 <p>In reinforcement learning (RL), <strong>value functions</strong> play a central role in determining the effectiveness of an agent’s behavior by estimating “how good” it is for the agent to be in a particular state or perform a specific action. Here, “how good” is quantified by <strong>future rewards</strong> the agent expects to accumulate, which is also known as the <strong>expected return</strong>. The expected return typically refers to the sum of future rewards, discounted over time, that an agent can expect to obtain from a particular state or state-action pair.</p>
 <section id="key-concepts" class="level3">
 <h3 class="anchored" data-anchor-id="key-concepts">Key Concepts:</h3>
@@ -543,8 +582,8 @@ V(s) \leftarrow \max_a \sum_{s'} P(s' \mid s, a) \left[ R(s, a, s') + \gamma V(s
 <h3 class="anchored" data-anchor-id="summary">Summary:</h3>
 <p>In summary, value functions <span class="math inline">\(V^\pi(s)\)</span> and <span class="math inline">\(q_{\pi}(s, a)\)</span> estimate future rewards based on an agent’s policy. These functions are fundamental to algorithms like <strong>Q-learning</strong> (off-policy) and <strong>policy iteration</strong> (on-policy). Q-learning directly updates the Q-values, aiming to discover the optimal action-value function, while policy iteration alternates between evaluating a policy and improving it.</p>
 </section>
-<section id="pick-and-drop-example" class="level3">
-<h3 class="anchored" data-anchor-id="pick-and-drop-example">Pick and drop example</h3>
+<section id="pick-and-drop-example" class="level2">
+<h2 class="anchored" data-anchor-id="pick-and-drop-example">Pick and drop example</h2>
 <div id="fig-pick_and_drop_exm" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pick_and_drop_exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -556,7 +595,7 @@ V(s) \leftarrow \max_a \sum_{s'} P(s' \mid s, a) \left[ R(s, a, s') + \gamma V(s
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pick_and_drop_exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Pick and Drop game. See python implementation below.
+Figure&nbsp;4.1: Pick and Drop game. See python implementation below.
 </figcaption>
 </figure>
 </div>
@@ -571,11 +610,11 @@ Figure&nbsp;3: Pick and Drop game. See python implementation below.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pick_and_drop_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Rewards rules for the drop game. See the above scheme for reference.
+Figure&nbsp;4.2: Rewards rules for the drop game. See the above scheme for reference.
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -666,7 +705,7 @@ We use the following class to simulate the pick and drop game accordingly the
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -732,7 +771,7 @@ To illustrate how works this class
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -787,7 +826,7 @@ Now we implement a random but naive solution
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -882,7 +921,7 @@ Next we apply the <span class="math inline">\(Q-\)</span>learning algorithm for 
 </div>
 </div>
 <div id="exm-grid_world" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Gridworld)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 4.1 (Gridworld)</strong></span> &nbsp;</p>
 <ul>
 <li><p>Actions: <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code></p></li>
 <li><p>Rewards:</p>
@@ -905,14 +944,14 @@ Next we apply the <span class="math inline">\(Q-\)</span>learning algorithm for 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grid-world-exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Grid World example. Problem scheme , possible actions and sampling reward
+Figure&nbsp;4.3: Grid World example. Problem scheme , possible actions and sampling reward
 </figcaption>
 </figure>
 </div>
 <div class="{exm-grid_world}">
 <p>The Bellman equation must hold for each state for the value function <span class="math inline">\(v_{\pi}\)</span> shown in <a href="#fig-grid-world-exm" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-grid-world-exm</span></a> (right). Show numerically that this equation holds for the center state, valued at +0.7, with respect to its four neighboring states, valued at +2.3, +0.4, 0.4, and +0.7. (These numbers are accurate only to one decimal place.)</p>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -928,199 +967,201 @@ python implementation for the grid-world example
 <div class="code-with-filename-file">
 <pre><strong>gridworld.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb5" data-filename="gridworld.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> matplotlib</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="im">from</span> matplotlib.table <span class="im">import</span> Table</span>
-<span id="cb5-5"><a href="#cb5-5"></a>matplotlib.use(<span class="st">'Agg'</span>)</span>
-<span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a>WORLD_SIZE <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a>A_POS <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
-<span id="cb5-9"><a href="#cb5-9"></a>A_PRIME_POS <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">1</span>]</span>
-<span id="cb5-10"><a href="#cb5-10"></a>B_POS <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">3</span>]</span>
-<span id="cb5-11"><a href="#cb5-11"></a>B_PRIME_POS <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb5-12"><a href="#cb5-12"></a>DISCOUNT <span class="op">=</span> <span class="fl">0.9</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="co"># left, up, right, down</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a>ACTIONS <span class="op">=</span> [np.array([<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]),</span>
-<span id="cb5-16"><a href="#cb5-16"></a>           np.array([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>]),</span>
-<span id="cb5-17"><a href="#cb5-17"></a>           np.array([<span class="dv">0</span>, <span class="dv">1</span>]),</span>
-<span id="cb5-18"><a href="#cb5-18"></a>           np.array([<span class="dv">1</span>, <span class="dv">0</span>])]</span>
-<span id="cb5-19"><a href="#cb5-19"></a>ACTIONS_FIGS <span class="op">=</span> [<span class="st">'←'</span>, <span class="st">'↑'</span>, <span class="st">'→'</span>, <span class="st">'↓'</span>]</span>
-<span id="cb5-20"><a href="#cb5-20"></a>ACTION_PROB <span class="op">=</span> <span class="fl">0.25</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a></span>
-<span id="cb5-22"><a href="#cb5-22"></a><span class="kw">def</span> step(state, action):</span>
-<span id="cb5-23"><a href="#cb5-23"></a>    <span class="cf">if</span> state <span class="op">==</span> A_POS:</span>
-<span id="cb5-24"><a href="#cb5-24"></a>        <span class="cf">return</span> A_PRIME_POS, <span class="dv">10</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a>    <span class="cf">if</span> state <span class="op">==</span> B_POS:</span>
-<span id="cb5-26"><a href="#cb5-26"></a>        <span class="cf">return</span> B_PRIME_POS, <span class="dv">5</span></span>
-<span id="cb5-27"><a href="#cb5-27"></a></span>
-<span id="cb5-28"><a href="#cb5-28"></a>    next_state <span class="op">=</span> (np.array(state) <span class="op">+</span> action).tolist()</span>
-<span id="cb5-29"><a href="#cb5-29"></a>    x, y <span class="op">=</span> next_state</span>
-<span id="cb5-30"><a href="#cb5-30"></a>    <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> x <span class="op">&gt;=</span> WORLD_SIZE <span class="kw">or</span> y <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> y <span class="op">&gt;=</span> WORLD_SIZE:</span>
-<span id="cb5-31"><a href="#cb5-31"></a>        reward <span class="op">=</span> <span class="op">-</span><span class="fl">1.0</span></span>
-<span id="cb5-32"><a href="#cb5-32"></a>        next_state <span class="op">=</span> state</span>
-<span id="cb5-33"><a href="#cb5-33"></a>    <span class="cf">else</span>:</span>
-<span id="cb5-34"><a href="#cb5-34"></a>        reward <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-35"><a href="#cb5-35"></a>    <span class="cf">return</span> next_state, reward</span>
-<span id="cb5-36"><a href="#cb5-36"></a></span>
-<span id="cb5-37"><a href="#cb5-37"></a></span>
-<span id="cb5-38"><a href="#cb5-38"></a><span class="kw">def</span> draw_image(image):</span>
-<span id="cb5-39"><a href="#cb5-39"></a>    fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb5-40"><a href="#cb5-40"></a>    ax.set_axis_off()</span>
-<span id="cb5-41"><a href="#cb5-41"></a>    tb <span class="op">=</span> Table(ax, bbox<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span>
-<span id="cb5-42"><a href="#cb5-42"></a></span>
-<span id="cb5-43"><a href="#cb5-43"></a>    nrows, ncols <span class="op">=</span> image.shape</span>
-<span id="cb5-44"><a href="#cb5-44"></a>    width, height <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> ncols, <span class="fl">1.0</span> <span class="op">/</span> nrows</span>
-<span id="cb5-45"><a href="#cb5-45"></a></span>
-<span id="cb5-46"><a href="#cb5-46"></a>    <span class="co"># Add cells</span></span>
-<span id="cb5-47"><a href="#cb5-47"></a>    <span class="cf">for</span> (i, j), val <span class="kw">in</span> np.ndenumerate(image):</span>
-<span id="cb5-48"><a href="#cb5-48"></a></span>
-<span id="cb5-49"><a href="#cb5-49"></a>        <span class="co"># add state labels</span></span>
-<span id="cb5-50"><a href="#cb5-50"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> A_POS:</span>
-<span id="cb5-51"><a href="#cb5-51"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (A)"</span></span>
-<span id="cb5-52"><a href="#cb5-52"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> A_PRIME_POS:</span>
-<span id="cb5-53"><a href="#cb5-53"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (A')"</span></span>
-<span id="cb5-54"><a href="#cb5-54"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> B_POS:</span>
-<span id="cb5-55"><a href="#cb5-55"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (B)"</span></span>
-<span id="cb5-56"><a href="#cb5-56"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> B_PRIME_POS:</span>
-<span id="cb5-57"><a href="#cb5-57"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (B')"</span></span>
-<span id="cb5-58"><a href="#cb5-58"></a>        </span>
-<span id="cb5-59"><a href="#cb5-59"></a>        tb.add_cell(i, j, width, height, text<span class="op">=</span>val,</span>
-<span id="cb5-60"><a href="#cb5-60"></a>                    loc<span class="op">=</span><span class="st">'center'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>)</span>
-<span id="cb5-61"><a href="#cb5-61"></a>        </span>
-<span id="cb5-62"><a href="#cb5-62"></a>    <span class="co"># Row and column labels...</span></span>
-<span id="cb5-63"><a href="#cb5-63"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(image)):</span>
-<span id="cb5-64"><a href="#cb5-64"></a>        tb.add_cell(i, <span class="op">-</span><span class="dv">1</span>, width, height, text<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span>, loc<span class="op">=</span><span class="st">'right'</span>,</span>
-<span id="cb5-65"><a href="#cb5-65"></a>                    edgecolor<span class="op">=</span><span class="st">'none'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
-<span id="cb5-66"><a href="#cb5-66"></a>        tb.add_cell(<span class="op">-</span><span class="dv">1</span>, i, width, height<span class="op">/</span><span class="dv">2</span>, text<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span>, loc<span class="op">=</span><span class="st">'center'</span>,</span>
+<div class="sourceCode" id="cb5" data-filename="gridworld.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#| lst-label: lst-import</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#| lst-cap: Import pyplot</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="im">import</span> matplotlib</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="im">from</span> matplotlib.table <span class="im">import</span> Table</span>
+<span id="cb5-7"><a href="#cb5-7"></a>matplotlib.use(<span class="st">'Agg'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>WORLD_SIZE <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>A_POS <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb5-11"><a href="#cb5-11"></a>A_PRIME_POS <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">1</span>]</span>
+<span id="cb5-12"><a href="#cb5-12"></a>B_POS <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">3</span>]</span>
+<span id="cb5-13"><a href="#cb5-13"></a>B_PRIME_POS <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb5-14"><a href="#cb5-14"></a>DISCOUNT <span class="op">=</span> <span class="fl">0.9</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co"># left, up, right, down</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>ACTIONS <span class="op">=</span> [np.array([<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]),</span>
+<span id="cb5-18"><a href="#cb5-18"></a>           np.array([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>]),</span>
+<span id="cb5-19"><a href="#cb5-19"></a>           np.array([<span class="dv">0</span>, <span class="dv">1</span>]),</span>
+<span id="cb5-20"><a href="#cb5-20"></a>           np.array([<span class="dv">1</span>, <span class="dv">0</span>])]</span>
+<span id="cb5-21"><a href="#cb5-21"></a>ACTIONS_FIGS <span class="op">=</span> [<span class="st">'←'</span>, <span class="st">'↑'</span>, <span class="st">'→'</span>, <span class="st">'↓'</span>]</span>
+<span id="cb5-22"><a href="#cb5-22"></a>ACTION_PROB <span class="op">=</span> <span class="fl">0.25</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="kw">def</span> step(state, action):</span>
+<span id="cb5-25"><a href="#cb5-25"></a>    <span class="cf">if</span> state <span class="op">==</span> A_POS:</span>
+<span id="cb5-26"><a href="#cb5-26"></a>        <span class="cf">return</span> A_PRIME_POS, <span class="dv">10</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a>    <span class="cf">if</span> state <span class="op">==</span> B_POS:</span>
+<span id="cb5-28"><a href="#cb5-28"></a>        <span class="cf">return</span> B_PRIME_POS, <span class="dv">5</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a></span>
+<span id="cb5-30"><a href="#cb5-30"></a>    next_state <span class="op">=</span> (np.array(state) <span class="op">+</span> action).tolist()</span>
+<span id="cb5-31"><a href="#cb5-31"></a>    x, y <span class="op">=</span> next_state</span>
+<span id="cb5-32"><a href="#cb5-32"></a>    <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> x <span class="op">&gt;=</span> WORLD_SIZE <span class="kw">or</span> y <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> y <span class="op">&gt;=</span> WORLD_SIZE:</span>
+<span id="cb5-33"><a href="#cb5-33"></a>        reward <span class="op">=</span> <span class="op">-</span><span class="fl">1.0</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a>        next_state <span class="op">=</span> state</span>
+<span id="cb5-35"><a href="#cb5-35"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-36"><a href="#cb5-36"></a>        reward <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a>    <span class="cf">return</span> next_state, reward</span>
+<span id="cb5-38"><a href="#cb5-38"></a></span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="kw">def</span> draw_image(image):</span>
+<span id="cb5-41"><a href="#cb5-41"></a>    fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb5-42"><a href="#cb5-42"></a>    ax.set_axis_off()</span>
+<span id="cb5-43"><a href="#cb5-43"></a>    tb <span class="op">=</span> Table(ax, bbox<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb5-44"><a href="#cb5-44"></a></span>
+<span id="cb5-45"><a href="#cb5-45"></a>    nrows, ncols <span class="op">=</span> image.shape</span>
+<span id="cb5-46"><a href="#cb5-46"></a>    width, height <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> ncols, <span class="fl">1.0</span> <span class="op">/</span> nrows</span>
+<span id="cb5-47"><a href="#cb5-47"></a></span>
+<span id="cb5-48"><a href="#cb5-48"></a>    <span class="co"># Add cells</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a>    <span class="cf">for</span> (i, j), val <span class="kw">in</span> np.ndenumerate(image):</span>
+<span id="cb5-50"><a href="#cb5-50"></a></span>
+<span id="cb5-51"><a href="#cb5-51"></a>        <span class="co"># add state labels</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> A_POS:</span>
+<span id="cb5-53"><a href="#cb5-53"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (A)"</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> A_PRIME_POS:</span>
+<span id="cb5-55"><a href="#cb5-55"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (A')"</span></span>
+<span id="cb5-56"><a href="#cb5-56"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> B_POS:</span>
+<span id="cb5-57"><a href="#cb5-57"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (B)"</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> B_PRIME_POS:</span>
+<span id="cb5-59"><a href="#cb5-59"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (B')"</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a>        </span>
+<span id="cb5-61"><a href="#cb5-61"></a>        tb.add_cell(i, j, width, height, text<span class="op">=</span>val,</span>
+<span id="cb5-62"><a href="#cb5-62"></a>                    loc<span class="op">=</span><span class="st">'center'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb5-63"><a href="#cb5-63"></a>        </span>
+<span id="cb5-64"><a href="#cb5-64"></a>    <span class="co"># Row and column labels...</span></span>
+<span id="cb5-65"><a href="#cb5-65"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(image)):</span>
+<span id="cb5-66"><a href="#cb5-66"></a>        tb.add_cell(i, <span class="op">-</span><span class="dv">1</span>, width, height, text<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span>, loc<span class="op">=</span><span class="st">'right'</span>,</span>
 <span id="cb5-67"><a href="#cb5-67"></a>                    edgecolor<span class="op">=</span><span class="st">'none'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
-<span id="cb5-68"><a href="#cb5-68"></a></span>
-<span id="cb5-69"><a href="#cb5-69"></a>    ax.add_table(tb)</span>
+<span id="cb5-68"><a href="#cb5-68"></a>        tb.add_cell(<span class="op">-</span><span class="dv">1</span>, i, width, height<span class="op">/</span><span class="dv">2</span>, text<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span>, loc<span class="op">=</span><span class="st">'center'</span>,</span>
+<span id="cb5-69"><a href="#cb5-69"></a>                    edgecolor<span class="op">=</span><span class="st">'none'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
 <span id="cb5-70"><a href="#cb5-70"></a></span>
-<span id="cb5-71"><a href="#cb5-71"></a><span class="kw">def</span> draw_policy(optimal_values):</span>
-<span id="cb5-72"><a href="#cb5-72"></a>    fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb5-73"><a href="#cb5-73"></a>    ax.set_axis_off()</span>
-<span id="cb5-74"><a href="#cb5-74"></a>    tb <span class="op">=</span> Table(ax, bbox<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span>
-<span id="cb5-75"><a href="#cb5-75"></a></span>
-<span id="cb5-76"><a href="#cb5-76"></a>    nrows, ncols <span class="op">=</span> optimal_values.shape</span>
-<span id="cb5-77"><a href="#cb5-77"></a>    width, height <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> ncols, <span class="fl">1.0</span> <span class="op">/</span> nrows</span>
-<span id="cb5-78"><a href="#cb5-78"></a></span>
-<span id="cb5-79"><a href="#cb5-79"></a>    <span class="co"># Add cells</span></span>
-<span id="cb5-80"><a href="#cb5-80"></a>    <span class="cf">for</span> (i, j), val <span class="kw">in</span> np.ndenumerate(optimal_values):</span>
-<span id="cb5-81"><a href="#cb5-81"></a>        next_vals<span class="op">=</span>[]</span>
-<span id="cb5-82"><a href="#cb5-82"></a>        <span class="cf">for</span> action <span class="kw">in</span> ACTIONS:</span>
-<span id="cb5-83"><a href="#cb5-83"></a>            next_state, _ <span class="op">=</span> step([i, j], action)</span>
-<span id="cb5-84"><a href="#cb5-84"></a>            next_vals.append(optimal_values[next_state[<span class="dv">0</span>],next_state[<span class="dv">1</span>]])</span>
-<span id="cb5-85"><a href="#cb5-85"></a></span>
-<span id="cb5-86"><a href="#cb5-86"></a>        best_actions<span class="op">=</span>np.where(next_vals <span class="op">==</span> np.<span class="bu">max</span>(next_vals))[<span class="dv">0</span>]</span>
-<span id="cb5-87"><a href="#cb5-87"></a>        val<span class="op">=</span><span class="st">''</span></span>
-<span id="cb5-88"><a href="#cb5-88"></a>        <span class="cf">for</span> ba <span class="kw">in</span> best_actions:</span>
-<span id="cb5-89"><a href="#cb5-89"></a>            val<span class="op">+=</span>ACTIONS_FIGS[ba]</span>
-<span id="cb5-90"><a href="#cb5-90"></a>        </span>
-<span id="cb5-91"><a href="#cb5-91"></a>        <span class="co"># add state labels</span></span>
-<span id="cb5-92"><a href="#cb5-92"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> A_POS:</span>
-<span id="cb5-93"><a href="#cb5-93"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (A)"</span></span>
-<span id="cb5-94"><a href="#cb5-94"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> A_PRIME_POS:</span>
-<span id="cb5-95"><a href="#cb5-95"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (A')"</span></span>
-<span id="cb5-96"><a href="#cb5-96"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> B_POS:</span>
-<span id="cb5-97"><a href="#cb5-97"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (B)"</span></span>
-<span id="cb5-98"><a href="#cb5-98"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> B_PRIME_POS:</span>
-<span id="cb5-99"><a href="#cb5-99"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (B')"</span></span>
-<span id="cb5-100"><a href="#cb5-100"></a>        </span>
-<span id="cb5-101"><a href="#cb5-101"></a>        tb.add_cell(i, j, width, height, text<span class="op">=</span>val,</span>
-<span id="cb5-102"><a href="#cb5-102"></a>                loc<span class="op">=</span><span class="st">'center'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>)</span>
-<span id="cb5-103"><a href="#cb5-103"></a></span>
-<span id="cb5-104"><a href="#cb5-104"></a>    <span class="co"># Row and column labels...</span></span>
-<span id="cb5-105"><a href="#cb5-105"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(optimal_values)):</span>
-<span id="cb5-106"><a href="#cb5-106"></a>        tb.add_cell(i, <span class="op">-</span><span class="dv">1</span>, width, height, text<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span>, loc<span class="op">=</span><span class="st">'right'</span>,</span>
-<span id="cb5-107"><a href="#cb5-107"></a>                    edgecolor<span class="op">=</span><span class="st">'none'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
-<span id="cb5-108"><a href="#cb5-108"></a>        tb.add_cell(<span class="op">-</span><span class="dv">1</span>, i, width, height<span class="op">/</span><span class="dv">2</span>, text<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span>, loc<span class="op">=</span><span class="st">'center'</span>,</span>
-<span id="cb5-109"><a href="#cb5-109"></a>                   edgecolor<span class="op">=</span><span class="st">'none'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
-<span id="cb5-110"><a href="#cb5-110"></a></span>
-<span id="cb5-111"><a href="#cb5-111"></a>    ax.add_table(tb)</span>
+<span id="cb5-71"><a href="#cb5-71"></a>    ax.add_table(tb)</span>
+<span id="cb5-72"><a href="#cb5-72"></a></span>
+<span id="cb5-73"><a href="#cb5-73"></a><span class="kw">def</span> draw_policy(optimal_values):</span>
+<span id="cb5-74"><a href="#cb5-74"></a>    fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb5-75"><a href="#cb5-75"></a>    ax.set_axis_off()</span>
+<span id="cb5-76"><a href="#cb5-76"></a>    tb <span class="op">=</span> Table(ax, bbox<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb5-77"><a href="#cb5-77"></a></span>
+<span id="cb5-78"><a href="#cb5-78"></a>    nrows, ncols <span class="op">=</span> optimal_values.shape</span>
+<span id="cb5-79"><a href="#cb5-79"></a>    width, height <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> ncols, <span class="fl">1.0</span> <span class="op">/</span> nrows</span>
+<span id="cb5-80"><a href="#cb5-80"></a></span>
+<span id="cb5-81"><a href="#cb5-81"></a>    <span class="co"># Add cells</span></span>
+<span id="cb5-82"><a href="#cb5-82"></a>    <span class="cf">for</span> (i, j), val <span class="kw">in</span> np.ndenumerate(optimal_values):</span>
+<span id="cb5-83"><a href="#cb5-83"></a>        next_vals<span class="op">=</span>[]</span>
+<span id="cb5-84"><a href="#cb5-84"></a>        <span class="cf">for</span> action <span class="kw">in</span> ACTIONS:</span>
+<span id="cb5-85"><a href="#cb5-85"></a>            next_state, _ <span class="op">=</span> step([i, j], action)</span>
+<span id="cb5-86"><a href="#cb5-86"></a>            next_vals.append(optimal_values[next_state[<span class="dv">0</span>],next_state[<span class="dv">1</span>]])</span>
+<span id="cb5-87"><a href="#cb5-87"></a></span>
+<span id="cb5-88"><a href="#cb5-88"></a>        best_actions<span class="op">=</span>np.where(next_vals <span class="op">==</span> np.<span class="bu">max</span>(next_vals))[<span class="dv">0</span>]</span>
+<span id="cb5-89"><a href="#cb5-89"></a>        val<span class="op">=</span><span class="st">''</span></span>
+<span id="cb5-90"><a href="#cb5-90"></a>        <span class="cf">for</span> ba <span class="kw">in</span> best_actions:</span>
+<span id="cb5-91"><a href="#cb5-91"></a>            val<span class="op">+=</span>ACTIONS_FIGS[ba]</span>
+<span id="cb5-92"><a href="#cb5-92"></a>        </span>
+<span id="cb5-93"><a href="#cb5-93"></a>        <span class="co"># add state labels</span></span>
+<span id="cb5-94"><a href="#cb5-94"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> A_POS:</span>
+<span id="cb5-95"><a href="#cb5-95"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (A)"</span></span>
+<span id="cb5-96"><a href="#cb5-96"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> A_PRIME_POS:</span>
+<span id="cb5-97"><a href="#cb5-97"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (A')"</span></span>
+<span id="cb5-98"><a href="#cb5-98"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> B_POS:</span>
+<span id="cb5-99"><a href="#cb5-99"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (B)"</span></span>
+<span id="cb5-100"><a href="#cb5-100"></a>        <span class="cf">if</span> [i, j] <span class="op">==</span> B_PRIME_POS:</span>
+<span id="cb5-101"><a href="#cb5-101"></a>            val <span class="op">=</span> <span class="bu">str</span>(val) <span class="op">+</span> <span class="st">" (B')"</span></span>
+<span id="cb5-102"><a href="#cb5-102"></a>        </span>
+<span id="cb5-103"><a href="#cb5-103"></a>        tb.add_cell(i, j, width, height, text<span class="op">=</span>val,</span>
+<span id="cb5-104"><a href="#cb5-104"></a>                loc<span class="op">=</span><span class="st">'center'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb5-105"><a href="#cb5-105"></a></span>
+<span id="cb5-106"><a href="#cb5-106"></a>    <span class="co"># Row and column labels...</span></span>
+<span id="cb5-107"><a href="#cb5-107"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(optimal_values)):</span>
+<span id="cb5-108"><a href="#cb5-108"></a>        tb.add_cell(i, <span class="op">-</span><span class="dv">1</span>, width, height, text<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span>, loc<span class="op">=</span><span class="st">'right'</span>,</span>
+<span id="cb5-109"><a href="#cb5-109"></a>                    edgecolor<span class="op">=</span><span class="st">'none'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb5-110"><a href="#cb5-110"></a>        tb.add_cell(<span class="op">-</span><span class="dv">1</span>, i, width, height<span class="op">/</span><span class="dv">2</span>, text<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span>, loc<span class="op">=</span><span class="st">'center'</span>,</span>
+<span id="cb5-111"><a href="#cb5-111"></a>                   edgecolor<span class="op">=</span><span class="st">'none'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
 <span id="cb5-112"><a href="#cb5-112"></a></span>
-<span id="cb5-113"><a href="#cb5-113"></a></span>
-<span id="cb5-114"><a href="#cb5-114"></a><span class="kw">def</span> figure_3_2():</span>
-<span id="cb5-115"><a href="#cb5-115"></a>    value <span class="op">=</span> np.zeros((WORLD_SIZE, WORLD_SIZE))</span>
-<span id="cb5-116"><a href="#cb5-116"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb5-117"><a href="#cb5-117"></a>        <span class="co"># keep iteration until convergence</span></span>
-<span id="cb5-118"><a href="#cb5-118"></a>        new_value <span class="op">=</span> np.zeros_like(value)</span>
-<span id="cb5-119"><a href="#cb5-119"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
-<span id="cb5-120"><a href="#cb5-120"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
-<span id="cb5-121"><a href="#cb5-121"></a>                <span class="cf">for</span> action <span class="kw">in</span> ACTIONS:</span>
-<span id="cb5-122"><a href="#cb5-122"></a>                    (next_i, next_j), reward <span class="op">=</span> step([i, j], action)</span>
-<span id="cb5-123"><a href="#cb5-123"></a>                    <span class="co"># bellman equation</span></span>
-<span id="cb5-124"><a href="#cb5-124"></a>                    new_value[i, j] <span class="op">+=</span> <span class="op">\</span></span>
-<span id="cb5-125"><a href="#cb5-125"></a>                        ACTION_PROB <span class="op">*</span> (</span>
-<span id="cb5-126"><a href="#cb5-126"></a>                                reward <span class="op">+</span> DISCOUNT <span class="op">*</span> value[next_i, next_j]</span>
-<span id="cb5-127"><a href="#cb5-127"></a>                        )</span>
-<span id="cb5-128"><a href="#cb5-128"></a>                    </span>
-<span id="cb5-129"><a href="#cb5-129"></a>        <span class="cf">if</span> np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(value <span class="op">-</span> new_value)) <span class="op">&lt;</span> <span class="fl">1e-4</span>:</span>
-<span id="cb5-130"><a href="#cb5-130"></a>            draw_image(np.<span class="bu">round</span>(new_value, decimals<span class="op">=</span><span class="dv">2</span>))</span>
-<span id="cb5-131"><a href="#cb5-131"></a>            plt.savefig(<span class="st">'../images/figure_3_2.png'</span>)</span>
-<span id="cb5-132"><a href="#cb5-132"></a>            plt.close()</span>
-<span id="cb5-133"><a href="#cb5-133"></a>            <span class="cf">break</span></span>
-<span id="cb5-134"><a href="#cb5-134"></a>        value <span class="op">=</span> new_value</span>
-<span id="cb5-135"><a href="#cb5-135"></a></span>
-<span id="cb5-136"><a href="#cb5-136"></a><span class="kw">def</span> figure_3_2_linear_system():</span>
-<span id="cb5-137"><a href="#cb5-137"></a>    <span class="co">'''</span></span>
-<span id="cb5-138"><a href="#cb5-138"></a><span class="co">    Here we solve the linear system of equations to find the exact solution.</span></span>
-<span id="cb5-139"><a href="#cb5-139"></a><span class="co">    We do this by filling the coefficients for each of the states with their respective right side constant.</span></span>
-<span id="cb5-140"><a href="#cb5-140"></a><span class="co">    '''</span></span>
-<span id="cb5-141"><a href="#cb5-141"></a>    A <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> np.eye(WORLD_SIZE <span class="op">*</span> WORLD_SIZE)</span>
-<span id="cb5-142"><a href="#cb5-142"></a>    b <span class="op">=</span> np.zeros(WORLD_SIZE <span class="op">*</span> WORLD_SIZE)</span>
-<span id="cb5-143"><a href="#cb5-143"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
-<span id="cb5-144"><a href="#cb5-144"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
-<span id="cb5-145"><a href="#cb5-145"></a>            s <span class="op">=</span> [i, j]  <span class="co"># current state</span></span>
-<span id="cb5-146"><a href="#cb5-146"></a>            index_s <span class="op">=</span> np.ravel_multi_index(s, (WORLD_SIZE, WORLD_SIZE))</span>
-<span id="cb5-147"><a href="#cb5-147"></a>            <span class="cf">for</span> a <span class="kw">in</span> ACTIONS:</span>
-<span id="cb5-148"><a href="#cb5-148"></a>                s_, r <span class="op">=</span> step(s, a)</span>
-<span id="cb5-149"><a href="#cb5-149"></a>                index_s_ <span class="op">=</span> np.ravel_multi_index(s_, (WORLD_SIZE, WORLD_SIZE))</span>
-<span id="cb5-150"><a href="#cb5-150"></a></span>
-<span id="cb5-151"><a href="#cb5-151"></a>                A[index_s, index_s_] <span class="op">+=</span> ACTION_PROB <span class="op">*</span> DISCOUNT</span>
-<span id="cb5-152"><a href="#cb5-152"></a>                b[index_s] <span class="op">-=</span> ACTION_PROB <span class="op">*</span> r</span>
-<span id="cb5-153"><a href="#cb5-153"></a></span>
-<span id="cb5-154"><a href="#cb5-154"></a>    x <span class="op">=</span> np.linalg.solve(A, b)</span>
-<span id="cb5-155"><a href="#cb5-155"></a>    draw_image(np.<span class="bu">round</span>(x.reshape(WORLD_SIZE, WORLD_SIZE), decimals<span class="op">=</span><span class="dv">2</span>))</span>
-<span id="cb5-156"><a href="#cb5-156"></a>    plt.savefig(<span class="st">'../images/figure_3_2_linear_system.png'</span>)</span>
-<span id="cb5-157"><a href="#cb5-157"></a>    plt.close()</span>
-<span id="cb5-158"><a href="#cb5-158"></a></span>
-<span id="cb5-159"><a href="#cb5-159"></a><span class="kw">def</span> figure_3_5():</span>
-<span id="cb5-160"><a href="#cb5-160"></a>    value <span class="op">=</span> np.zeros((WORLD_SIZE, WORLD_SIZE))</span>
-<span id="cb5-161"><a href="#cb5-161"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb5-162"><a href="#cb5-162"></a>        <span class="co"># keep iteration until convergence</span></span>
-<span id="cb5-163"><a href="#cb5-163"></a>        new_value <span class="op">=</span> np.zeros_like(value)</span>
-<span id="cb5-164"><a href="#cb5-164"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
-<span id="cb5-165"><a href="#cb5-165"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
-<span id="cb5-166"><a href="#cb5-166"></a>                values <span class="op">=</span> []</span>
-<span id="cb5-167"><a href="#cb5-167"></a>                <span class="cf">for</span> action <span class="kw">in</span> ACTIONS:</span>
-<span id="cb5-168"><a href="#cb5-168"></a>                    (next_i, next_j), reward <span class="op">=</span> step([i, j], action)</span>
-<span id="cb5-169"><a href="#cb5-169"></a>                    <span class="co"># value iteration</span></span>
-<span id="cb5-170"><a href="#cb5-170"></a>                    values.append(reward <span class="op">+</span> DISCOUNT <span class="op">*</span> value[next_i, next_j])</span>
-<span id="cb5-171"><a href="#cb5-171"></a>                new_value[i, j] <span class="op">=</span> np.<span class="bu">max</span>(values)</span>
-<span id="cb5-172"><a href="#cb5-172"></a>        <span class="cf">if</span> np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(new_value <span class="op">-</span> value)) <span class="op">&lt;</span> <span class="fl">1e-4</span>:</span>
-<span id="cb5-173"><a href="#cb5-173"></a>            draw_image(np.<span class="bu">round</span>(new_value, decimals<span class="op">=</span><span class="dv">2</span>))</span>
-<span id="cb5-174"><a href="#cb5-174"></a>            plt.savefig(<span class="st">'../images/figure_3_5.png'</span>)</span>
-<span id="cb5-175"><a href="#cb5-175"></a>            plt.close()</span>
-<span id="cb5-176"><a href="#cb5-176"></a>            draw_policy(new_value)</span>
-<span id="cb5-177"><a href="#cb5-177"></a>            plt.savefig(<span class="st">'../images/figure_3_5_policy.png'</span>)</span>
-<span id="cb5-178"><a href="#cb5-178"></a>            plt.close()</span>
-<span id="cb5-179"><a href="#cb5-179"></a>            <span class="cf">break</span></span>
-<span id="cb5-180"><a href="#cb5-180"></a>        value <span class="op">=</span> new_value</span>
-<span id="cb5-181"><a href="#cb5-181"></a></span>
-<span id="cb5-182"><a href="#cb5-182"></a></span>
-<span id="cb5-183"><a href="#cb5-183"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb5-184"><a href="#cb5-184"></a>    figure_3_2_linear_system()</span>
-<span id="cb5-185"><a href="#cb5-185"></a>    figure_3_2()</span>
-<span id="cb5-186"><a href="#cb5-186"></a>    figure_3_5()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-113"><a href="#cb5-113"></a>    ax.add_table(tb)</span>
+<span id="cb5-114"><a href="#cb5-114"></a></span>
+<span id="cb5-115"><a href="#cb5-115"></a></span>
+<span id="cb5-116"><a href="#cb5-116"></a><span class="kw">def</span> figure_3_2():</span>
+<span id="cb5-117"><a href="#cb5-117"></a>    value <span class="op">=</span> np.zeros((WORLD_SIZE, WORLD_SIZE))</span>
+<span id="cb5-118"><a href="#cb5-118"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb5-119"><a href="#cb5-119"></a>        <span class="co"># keep iteration until convergence</span></span>
+<span id="cb5-120"><a href="#cb5-120"></a>        new_value <span class="op">=</span> np.zeros_like(value)</span>
+<span id="cb5-121"><a href="#cb5-121"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
+<span id="cb5-122"><a href="#cb5-122"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
+<span id="cb5-123"><a href="#cb5-123"></a>                <span class="cf">for</span> action <span class="kw">in</span> ACTIONS:</span>
+<span id="cb5-124"><a href="#cb5-124"></a>                    (next_i, next_j), reward <span class="op">=</span> step([i, j], action)</span>
+<span id="cb5-125"><a href="#cb5-125"></a>                    <span class="co"># bellman equation</span></span>
+<span id="cb5-126"><a href="#cb5-126"></a>                    new_value[i, j] <span class="op">+=</span> <span class="op">\</span></span>
+<span id="cb5-127"><a href="#cb5-127"></a>                        ACTION_PROB <span class="op">*</span> (</span>
+<span id="cb5-128"><a href="#cb5-128"></a>                                reward <span class="op">+</span> DISCOUNT <span class="op">*</span> value[next_i, next_j]</span>
+<span id="cb5-129"><a href="#cb5-129"></a>                        )</span>
+<span id="cb5-130"><a href="#cb5-130"></a>                    </span>
+<span id="cb5-131"><a href="#cb5-131"></a>        <span class="cf">if</span> np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(value <span class="op">-</span> new_value)) <span class="op">&lt;</span> <span class="fl">1e-4</span>:</span>
+<span id="cb5-132"><a href="#cb5-132"></a>            draw_image(np.<span class="bu">round</span>(new_value, decimals<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb5-133"><a href="#cb5-133"></a>            plt.savefig(<span class="st">'../images/figure_3_2.png'</span>)</span>
+<span id="cb5-134"><a href="#cb5-134"></a>            plt.close()</span>
+<span id="cb5-135"><a href="#cb5-135"></a>            <span class="cf">break</span></span>
+<span id="cb5-136"><a href="#cb5-136"></a>        value <span class="op">=</span> new_value</span>
+<span id="cb5-137"><a href="#cb5-137"></a></span>
+<span id="cb5-138"><a href="#cb5-138"></a><span class="kw">def</span> figure_3_2_linear_system():</span>
+<span id="cb5-139"><a href="#cb5-139"></a>    <span class="co">'''</span></span>
+<span id="cb5-140"><a href="#cb5-140"></a><span class="co">    Here we solve the linear system of equations to find the exact solution.</span></span>
+<span id="cb5-141"><a href="#cb5-141"></a><span class="co">    We do this by filling the coefficients for each of the states with their respective right side constant.</span></span>
+<span id="cb5-142"><a href="#cb5-142"></a><span class="co">    '''</span></span>
+<span id="cb5-143"><a href="#cb5-143"></a>    A <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> np.eye(WORLD_SIZE <span class="op">*</span> WORLD_SIZE)</span>
+<span id="cb5-144"><a href="#cb5-144"></a>    b <span class="op">=</span> np.zeros(WORLD_SIZE <span class="op">*</span> WORLD_SIZE)</span>
+<span id="cb5-145"><a href="#cb5-145"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
+<span id="cb5-146"><a href="#cb5-146"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
+<span id="cb5-147"><a href="#cb5-147"></a>            s <span class="op">=</span> [i, j]  <span class="co"># current state</span></span>
+<span id="cb5-148"><a href="#cb5-148"></a>            index_s <span class="op">=</span> np.ravel_multi_index(s, (WORLD_SIZE, WORLD_SIZE))</span>
+<span id="cb5-149"><a href="#cb5-149"></a>            <span class="cf">for</span> a <span class="kw">in</span> ACTIONS:</span>
+<span id="cb5-150"><a href="#cb5-150"></a>                s_, r <span class="op">=</span> step(s, a)</span>
+<span id="cb5-151"><a href="#cb5-151"></a>                index_s_ <span class="op">=</span> np.ravel_multi_index(s_, (WORLD_SIZE, WORLD_SIZE))</span>
+<span id="cb5-152"><a href="#cb5-152"></a></span>
+<span id="cb5-153"><a href="#cb5-153"></a>                A[index_s, index_s_] <span class="op">+=</span> ACTION_PROB <span class="op">*</span> DISCOUNT</span>
+<span id="cb5-154"><a href="#cb5-154"></a>                b[index_s] <span class="op">-=</span> ACTION_PROB <span class="op">*</span> r</span>
+<span id="cb5-155"><a href="#cb5-155"></a></span>
+<span id="cb5-156"><a href="#cb5-156"></a>    x <span class="op">=</span> np.linalg.solve(A, b)</span>
+<span id="cb5-157"><a href="#cb5-157"></a>    draw_image(np.<span class="bu">round</span>(x.reshape(WORLD_SIZE, WORLD_SIZE), decimals<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb5-158"><a href="#cb5-158"></a>    plt.savefig(<span class="st">'../images/figure_3_2_linear_system.png'</span>)</span>
+<span id="cb5-159"><a href="#cb5-159"></a>    plt.close()</span>
+<span id="cb5-160"><a href="#cb5-160"></a></span>
+<span id="cb5-161"><a href="#cb5-161"></a><span class="kw">def</span> figure_3_5():</span>
+<span id="cb5-162"><a href="#cb5-162"></a>    value <span class="op">=</span> np.zeros((WORLD_SIZE, WORLD_SIZE))</span>
+<span id="cb5-163"><a href="#cb5-163"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb5-164"><a href="#cb5-164"></a>        <span class="co"># keep iteration until convergence</span></span>
+<span id="cb5-165"><a href="#cb5-165"></a>        new_value <span class="op">=</span> np.zeros_like(value)</span>
+<span id="cb5-166"><a href="#cb5-166"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
+<span id="cb5-167"><a href="#cb5-167"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(WORLD_SIZE):</span>
+<span id="cb5-168"><a href="#cb5-168"></a>                values <span class="op">=</span> []</span>
+<span id="cb5-169"><a href="#cb5-169"></a>                <span class="cf">for</span> action <span class="kw">in</span> ACTIONS:</span>
+<span id="cb5-170"><a href="#cb5-170"></a>                    (next_i, next_j), reward <span class="op">=</span> step([i, j], action)</span>
+<span id="cb5-171"><a href="#cb5-171"></a>                    <span class="co"># value iteration</span></span>
+<span id="cb5-172"><a href="#cb5-172"></a>                    values.append(reward <span class="op">+</span> DISCOUNT <span class="op">*</span> value[next_i, next_j])</span>
+<span id="cb5-173"><a href="#cb5-173"></a>                new_value[i, j] <span class="op">=</span> np.<span class="bu">max</span>(values)</span>
+<span id="cb5-174"><a href="#cb5-174"></a>        <span class="cf">if</span> np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(new_value <span class="op">-</span> value)) <span class="op">&lt;</span> <span class="fl">1e-4</span>:</span>
+<span id="cb5-175"><a href="#cb5-175"></a>            draw_image(np.<span class="bu">round</span>(new_value, decimals<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb5-176"><a href="#cb5-176"></a>            plt.savefig(<span class="st">'../images/figure_3_5.png'</span>)</span>
+<span id="cb5-177"><a href="#cb5-177"></a>            plt.close()</span>
+<span id="cb5-178"><a href="#cb5-178"></a>            draw_policy(new_value)</span>
+<span id="cb5-179"><a href="#cb5-179"></a>            plt.savefig(<span class="st">'../images/figure_3_5_policy.png'</span>)</span>
+<span id="cb5-180"><a href="#cb5-180"></a>            plt.close()</span>
+<span id="cb5-181"><a href="#cb5-181"></a>            <span class="cf">break</span></span>
+<span id="cb5-182"><a href="#cb5-182"></a>        value <span class="op">=</span> new_value</span>
+<span id="cb5-183"><a href="#cb5-183"></a></span>
+<span id="cb5-184"><a href="#cb5-184"></a></span>
+<span id="cb5-185"><a href="#cb5-185"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb5-186"><a href="#cb5-186"></a>    figure_3_2_linear_system()</span>
+<span id="cb5-187"><a href="#cb5-187"></a>    figure_3_2()</span>
+<span id="cb5-188"><a href="#cb5-188"></a>    figure_3_5()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div id="exm-golf" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2</strong></span> The state is the location of the ball. The value of a state is the negative of the number of strokes to the hole from that location. Our actions are how we aim and swing at the ball, of course, and which club we select. Let us take the former as given and consider just the choice of club, which we assume is either a putter or a driver. The upper part of Figure shows a possible state-value function, <span class="math inline">\(v_{\text{putt}} (s)\)</span>, for the policy that always uses the putter.</p>
+<p><span class="theorem-title"><strong>Example 4.2</strong></span> The state is the location of the ball. The value of a state is the negative of the number of strokes to the hole from that location. Our actions are how we aim and swing at the ball, of course, and which club we select. Let us take the former as given and consider just the choice of club, which we assume is either a putter or a driver. The upper part of Figure shows a possible state-value function, <span class="math inline">\(v_{\text{putt}} (s)\)</span>, for the policy that always uses the putter.</p>
 </div>
 <div id="fig-golf-exm" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1133,39 +1174,40 @@ python implementation for the grid-world example
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-golf-exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Gol example. At top the reward value of each state (ball curren position).
+Figure&nbsp;4.4: Gol example. At top the reward value of each state (ball curren position).
 </figcaption>
 </figure>
 </div>
 </section>
 </section>
-<section id="optimal-policies-and-optimal-value-functions" class="level2">
-<h2 class="anchored" data-anchor-id="optimal-policies-and-optimal-value-functions">Optimal Policies and Optimal Value Functions</h2>
+<section id="optimal-policies-and-optimal-value-functions" class="level1">
+<h1>Optimal Policies and Optimal Value Functions</h1>
 </section>
-<section id="optimality-and-approximation" class="level2">
-<h2 class="anchored" data-anchor-id="optimality-and-approximation">Optimality and Approximation</h2>
+<section id="optimality-and-approximation" class="level1">
+<h1>Optimality and Approximation</h1>
 </section>
-<section id="summary-1" class="level2">
-<h2 class="anchored" data-anchor-id="summary-1">Summary</h2>
-</section>
+<section id="summary-1" class="level1 page-columns page-full">
+<h1>Summary</h1>
+<section id="bibliography" class="level2 sectionbibliography page-columns page-full">
+<h2 class="sectionbibliography anchored" data-anchor-id="bibliography">Bibliography</h2>
+<div id="refs--7" class="sectionrefs references csl-bib-body" data-entry-spacing="0" role="list">
+
 </div>
 
 
 <!-- -->
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: Recycling-robot’s graph. Taken from <span class="citation" data-cites="Sutton2018">(<a href="../references.html#ref-Sutton2018" role="doc-biblioref">Sutton and Barto 2018</a>)</span></span>
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: Recycling-robot’s graph. Taken from <span class="citation" data-cites="Sutton2018--7">[<a href="../references.html#ref-Sutton2018--7" role="doc-biblioref">1</a>]</span></span>
 <span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: </span>
 <span class="glightbox-desc lightbox-desc-3">Pick and Drop game</span>
 <span class="glightbox-desc lightbox-desc-4">Rewards rules for the drop game</span>
 <span class="glightbox-desc lightbox-desc-5">Grid World example. Problem scheme , possible actions and sampling reward</span>
 <span class="glightbox-desc lightbox-desc-6">Golf example</span>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-Sutton2018" class="csl-entry" role="listitem">
-Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement Learning: An Introduction</em>. Second. Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA.
-</div>
-</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Sutton2018--7" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.</div>
+</div></div></section>
 </section>
 
 </main> <!-- /main -->
@@ -1776,247 +1818,266 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../03-multiArmedBandit/multiarmed_bandits.html" class="pagination-link" aria-label="Multi-armed Bandits">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../05-dynamicProgramming/dp_rl.html" class="pagination-link" aria-label="Dynamic Programming">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../05-dynamicProgramming/dp_rl.html" class="pagination-link" aria-label="Dynamic Programming (DP)">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dynamic Programming (DP)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu"># Finite Markov Decision Processes (MDPs)</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
-<span id="cb6-3"><a href="#cb6-3"></a>That is what ChatGPT would answer to a 5-year-old kid. Alright, let's imagine</span>
-<span id="cb6-4"><a href="#cb6-4"></a>you have a little robot friend named Robo. Robo likes to explore and do</span>
-<span id="cb6-5"><a href="#cb6-5"></a>different things, but Robo doesn't always know what to do next. A Markov</span>
-<span id="cb6-6"><a href="#cb6-6"></a>Decision Process (MDP) is like giving Robo a set of rules to help it decide what</span>
-<span id="cb6-7"><a href="#cb6-7"></a>to do next based on where it is and what it knows.</span>
-<span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-9"><a href="#cb6-9"></a>Imagine Robo is in a room full of toys. Each toy is like a different choice Robo</span>
-<span id="cb6-10"><a href="#cb6-10"></a>can make, like playing with blocks or reading a book. But Robo can't see the</span>
-<span id="cb6-11"><a href="#cb6-11"></a>whole room at once, so it has to decide what to do based on what it can see and</span>
-<span id="cb6-12"><a href="#cb6-12"></a>remember.</span>
-<span id="cb6-13"><a href="#cb6-13"></a></span>
-<span id="cb6-14"><a href="#cb6-14"></a>In an MDP, Robo learns from its past experiences. If it finds that playing with</span>
-<span id="cb6-15"><a href="#cb6-15"></a>blocks usually makes it happy, it's more likely to choose that again next time.</span>
-<span id="cb6-16"><a href="#cb6-16"></a>But if it tries reading a book and doesn't like it, it might choose something</span>
-<span id="cb6-17"><a href="#cb6-17"></a>else next time.</span>
-<span id="cb6-18"><a href="#cb6-18"></a></span>
-<span id="cb6-19"><a href="#cb6-19"></a>So, a Markov Decision Process helps Robo make decisions by learning from what</span>
-<span id="cb6-20"><a href="#cb6-20"></a>it's done before and what it can see around it, kind of like how you learn from</span>
-<span id="cb6-21"><a href="#cb6-21"></a>playing with different toys and remembering which ones you like best.</span>
-<span id="cb6-22"><a href="#cb6-22"></a></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="fu">## The Agent–Environment Interface</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a></span>
-<span id="cb6-25"><a href="#cb6-25"></a>::::: {#exm-roboClean}</span>
-<span id="cb6-26"><a href="#cb6-26"></a>A mobile robot has the job of collecting empty soda cans in an office</span>
-<span id="cb6-27"><a href="#cb6-27"></a>environment. It has sensors for detecting cans, and an arm and gripper that can</span>
-<span id="cb6-28"><a href="#cb6-28"></a>pick them up and place them in an onboard bin; it runs on a rechargeable</span>
-<span id="cb6-29"><a href="#cb6-29"></a>battery. The robot’s control system has components for interpreting sensory</span>
-<span id="cb6-30"><a href="#cb6-30"></a>information, for navigating, and for controlling the arm and gripper. High-level</span>
-<span id="cb6-31"><a href="#cb6-31"></a>decisions about how to search for cans are made by a reinforcement learning</span>
-<span id="cb6-32"><a href="#cb6-32"></a>agent based on the current charge level of the battery. To make a simple</span>
-<span id="cb6-33"><a href="#cb6-33"></a>example, we assume that only two charge levels can be distinguished, comprising</span>
-<span id="cb6-34"><a href="#cb6-34"></a>a small state set $\mathcal{S} = <span class="sc">\{</span>\texttt{high}, \texttt{low} <span class="sc">\}</span>$. In each</span>
-<span id="cb6-35"><a href="#cb6-35"></a>state, the agent can decide whether to</span>
-<span id="cb6-36"><a href="#cb6-36"></a></span>
-<span id="cb6-37"><a href="#cb6-37"></a><span class="ss">1.  </span>actively **search** for a can for a certain period of time,</span>
-<span id="cb6-38"><a href="#cb6-38"></a><span class="ss">2.  </span>remain stationary and **wait** for someone to bring it a can, or</span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="ss">3.  </span>head back to its home base to **recharge** its battery.</span>
-<span id="cb6-40"><a href="#cb6-40"></a></span>
-<span id="cb6-41"><a href="#cb6-41"></a>When the energy level is **high**, recharging would always be foolish h, so we</span>
-<span id="cb6-42"><a href="#cb6-42"></a>do not include it in the action set for this state. The action sets are then</span>
-<span id="cb6-43"><a href="#cb6-43"></a>$\mathcal{A}(\texttt{high}) = <span class="sc">\{</span>\texttt{search}, \texttt{wait}<span class="sc">\}</span>$ and</span>
-<span id="cb6-44"><a href="#cb6-44"></a>$\mathcal{A}(\texttt{low}) = <span class="sc">\{</span>\texttt{search}, \texttt{wait}, \texttt{recharge}<span class="sc">\}</span>$.</span>
-<span id="cb6-45"><a href="#cb6-45"></a></span>
-<span id="cb6-46"><a href="#cb6-46"></a>The rewards are zero most of the time, but become positive when the robot</span>
-<span id="cb6-47"><a href="#cb6-47"></a>secures an empty can, or large and negative if the battery runs all the way</span>
-<span id="cb6-48"><a href="#cb6-48"></a>down. The best way to find cans is to actively search for them, but this runs</span>
-<span id="cb6-49"><a href="#cb6-49"></a>down the robot’s battery, whereas waiting does not. Whenever the robot is</span>
-<span id="cb6-50"><a href="#cb6-50"></a>searching, the possibility exists that its battery will become depleted. In this</span>
-<span id="cb6-51"><a href="#cb6-51"></a>case the robot must shut down and wait to be rescued (producing a low reward).</span>
-<span id="cb6-52"><a href="#cb6-52"></a></span>
-<span id="cb6-53"><a href="#cb6-53"></a>If the energy level is **high**, then a period of active search can always be</span>
-<span id="cb6-54"><a href="#cb6-54"></a>completed without risk of depleting the battery. A period of searching that</span>
-<span id="cb6-55"><a href="#cb6-55"></a>begins with a **high** energy level leaves the energy level high **with**</span>
-<span id="cb6-56"><a href="#cb6-56"></a>probability $\alpha$ and reduces it to low with probability $1 - \alpha$. On the</span>
-<span id="cb6-57"><a href="#cb6-57"></a>other hand, a period of searching undertaken when the energy level is low leaves</span>
-<span id="cb6-58"><a href="#cb6-58"></a>it low with probability $\beta$ and depletes the battery with probability</span>
-<span id="cb6-59"><a href="#cb6-59"></a>$1 - \beta$. In the latter case, the robot must be rescued, and the battery is</span>
-<span id="cb6-60"><a href="#cb6-60"></a>then recharged back to **high**. Each can collected by the robot counts as a</span>
-<span id="cb6-61"><a href="#cb6-61"></a>unit reward, whereas a reward of $-3$ results whenever the robot has to be</span>
-<span id="cb6-62"><a href="#cb6-62"></a>rescued. Let $r_{\texttt{search}}$ and $r_{\texttt{wait}}$, with</span>
-<span id="cb6-63"><a href="#cb6-63"></a>$r_{\texttt{search}} &gt; r_{\texttt{wait}}$, denote the expected numbers of cans</span>
-<span id="cb6-64"><a href="#cb6-64"></a>the robot will collect (and hence the expected reward) while searching and while</span>
-<span id="cb6-65"><a href="#cb6-65"></a>waiting respectively. Finally, suppose that no cans can be collected during a</span>
-<span id="cb6-66"><a href="#cb6-66"></a>run home for recharging, and that no cans can be collected on a step in which</span>
-<span id="cb6-67"><a href="#cb6-67"></a>the battery is depleted. This system is then a finite MDP, and we can write down</span>
-<span id="cb6-68"><a href="#cb6-68"></a>the transition probabilities and the expected rewards, with dynamics as</span>
-<span id="cb6-69"><a href="#cb6-69"></a>indicated in the table on the left:</span>
-<span id="cb6-70"><a href="#cb6-70"></a></span>
-<span id="cb6-71"><a href="#cb6-71"></a>::: {#fig-robot-diagram fig-env="figure*"}</span>
-<span id="cb6-72"><a href="#cb6-72"></a><span class="al">![](../assets/ch_03/recycling_robot_diagram.png)</span>{.lightbox}</span>
-<span id="cb6-73"><a href="#cb6-73"></a></span>
-<span id="cb6-74"><a href="#cb6-74"></a>Recycling-robot's graph. Taken from <span class="co">[</span><span class="ot">@Sutton2018</span><span class="co">]</span></span>
-<span id="cb6-75"><a href="#cb6-75"></a>:::</span>
-<span id="cb6-76"><a href="#cb6-76"></a></span>
-<span id="cb6-77"><a href="#cb6-77"></a>::: {#fig-robot-table fig-env="figure*"}</span>
-<span id="cb6-78"><a href="#cb6-78"></a>![Transitions and rewards for the recycling</span>
-<span id="cb6-79"><a href="#cb6-79"></a>robot](/assets/ch_03/recycling_robot_table.png){.lightbox}</span>
-<span id="cb6-80"><a href="#cb6-80"></a>Transitions and rewards for the recycling</span>
-<span id="cb6-81"><a href="#cb6-81"></a>robot</span>
-<span id="cb6-82"><a href="#cb6-82"></a>:::</span>
+<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Finite Markov Decision Processes (MDPs)"</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="an">author:</span><span class="co"> "Saúl Díaz Infante Velasco"</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="an">format:</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">  html:</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">    grid:</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">      margin-width: 350px</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">  pdf: default</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">section-bibiliograpies.cleanup-first: true</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="an">reference-location:</span><span class="co"> margin</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="an">citation-location:</span><span class="co"> margin</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="an">number-depth:</span><span class="co"> 3</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">---</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a></span>
+<span id="cb6-16"><a href="#cb6-16"></a>That is what ChatGPT would answer to a 5-year-old kid. Alright, let's imagine</span>
+<span id="cb6-17"><a href="#cb6-17"></a>you have a little robot friend named Robo. Robo likes to explore and do</span>
+<span id="cb6-18"><a href="#cb6-18"></a>different things, but Robo doesn't always know what to do next. A Markov</span>
+<span id="cb6-19"><a href="#cb6-19"></a>Decision Process (MDP) is like giving Robo a set of rules to help it decide what</span>
+<span id="cb6-20"><a href="#cb6-20"></a>to do next based on where it is and what it knows.</span>
+<span id="cb6-21"><a href="#cb6-21"></a></span>
+<span id="cb6-22"><a href="#cb6-22"></a>Imagine Robo is in a room full of toys. Each toy is like a different choice Robo</span>
+<span id="cb6-23"><a href="#cb6-23"></a>can make, like playing with blocks or reading a book. But Robo can't see the</span>
+<span id="cb6-24"><a href="#cb6-24"></a>whole room at once, so it has to decide what to do based on what it can see and</span>
+<span id="cb6-25"><a href="#cb6-25"></a>remember.</span>
+<span id="cb6-26"><a href="#cb6-26"></a></span>
+<span id="cb6-27"><a href="#cb6-27"></a>In an MDP, Robo learns from its past experiences. If it finds that playing with</span>
+<span id="cb6-28"><a href="#cb6-28"></a>blocks usually makes it happy, it's more likely to choose that again next time.</span>
+<span id="cb6-29"><a href="#cb6-29"></a>But if it tries reading a book and doesn't like it, it might choose something</span>
+<span id="cb6-30"><a href="#cb6-30"></a>else next time.</span>
+<span id="cb6-31"><a href="#cb6-31"></a></span>
+<span id="cb6-32"><a href="#cb6-32"></a>So, a Markov Decision Process helps Robo make decisions by learning from what</span>
+<span id="cb6-33"><a href="#cb6-33"></a>it's done before and what it can see around it, kind of like how you learn from</span>
+<span id="cb6-34"><a href="#cb6-34"></a>playing with different toys and remembering which ones you like best.</span>
+<span id="cb6-35"><a href="#cb6-35"></a></span>
+<span id="cb6-36"><a href="#cb6-36"></a><span class="fu">## The Agent–Environment Interface</span></span>
+<span id="cb6-37"><a href="#cb6-37"></a></span>
+<span id="cb6-38"><a href="#cb6-38"></a>::: {#exm-roboClean}</span>
+<span id="cb6-39"><a href="#cb6-39"></a>A mobile robot has the job of collecting empty soda cans in an office</span>
+<span id="cb6-40"><a href="#cb6-40"></a>environment. It has sensors for detecting cans, and an arm and gripper that can</span>
+<span id="cb6-41"><a href="#cb6-41"></a>pick them up and place them in an onboard bin; it runs on a rechargeable</span>
+<span id="cb6-42"><a href="#cb6-42"></a>battery. The robot’s control system has components for interpreting sensory</span>
+<span id="cb6-43"><a href="#cb6-43"></a>information, for navigating, and for controlling the arm and gripper. High-level</span>
+<span id="cb6-44"><a href="#cb6-44"></a>decisions about how to search for cans are made by a reinforcement learning</span>
+<span id="cb6-45"><a href="#cb6-45"></a>agent based on the current charge level of the battery. To make a simple</span>
+<span id="cb6-46"><a href="#cb6-46"></a>example, we assume that only two charge levels can be distinguished, comprising</span>
+<span id="cb6-47"><a href="#cb6-47"></a>a small state set $\mathcal{S} = <span class="sc">\{</span>\texttt{high}, \texttt{low} <span class="sc">\}</span>$. In each</span>
+<span id="cb6-48"><a href="#cb6-48"></a>state, the agent can decide whether to</span>
+<span id="cb6-49"><a href="#cb6-49"></a></span>
+<span id="cb6-50"><a href="#cb6-50"></a><span class="ss">1.  </span>actively **search** for a can for a certain period of time,</span>
+<span id="cb6-51"><a href="#cb6-51"></a><span class="ss">2.  </span>remain stationary and **wait** for someone to bring it a can, or</span>
+<span id="cb6-52"><a href="#cb6-52"></a><span class="ss">3.  </span>head back to its home base to **recharge** its battery.</span>
+<span id="cb6-53"><a href="#cb6-53"></a></span>
+<span id="cb6-54"><a href="#cb6-54"></a>When the energy level is **high**, recharging would always be foolish h, so we</span>
+<span id="cb6-55"><a href="#cb6-55"></a>do not include it in the action set for this state. The action sets are then</span>
+<span id="cb6-56"><a href="#cb6-56"></a>$\mathcal{A}(\texttt{high}) = <span class="sc">\{</span>\texttt{search}, \texttt{wait}<span class="sc">\}</span>$ and</span>
+<span id="cb6-57"><a href="#cb6-57"></a>$\mathcal{A}(\texttt{low}) = <span class="sc">\{</span>\texttt{search}, \texttt{wait}, \texttt{recharge}<span class="sc">\}</span>$.</span>
+<span id="cb6-58"><a href="#cb6-58"></a></span>
+<span id="cb6-59"><a href="#cb6-59"></a>The rewards are zero most of the time, but become positive when the robot</span>
+<span id="cb6-60"><a href="#cb6-60"></a>secures an empty can, or large and negative if the battery runs all the way</span>
+<span id="cb6-61"><a href="#cb6-61"></a>down. The best way to find cans is to actively search for them, but this runs</span>
+<span id="cb6-62"><a href="#cb6-62"></a>down the robot’s battery, whereas waiting does not. Whenever the robot is</span>
+<span id="cb6-63"><a href="#cb6-63"></a>searching, the possibility exists that its battery will become depleted. In this</span>
+<span id="cb6-64"><a href="#cb6-64"></a>case the robot must shut down and wait to be rescued (producing a low reward).</span>
+<span id="cb6-65"><a href="#cb6-65"></a></span>
+<span id="cb6-66"><a href="#cb6-66"></a>If the energy level is **high**, then a period of active search can always be</span>
+<span id="cb6-67"><a href="#cb6-67"></a>completed without risk of depleting the battery. A period of searching that</span>
+<span id="cb6-68"><a href="#cb6-68"></a>begins with a **high** energy level leaves the energy level high **with**</span>
+<span id="cb6-69"><a href="#cb6-69"></a>probability $\alpha$ and reduces it to low with probability $1 - \alpha$. On the</span>
+<span id="cb6-70"><a href="#cb6-70"></a>other hand, a period of searching undertaken when the energy level is low leaves</span>
+<span id="cb6-71"><a href="#cb6-71"></a>it low with probability $\beta$ and depletes the battery with probability</span>
+<span id="cb6-72"><a href="#cb6-72"></a>$1 - \beta$. In the latter case, the robot must be rescued, and the battery is</span>
+<span id="cb6-73"><a href="#cb6-73"></a>then recharged back to **high**. Each can collected by the robot counts as a</span>
+<span id="cb6-74"><a href="#cb6-74"></a>unit reward, whereas a reward of $-3$ results whenever the robot has to be</span>
+<span id="cb6-75"><a href="#cb6-75"></a>rescued. Let $r_{\texttt{search}}$ and $r_{\texttt{wait}}$, with</span>
+<span id="cb6-76"><a href="#cb6-76"></a>$r_{\texttt{search}} &gt; r_{\texttt{wait}}$, denote the expected numbers of cans</span>
+<span id="cb6-77"><a href="#cb6-77"></a>the robot will collect (and hence the expected reward) while searching and while</span>
+<span id="cb6-78"><a href="#cb6-78"></a>waiting respectively. Finally, suppose that no cans can be collected during a</span>
+<span id="cb6-79"><a href="#cb6-79"></a>run home for recharging, and that no cans can be collected on a step in which</span>
+<span id="cb6-80"><a href="#cb6-80"></a>the battery is depleted. This system is then a finite MDP, and we can write down</span>
+<span id="cb6-81"><a href="#cb6-81"></a>the transition probabilities and the expected rewards, with dynamics as</span>
+<span id="cb6-82"><a href="#cb6-82"></a>indicated in the table on the left:</span>
 <span id="cb6-83"><a href="#cb6-83"></a></span>
-<span id="cb6-84"><a href="#cb6-84"></a><span class="fu">## Goals and Rewards</span></span>
-<span id="cb6-85"><a href="#cb6-85"></a></span>
-<span id="cb6-86"><a href="#cb6-86"></a>In reinforcement learning, **the reward hypothesis** serves as the foundation</span>
-<span id="cb6-87"><a href="#cb6-87"></a>for defining the objectives of an agent operating within an environment.</span>
-<span id="cb6-88"><a href="#cb6-88"></a>According to this hypothesis, the agent's goal can be represented by the</span>
-<span id="cb6-89"><a href="#cb6-89"></a>maximization of the **expected cumulative reward** over time, based on scalar</span>
-<span id="cb6-90"><a href="#cb6-90"></a>feedback signals received from the environment.</span>
-<span id="cb6-91"><a href="#cb6-91"></a></span>
-<span id="cb6-92"><a href="#cb6-92"></a><span class="fu">### Key Points of the Reward Hypothesis:</span></span>
-<span id="cb6-93"><a href="#cb6-93"></a></span>
-<span id="cb6-94"><a href="#cb6-94"></a><span class="ss">1.  </span>**Reward as a Scalar Signal**: At every time step, the environment provides</span>
-<span id="cb6-95"><a href="#cb6-95"></a>    the agent with a simple numerical signal, $(R_t \in \mathbb{R}$, which</span>
-<span id="cb6-96"><a href="#cb6-96"></a>    represents the immediate reward based on the agent’s actions and the current</span>
-<span id="cb6-97"><a href="#cb6-97"></a>    state of the environment. This reward acts as feedback for the agent,</span>
-<span id="cb6-98"><a href="#cb6-98"></a>    helping it learn and adjust its strategy to achieve its ultimate goal.</span>
-<span id="cb6-99"><a href="#cb6-99"></a></span>
-<span id="cb6-100"><a href="#cb6-100"></a><span class="ss">2.  </span>**Maximizing Cumulative Reward**: The agent’s goal is not just to maximize</span>
-<span id="cb6-101"><a href="#cb6-101"></a>    the immediate reward, but to focus on the long-term sum of rewards, known as</span>
-<span id="cb6-102"><a href="#cb6-102"></a>    the **cumulative reward**. This ensures that the agent does not become</span>
-<span id="cb6-103"><a href="#cb6-103"></a>    short-sighted by only pursuing short-term benefits, but rather seeks</span>
-<span id="cb6-104"><a href="#cb6-104"></a>    strategies that maximize its total reward across time.</span>
-<span id="cb6-105"><a href="#cb6-105"></a></span>
-<span id="cb6-106"><a href="#cb6-106"></a><span class="ss">3.  </span>**Expected Value of the Reward**: Since reinforcement learning involves</span>
-<span id="cb6-107"><a href="#cb6-107"></a>    interaction in environments that can be stochastic (involving randomness or</span>
-<span id="cb6-108"><a href="#cb6-108"></a>    uncertainty), the agent aims to maximize the **expected value** of the</span>
-<span id="cb6-109"><a href="#cb6-109"></a>    cumulative reward, accounting for different possible future states and</span>
-<span id="cb6-110"><a href="#cb6-110"></a>    outcomes. This means the agent is interested in the average cumulative</span>
-<span id="cb6-111"><a href="#cb6-111"></a>    reward it would obtain over many possible sequences of interactions, rather</span>
-<span id="cb6-112"><a href="#cb6-112"></a>    than specific individual outcomes.</span>
-<span id="cb6-113"><a href="#cb6-113"></a></span>
-<span id="cb6-114"><a href="#cb6-114"></a><span class="ss">4.  </span>**Formalizing Goals and Purposes**: According to the reward hypothesis, all</span>
-<span id="cb6-115"><a href="#cb6-115"></a>    goals, objectives, or purposes of the agent can be **quantified** by</span>
-<span id="cb6-116"><a href="#cb6-116"></a>    maximizing this cumulative scalar signal (reward). In other words, the</span>
-<span id="cb6-117"><a href="#cb6-117"></a>    "purpose" of the agent is simply to optimize the feedback it receives in the</span>
-<span id="cb6-118"><a href="#cb6-118"></a>    form of rewards, and this concept encapsulates everything the agent is</span>
-<span id="cb6-119"><a href="#cb6-119"></a>    designed to achieve.</span>
+<span id="cb6-84"><a href="#cb6-84"></a>::: {#fig-robot-diagram fig-env="figure*"}</span>
+<span id="cb6-85"><a href="#cb6-85"></a><span class="al">![](../assets/ch_03/recycling_robot_diagram.png)</span>{.lightbox}</span>
+<span id="cb6-86"><a href="#cb6-86"></a></span>
+<span id="cb6-87"><a href="#cb6-87"></a>Recycling-robot's graph. Taken from <span class="co">[</span><span class="ot">@Sutton2018</span><span class="co">]</span></span>
+<span id="cb6-88"><a href="#cb6-88"></a>:::</span>
+<span id="cb6-89"><a href="#cb6-89"></a></span>
+<span id="cb6-90"><a href="#cb6-90"></a>::: {#fig-robot-table fig-env="figure*"}</span>
+<span id="cb6-91"><a href="#cb6-91"></a>![Transitions and rewards for the recycling</span>
+<span id="cb6-92"><a href="#cb6-92"></a>robot](/assets/ch_03/recycling_robot_table.png){.lightbox}</span>
+<span id="cb6-93"><a href="#cb6-93"></a>Transitions and rewards for the recycling</span>
+<span id="cb6-94"><a href="#cb6-94"></a>robot</span>
+<span id="cb6-95"><a href="#cb6-95"></a>:::</span>
+<span id="cb6-96"><a href="#cb6-96"></a></span>
+<span id="cb6-97"><a href="#cb6-97"></a>:::</span>
+<span id="cb6-98"><a href="#cb6-98"></a></span>
+<span id="cb6-99"><a href="#cb6-99"></a><span class="fu"># Goals and Rewards</span></span>
+<span id="cb6-100"><a href="#cb6-100"></a></span>
+<span id="cb6-101"><a href="#cb6-101"></a>In reinforcement learning, **the reward hypothesis** serves as the foundation</span>
+<span id="cb6-102"><a href="#cb6-102"></a>for defining the objectives of an agent operating within an environment.</span>
+<span id="cb6-103"><a href="#cb6-103"></a>According to this hypothesis, the agent's goal can be represented by the</span>
+<span id="cb6-104"><a href="#cb6-104"></a>maximization of the **expected cumulative reward** over time, based on scalar</span>
+<span id="cb6-105"><a href="#cb6-105"></a>feedback signals received from the environment.</span>
+<span id="cb6-106"><a href="#cb6-106"></a></span>
+<span id="cb6-107"><a href="#cb6-107"></a><span class="fu">## Key Points of the Reward Hypothesis:</span></span>
+<span id="cb6-108"><a href="#cb6-108"></a></span>
+<span id="cb6-109"><a href="#cb6-109"></a><span class="ss">1.  </span>**Reward as a Scalar Signal**: At every time step, the environment provides</span>
+<span id="cb6-110"><a href="#cb6-110"></a>    the agent with a simple numerical signal, $(R_t \in \mathbb{R}$, which</span>
+<span id="cb6-111"><a href="#cb6-111"></a>    represents the immediate reward based on the agent’s actions and the current</span>
+<span id="cb6-112"><a href="#cb6-112"></a>    state of the environment. This reward acts as feedback for the agent,</span>
+<span id="cb6-113"><a href="#cb6-113"></a>    helping it learn and adjust its strategy to achieve its ultimate goal.</span>
+<span id="cb6-114"><a href="#cb6-114"></a></span>
+<span id="cb6-115"><a href="#cb6-115"></a><span class="ss">2.  </span>**Maximizing Cumulative Reward**: The agent’s goal is not just to maximize</span>
+<span id="cb6-116"><a href="#cb6-116"></a>    the immediate reward, but to focus on the long-term sum of rewards, known as</span>
+<span id="cb6-117"><a href="#cb6-117"></a>    the **cumulative reward**. This ensures that the agent does not become</span>
+<span id="cb6-118"><a href="#cb6-118"></a>    short-sighted by only pursuing short-term benefits, but rather seeks</span>
+<span id="cb6-119"><a href="#cb6-119"></a>    strategies that maximize its total reward across time.</span>
 <span id="cb6-120"><a href="#cb6-120"></a></span>
-<span id="cb6-121"><a href="#cb6-121"></a><span class="fu">### Importance in Reinforcement Learning:</span></span>
-<span id="cb6-122"><a href="#cb6-122"></a></span>
-<span id="cb6-123"><a href="#cb6-123"></a>This hypothesis is central to how reinforcement learning problems are</span>
-<span id="cb6-124"><a href="#cb6-124"></a>structured. It reduces complex goals and objectives into a single, scalar value</span>
-<span id="cb6-125"><a href="#cb6-125"></a>(the reward) that the agent can track and optimize over time. This abstraction</span>
-<span id="cb6-126"><a href="#cb6-126"></a>makes it possible to design agents that can handle a wide variety of tasks, as</span>
-<span id="cb6-127"><a href="#cb6-127"></a>long as those tasks can be expressed in terms of rewards provided by the</span>
-<span id="cb6-128"><a href="#cb6-128"></a>environment.</span>
-<span id="cb6-129"><a href="#cb6-129"></a></span>
-<span id="cb6-130"><a href="#cb6-130"></a><span class="fu">## Returns and Episodes</span></span>
-<span id="cb6-131"><a href="#cb6-131"></a></span>
-<span id="cb6-132"><a href="#cb6-132"></a>To formalize the objective of learning in reinforcement learning, we introduce</span>
-<span id="cb6-133"><a href="#cb6-133"></a>the concept of **return**. The **return**, denoted $G_t$, is a function of the</span>
-<span id="cb6-134"><a href="#cb6-134"></a>future rewards that the agent will receive after time step $t$. The agent aims</span>
-<span id="cb6-135"><a href="#cb6-135"></a>to maximize the **expected return** to achieve its goal. Let’s break down this</span>
-<span id="cb6-136"><a href="#cb6-136"></a>formalization step by step:</span>
+<span id="cb6-121"><a href="#cb6-121"></a><span class="ss">3.  </span>**Expected Value of the Reward**: Since reinforcement learning involves</span>
+<span id="cb6-122"><a href="#cb6-122"></a>    interaction in environments that can be stochastic (involving randomness or</span>
+<span id="cb6-123"><a href="#cb6-123"></a>    uncertainty), the agent aims to maximize the **expected value** of the</span>
+<span id="cb6-124"><a href="#cb6-124"></a>    cumulative reward, accounting for different possible future states and</span>
+<span id="cb6-125"><a href="#cb6-125"></a>    outcomes. This means the agent is interested in the average cumulative</span>
+<span id="cb6-126"><a href="#cb6-126"></a>    reward it would obtain over many possible sequences of interactions, rather</span>
+<span id="cb6-127"><a href="#cb6-127"></a>    than specific individual outcomes.</span>
+<span id="cb6-128"><a href="#cb6-128"></a></span>
+<span id="cb6-129"><a href="#cb6-129"></a><span class="ss">4.  </span>**Formalizing Goals and Purposes**: According to the reward hypothesis, all</span>
+<span id="cb6-130"><a href="#cb6-130"></a>    goals, objectives, or purposes of the agent can be **quantified** by</span>
+<span id="cb6-131"><a href="#cb6-131"></a>    maximizing this cumulative scalar signal (reward). In other words, the</span>
+<span id="cb6-132"><a href="#cb6-132"></a>    "purpose" of the agent is simply to optimize the feedback it receives in the</span>
+<span id="cb6-133"><a href="#cb6-133"></a>    form of rewards, and this concept encapsulates everything the agent is</span>
+<span id="cb6-134"><a href="#cb6-134"></a>    designed to achieve.</span>
+<span id="cb6-135"><a href="#cb6-135"></a></span>
+<span id="cb6-136"><a href="#cb6-136"></a><span class="fu">## Importance in Reinforcement Learning:</span></span>
 <span id="cb6-137"><a href="#cb6-137"></a></span>
-<span id="cb6-138"><a href="#cb6-138"></a><span class="fu">### 1. **The Reward Sequence**:</span></span>
-<span id="cb6-139"><a href="#cb6-139"></a></span>
-<span id="cb6-140"><a href="#cb6-140"></a>At each time step $t$, the agent receives a reward $R_{t+1}, R_{t+2},\dots,$ as</span>
-<span id="cb6-141"><a href="#cb6-141"></a>a result of interacting with the environment. This sequence of rewards</span>
-<span id="cb6-142"><a href="#cb6-142"></a>represents the feedback the agent receives over time based on its actions.</span>
-<span id="cb6-143"><a href="#cb6-143"></a></span>
-<span id="cb6-144"><a href="#cb6-144"></a><span class="fu">### 2. **Defining the Return**:</span></span>
-<span id="cb6-145"><a href="#cb6-145"></a></span>
-<span id="cb6-146"><a href="#cb6-146"></a>The **return** at time step $t$, denoted $G_t$, is the total accumulated reward</span>
-<span id="cb6-147"><a href="#cb6-147"></a>from time step $t$ onward. In reinforcement learning, the return can be defined</span>
-<span id="cb6-148"><a href="#cb6-148"></a>in different ways, but it generally involves summing the future rewards, often</span>
-<span id="cb6-149"><a href="#cb6-149"></a>discounted to account for the uncertainty or diminishing value of rewards</span>
-<span id="cb6-150"><a href="#cb6-150"></a>received further in the future.</span>
-<span id="cb6-151"><a href="#cb6-151"></a></span>
-<span id="cb6-152"><a href="#cb6-152"></a>The **undiscounted return** would simply be the sum of all future rewards: $$</span>
-<span id="cb6-153"><a href="#cb6-153"></a>   G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots = \sum_{k=0}^{\infty} R_{t+k+1}</span>
-<span id="cb6-154"><a href="#cb6-154"></a>$$ This sum may be infinite if the task never ends, which can be problematic.</span>
-<span id="cb6-155"><a href="#cb6-155"></a>Thus, in many cases, a **discount factor** is applied to weight future rewards</span>
-<span id="cb6-156"><a href="#cb6-156"></a>less than immediate rewards.</span>
-<span id="cb6-157"><a href="#cb6-157"></a></span>
-<span id="cb6-158"><a href="#cb6-158"></a>Likewise if the MDP has finite horizont $T$ then</span>
-<span id="cb6-159"><a href="#cb6-159"></a>$$G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots + R_{T}$$</span>
+<span id="cb6-138"><a href="#cb6-138"></a>This hypothesis is central to how reinforcement learning problems are</span>
+<span id="cb6-139"><a href="#cb6-139"></a>structured. It reduces complex goals and objectives into a single, scalar value</span>
+<span id="cb6-140"><a href="#cb6-140"></a>(the reward) that the agent can track and optimize over time. This abstraction</span>
+<span id="cb6-141"><a href="#cb6-141"></a>makes it possible to design agents that can handle a wide variety of tasks, as</span>
+<span id="cb6-142"><a href="#cb6-142"></a>long as those tasks can be expressed in terms of rewards provided by the</span>
+<span id="cb6-143"><a href="#cb6-143"></a>environment.</span>
+<span id="cb6-144"><a href="#cb6-144"></a></span>
+<span id="cb6-145"><a href="#cb6-145"></a><span class="fu"># Returns and Episodes</span></span>
+<span id="cb6-146"><a href="#cb6-146"></a></span>
+<span id="cb6-147"><a href="#cb6-147"></a>To formalize the objective of learning in reinforcement learning, we introduce</span>
+<span id="cb6-148"><a href="#cb6-148"></a>the concept of **return**. The **return**, denoted $G_t$, is a function of the</span>
+<span id="cb6-149"><a href="#cb6-149"></a>future rewards that the agent will receive after time step $t$. The agent aims</span>
+<span id="cb6-150"><a href="#cb6-150"></a>to maximize the **expected return** to achieve its goal. Let’s break down this</span>
+<span id="cb6-151"><a href="#cb6-151"></a>formalization step by step:</span>
+<span id="cb6-152"><a href="#cb6-152"></a></span>
+<span id="cb6-153"><a href="#cb6-153"></a><span class="fu">## 1. **The Reward Sequence**:</span></span>
+<span id="cb6-154"><a href="#cb6-154"></a></span>
+<span id="cb6-155"><a href="#cb6-155"></a>At each time step $t$, the agent receives a reward $R_{t+1}, R_{t+2},\dots,$ as</span>
+<span id="cb6-156"><a href="#cb6-156"></a>a result of interacting with the environment. This sequence of rewards</span>
+<span id="cb6-157"><a href="#cb6-157"></a>represents the feedback the agent receives over time based on its actions.</span>
+<span id="cb6-158"><a href="#cb6-158"></a></span>
+<span id="cb6-159"><a href="#cb6-159"></a><span class="fu">## 2. **Defining the Return**:</span></span>
 <span id="cb6-160"><a href="#cb6-160"></a></span>
-<span id="cb6-161"><a href="#cb6-161"></a><span class="fu">### 3. **Discounted Return**:</span></span>
-<span id="cb6-162"><a href="#cb6-162"></a></span>
-<span id="cb6-163"><a href="#cb6-163"></a>To address this issue, we introduce a discount factor $\gamma$, where</span>
-<span id="cb6-164"><a href="#cb6-164"></a>$0\leq \gamma \leq 1$. The discount factor controls how much emphasis is placed</span>
-<span id="cb6-165"><a href="#cb6-165"></a>on future rewards. When $\gamma$ is close to 1, future rewards are considered</span>
-<span id="cb6-166"><a href="#cb6-166"></a>nearly as valuable as immediate rewards. When $\gamma$ is closer to 0, the agent</span>
-<span id="cb6-167"><a href="#cb6-167"></a>focuses more on immediate rewards.</span>
-<span id="cb6-168"><a href="#cb6-168"></a></span>
-<span id="cb6-169"><a href="#cb6-169"></a>The **discounted return** is defined as: $$</span>
-<span id="cb6-170"><a href="#cb6-170"></a>G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots </span>
-<span id="cb6-171"><a href="#cb6-171"></a>    = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}</span>
-<span id="cb6-172"><a href="#cb6-172"></a>$$ Here, each future reward is multiplied by ( \gamma\^k ), where ( k ) is the</span>
-<span id="cb6-173"><a href="#cb6-173"></a>number of time steps into the future. This ensures that the agent values</span>
-<span id="cb6-174"><a href="#cb6-174"></a>immediate rewards more highly than rewards far into the future, which is often</span>
-<span id="cb6-175"><a href="#cb6-175"></a>desirable in practical applications.</span>
-<span id="cb6-176"><a href="#cb6-176"></a></span>
-<span id="cb6-177"><a href="#cb6-177"></a><span class="fu">### 4. **Maximizing the Expected Return**:</span></span>
-<span id="cb6-178"><a href="#cb6-178"></a></span>
-<span id="cb6-179"><a href="#cb6-179"></a>Since the environment in reinforcement learning is often stochastic, the agent</span>
-<span id="cb6-180"><a href="#cb6-180"></a>cannot guarantee a specific sequence of rewards, but it can aim to maximize the</span>
-<span id="cb6-181"><a href="#cb6-181"></a>**expected return**. The expected return is the average return the agent would</span>
-<span id="cb6-182"><a href="#cb6-182"></a>obtain by following a specific policy $\pi$, which defines the agent’s behavior.</span>
+<span id="cb6-161"><a href="#cb6-161"></a>The **return** at time step $t$, denoted $G_t$, is the total accumulated reward</span>
+<span id="cb6-162"><a href="#cb6-162"></a>from time step $t$ onward. In reinforcement learning, the return can be defined</span>
+<span id="cb6-163"><a href="#cb6-163"></a>in different ways, but it generally involves summing the future rewards, often</span>
+<span id="cb6-164"><a href="#cb6-164"></a>discounted to account for the uncertainty or diminishing value of rewards</span>
+<span id="cb6-165"><a href="#cb6-165"></a>received further in the future.</span>
+<span id="cb6-166"><a href="#cb6-166"></a></span>
+<span id="cb6-167"><a href="#cb6-167"></a>The **undiscounted return** would simply be the sum of all future rewards: $$</span>
+<span id="cb6-168"><a href="#cb6-168"></a>   G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots = \sum_{k=0}^{\infty} R_{t+k+1}</span>
+<span id="cb6-169"><a href="#cb6-169"></a>$$ This sum may be infinite if the task never ends, which can be problematic.</span>
+<span id="cb6-170"><a href="#cb6-170"></a>Thus, in many cases, a **discount factor** is applied to weight future rewards</span>
+<span id="cb6-171"><a href="#cb6-171"></a>less than immediate rewards.</span>
+<span id="cb6-172"><a href="#cb6-172"></a></span>
+<span id="cb6-173"><a href="#cb6-173"></a>Likewise if the MDP has finite horizont $T$ then</span>
+<span id="cb6-174"><a href="#cb6-174"></a>$$G_t = R_{t+1} + R_{t+2} + R_{t+3} + \cdots + R_{T}$$</span>
+<span id="cb6-175"><a href="#cb6-175"></a></span>
+<span id="cb6-176"><a href="#cb6-176"></a><span class="fu">## 3. **Discounted Return**:</span></span>
+<span id="cb6-177"><a href="#cb6-177"></a></span>
+<span id="cb6-178"><a href="#cb6-178"></a>To address this issue, we introduce a discount factor $\gamma$, where</span>
+<span id="cb6-179"><a href="#cb6-179"></a>$0\leq \gamma \leq 1$. The discount factor controls how much emphasis is placed</span>
+<span id="cb6-180"><a href="#cb6-180"></a>on future rewards. When $\gamma$ is close to 1, future rewards are considered</span>
+<span id="cb6-181"><a href="#cb6-181"></a>nearly as valuable as immediate rewards. When $\gamma$ is closer to 0, the agent</span>
+<span id="cb6-182"><a href="#cb6-182"></a>focuses more on immediate rewards.</span>
 <span id="cb6-183"><a href="#cb6-183"></a></span>
-<span id="cb6-184"><a href="#cb6-184"></a>Formally, the agent’s objective is to maximize the expected return: $$</span>
-<span id="cb6-185"><a href="#cb6-185"></a>    \mathbb{E}<span class="co">[</span><span class="ot">G_t | \pi</span><span class="co">]</span> </span>
-<span id="cb6-186"><a href="#cb6-186"></a>            = \mathbb{E}\left<span class="co">[</span><span class="ot">\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \Big| \pi\right</span><span class="co">]</span></span>
-<span id="cb6-187"><a href="#cb6-187"></a>$$ where $\pi$ is the policy being followed. This equation tells us that the</span>
-<span id="cb6-188"><a href="#cb6-188"></a>agent should choose actions in a way that maximizes the long-term expected</span>
-<span id="cb6-189"><a href="#cb6-189"></a>reward, considering both immediate and future rewards.</span>
-<span id="cb6-190"><a href="#cb6-190"></a></span>
-<span id="cb6-191"><a href="#cb6-191"></a><span class="fu">### 5. **Two Types of Tasks**:</span></span>
-<span id="cb6-192"><a href="#cb6-192"></a></span>
-<span id="cb6-193"><a href="#cb6-193"></a><span class="ss">-   </span>**Finite-Horizon Tasks**: These tasks have a fixed time limit, and the</span>
-<span id="cb6-194"><a href="#cb6-194"></a>    agent’s goal is to maximize the sum of rewards within that time limit. In</span>
-<span id="cb6-195"><a href="#cb6-195"></a>    such cases, the discount factor $\gamma$ may not be necessary, and the</span>
-<span id="cb6-196"><a href="#cb6-196"></a>    return is just the sum of the finite rewards received before the task ends.</span>
-<span id="cb6-197"><a href="#cb6-197"></a><span class="ss">-   </span>**Infinite-Horizon Tasks**: In tasks that continue indefinitely, the</span>
-<span id="cb6-198"><a href="#cb6-198"></a>    discount factor $\gamma$ ensures that the return remains finite by reducing</span>
-<span id="cb6-199"><a href="#cb6-199"></a>    the impact of rewards far into the future.</span>
-<span id="cb6-200"><a href="#cb6-200"></a></span>
-<span id="cb6-201"><a href="#cb6-201"></a><span class="fu">### Conclusion:</span></span>
-<span id="cb6-202"><a href="#cb6-202"></a></span>
-<span id="cb6-203"><a href="#cb6-203"></a>Thus, in reinforcement learning, the agent's formal objective is to maximize the</span>
-<span id="cb6-204"><a href="#cb6-204"></a>**expected return**, $\mathbb{E}<span class="co">[</span><span class="ot">G_t</span><span class="co">]</span>$, where the return $G_t$ is the</span>
-<span id="cb6-205"><a href="#cb6-205"></a>**discounted sum** of future rewards. The use of the discount factor $\gamma$</span>
-<span id="cb6-206"><a href="#cb6-206"></a>helps the agent focus more on immediate rewards, while still considering future</span>
-<span id="cb6-207"><a href="#cb6-207"></a>rewards to some degree. This formalization ensures that the agent’s behavior is</span>
-<span id="cb6-208"><a href="#cb6-208"></a>guided not just by immediate rewards but by a balanced approach to long-term</span>
-<span id="cb6-209"><a href="#cb6-209"></a>success.</span>
-<span id="cb6-210"><a href="#cb6-210"></a></span>
-<span id="cb6-211"><a href="#cb6-211"></a><span class="fu">## Unified Notation for Episodic and Continuing Tasks</span></span>
-<span id="cb6-212"><a href="#cb6-212"></a></span>
-<span id="cb6-213"><a href="#cb6-213"></a><span class="fu">## Policies and Value Functions</span></span>
-<span id="cb6-214"><a href="#cb6-214"></a></span>
-<span id="cb6-215"><a href="#cb6-215"></a>{{&lt; include policy_and_value_functions.qmd &gt;}}</span>
-<span id="cb6-216"><a href="#cb6-216"></a></span>
-<span id="cb6-217"><a href="#cb6-217"></a><span class="fu">### Pick and drop example</span></span>
-<span id="cb6-218"><a href="#cb6-218"></a></span>
-<span id="cb6-219"><a href="#cb6-219"></a>{{&lt; include pick_and_drop_exm.qmd &gt;}}</span>
-<span id="cb6-220"><a href="#cb6-220"></a></span>
-<span id="cb6-221"><a href="#cb6-221"></a>{{&lt; include gridworld_exm.qmd &gt;}}</span>
-<span id="cb6-222"><a href="#cb6-222"></a></span>
-<span id="cb6-223"><a href="#cb6-223"></a>{{&lt; include golf_exm.qmd &gt;}}</span>
-<span id="cb6-224"><a href="#cb6-224"></a></span>
+<span id="cb6-184"><a href="#cb6-184"></a>The **discounted return** is defined as: $$</span>
+<span id="cb6-185"><a href="#cb6-185"></a>G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots </span>
+<span id="cb6-186"><a href="#cb6-186"></a>    = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}</span>
+<span id="cb6-187"><a href="#cb6-187"></a>$$ Here, each future reward is multiplied by ( \gamma\^k ), where ( k ) is the</span>
+<span id="cb6-188"><a href="#cb6-188"></a>number of time steps into the future. This ensures that the agent values</span>
+<span id="cb6-189"><a href="#cb6-189"></a>immediate rewards more highly than rewards far into the future, which is often</span>
+<span id="cb6-190"><a href="#cb6-190"></a>desirable in practical applications.</span>
+<span id="cb6-191"><a href="#cb6-191"></a></span>
+<span id="cb6-192"><a href="#cb6-192"></a><span class="fu">## 4. **Maximizing the Expected Return**:</span></span>
+<span id="cb6-193"><a href="#cb6-193"></a></span>
+<span id="cb6-194"><a href="#cb6-194"></a>Since the environment in reinforcement learning is often stochastic, the agent</span>
+<span id="cb6-195"><a href="#cb6-195"></a>cannot guarantee a specific sequence of rewards, but it can aim to maximize the</span>
+<span id="cb6-196"><a href="#cb6-196"></a>**expected return**. The expected return is the average return the agent would</span>
+<span id="cb6-197"><a href="#cb6-197"></a>obtain by following a specific policy $\pi$, which defines the agent’s behavior.</span>
+<span id="cb6-198"><a href="#cb6-198"></a></span>
+<span id="cb6-199"><a href="#cb6-199"></a>Formally, the agent’s objective is to maximize the expected return: $$</span>
+<span id="cb6-200"><a href="#cb6-200"></a>    \mathbb{E}<span class="co">[</span><span class="ot">G_t | \pi</span><span class="co">]</span> </span>
+<span id="cb6-201"><a href="#cb6-201"></a>            = \mathbb{E}\left<span class="co">[</span><span class="ot">\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \Big| \pi\right</span><span class="co">]</span></span>
+<span id="cb6-202"><a href="#cb6-202"></a>$$ where $\pi$ is the policy being followed. This equation tells us that the</span>
+<span id="cb6-203"><a href="#cb6-203"></a>agent should choose actions in a way that maximizes the long-term expected</span>
+<span id="cb6-204"><a href="#cb6-204"></a>reward, considering both immediate and future rewards.</span>
+<span id="cb6-205"><a href="#cb6-205"></a></span>
+<span id="cb6-206"><a href="#cb6-206"></a><span class="fu">## 5. **Two Types of Tasks**:</span></span>
+<span id="cb6-207"><a href="#cb6-207"></a></span>
+<span id="cb6-208"><a href="#cb6-208"></a><span class="ss">-   </span>**Finite-Horizon Tasks**: These tasks have a fixed time limit, and the</span>
+<span id="cb6-209"><a href="#cb6-209"></a>    agent’s goal is to maximize the sum of rewards within that time limit. In</span>
+<span id="cb6-210"><a href="#cb6-210"></a>    such cases, the discount factor $\gamma$ may not be necessary, and the</span>
+<span id="cb6-211"><a href="#cb6-211"></a>    return is just the sum of the finite rewards received before the task ends.</span>
+<span id="cb6-212"><a href="#cb6-212"></a><span class="ss">-   </span>**Infinite-Horizon Tasks**: In tasks that continue indefinitely, the</span>
+<span id="cb6-213"><a href="#cb6-213"></a>    discount factor $\gamma$ ensures that the return remains finite by reducing</span>
+<span id="cb6-214"><a href="#cb6-214"></a>    the impact of rewards far into the future.</span>
+<span id="cb6-215"><a href="#cb6-215"></a></span>
+<span id="cb6-216"><a href="#cb6-216"></a><span class="fu">## Conclusion:</span></span>
+<span id="cb6-217"><a href="#cb6-217"></a></span>
+<span id="cb6-218"><a href="#cb6-218"></a>Thus, in reinforcement learning, the agent's formal objective is to maximize the</span>
+<span id="cb6-219"><a href="#cb6-219"></a>**expected return**, $\mathbb{E}<span class="co">[</span><span class="ot">G_t</span><span class="co">]</span>$, where the return $G_t$ is the</span>
+<span id="cb6-220"><a href="#cb6-220"></a>**discounted sum** of future rewards. The use of the discount factor $\gamma$</span>
+<span id="cb6-221"><a href="#cb6-221"></a>helps the agent focus more on immediate rewards, while still considering future</span>
+<span id="cb6-222"><a href="#cb6-222"></a>rewards to some degree. This formalization ensures that the agent’s behavior is</span>
+<span id="cb6-223"><a href="#cb6-223"></a>guided not just by immediate rewards but by a balanced approach to long-term</span>
+<span id="cb6-224"><a href="#cb6-224"></a>success.</span>
 <span id="cb6-225"><a href="#cb6-225"></a></span>
-<span id="cb6-226"><a href="#cb6-226"></a></span>
-<span id="cb6-227"><a href="#cb6-227"></a><span class="fu">## Optimal Policies and Optimal Value Functions</span></span>
-<span id="cb6-228"><a href="#cb6-228"></a></span>
-<span id="cb6-229"><a href="#cb6-229"></a><span class="fu">## Optimality and Approximation</span></span>
-<span id="cb6-230"><a href="#cb6-230"></a></span>
-<span id="cb6-231"><a href="#cb6-231"></a><span class="fu">## Summary</span></span>
-<span id="cb6-232"><a href="#cb6-232"></a>:::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-226"><a href="#cb6-226"></a><span class="fu"># Unified Notation for Episodic and Continuing Tasks</span></span>
+<span id="cb6-227"><a href="#cb6-227"></a></span>
+<span id="cb6-228"><a href="#cb6-228"></a><span class="fu"># Policies and Value Functions</span></span>
+<span id="cb6-229"><a href="#cb6-229"></a></span>
+<span id="cb6-230"><a href="#cb6-230"></a>{{&lt; include policy_and_value_functions.qmd &gt;}}</span>
+<span id="cb6-231"><a href="#cb6-231"></a></span>
+<span id="cb6-232"><a href="#cb6-232"></a><span class="fu">## Pick and drop example</span></span>
+<span id="cb6-233"><a href="#cb6-233"></a></span>
+<span id="cb6-234"><a href="#cb6-234"></a>{{&lt; include pick_and_drop_exm.qmd &gt;}}</span>
+<span id="cb6-235"><a href="#cb6-235"></a></span>
+<span id="cb6-236"><a href="#cb6-236"></a>{{&lt; include gridworld_exm.qmd &gt;}}</span>
+<span id="cb6-237"><a href="#cb6-237"></a></span>
+<span id="cb6-238"><a href="#cb6-238"></a>{{&lt; include golf_exm.qmd &gt;}}</span>
+<span id="cb6-239"><a href="#cb6-239"></a></span>
+<span id="cb6-240"><a href="#cb6-240"></a></span>
+<span id="cb6-241"><a href="#cb6-241"></a><span class="fu"># Optimal Policies and Optimal Value Functions</span></span>
+<span id="cb6-242"><a href="#cb6-242"></a></span>
+<span id="cb6-243"><a href="#cb6-243"></a><span class="fu"># Optimality and Approximation</span></span>
+<span id="cb6-244"><a href="#cb6-244"></a></span>
+<span id="cb6-245"><a href="#cb6-245"></a><span class="fu"># Summary</span></span>
+<span id="cb6-246"><a href="#cb6-246"></a></span>
+<span id="cb6-247"><a href="#cb6-247"></a><span class="fu">## Bibliography {.sectionbibliography}</span></span>
+<span id="cb6-248"><a href="#cb6-248"></a></span>
+<span id="cb6-249"><a href="#cb6-249"></a></span>
+<span id="cb6-250"><a href="#cb6-250"></a>::: {.sectionrefs}</span>
+<span id="cb6-251"><a href="#cb6-251"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -2028,10 +2089,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/04-finiteMDPs/mdp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+      &nbsp;
+    </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
     <script type="text/javascript">
     (function(d) {
       d.querySelectorAll(".pseudocode-container").forEach(function(el) {
@@ -2064,31 +2150,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     })(document);
     </script>
   
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 

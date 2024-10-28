@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saúl Díaz Infante Velasco">
 
-<title>From Markov Decision Processes to Reinforcement Learning with Python - Dynamic Programming</title>
+<title>From Markov Decision Processes to Reinforcement Learning with Python - Dynamic Programming (DP)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,11 +78,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
-<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -185,7 +186,6 @@ window.Quarto = {
   </div>
         <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../From-Markov-Decision-Processes-to-Reinforcement-Learning-with-Python.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -201,7 +201,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-dynamicProgramming/dp_rl.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-dynamicProgramming/dp_rl.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dynamic Programming (DP)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -219,67 +219,73 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-introduction/general_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Abstract</span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Abstract</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../02-introductionToRL/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-multiArmedBandit/multiarmed_bandits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Multi-armed Bandits</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-finiteMDPs/mdp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-dynamicProgramming/dp_rl.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dynamic Programming (DP)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../06-applications/applications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../07-Project/project_proposal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project proposal</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Project proposal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../08-Evaluation/rubric_evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Evaluation Rubric</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">List of Home Works and due dates</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks/_hw_grades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Homework grades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../homeworks/home_works_list.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">List of Home Works and due dates</span></a>
   </div>
 </li>
     </ul>
@@ -291,7 +297,7 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#policy-evaluation-prediction" id="toc-policy-evaluation-prediction" class="nav-link active" data-scroll-target="#policy-evaluation-prediction">Policy Evaluation (Prediction)</a></li>
   <li><a href="#policy-improvement" id="toc-policy-improvement" class="nav-link" data-scroll-target="#policy-improvement">Policy Improvement</a></li>
   <li><a href="#policy-iteration" id="toc-policy-iteration" class="nav-link" data-scroll-target="#policy-iteration">Policy Iteration</a></li>
@@ -301,20 +307,26 @@ window.Quarto = {
   <li><a href="#efficiency-of-dynamic-programming" id="toc-efficiency-of-dynamic-programming" class="nav-link" data-scroll-target="#efficiency-of-dynamic-programming">Efficiency of Dynamic Programming</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/05-dynamicProgramming/dp_rl.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/05-dynamicProgramming/dp_rl.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Dynamic Programming</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Dynamic Programming (DP)</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saúl Díaz Infante Velasco </p>
+          </div>
+  </div>
     
   
     
@@ -351,13 +363,13 @@ window.Quarto = {
     \end{aligned}
 \tag{1}\]</span></span></p>
 <p>To write a sequential computer program to implement iterative policy evaluation as given by <a href="#eq-policy-evaluation" class="quarto-xref">Eq.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">eq-policy-evaluation</span></a> you would have to use two arrays, one for the old values, <span class="math inline">\(v_k(s)\)</span>, and one for the new values, <span class="math inline">\(v_{k+1} (s)\)</span>. With two arrays, the new values can be computed one by one from the old values without the old values being changed.</p>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-caption-prefix="Algorithm" data-no-end="false" data-line-number-punc=":" data-indent-size="1.2em" data-comment-delimiter="//" data-line-number="true" data-pseudocode-number="1">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-comment-delimiter="//" data-pseudocode-number="1" data-line-number="true" data-no-end="false" data-caption-prefix="Algorithm" data-line-number-punc=":" data-indent-size="1.2em">
 <div class="pseudocode">
 \begin{algorithm} \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ synchronous version} \begin{algorithmic} \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$ \Procedure{Policy-Evaluation}{$\pi$, $\theta$} \State $cond \leftarrow$ True \While{cond} \State $v \leftarrow V$ \For{$s \in \mathcal{S}$} \State $ \displaystyle V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma v(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $cond \leftarrow (\theta &lt; \Delta)$ \EndWhile \EndProcedure \end{algorithmic} \end{algorithm}
 </div>
 </div>
-<p>Alternatively, you could use one array and update the values <code>in place</code>, that is, with each new value immediately overwriting the old one. Then, depending on the order in which the states are updated, sometimes new values are used instead of old ones on the right-hand side of <a href="#eq-policy-evaluation" class="quarto-xref">Eq.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">eq-policy-evaluation</span></a>.</p>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-caption-prefix="Algorithm" data-no-end="false" data-line-number-punc=":" data-indent-size="1.2em" data-comment-delimiter="//" data-line-number="true" data-pseudocode-number="2">
+<p>Alternatively, you could use one array and update the values <code>in place</code>, that is, with each new value immediately overwriting the old one. Then, depending on the order in which the states are updated, sometimes new values are used instead of old ones on the right-hand side of <a href="#eq-policy-evaluation" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-policy-evaluation</span></a> .</p>
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-comment-delimiter="//" data-pseudocode-number="2" data-line-number="true" data-no-end="false" data-caption-prefix="Algorithm" data-line-number-punc=":" data-indent-size="1.2em">
 <div class="pseudocode">
 \begin{algorithm} \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ in place update version} \begin{algorithmic} \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$ \Procedure{Policy-Evaluation}{$\pi$, $\theta$} \State $cond \leftarrow$ True \While{cond} \State $v \leftarrow V$ \For{$s \in \mathcal{S}$} \State $ \displaystyle V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $cond \leftarrow (\theta &lt; \Delta)$ \EndWhile \EndProcedure \end{algorithmic} \end{algorithm}
 </div>
@@ -379,7 +391,7 @@ Figure&nbsp;1: States actions and rewards for the <span class="math inline">\(4\
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -501,6 +513,33 @@ Python implenmentation for the 4 x 4 gridworld example
 </section>
 <section id="policy-improvement" class="level2">
 <h2 class="anchored" data-anchor-id="policy-improvement">Policy Improvement</h2>
+<p>Our reason for computing the value function for a policy is to help find better policies. Suppose we have determined the value function <span class="math inline">\(v_{\pi}\)</span> for an arbitrary deterministic policy <span class="math inline">\(\pi\)</span>. For some state <span class="math inline">\(s\)</span> we would like to know whether or not we should change the policy to deterministically choose an action <span class="math inline">\(a\)</span> such that <span class="math display">\[
+    a
+    \neq \pi(s).
+\]</span></p>
+<p>Becouse we know how good is to follow the current policy <span class="math inline">\(\pi\)</span> from <span class="math inline">\(s\)</span>–that is <span class="math inline">\(v_{\pi}(s)\)</span>–we can estimate if it better or not to change to a new policy <span class="math inline">\(\pi^{\prime}\)</span> which is equal the the original policy <span class="math inline">\(\pi\)</span> except at state <span class="math inline">\(s\)</span>. To this end we can sellect <span class="math inline">\(a = \pi^{\prime}(s)\)</span> always <span class="math inline">\(s\)</span> appears and there after use the original policy <span class="math inline">\(\pi\)</span>. The new value of this argument results</p>
+<p><span class="math display">\[
+\begin{aligned}
+    q_{\pi}(s, a)
+        :=&amp;
+            \mathbb{E}
+                \left[
+                    R_{t+1} + \gamma v_{\pi}(S_{t+1})
+                    | S_t=s ,A_t=a
+                \right]
+        \\
+        =&amp;
+            \sum_{s^{\prime},r}
+                p(s^{\prime}, r | s,a)
+                \left[
+                    r + \gamma v_{\pi}(s^{\prime})
+                \right].
+    \end{aligned}
+\]</span></p>
+<p>Regarding this line of thinking we have the following result</p>
+<div id="thm-policy-improvement" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (policy improvement)</strong></span> &nbsp;</p>
+</div>
 </section>
 <section id="policy-iteration" class="level2">
 <h2 class="anchored" data-anchor-id="policy-iteration">Policy Iteration</h2>
@@ -1136,166 +1175,184 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../04-finiteMDPs/mdp.html" class="pagination-link" aria-label="Finite Markov Decision Processes (MDPs)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Finite Markov Decision Processes (MDPs)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../06-applications/applications.html" class="pagination-link" aria-label="Applications">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Applications</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu"># Dynamic Programming</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>An explanation from ChatGPT. Alright, imagine you have a big puzzle to solve,</span>
-<span id="cb2-4"><a href="#cb2-4"></a>but it's too big for you to finish in one go. So, you decide to break it into</span>
-<span id="cb2-5"><a href="#cb2-5"></a>smaller puzzles, and you solve each of these small puzzles one by one. But,</span>
-<span id="cb2-6"><a href="#cb2-6"></a>here's the clever part: as you solve these small puzzles, you remember the</span>
-<span id="cb2-7"><a href="#cb2-7"></a>solutions. That way, if you come across the same small puzzle again, you don't</span>
-<span id="cb2-8"><a href="#cb2-8"></a>have to solve it all over again. You already know the answer! Dynamic</span>
-<span id="cb2-9"><a href="#cb2-9"></a>programming is like solving a big puzzle by breaking it into smaller ones and</span>
-<span id="cb2-10"><a href="#cb2-10"></a>remembering the solutions to the smaller ones to make solving the big puzzle</span>
-<span id="cb2-11"><a href="#cb2-11"></a>easier and faster.</span>
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Dynamic Programming (DP)"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="an">author:</span><span class="co"> "Saúl Díaz Infante Velasco"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="an">format:</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">  html:</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">    grid:</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">      margin-width: 350px</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">  pdf: default</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="an">reference-location:</span><span class="co"> margin</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="an">citation-location:</span><span class="co"> margin</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
 <span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="fu">## Policy Evaluation (Prediction)</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a>For this algorithm we iterate as </span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="an">number-depth:</span><span class="co"> 3</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">---</span></span>
 <span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a>$$</span>
-<span id="cb2-17"><a href="#cb2-17"></a>    \begin{aligned}</span>
-<span id="cb2-18"><a href="#cb2-18"></a>        v_{k+1}(s) := &amp; \mathbb{E}_{\pi} \left[</span>
-<span id="cb2-19"><a href="#cb2-19"></a>            R_{t+1} + \gamma v_k(S_{t+1}) </span>
-<span id="cb2-20"><a href="#cb2-20"></a>            | S_t=s</span>
-<span id="cb2-21"><a href="#cb2-21"></a>        \right] </span>
-<span id="cb2-22"><a href="#cb2-22"></a>        <span class="sc">\\</span></span>
-<span id="cb2-23"><a href="#cb2-23"></a>        = &amp;</span>
-<span id="cb2-24"><a href="#cb2-24"></a>            \sum_{a\in\mathcal{A}(s)}</span>
-<span id="cb2-25"><a href="#cb2-25"></a>            \pi(a|s) </span>
-<span id="cb2-26"><a href="#cb2-26"></a>                \sum_{</span>
-<span id="cb2-27"><a href="#cb2-27"></a>                    \substack{s^{\prime}\in\mathcal{S},</span>
-<span id="cb2-28"><a href="#cb2-28"></a>                    <span class="sc">\\</span> </span>
-<span id="cb2-29"><a href="#cb2-29"></a>                    r \in \mathcal{R}}</span>
-<span id="cb2-30"><a href="#cb2-30"></a>                }</span>
-<span id="cb2-31"><a href="#cb2-31"></a>                p(s^{\prime}, r |s ,a)</span>
-<span id="cb2-32"><a href="#cb2-32"></a>                \left[ </span>
-<span id="cb2-33"><a href="#cb2-33"></a>                    r +\gamma v(s^{\prime})</span>
-<span id="cb2-34"><a href="#cb2-34"></a>                \right]</span>
-<span id="cb2-35"><a href="#cb2-35"></a>    \end{aligned}</span>
-<span id="cb2-36"><a href="#cb2-36"></a>$$ {#eq-policy-evaluation}</span>
-<span id="cb2-37"><a href="#cb2-37"></a></span>
-<span id="cb2-38"><a href="#cb2-38"></a>To write a sequential computer program to implement iterative policy evaluation as</span>
-<span id="cb2-39"><a href="#cb2-39"></a>given by <span class="co">[</span><span class="ot">Eq. @eq-policy-evaluation</span><span class="co">]</span> you would have to use two arrays, one for the old</span>
-<span id="cb2-40"><a href="#cb2-40"></a>values, $v_k(s)$, and one for the new values, $v_{k+1} (s)$. With two arrays, the new values can be </span>
-<span id="cb2-41"><a href="#cb2-41"></a>computed one by</span>
-<span id="cb2-42"><a href="#cb2-42"></a>one from the old values without the old values being changed. </span>
-<span id="cb2-43"><a href="#cb2-43"></a></span>
-<span id="cb2-44"><a href="#cb2-44"></a><span class="in">```pseudocode</span></span>
-<span id="cb2-45"><a href="#cb2-45"></a><span class="in">#| label: alg-test-text-style</span></span>
-<span id="cb2-46"><a href="#cb2-46"></a><span class="in">#| html-indent-size: "1.2em"</span></span>
-<span id="cb2-47"><a href="#cb2-47"></a><span class="in">#| html-comment-delimiter: "//"</span></span>
-<span id="cb2-48"><a href="#cb2-48"></a><span class="in">#| html-line-number: true</span></span>
-<span id="cb2-49"><a href="#cb2-49"></a><span class="in">#| html-line-number-punc: ":"</span></span>
-<span id="cb2-50"><a href="#cb2-50"></a><span class="in">#| html-no-end: false</span></span>
-<span id="cb2-51"><a href="#cb2-51"></a><span class="in">#| pdf-placement: "htb!"</span></span>
-<span id="cb2-52"><a href="#cb2-52"></a><span class="in">#| pdf-line-number: true</span></span>
-<span id="cb2-53"><a href="#cb2-53"></a></span>
-<span id="cb2-54"><a href="#cb2-54"></a><span class="in">\begin{algorithm}</span></span>
-<span id="cb2-55"><a href="#cb2-55"></a><span class="in">    \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ </span></span>
-<span id="cb2-56"><a href="#cb2-56"></a><span class="in">    synchronous version}</span></span>
-<span id="cb2-57"><a href="#cb2-57"></a><span class="in">    \begin{algorithmic}</span></span>
-<span id="cb2-58"><a href="#cb2-58"></a><span class="in">        \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision</span></span>
-<span id="cb2-59"><a href="#cb2-59"></a><span class="in">        \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$</span></span>
-<span id="cb2-60"><a href="#cb2-60"></a><span class="in">        \Procedure{Policy-Evaluation}{$\pi$, $\theta$}</span></span>
-<span id="cb2-61"><a href="#cb2-61"></a><span class="in">            \State $cond \leftarrow$ True</span></span>
-<span id="cb2-62"><a href="#cb2-62"></a><span class="in">            \While{cond}</span></span>
-<span id="cb2-63"><a href="#cb2-63"></a><span class="in">            \State $v \leftarrow V$</span></span>
-<span id="cb2-64"><a href="#cb2-64"></a><span class="in">            \For{$s \in \mathcal{S}$}</span></span>
-<span id="cb2-65"><a href="#cb2-65"></a><span class="in">                \State $</span></span>
-<span id="cb2-66"><a href="#cb2-66"></a><span class="in">                        \displaystyle</span></span>
-<span id="cb2-67"><a href="#cb2-67"></a><span class="in">                        V(s) \leftarrow </span></span>
-<span id="cb2-68"><a href="#cb2-68"></a><span class="in">                            \sum_{a}</span></span>
-<span id="cb2-69"><a href="#cb2-69"></a><span class="in">                                \pi(a|s) </span></span>
-<span id="cb2-70"><a href="#cb2-70"></a><span class="in">                                \sum_{</span></span>
-<span id="cb2-71"><a href="#cb2-71"></a><span class="in">                                    \substack{s^{\prime}\in\mathcal{S},</span></span>
-<span id="cb2-72"><a href="#cb2-72"></a><span class="in">                                    \\ </span></span>
-<span id="cb2-73"><a href="#cb2-73"></a><span class="in">                                    r \in \mathcal{R}}</span></span>
-<span id="cb2-74"><a href="#cb2-74"></a><span class="in">                                }</span></span>
-<span id="cb2-75"><a href="#cb2-75"></a><span class="in">                                p(s^{\prime}, r |s ,a)</span></span>
-<span id="cb2-76"><a href="#cb2-76"></a><span class="in">                                \left[ </span></span>
-<span id="cb2-77"><a href="#cb2-77"></a><span class="in">                                    r +\gamma v(s^{\prime})</span></span>
-<span id="cb2-78"><a href="#cb2-78"></a><span class="in">                                \right]</span></span>
-<span id="cb2-79"><a href="#cb2-79"></a><span class="in">                    $</span></span>
-<span id="cb2-80"><a href="#cb2-80"></a><span class="in">            \EndFor</span></span>
-<span id="cb2-81"><a href="#cb2-81"></a><span class="in">            \State $\Delta \leftarrow \|v -V \|$</span></span>
-<span id="cb2-82"><a href="#cb2-82"></a><span class="in">            \State $cond \leftarrow (\theta &lt; \Delta)$</span></span>
-<span id="cb2-83"><a href="#cb2-83"></a><span class="in">        \EndWhile</span></span>
-<span id="cb2-84"><a href="#cb2-84"></a><span class="in">        \EndProcedure</span></span>
-<span id="cb2-85"><a href="#cb2-85"></a><span class="in">    \end{algorithmic}</span></span>
-<span id="cb2-86"><a href="#cb2-86"></a><span class="in">\end{algorithm}</span></span>
-<span id="cb2-87"><a href="#cb2-87"></a><span class="in">```</span></span>
-<span id="cb2-88"><a href="#cb2-88"></a>Alternatively, you could use one array and update the values <span class="in">`in place`</span>, </span>
-<span id="cb2-89"><a href="#cb2-89"></a>that is, with each new value immediately overwriting the old one. Then, </span>
-<span id="cb2-90"><a href="#cb2-90"></a>depending on the order in which the states are updated, sometimes new values </span>
-<span id="cb2-91"><a href="#cb2-91"></a>are used instead of old ones on the right-hand side of <span class="co">[</span><span class="ot">Eq. @eq-policy-evaluation</span><span class="co">]</span>.</span>
-<span id="cb2-92"><a href="#cb2-92"></a></span>
-<span id="cb2-93"><a href="#cb2-93"></a><span class="in">```pseudocode</span></span>
-<span id="cb2-94"><a href="#cb2-94"></a><span class="in">#| label: alg-test-text-style</span></span>
-<span id="cb2-95"><a href="#cb2-95"></a><span class="in">#| html-indent-size: "1.2em"</span></span>
-<span id="cb2-96"><a href="#cb2-96"></a><span class="in">#| html-comment-delimiter: "//"</span></span>
-<span id="cb2-97"><a href="#cb2-97"></a><span class="in">#| html-line-number: true</span></span>
-<span id="cb2-98"><a href="#cb2-98"></a><span class="in">#| html-line-number-punc: ":"</span></span>
-<span id="cb2-99"><a href="#cb2-99"></a><span class="in">#| html-no-end: false</span></span>
-<span id="cb2-100"><a href="#cb2-100"></a><span class="in">#| pdf-placement: "htb!"</span></span>
-<span id="cb2-101"><a href="#cb2-101"></a><span class="in">#| pdf-line-number: true</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>An explanation from ChatGPT. Alright, imagine you have a big puzzle to solve,</span>
+<span id="cb2-17"><a href="#cb2-17"></a>but it's too big for you to finish in one go. So, you decide to break it into</span>
+<span id="cb2-18"><a href="#cb2-18"></a>smaller puzzles, and you solve each of these small puzzles one by one. But,</span>
+<span id="cb2-19"><a href="#cb2-19"></a>here's the clever part: as you solve these small puzzles, you remember the</span>
+<span id="cb2-20"><a href="#cb2-20"></a>solutions. That way, if you come across the same small puzzle again, you don't</span>
+<span id="cb2-21"><a href="#cb2-21"></a>have to solve it all over again. You already know the answer! Dynamic</span>
+<span id="cb2-22"><a href="#cb2-22"></a>programming is like solving a big puzzle by breaking it into smaller ones and</span>
+<span id="cb2-23"><a href="#cb2-23"></a>remembering the solutions to the smaller ones to make solving the big puzzle</span>
+<span id="cb2-24"><a href="#cb2-24"></a>easier and faster.</span>
+<span id="cb2-25"><a href="#cb2-25"></a></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="fu">## Policy Evaluation (Prediction)</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a>For this algorithm we iterate as</span>
+<span id="cb2-29"><a href="#cb2-29"></a></span>
+<span id="cb2-30"><a href="#cb2-30"></a>$$</span>
+<span id="cb2-31"><a href="#cb2-31"></a>    \begin{aligned}</span>
+<span id="cb2-32"><a href="#cb2-32"></a>        v_{k+1}(s) := &amp; \mathbb{E}_{\pi} \left[</span>
+<span id="cb2-33"><a href="#cb2-33"></a>            R_{t+1} + \gamma v_k(S_{t+1}) </span>
+<span id="cb2-34"><a href="#cb2-34"></a>            | S_t=s</span>
+<span id="cb2-35"><a href="#cb2-35"></a>        \right] </span>
+<span id="cb2-36"><a href="#cb2-36"></a>        <span class="sc">\\</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a>        = &amp;</span>
+<span id="cb2-38"><a href="#cb2-38"></a>            \sum_{a\in\mathcal{A}(s)}</span>
+<span id="cb2-39"><a href="#cb2-39"></a>            \pi(a|s) </span>
+<span id="cb2-40"><a href="#cb2-40"></a>                \sum_{</span>
+<span id="cb2-41"><a href="#cb2-41"></a>                    \substack{s^{\prime}\in\mathcal{S},</span>
+<span id="cb2-42"><a href="#cb2-42"></a>                    <span class="sc">\\</span> </span>
+<span id="cb2-43"><a href="#cb2-43"></a>                    r \in \mathcal{R}}</span>
+<span id="cb2-44"><a href="#cb2-44"></a>                }</span>
+<span id="cb2-45"><a href="#cb2-45"></a>                p(s^{\prime}, r |s ,a)</span>
+<span id="cb2-46"><a href="#cb2-46"></a>                \left[ </span>
+<span id="cb2-47"><a href="#cb2-47"></a>                    r +\gamma v(s^{\prime})</span>
+<span id="cb2-48"><a href="#cb2-48"></a>                \right]</span>
+<span id="cb2-49"><a href="#cb2-49"></a>    \end{aligned}</span>
+<span id="cb2-50"><a href="#cb2-50"></a>$$ {#eq-policy-evaluation}</span>
+<span id="cb2-51"><a href="#cb2-51"></a></span>
+<span id="cb2-52"><a href="#cb2-52"></a>To write a sequential computer program to implement iterative policy evaluation</span>
+<span id="cb2-53"><a href="#cb2-53"></a>as given by <span class="co">[</span><span class="ot">Eq. @eq-policy-evaluation</span><span class="co">]</span> you would have to use two arrays, one</span>
+<span id="cb2-54"><a href="#cb2-54"></a>for the old values, $v_k(s)$, and one for the new values, $v_{k+1} (s)$. With</span>
+<span id="cb2-55"><a href="#cb2-55"></a>two arrays, the new values can be computed one by one from the old values</span>
+<span id="cb2-56"><a href="#cb2-56"></a>without the old values being changed.</span>
+<span id="cb2-57"><a href="#cb2-57"></a></span>
+<span id="cb2-58"><a href="#cb2-58"></a><span class="in">``` pseudocode</span></span>
+<span id="cb2-59"><a href="#cb2-59"></a><span class="in">#| label: alg-test-text-style</span></span>
+<span id="cb2-60"><a href="#cb2-60"></a><span class="in">#| html-indent-size: "1.2em"</span></span>
+<span id="cb2-61"><a href="#cb2-61"></a><span class="in">#| html-comment-delimiter: "//"</span></span>
+<span id="cb2-62"><a href="#cb2-62"></a><span class="in">#| html-line-number: true</span></span>
+<span id="cb2-63"><a href="#cb2-63"></a><span class="in">#| html-line-number-punc: ":"</span></span>
+<span id="cb2-64"><a href="#cb2-64"></a><span class="in">#| html-no-end: false</span></span>
+<span id="cb2-65"><a href="#cb2-65"></a><span class="in">#| pdf-placement: "htb!"</span></span>
+<span id="cb2-66"><a href="#cb2-66"></a><span class="in">#| pdf-line-number: true</span></span>
+<span id="cb2-67"><a href="#cb2-67"></a></span>
+<span id="cb2-68"><a href="#cb2-68"></a><span class="in">\begin{algorithm}</span></span>
+<span id="cb2-69"><a href="#cb2-69"></a><span class="in">    \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ </span></span>
+<span id="cb2-70"><a href="#cb2-70"></a><span class="in">    synchronous version}</span></span>
+<span id="cb2-71"><a href="#cb2-71"></a><span class="in">    \begin{algorithmic}</span></span>
+<span id="cb2-72"><a href="#cb2-72"></a><span class="in">        \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision</span></span>
+<span id="cb2-73"><a href="#cb2-73"></a><span class="in">        \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$</span></span>
+<span id="cb2-74"><a href="#cb2-74"></a><span class="in">        \Procedure{Policy-Evaluation}{$\pi$, $\theta$}</span></span>
+<span id="cb2-75"><a href="#cb2-75"></a><span class="in">            \State $cond \leftarrow$ True</span></span>
+<span id="cb2-76"><a href="#cb2-76"></a><span class="in">            \While{cond}</span></span>
+<span id="cb2-77"><a href="#cb2-77"></a><span class="in">            \State $v \leftarrow V$</span></span>
+<span id="cb2-78"><a href="#cb2-78"></a><span class="in">            \For{$s \in \mathcal{S}$}</span></span>
+<span id="cb2-79"><a href="#cb2-79"></a><span class="in">                \State $</span></span>
+<span id="cb2-80"><a href="#cb2-80"></a><span class="in">                        \displaystyle</span></span>
+<span id="cb2-81"><a href="#cb2-81"></a><span class="in">                        V(s) \leftarrow </span></span>
+<span id="cb2-82"><a href="#cb2-82"></a><span class="in">                            \sum_{a}</span></span>
+<span id="cb2-83"><a href="#cb2-83"></a><span class="in">                                \pi(a|s) </span></span>
+<span id="cb2-84"><a href="#cb2-84"></a><span class="in">                                \sum_{</span></span>
+<span id="cb2-85"><a href="#cb2-85"></a><span class="in">                                    \substack{s^{\prime}\in\mathcal{S},</span></span>
+<span id="cb2-86"><a href="#cb2-86"></a><span class="in">                                    \\ </span></span>
+<span id="cb2-87"><a href="#cb2-87"></a><span class="in">                                    r \in \mathcal{R}}</span></span>
+<span id="cb2-88"><a href="#cb2-88"></a><span class="in">                                }</span></span>
+<span id="cb2-89"><a href="#cb2-89"></a><span class="in">                                p(s^{\prime}, r |s ,a)</span></span>
+<span id="cb2-90"><a href="#cb2-90"></a><span class="in">                                \left[ </span></span>
+<span id="cb2-91"><a href="#cb2-91"></a><span class="in">                                    r +\gamma v(s^{\prime})</span></span>
+<span id="cb2-92"><a href="#cb2-92"></a><span class="in">                                \right]</span></span>
+<span id="cb2-93"><a href="#cb2-93"></a><span class="in">                    $</span></span>
+<span id="cb2-94"><a href="#cb2-94"></a><span class="in">            \EndFor</span></span>
+<span id="cb2-95"><a href="#cb2-95"></a><span class="in">            \State $\Delta \leftarrow \|v -V \|$</span></span>
+<span id="cb2-96"><a href="#cb2-96"></a><span class="in">            \State $cond \leftarrow (\theta &lt; \Delta)$</span></span>
+<span id="cb2-97"><a href="#cb2-97"></a><span class="in">        \EndWhile</span></span>
+<span id="cb2-98"><a href="#cb2-98"></a><span class="in">        \EndProcedure</span></span>
+<span id="cb2-99"><a href="#cb2-99"></a><span class="in">    \end{algorithmic}</span></span>
+<span id="cb2-100"><a href="#cb2-100"></a><span class="in">\end{algorithm}</span></span>
+<span id="cb2-101"><a href="#cb2-101"></a><span class="in">```</span></span>
 <span id="cb2-102"><a href="#cb2-102"></a></span>
-<span id="cb2-103"><a href="#cb2-103"></a><span class="in">\begin{algorithm}</span></span>
-<span id="cb2-104"><a href="#cb2-104"></a><span class="in">    \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ </span></span>
-<span id="cb2-105"><a href="#cb2-105"></a><span class="in">    in place update version}</span></span>
-<span id="cb2-106"><a href="#cb2-106"></a><span class="in">    \begin{algorithmic}</span></span>
-<span id="cb2-107"><a href="#cb2-107"></a><span class="in">        \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision</span></span>
-<span id="cb2-108"><a href="#cb2-108"></a><span class="in">        \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$</span></span>
-<span id="cb2-109"><a href="#cb2-109"></a><span class="in">        \Procedure{Policy-Evaluation}{$\pi$, $\theta$}</span></span>
-<span id="cb2-110"><a href="#cb2-110"></a><span class="in">            \State $cond \leftarrow$ True</span></span>
-<span id="cb2-111"><a href="#cb2-111"></a><span class="in">            \While{cond}</span></span>
-<span id="cb2-112"><a href="#cb2-112"></a><span class="in">            \State $v \leftarrow V$</span></span>
-<span id="cb2-113"><a href="#cb2-113"></a><span class="in">            \For{$s \in \mathcal{S}$}</span></span>
-<span id="cb2-114"><a href="#cb2-114"></a><span class="in">                \State $</span></span>
-<span id="cb2-115"><a href="#cb2-115"></a><span class="in">                        \displaystyle</span></span>
-<span id="cb2-116"><a href="#cb2-116"></a><span class="in">                        V(s) \leftarrow </span></span>
-<span id="cb2-117"><a href="#cb2-117"></a><span class="in">                            \sum_{a}</span></span>
-<span id="cb2-118"><a href="#cb2-118"></a><span class="in">                                \pi(a|s) </span></span>
-<span id="cb2-119"><a href="#cb2-119"></a><span class="in">                                \sum_{</span></span>
-<span id="cb2-120"><a href="#cb2-120"></a><span class="in">                                    \substack{s^{\prime}\in\mathcal{S},</span></span>
-<span id="cb2-121"><a href="#cb2-121"></a><span class="in">                                    \\ </span></span>
-<span id="cb2-122"><a href="#cb2-122"></a><span class="in">                                    r \in \mathcal{R}}</span></span>
-<span id="cb2-123"><a href="#cb2-123"></a><span class="in">                                }</span></span>
-<span id="cb2-124"><a href="#cb2-124"></a><span class="in">                                p(s^{\prime}, r |s ,a)</span></span>
-<span id="cb2-125"><a href="#cb2-125"></a><span class="in">                                \left[ </span></span>
-<span id="cb2-126"><a href="#cb2-126"></a><span class="in">                                    r +\gamma V(s^{\prime})</span></span>
-<span id="cb2-127"><a href="#cb2-127"></a><span class="in">                                \right]</span></span>
-<span id="cb2-128"><a href="#cb2-128"></a><span class="in">                    $</span></span>
-<span id="cb2-129"><a href="#cb2-129"></a><span class="in">            \EndFor</span></span>
-<span id="cb2-130"><a href="#cb2-130"></a><span class="in">            \State $\Delta \leftarrow \|v -V \|$</span></span>
-<span id="cb2-131"><a href="#cb2-131"></a><span class="in">            \State $cond \leftarrow (\theta &lt; \Delta)$</span></span>
-<span id="cb2-132"><a href="#cb2-132"></a><span class="in">        \EndWhile</span></span>
-<span id="cb2-133"><a href="#cb2-133"></a><span class="in">        \EndProcedure</span></span>
-<span id="cb2-134"><a href="#cb2-134"></a><span class="in">    \end{algorithmic}</span></span>
-<span id="cb2-135"><a href="#cb2-135"></a><span class="in">\end{algorithm}</span></span>
-<span id="cb2-136"><a href="#cb2-136"></a><span class="in">```</span></span>
-<span id="cb2-137"><a href="#cb2-137"></a>{{&lt; include dp_grid_world_exm.qmd &gt;}}</span>
-<span id="cb2-138"><a href="#cb2-138"></a></span>
-<span id="cb2-139"><a href="#cb2-139"></a><span class="fu">## Policy Improvement</span></span>
-<span id="cb2-140"><a href="#cb2-140"></a></span>
-<span id="cb2-141"><a href="#cb2-141"></a><span class="fu">## Policy Iteration</span></span>
-<span id="cb2-142"><a href="#cb2-142"></a></span>
-<span id="cb2-143"><a href="#cb2-143"></a><span class="fu">## Value Iteration</span></span>
-<span id="cb2-144"><a href="#cb2-144"></a></span>
-<span id="cb2-145"><a href="#cb2-145"></a><span class="fu">## Asynchronous Dynamic Programming</span></span>
-<span id="cb2-146"><a href="#cb2-146"></a></span>
-<span id="cb2-147"><a href="#cb2-147"></a><span class="fu">## Generalized Policy Iteration</span></span>
-<span id="cb2-148"><a href="#cb2-148"></a></span>
-<span id="cb2-149"><a href="#cb2-149"></a><span class="fu">## Efficiency of Dynamic Programming</span></span>
-<span id="cb2-150"><a href="#cb2-150"></a></span>
-<span id="cb2-151"><a href="#cb2-151"></a><span class="fu">## Summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-103"><a href="#cb2-103"></a>Alternatively, you could use one array and update the values <span class="in">`in place`</span>, that</span>
+<span id="cb2-104"><a href="#cb2-104"></a>is, with each new value immediately overwriting the old one. Then, depending on</span>
+<span id="cb2-105"><a href="#cb2-105"></a>the order in which the states are updated, sometimes new values are used instead</span>
+<span id="cb2-106"><a href="#cb2-106"></a>of old ones on the right-hand side of @eq-policy-evaluation .</span>
+<span id="cb2-107"><a href="#cb2-107"></a></span>
+<span id="cb2-108"><a href="#cb2-108"></a><span class="in">``` pseudocode</span></span>
+<span id="cb2-109"><a href="#cb2-109"></a><span class="in">#| label: alg-test-text-style</span></span>
+<span id="cb2-110"><a href="#cb2-110"></a><span class="in">#| html-indent-size: "1.2em"</span></span>
+<span id="cb2-111"><a href="#cb2-111"></a><span class="in">#| html-comment-delimiter: "//"</span></span>
+<span id="cb2-112"><a href="#cb2-112"></a><span class="in">#| html-line-number: true</span></span>
+<span id="cb2-113"><a href="#cb2-113"></a><span class="in">#| html-line-number-punc: ":"</span></span>
+<span id="cb2-114"><a href="#cb2-114"></a><span class="in">#| html-no-end: false</span></span>
+<span id="cb2-115"><a href="#cb2-115"></a><span class="in">#| pdf-placement: "htb!"</span></span>
+<span id="cb2-116"><a href="#cb2-116"></a><span class="in">#| pdf-line-number: true</span></span>
+<span id="cb2-117"><a href="#cb2-117"></a></span>
+<span id="cb2-118"><a href="#cb2-118"></a><span class="in">\begin{algorithm}</span></span>
+<span id="cb2-119"><a href="#cb2-119"></a><span class="in">    \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ </span></span>
+<span id="cb2-120"><a href="#cb2-120"></a><span class="in">    in place update version}</span></span>
+<span id="cb2-121"><a href="#cb2-121"></a><span class="in">    \begin{algorithmic}</span></span>
+<span id="cb2-122"><a href="#cb2-122"></a><span class="in">        \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision</span></span>
+<span id="cb2-123"><a href="#cb2-123"></a><span class="in">        \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$</span></span>
+<span id="cb2-124"><a href="#cb2-124"></a><span class="in">        \Procedure{Policy-Evaluation}{$\pi$, $\theta$}</span></span>
+<span id="cb2-125"><a href="#cb2-125"></a><span class="in">            \State $cond \leftarrow$ True</span></span>
+<span id="cb2-126"><a href="#cb2-126"></a><span class="in">            \While{cond}</span></span>
+<span id="cb2-127"><a href="#cb2-127"></a><span class="in">            \State $v \leftarrow V$</span></span>
+<span id="cb2-128"><a href="#cb2-128"></a><span class="in">            \For{$s \in \mathcal{S}$}</span></span>
+<span id="cb2-129"><a href="#cb2-129"></a><span class="in">                \State $</span></span>
+<span id="cb2-130"><a href="#cb2-130"></a><span class="in">                        \displaystyle</span></span>
+<span id="cb2-131"><a href="#cb2-131"></a><span class="in">                        V(s) \leftarrow </span></span>
+<span id="cb2-132"><a href="#cb2-132"></a><span class="in">                            \sum_{a}</span></span>
+<span id="cb2-133"><a href="#cb2-133"></a><span class="in">                                \pi(a|s) </span></span>
+<span id="cb2-134"><a href="#cb2-134"></a><span class="in">                                \sum_{</span></span>
+<span id="cb2-135"><a href="#cb2-135"></a><span class="in">                                    \substack{s^{\prime}\in\mathcal{S},</span></span>
+<span id="cb2-136"><a href="#cb2-136"></a><span class="in">                                    \\ </span></span>
+<span id="cb2-137"><a href="#cb2-137"></a><span class="in">                                    r \in \mathcal{R}}</span></span>
+<span id="cb2-138"><a href="#cb2-138"></a><span class="in">                                }</span></span>
+<span id="cb2-139"><a href="#cb2-139"></a><span class="in">                                p(s^{\prime}, r |s ,a)</span></span>
+<span id="cb2-140"><a href="#cb2-140"></a><span class="in">                                \left[ </span></span>
+<span id="cb2-141"><a href="#cb2-141"></a><span class="in">                                    r +\gamma V(s^{\prime})</span></span>
+<span id="cb2-142"><a href="#cb2-142"></a><span class="in">                                \right]</span></span>
+<span id="cb2-143"><a href="#cb2-143"></a><span class="in">                    $</span></span>
+<span id="cb2-144"><a href="#cb2-144"></a><span class="in">            \EndFor</span></span>
+<span id="cb2-145"><a href="#cb2-145"></a><span class="in">            \State $\Delta \leftarrow \|v -V \|$</span></span>
+<span id="cb2-146"><a href="#cb2-146"></a><span class="in">            \State $cond \leftarrow (\theta &lt; \Delta)$</span></span>
+<span id="cb2-147"><a href="#cb2-147"></a><span class="in">        \EndWhile</span></span>
+<span id="cb2-148"><a href="#cb2-148"></a><span class="in">        \EndProcedure</span></span>
+<span id="cb2-149"><a href="#cb2-149"></a><span class="in">    \end{algorithmic}</span></span>
+<span id="cb2-150"><a href="#cb2-150"></a><span class="in">\end{algorithm}</span></span>
+<span id="cb2-151"><a href="#cb2-151"></a><span class="in">```</span></span>
+<span id="cb2-152"><a href="#cb2-152"></a></span>
+<span id="cb2-153"><a href="#cb2-153"></a>{{&lt; include dp_grid_world_exm.qmd &gt;}}</span>
+<span id="cb2-154"><a href="#cb2-154"></a></span>
+<span id="cb2-155"><a href="#cb2-155"></a><span class="fu">## Policy Improvement</span></span>
+<span id="cb2-156"><a href="#cb2-156"></a></span>
+<span id="cb2-157"><a href="#cb2-157"></a>{{&lt; include policy_improvement.qmd &gt;}}</span>
+<span id="cb2-158"><a href="#cb2-158"></a></span>
+<span id="cb2-159"><a href="#cb2-159"></a><span class="fu">## Policy Iteration</span></span>
+<span id="cb2-160"><a href="#cb2-160"></a></span>
+<span id="cb2-161"><a href="#cb2-161"></a><span class="fu">## Value Iteration</span></span>
+<span id="cb2-162"><a href="#cb2-162"></a></span>
+<span id="cb2-163"><a href="#cb2-163"></a><span class="fu">## Asynchronous Dynamic Programming</span></span>
+<span id="cb2-164"><a href="#cb2-164"></a></span>
+<span id="cb2-165"><a href="#cb2-165"></a><span class="fu">## Generalized Policy Iteration</span></span>
+<span id="cb2-166"><a href="#cb2-166"></a></span>
+<span id="cb2-167"><a href="#cb2-167"></a><span class="fu">## Efficiency of Dynamic Programming</span></span>
+<span id="cb2-168"><a href="#cb2-168"></a></span>
+<span id="cb2-169"><a href="#cb2-169"></a><span class="fu">## Summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1307,10 +1364,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/edit/main/05-dynamicProgramming/dp_rl.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/SaulDiazInfante/RL-Course-2024-2.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+      &nbsp;
+    </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
     <script type="text/javascript">
     (function(d) {
       d.querySelectorAll(".pseudocode-container").forEach(function(el) {
@@ -1343,31 +1425,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     })(document);
     </script>
   
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 
