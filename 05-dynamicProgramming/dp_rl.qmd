@@ -23,7 +23,7 @@ programming is like solving a big puzzle by breaking it into smaller ones and
 remembering the solutions to the smaller ones to make solving the big puzzle
 easier and faster.
 
-## Policy Evaluation (Prediction)
+# Policy Evaluation (Prediction)
 
 For this algorithm we iterate as
 
@@ -152,20 +152,20 @@ of old ones on the right-hand side of @eq-policy-evaluation .
 
 {{< include dp_grid_world_exm.qmd >}}
 
-## Policy Improvement
+# Policy Improvement
 
 {{< include policy_improvement.qmd >}}
 
-## Policy Iteration
+# Policy Iteration
 
 {{< include policy_iteration.qmd >}}
 
-## Value Iteration
+# Value Iteration
 
-## Asynchronous Dynamic Programming
+# Asynchronous Dynamic Programming
 
-## Generalized Policy Iteration
+# Generalized Policy Iteration
 
-## Efficiency of Dynamic Programming
+# Efficiency of Dynamic Programming
 
-## Summary
+# Summary

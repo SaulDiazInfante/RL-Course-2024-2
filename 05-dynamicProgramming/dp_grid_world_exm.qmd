@@ -1,5 +1,7 @@
+# Another grid-world exmple
+
 ::: {#exm-four-times-four-grid-world}
-The non-terminal states are $\mathcal{S} = \{1, 2, \dots, 14\}$. There are four
+	The non-terminal states are $\mathcal{S} = \{1, 2, \dots, 14\}$. There are four
 actions possible in each state,
 $\mathcal{A} = \{\verb|up, down, right, left|\}$, which deterministically cause
 the corresponding state transitions, except that actions that would take the
@@ -19,6 +21,7 @@ actions equally likely).
 example](/assets/ch_05/four_times_four_grid_world_exm.png){.lightbox}
 
 States actions and rewards for the $4\times4$ grid-world example.
+
 :::
 
 
