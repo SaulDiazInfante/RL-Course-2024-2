@@ -410,7 +410,7 @@ window.Quarto = {
 <p>To write a sequential computer program to implement iterative policy evaluation as given by <a href="#eq-policy_evaluation" class="quarto-xref">Eq.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">eq-policy_evaluation</span></a> you would have to use two arrays, one for the old values, <span class="math inline">\(v_k(s)\)</span>, and one for the new values, <span class="math inline">\(v_{k+1} (s)\)</span>. With two arrays, the new values can be computed one by one from the old values without the old values being changed. This procedure leads to the following synchronized updated algorhitm</p>
 <section id="synchronized-policy-evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="synchronized-policy-evaluation">Synchronized policy evaluation</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-no-end="false" data-indent-size="1.2em" data-comment-delimiter="//" data-line-number="true" data-line-number-punc=":" data-caption-prefix="Algorithm" data-pseudocode-number="1">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number-punc=":" data-caption-prefix="Algorithm" data-no-end="false" data-pseudocode-number="1" data-line-number="true" data-indent-size="1.2em" data-comment-delimiter="//">
 <div class="pseudocode">
 \begin{algorithm} \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ synchronous version} \begin{algorithmic} \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $cond \leftarrow$ True \While{cond} \State $v \leftarrow V$ \For{$s \in \mathcal{S}$} \State $ \displaystyle V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma v(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $cond \leftarrow (\theta &lt; \Delta)$ \EndWhile \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -419,7 +419,7 @@ window.Quarto = {
 </section>
 <section id="in-place-version" class="level2">
 <h2 class="anchored" data-anchor-id="in-place-version">In-place version</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-no-end="false" data-indent-size="1.2em" data-comment-delimiter="//" data-line-number="true" data-line-number-punc=":" data-caption-prefix="Algorithm" data-pseudocode-number="2">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number-punc=":" data-caption-prefix="Algorithm" data-no-end="false" data-pseudocode-number="2" data-line-number="true" data-indent-size="1.2em" data-comment-delimiter="//">
 <div class="pseudocode">
 \begin{algorithm} \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ in place update version } \begin{algorithmic} \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $cond \leftarrow$ True \While{cond} \State $v \leftarrow V$ \For{$s \in \mathcal{S}$} \State $ \displaystyle V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $cond \leftarrow (\theta &lt; \Delta)$ \EndWhile \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -631,7 +631,7 @@ Python implenmentation for the 4 x 4 gridworld example
 <p>Then given <span class="math inline">\(\pi_0\)</span> using the algorithm to estimate <span class="math inline">\(v_{\pi_0}\)</span> and so on, we obtain the following algorithm</p>
 <section id="policy-iteration-1" class="level2">
 <h2 class="anchored" data-anchor-id="policy-iteration-1">Policy iteration</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-no-end="false" data-comment-right="true" data-indent-size="1.2em" data-comment-delimiter="$\qquad \triangleright$" data-pseudocode-number="3" data-line-number-punc=":" data-caption-prefix="Algorithm" data-line-number="true">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number-punc=":" data-caption-prefix="Algorithm" data-comment-right="true" data-no-end="false" data-pseudocode-number="3" data-line-number="true" data-indent-size="1.2em" data-comment-delimiter="$\qquad \triangleright$">
 <div class="pseudocode">
 \begin{algorithm} \caption{ Policy Iteration, for estimating $V \approx v_{*}$, $\pi \approx \pi_{*}$ }\begin{algorithmic} \Require $\pi_0$, the arbritrary initial policy , $\theta$ precision tolerance \State Initilize $V(s) = 0$, for all $s \in \mathcal S^+$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $\mathrm{cond} \gets$ True \While{cond} \State $v \gets V$ \ForAll{$ s \in \mathcal{S}$} \State $ \displaystyle V(s) \gets \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $\mathrm{cond} \leftarrow (\theta &lt; \Delta)$ \EndWhile \Return $V \approx v_{\pi}$ \EndFunction \Function{PolicyIteration}{$\pi_0$, $\theta$} \State $\verb |policy_stable| \gets $ False \While{$\neg \verb |policy_stable|$} \State $V \gets $ \Call{PolicyEvaluation}{$\pi$, $\theta$} \State $\verb |policy_stable| \gets $ True \ForAll{$s \in \mathcal{S}$} \Comment{Loop for Policy improvement} \State $\verb|old_action| \gets \pi(s)$ \State $ \displaystyle \pi(s) \gets \underset{a\in \mathcal{A}(s)}{\operatorname{argmax}} \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \If{$\verb|old_action| \neq \pi_0(s)$} \State $\verb|policy_stable| \gets$ False \EndIf \endFor \EndWhile \Return $V \approx v_{*}, \pi \approx \pi{*}$ \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -979,13 +979,12 @@ Python modules and libraries
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Python Standard Library</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> os</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># External Modules</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#import mpl_toolkits.mplot3d</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co"># External Modules</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="im">import</span> mpl_toolkits.mplot3d</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="im">from</span> matplotlib <span class="im">import</span> cm</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1139,7 +1138,7 @@ Construct request transitions for one location:
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>e.g.&nbsp;state_1 = ((0,<em>), (1,</em>), … (20,*)) are only the probabilities for location 1</p>
+<p>e.g.&nbsp;$ = ((0,<em>), (1,</em>), … (20,*))| are only the probabilities for location 1</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>MAX_PMF <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="kw">def</span> get_request_transitions_for_one_location(loc):</span>
@@ -1160,7 +1159,7 @@ Construct request transitions for one location:
 <span id="cb10-18"><a href="#cb10-18"></a><span class="co">    """</span></span>
 <span id="cb10-19"><a href="#cb10-19"></a>    <span class="cf">assert</span>(loc<span class="op">==</span>A <span class="kw">or</span> loc<span class="op">==</span>B)</span>
 <span id="cb10-20"><a href="#cb10-20"></a>    <span class="co"># transition matrix P_{to, from} for one location only requests</span></span>
-<span id="cb10-21"><a href="#cb10-21"></a>    transition_matrix <span class="op">=</span> np.zeros([MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>, MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>])</span>
+<span id="cb10-21"><a href="#cb10-21"></a>    transition_matrix <span class="op">=</span> np.zeros([MAX_CAPACITY <span class="op">+</span> <span class="dv">1</span>, MAX_CAPACITY <span class="op">+</span> <span class="dv">1</span>])</span>
 <span id="cb10-22"><a href="#cb10-22"></a>    </span>
 <span id="cb10-23"><a href="#cb10-23"></a>    request_pmf <span class="op">=</span> poisson.pmf(np.arange(MAX_PMF), REQUEST_RATE[loc])</span>
 <span id="cb10-24"><a href="#cb10-24"></a>    np.testing.assert_almost_equal(request_pmf[<span class="op">-</span><span class="dv">1</span>], <span class="fl">0.</span>, decimal<span class="op">=</span><span class="dv">12</span>)</span>
@@ -1586,28 +1585,35 @@ To test that our kernel is a stochastic Tensor
 </div>
 </div>
 <div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">def</span> plot3d_over_states(f, zlabel<span class="op">=</span><span class="st">""</span>, ):</span>
-<span id="cb25-2"><a href="#cb25-2"></a>    A <span class="op">=</span> np.arange(<span class="dv">0</span>, MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb25-3"><a href="#cb25-3"></a>    B <span class="op">=</span> np.arange(<span class="dv">0</span>, MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    A <span class="op">=</span> np.arange(<span class="dv">0</span>, MAX_CAPACITY <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a>    B <span class="op">=</span> np.arange(<span class="dv">0</span>, MAX_CAPACITY <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb25-4"><a href="#cb25-4"></a>    <span class="co"># B, A !!!</span></span>
 <span id="cb25-5"><a href="#cb25-5"></a>    B, A <span class="op">=</span> np.meshgrid(B, A)</span>
 <span id="cb25-6"><a href="#cb25-6"></a>    V <span class="op">=</span> f.reshape(MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb25-7"><a href="#cb25-7"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
 <span id="cb25-8"><a href="#cb25-8"></a>    ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
 <span id="cb25-9"><a href="#cb25-9"></a>    <span class="co">#ax = fig.gca(projection='3d')</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a>    <span class="co">#surf = ax.plot_surface(A, B, V, rstride=1, cstride=1, cmap=cm.coolwarm,</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a>    <span class="co">#                   linewidth=0, antialiased=False)</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a>    <span class="co">#fig.colorbar(surf, shrink=0.5, aspect=5)</span></span>
-<span id="cb25-13"><a href="#cb25-13"></a>    ax.scatter(A, B, V, c<span class="op">=</span><span class="st">'b'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
-<span id="cb25-14"><a href="#cb25-14"></a>    ax.set_xlabel(<span class="st">"cars at A"</span>)</span>
-<span id="cb25-15"><a href="#cb25-15"></a>    ax.set_ylabel(<span class="st">"cars at B"</span>)</span>
-<span id="cb25-16"><a href="#cb25-16"></a>    ax.set_zlabel(zlabel)</span>
-<span id="cb25-17"><a href="#cb25-17"></a>    </span>
-<span id="cb25-18"><a href="#cb25-18"></a>    ax.set_xticks(np.arange(<span class="dv">0</span>,<span class="dv">21</span>,<span class="dv">1</span>))</span>
-<span id="cb25-19"><a href="#cb25-19"></a>    ax.set_yticks(np.arange(<span class="dv">0</span>,<span class="dv">21</span>,<span class="dv">1</span>))</span>
-<span id="cb25-20"><a href="#cb25-20"></a>    <span class="co">#plt.xticks(np.arange(0,1,21))</span></span>
-<span id="cb25-21"><a href="#cb25-21"></a>    <span class="co">#ax.view_init(elev=10., azim=10)</span></span>
-<span id="cb25-22"><a href="#cb25-22"></a>    </span>
-<span id="cb25-23"><a href="#cb25-23"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-10"><a href="#cb25-10"></a>    surf <span class="op">=</span> ax.plot_surface(</span>
+<span id="cb25-11"><a href="#cb25-11"></a>      A,</span>
+<span id="cb25-12"><a href="#cb25-12"></a>      B,</span>
+<span id="cb25-13"><a href="#cb25-13"></a>      V,</span>
+<span id="cb25-14"><a href="#cb25-14"></a>      rstride<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb25-15"><a href="#cb25-15"></a>      cstride<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb25-16"><a href="#cb25-16"></a>      cmap<span class="op">=</span>cm.coolwarm,</span>
+<span id="cb25-17"><a href="#cb25-17"></a>      linewidth<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb25-18"><a href="#cb25-18"></a>      antialiased<span class="op">=</span><span class="va">False</span></span>
+<span id="cb25-19"><a href="#cb25-19"></a>    )</span>
+<span id="cb25-20"><a href="#cb25-20"></a>    fig.colorbar(surf, shrink<span class="op">=</span><span class="fl">0.5</span>, aspect<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb25-21"><a href="#cb25-21"></a>    <span class="co"># ax.scatter(A, B, V, c='b', marker='.')</span></span>
+<span id="cb25-22"><a href="#cb25-22"></a>    ax.set_xlabel(<span class="st">"cars at A"</span>)</span>
+<span id="cb25-23"><a href="#cb25-23"></a>    ax.set_ylabel(<span class="st">"cars at B"</span>)</span>
+<span id="cb25-24"><a href="#cb25-24"></a>    ax.set_zlabel(zlabel)</span>
+<span id="cb25-25"><a href="#cb25-25"></a>    </span>
+<span id="cb25-26"><a href="#cb25-26"></a>    ax.set_xticks(np.arange(<span class="dv">0</span>,<span class="dv">21</span>,<span class="dv">1</span>))</span>
+<span id="cb25-27"><a href="#cb25-27"></a>    ax.set_yticks(np.arange(<span class="dv">0</span>,<span class="dv">21</span>,<span class="dv">1</span>))</span>
+<span id="cb25-28"><a href="#cb25-28"></a>    <span class="co">#plt.xticks(np.arange(0,1,21))</span></span>
+<span id="cb25-29"><a href="#cb25-29"></a>    <span class="co">#ax.view_init(elev=10., azim=10)</span></span>
+<span id="cb25-30"><a href="#cb25-30"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># do action 3 in cars_at_loc (10,5), i.e move three car from A to B:</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>s_ <span class="op">=</span> np.dot(P[:,:,<span class="dv">3</span><span class="op">+</span>TRANSFER_MAX], get_state_vector(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb26-3"><a href="#cb26-3"></a>plot3d_over_states(s_, <span class="st">'probability'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2698,7 +2704,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
