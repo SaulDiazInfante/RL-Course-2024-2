@@ -25,130 +25,7 @@ easier and faster.
 
 # Policy Evaluation (Prediction)
 
-For this algorithm we iterate as
-
-$$
-    \begin{aligned}
-        v_{k+1}(s) := & \mathbb{E}_{\pi} \left[
-            R_{t+1} + \gamma v_k(S_{t+1}) 
-            | S_t=s
-        \right] 
-        \\
-        = &
-            \sum_{a\in\mathcal{A}(s)}
-            \pi(a|s) 
-                \sum_{
-                    \substack{s^{\prime}\in\mathcal{S},
-                    \\ 
-                    r \in \mathcal{R}}
-                }
-                p(s^{\prime}, r |s ,a)
-                \left[ 
-                    r +\gamma v(s^{\prime})
-                \right]
-    \end{aligned}
-$$ {#eq-policy-evaluation}
-
-To write a sequential computer program to implement iterative policy evaluation
-as given by [Eq. @eq-policy-evaluation] you would have to use two arrays, one
-for the old values, $v_k(s)$, and one for the new values, $v_{k+1} (s)$. With
-two arrays, the new values can be computed one by one from the old values
-without the old values being changed.
-
-``` pseudocode
-#| label: alg-test-text-style
-#| html-indent-size: "1.2em"
-#| html-comment-delimiter: "//"
-#| html-line-number: true
-#| html-line-number-punc: ":"
-#| html-no-end: false
-#| pdf-placement: "htb!"
-#| pdf-line-number: true
-
-\begin{algorithm}
-    \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ 
-    synchronous version}
-    \begin{algorithmic}
-        \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision
-        \Ensure $\|v(\cdot)- V(\cdot)\|< \theta$
-        \Procedure{Policy-Evaluation}{$\pi$, $\theta$}
-            \State $cond \leftarrow$ True
-            \While{cond}
-            \State $v \leftarrow V$
-            \For{$s \in \mathcal{S}$}
-                \State $
-                        \displaystyle
-                        V(s) \leftarrow 
-                            \sum_{a}
-                                \pi(a|s) 
-                                \sum_{
-                                    \substack{s^{\prime}\in\mathcal{S},
-                                    \\ 
-                                    r \in \mathcal{R}}
-                                }
-                                p(s^{\prime}, r |s ,a)
-                                \left[ 
-                                    r +\gamma v(s^{\prime})
-                                \right]
-                    $
-            \EndFor
-            \State $\Delta \leftarrow \|v -V \|$
-            \State $cond \leftarrow (\theta < \Delta)$
-        \EndWhile
-        \EndProcedure
-    \end{algorithmic}
-\end{algorithm}
-```
-
-Alternatively, you could use one array and update the values `in place`, that
-is, with each new value immediately overwriting the old one. Then, depending on
-the order in which the states are updated, sometimes new values are used instead
-of old ones on the right-hand side of @eq-policy-evaluation .
-
-``` pseudocode
-#| label: alg-test-text-style
-#| html-indent-size: "1.2em"
-#| html-comment-delimiter: "//"
-#| html-line-number: true
-#| html-line-number-punc: ":"
-#| html-no-end: false
-#| pdf-placement: "htb!"
-#| pdf-line-number: true
-
-\begin{algorithm}
-    \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ 
-    in place update version}
-    \begin{algorithmic}
-        \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision
-        \Ensure $\|v(\cdot)- V(\cdot)\|< \theta$
-        \Procedure{Policy-Evaluation}{$\pi$, $\theta$}
-            \State $cond \leftarrow$ True
-            \While{cond}
-            \State $v \leftarrow V$
-            \For{$s \in \mathcal{S}$}
-                \State $
-                        \displaystyle
-                        V(s) \leftarrow 
-                            \sum_{a}
-                                \pi(a|s) 
-                                \sum_{
-                                    \substack{s^{\prime}\in\mathcal{S},
-                                    \\ 
-                                    r \in \mathcal{R}}
-                                }
-                                p(s^{\prime}, r |s ,a)
-                                \left[ 
-                                    r +\gamma V(s^{\prime})
-                                \right]
-                    $
-            \EndFor
-            \State $\Delta \leftarrow \|v -V \|$
-            \State $cond \leftarrow (\theta < \Delta)$
-        \EndWhile
-        \EndProcedure
-    \end{algorithmic}
-\end{algorithm}
-```
+{{< include policy_evaluation.qmd >}}
 
 {{< include dp_grid_world_exm.qmd >}}
 
@@ -159,6 +36,9 @@ of old ones on the right-hand side of @eq-policy-evaluation .
 # Policy Iteration
 
 {{< include policy_iteration.qmd >}}
+
+{{< include jacks_car_rentals.qmd >}}
+
 
 # Value Iteration
 

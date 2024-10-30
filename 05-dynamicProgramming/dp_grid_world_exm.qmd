@@ -1,12 +1,12 @@
-# Another grid-world exmple
+# Another grid-world example
 
-::: {#exm-four-times-four-grid-world}
-	The non-terminal states are $\mathcal{S} = \{1, 2, \dots, 14\}$. There are four
-actions possible in each state,
+::::: {#exm-four-times-four-grid-world}
+The non-terminal states are $\mathcal{S} = \{1, 2, \dots, 14\}$. 
+There are four actions possible in each state, 
 $\mathcal{A} = \{\verb|up, down, right, left|\}$, which deterministically cause
 the corresponding state transitions, except that actions that would take the
-agent o↵ the grid in fact leave the state unchanged. Thus, for instance,
-$p(6, 1|5, \verb|right|) = 1$, \ $p(7, 1|7, \verb1right1) = 1$, and \ 
+agent out off the grid in fact leave the state unchanged. Thus, for instance,
+$p(6, 1|5, \verb|right|) = 1$,  $p(7, 1|7, \verb1right1) = 1$, and  
 $p(10, r |5, \verb|right|) = 0$ for all $r \in \mathcal{R}$. This is an
 undiscounted, episodic task. The reward is 1 on all transitions until the
 terminal state is reached. The terminal state is shaded in the figure (although
@@ -15,19 +15,16 @@ function is thus $r(s, a, s^{\prime} ) = -1$ for all states $s$, $s^{\prime}$
 and actions $a$. Suppose the agent follows the equiprobable random policy (all
 actions equally likely).
 
-:::{#fig-four_by_four_world_grid_exm fig-env="figure*"}
-
+::: {#fig-four_by_four_world_grid_exm fig-env="figure*"}
 ![4 x 4 grid world
 example](/assets/ch_05/four_times_four_grid_world_exm.png){.lightbox}
 
 States actions and rewards for the $4\times4$ grid-world example.
-
 :::
 
-
 ::: {.callout-tip collapse="true" icon="false"}
-
 # Python implenmentation for the 4 x 4 gridworld example
+
 ``` {.python filename="gridworld_exm_policy_ev.py"}
 import matplotlib
 import matplotlib.pyplot as plt
@@ -129,4 +126,4 @@ if __name__ == '__main__':
     figure_4_1()
 ```
 :::
-:::
+:::::

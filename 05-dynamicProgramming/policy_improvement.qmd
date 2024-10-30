@@ -57,6 +57,18 @@ Regarding this line of thinking we have the following result
 :::{#thm-policy-improvement}
 
 ## policy improvement
-Let $\pi$ a given policy ...
+Let $\pi$ $\pi^{\prime}$ two deterministic given policies such that for all
+$s \in \mathcal{S}$, 
+$$
+	q_{\pi}(s, \pi^{\prime})(s) \geq v_{\pi}(s).
+$$ {#eq-policy_improvement_hyp}
+
+Then the policy $\pi^{\prime}$ satisfies
+
+$$
+	v_{\pi^{\prime}} (s) \geq  v_{\pi} (s) \qquad \text{for all } s\in\mathcal{S}.
+$$ {#eq-policy_improvement_thesis}
+
+
 
 :::

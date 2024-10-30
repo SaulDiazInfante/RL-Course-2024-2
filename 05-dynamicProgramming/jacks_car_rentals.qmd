@@ -1,4 +1,8 @@
-# Jack's  rental car [from @Sutton2018]
+To illustrate how works the policy iteration algorithm, we will develope a python
+implementation for the so called Jack's car rentals. We also discusse about the
+OpenAI's library gym and how applied to compare our results.
+
+# Jack's  rental car [Example 4.2, p.81, @Sutton2018]
 
 ::: {#exm-jacks-car-rental}
 
@@ -15,10 +19,12 @@ Jack manages two locations for a nationwide car rental company.
     between the two locations overnight, at a cost of `$2` per car moved.
 
 -   We assume that the number of cars requested and returned at each location
-    are Poisson random variables. Such that $$
+    are Poisson random variables. Such that 
+    
+    $$
       \mathbb{P}[X = n] = 
           \frac{\lambda^{n} \exp(-\lambda)}{n!} 
-    $$
+    $${#eq-poission_dist}
 
 -   Suppose $\lambda$ is `3 and 4` for rental requests at the
     `first and second locations` and `3 and 2` for returns.
@@ -46,23 +52,105 @@ To simplify the problem slightly,
 
 * We call the first location `A` and the second location `B`
 
-__We want to answer the following question:__
-* What is the optimal transfer policy of cars between branches?
+:::{.callout-important icon=false} 
+## We want to answer the following question:
+What is the optimal transfer policy of cars between branches?
+:::
+
 
 :::
 
-:::{#fig-jcks-car-rental fig-env="figure*"}
-	
-	![optimal poicy](/assets/ch_05/jacks_car_rental.png){.lightbox}
-	
+::: {#fig-jacks_car_rental fig-env="figure"}
+
+![optimal poicy](/assets/ch_05/jacks_car_rental.png){.lightbox}
+
 Optimal policy with the iteration of policies algorithm.
-
 :::
+
+## States
+
+__Question:__  
+
+- What are the valid states of the Jacks car rental enviroment?
+
+__Answer:__
+
+- Number of cars in each location ready for rent 
+(e.g. the tuple (3,5) means 3 cars in location $A$ and 5 cars in location $B$).
+
+## Probability to be in a state
+
+The probability for the states can be represented as a vector. For Jacks Car Rental:
+
+$$ 
+	p(\vec s) = 
+		\begin{pmatrix} 
+			p(S=s_0) 
+			\\
+			p(S=s_1) 
+			\\ p(S=s_2) 
+			\\ \dots 
+			\\ p(S=s_{21}) 
+			\\ p(S=s_{22}) 
+			\\ \dots 
+			\\ p(S=s_{440}) 
+		\end{pmatrix} 
+		\begin{matrix}(
+			0,0) 
+			\\ 
+			(0,1) 
+			\\ 
+			(0,2)
+			\\ 
+			\dots 
+			\\ 
+			(1,0) 
+			\\ 
+			(1,1) 
+			\\ 
+			\dots 
+			\\ 
+			(20,20) 
+		\end{matrix} 
+$$ {#eq-probability_vector_transition}
+
+For the Jacks Car Rental problem it's sometimes easier to work with a state 
+probability matrix:
+
+$$ 
+	P(\hat S) = 
+		\begin{pmatrix} 
+				P(S=s_{0}) 
+				& P(S=s_{1})
+				& \dots 
+				& P(S=s_{20}) 
+			\\ 
+				P(S=s_{21}) 
+				& P(S=s_{22}) 
+				& \dots 
+				& P(S=s_{41})
+			\\ 
+				\vdots 
+				& \vdots
+				& \ddots 
+				& \vdots
+			\\ 
+				\cdot 
+				& \cdot 
+				& \dots 
+				& p(S=s_{440}) 
+		\end{pmatrix} 
+$$ {#eq-probability_matrix_transition}
+
+The indices of $P(\hat S)$ correspond directly to the probability of the number of cars at each location.  
+Note that we can use `np.reshape` to switch between the different representations.
 
 ## Python Modules
 
-All python modules needed to run the notebook are loaded centrally at the beginning.
+All python modules needed to run would staty at the begining of the script.
 
+::: {.callout-note icon=false, collapse=true}
+## Python modules and libraries
 ```{.python}
 # Python Standard Library
 import os
@@ -74,6 +162,12 @@ import matplotlib.pyplot as plt
 
 from scipy.stats import poisson
 ```
+:::
+
+::: {.callout-note icon=false, collapse=true}
+## Now we make the setuo of the problem with the pareameters for
+the sampling like the intensity $\lambda_i$ for the regarding Poisson r.v. 
+discount factor $\gamma$ and others.
 
 ```{.python}
 REQUEST_RATE = (3., 4.)      
@@ -88,59 +182,40 @@ MAX_CAPACITY  = 20
 # location indicies
 A = 0
 B = 1
-```
 
-## States
-
-__Question:__  
-* What are the valid states of the Jacks car rental enviroment?
-
-__Answer:__
-* Number of cars in each location ready for rent (e.g. the tuple (3,5) means 3 cars in location A and 5 cars in location B).
-
-## Probability to be in a state
-The probability for the states can be represented as a vector. For Jacks Car Rental:
-
-$$ p(\vec s) = \begin{pmatrix} p(S=s_0) \\ p(S=s_1) \\ p(S=s_2) \\ \dots \\ p(S=s_{21}) \\ p(S=s_{22}) \\ \dots \\ p(S=s_{440}) \end{pmatrix} \begin{matrix}(0,0) \\ (0,1) \\ (0,2)\\ \dots \\ (1,0) \\ (1,1) \\ \dots \\ (20,20) \end{matrix} $$
-
-For the Jacks Car Rental problem it's sometimes easier to work with a state probability matrix:
-
-$$ P(\hat S) = \begin{pmatrix} P(S=s_{0}) & P(S=s_{1})& \dots & P(S=s_{20}) \\ P(S=s_{21}) & P(S=s_{22}) & \dots & P(S=s_{41})\\ \vdots & \vdots & \ddots & \vdots\\ . & . & \dots & p(S=s_{440}) \end{pmatrix} $$
-
-The indices of $P(\hat S)$ correspond directly to the probability of the number of cars at each location.  
-Note that we can use `np.reshape` to switch between the different representations.
-
-```{.python}
 state_ = np.zeros([MAX_CAPACITY+1, MAX_CAPACITY+1])
 state_[11, 15] = 1. # 11 cars at A and 15 cars at B
 state_.shape
-```
 
-```{.python}
 # Print all content of state_
 state_
-```
 
-```{.python}
 # TODO
 state = state_.reshape(-1)
 print(state.shape)
 state_11_15 = state
 ```
 
-We define a function to get the most probable location of a given state:
+:::
+
+::: {.callout-note icon=false, collapse=true}
+## Next, we define a function to get the most probable location of a given state:
 
 ```{.python}
 def get_most_probable_location(state):
     i = state.argmax()
     return (i//(MAX_CAPACITY+1), i%(MAX_CAPACITY+1))
 ```
-
+and tested in console by
 ```{.python}
 get_most_probable_location(state)
 ```
+:::
 
-We define a function to get the state vector for given $a$ and $b$, where $a$ is the amount of cars at $A$ and $b$ is the amount of cars at $B$.
+::: {.callout-note icon=false, collapse="true"}
+## Now, we define a function to get the state vector 
+for given  $a$ and $b$, where $a$ is the amount of cars at $A$ and $b$ is 
+the amount of cars at $B$.
 
 ```{.python}
 def get_state_vector(a, b):
@@ -148,34 +223,47 @@ def get_state_vector(a, b):
     s[a*(MAX_CAPACITY+1)+b] = 1
     return s
 ```
+To test it we put in console:
 
 ```{.python}
 assert get_most_probable_location(get_state_vector(11,12)) == (11,12)
 ```
+:::
 
-### Actions
-Actions are the nightly movements of the cars. We encode them as a number between -5 to 5, e.g.
+## Actions
+Actions are the nightly movements of the cars. We encode them as a number between 
+-5 to 5, e.g.
 
 * Action +3: move three cars from A to B.
 * Action -1: move one car from B to A.
+
+::: {.callout-note icon="false"  collapse="true"}
+## The python code reads as
 
 ```{.python}
 action_space = np.arange(-TRANSFER_MAX, TRANSFER_MAX+1)
 print(action_space)  # cars moved  
 print(np.arange(11)) # action indices
 ```
+:::
 
-### State transition probability kernel for Jacks Car Rental
-Definition
-$$ \vec s' = P \vec s $$
+## State transition probability kernel for Jacks Car Rental
+
+Definition . Let  $P$ a stochastic matrix such that
+$$ 
+	\begin{equation*}
+		\vec s' = P \vec s 
+	\end{equation*}
+$$
 
 with
 
-* $\vec s$: probabilities for the states at time $t$
-* $\vec s'$: probabilities for the states at time $t+1$
-* $P = \mathcal P $: State Transition Probability Kernel
+* $\vec s$: probabilities for the states $s$ at time $t$
+* $\vec s'$: probabilities for the states $s^{\prime}$ at time $t+1$
+* $P = \mathcal{P} $: State Transition Probability Kernel
 
-In the following we construct the (transpose of the) _state transition probability kernel_. First note that the kernel decomposes as
+In the following we construct the (transpose of the)
+_state transition probability kernel_. First note that the kernel decomposes as
 
 $$ P = P_{ret} P_{req} P_{move} $$
 
@@ -193,17 +281,23 @@ Form of the Transition Matrix:
  - for each new states we have a row
 
 __Note:__  
-Here we have 441 possible states (for the old and new ones). So the transition matrix has dimension (441, 441).
+Here we have 441 possible states (for the old and new ones). 
+So the transition matrix has dimension (441, 441).
 Each column of the transition matrix describes how a states is transformed.
 
-### Request State Transition Probability Kernel
-We define a function that calculates the transitions for one given location. Therefore, the Poisson probability mass function (PMF) is used. For further information about Poisson distribution in general, see e.g. [here](https://towardsdatascience.com/the-poisson-distribution-and-poisson-process-explained-4e2cb17d459?gi=3b06308122e5).
+## Request State Transition Probability Kernel
+
+According wiht the problem setup, we define a function that calculates 
+the transitions for one given location. So, we use a Poisson probability 
+mass function (PMF) for the regaring sampling. To this end 
+we define the function \veb|get_request_transitions_for_one_location()|
+
+::: {.callout-note icon=false, collapse=true}
+## Construct request transitions for one location:
+e.g. state_1 = ((0,*), (1,*), ... (20,*)) 
+are only the probabilities for location 1
 
 ```{.python}
-# construct request transitions for one location:
-# e.g. state_1 = ((0,*), (1,*), ... (20,*)) 
-#     are only the probabilities for location 1
-
 MAX_PMF = 30
 
 def get_request_transitions_for_one_location(loc):
@@ -235,33 +329,30 @@ def get_request_transitions_for_one_location(loc):
             elif j<=i:    
                 transition_matrix[i,j] = request_pmf[i-j]             
     return transition_matrix.T
-```
 
-```{.python}
 P_request_A_one_loc = get_request_transitions_for_one_location(A)
 # all colums should sum to one
 np.testing.assert_allclose(P_request_A_one_loc.sum(axis=0), 1.)
 P_request_A_one_loc.shape
 ```
+:::
 
-If we have e.g. eight cars at location A, after the renting the requested cars we get the following distribution:
+If we have e.g. eight cars at location $A$, after the renting the requested 
+cars 
+
+::: {.callout-note icon=false, collapse=true}
+## we get the following distribution:
 
 ```{.python}
-plt.plot(np.arange(MAX_CAPACITY+1), P_request_A_one_loc[:,8], '*b')
+plt.plot(np.arange(MAX_CAPACITY + 1), P_request_A_one_loc[:,8], '*b')
 plt.xticks(np.arange(0, 21, step=1))
 plt.xlabel("number of cars")
 plt.ylabel("probability");
-```
 
-```{.python}
 P_request_A_one_loc[:,0]
-```
 
-```{.python}
 P_request_A_one_loc[:,1]
-```
 
-```{.python}
 # for testing the one location transition matricies
 s = np.zeros(MAX_CAPACITY+1)
 s[3] = 1
@@ -269,81 +360,147 @@ a = np.dot(P_request_A_one_loc, s)
 np.testing.assert_almost_equal(a.sum(), 1.)
 a
 ```
+:::
 
-Note that the defined matrix has shape 21x21. So the index considers only the location A. 
-A full state is given by the pair "(location A, location B)". So we must extend the matrix to a 
-"full" transition matrix 441x441.
+Note that the defined matrix has shape $21 \times 21$. So the index considers
+only the location $A$. A full state is given by the pair 
+`(location A, location B)`.
+So we must extend the matrix to a "full" transition matrix $441\times 441$.
 
-We define a function to retrieve the "full" transition matrix A for a given location.
+We define a function to retrieve the "full" transition matrix $A$ for a 
+given location.
+
+::: {.callout-note icon=false, collapse=true}
+## full" transition matrix $A$
 
 ```{.python}
 def full_transition_matrix_A(transition_one_loc):
-    block_size = MAX_CAPACITY+1 # for convenience
+    block_size = MAX_CAPACITY + 1 # for convenience
     transition_matrix = np.zeros([block_size**2, block_size**2])
     for i in range(block_size):
-        transition_matrix[i:block_size**2: block_size,
-                          i:block_size**2: block_size] = transition_one_loc
+        transition_matrix[
+        	i:block_size ** 2: block_size,
+          i:block_size ** 2: block_size
+        ] = transition_one_loc
     return transition_matrix
-```
 
-```{.python}
 P_request_A = full_transition_matrix_A(P_request_A_one_loc)
 P_request_A#.shape
-```
 
-```{.python}
 # should mix only states of A: 
-np.testing.assert_almost_equal(np.dot(P_request_A, state_11_15).reshape(MAX_CAPACITY+1,-1).sum(), 1.)
-np.testing.assert_almost_equal(np.dot(P_request_A, state_11_15).reshape(MAX_CAPACITY+1,-1)[:,15].sum(), 1.)
-np.testing.assert_almost_equal(np.dot(P_request_A, state_11_15).reshape(MAX_CAPACITY+1,-1)[:12,15].sum(), 1.)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_request_A,
+		state_11_15
+	).reshape(MAX_CAPACITY+1,-1).sum(),1.
+)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_request_A,
+		state_11_15
+	).reshape(MAX_CAPACITY + 1 ,-1)[:,15].sum(),
+	1.
+)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_request_A,
+		state_11_15
+	).reshape(MAX_CAPACITY + 1, -1)[:12,15].sum(),
+	1.
+)
 ```
+:::
 
-We define a function to retrieve the full transition matrix B for a given location. 
-Note, that the positions of equal B locations in the full state vector a different a for location A.
+Next, we define a function to retrieve the full transition matrix $B$ for a given 
+location. Note, that the positions of equal $B$ locations in the full state
+vector a different a for location $A$.
 
 Full state vector:
-$$\begin{bmatrix}(0,0) \\ (0,1) \\ (0,2)\\ \dots \\ (1,0) \\ (1,1) \\ \dots \\ (20,20) \end{bmatrix} $$
+$$
+	\begin{bmatrix}
+			(0,0)
+		\\ 
+			(0,1) 
+		\\ 
+			(0,2)
+		\\ 
+			\dots 
+		\\ 
+			(1,0) 
+		\\ 
+			(1,1) 
+		\\ 
+		\dots 
+		\\ 
+			(20,20) 
+	\end{bmatrix} 
+$$ {#eq-full_state_vector}
 
 e.g. 
-- indices for location A=0: $0,1, \dots, 20$
-- indices for location B=0: $0,21,42, \dots, 420$
 
+- indices for location $A: 0, 1, \dots, 20$
+- indices for location $B: 0, 21, 42, \dots, 420$
+
+
+::: {.callout-note icon=false, collapse=true}
+## full matrix $B$
 ```{.python}
 def full_transition_matrix_B(transition_one_loc):
     block_size = MAX_CAPACITY+1 # for convenience
     transition_matrix = np.zeros([block_size**2, block_size**2])
     for i in range(block_size):
-        transition_matrix[i*block_size:(i*block_size)+block_size,
-                          i*block_size:(i*block_size)+block_size] = transition_one_loc
+        transition_matrix[
+          i*block_size:(i*block_size)+block_size,
+          i*block_size:(i*block_size)+block_size
+        ] = transition_one_loc
     return transition_matrix
-```
 
-```{.python}
 P_request_B_one_loc = get_request_transitions_for_one_location(1)
 P_request_B = full_transition_matrix_B(P_request_B_one_loc)
-```
 
-```{.python}
 # should mix only states of B: 
-np.testing.assert_almost_equal(np.dot(P_request_B, state_11_15).reshape(MAX_CAPACITY+1,-1).sum(), 1.)
-np.testing.assert_almost_equal(np.dot(P_request_B, state_11_15).reshape(MAX_CAPACITY+1,-1)[11].sum(), 1.)
-np.testing.assert_almost_equal(np.dot(P_request_B, state_11_15).reshape(MAX_CAPACITY+1,-1)[11,:16].sum(), 1.)
-```
+np.testing.assert_almost_equal(
+	np.dot(P_request_B, state_11_15).reshape(MAX_CAPACITY+1,-1).sum(),
+	1.
+)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_request_B,
+		state_11_15
+	).reshape(MAX_CAPACITY + 1, -1)[11].sum(), 1.
+)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_request_B,
+		state_11_15
+	).reshape(MAX_CAPACITY + 1,-1)[11,:16].sum(),
+1.)
 
-```{.python}
-# with the two request matricies for each location we can construct the full request matrix
+# with the two request matricies for each location we 
+# can construct the full request matrix
+
 P_request = np.dot(P_request_A, P_request_B)
-```
 
-```{.python}
 # The order of application shouldn't matter, so the commutator should be zero:
-np.testing.assert_allclose(np.dot(P_request_A, P_request_B), np.dot(P_request_B, P_request_A))
+np.testing.assert_allclose(
+	np.dot(
+		P_request_A,
+		P_request_B
+	),
+	np.dot(
+		P_request_B,
+		P_request_A
+	)
+)
 ```
+:::
 
-### Return State Transition Probability Kernel
+## Return State Transition Probability Kernel
 
 Similar to the requests, we define the return state transition probability kernel.
 
+::: {.callout-note icon=false, collapse=true}
+## Putting all together
 ```{.python}
 MAX_PMF = 30
 
@@ -375,45 +532,79 @@ def get_return_transition_matrix_one_location(loc):
                 transition_matrix[i,j] = return_pmf[j-i]     
     return transition_matrix.T
 
-P_return_A_one_loc = get_return_transition_matrix_one_location(0)
-np.testing.assert_almost_equal(P_return_A_one_loc.sum(axis=0), 1.)
 ```
+To test this function we put the following in the console.
 
 ```{.python}
+
+P_return_A_one_loc = get_return_transition_matrix_one_location(0)
+np.testing.assert_almost_equal(P_return_A_one_loc.sum(axis=0), 1.)
+
 P_return_A = full_transition_matrix_A(P_return_A_one_loc)
 
 # should mix only states of A: 
-np.testing.assert_almost_equal(np.dot(P_return_A, state_11_15).reshape(MAX_CAPACITY+1,-1).sum(), 1.)
-np.testing.assert_almost_equal(np.dot(P_return_A, state_11_15).reshape(MAX_CAPACITY+1,-1)[:,15].sum(), 1.)
-np.testing.assert_almost_equal(np.dot(P_return_A, state_11_15).reshape(MAX_CAPACITY+1,-1)[11:,15].sum(), 1.)
-```
-
-```{.python}
-s = np.zeros(MAX_CAPACITY+1)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_return_A,
+		state_11_15
+	).reshape(MAX_CAPACITY + 1, -1).sum(), 1.)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_return_A,
+		state_11_15
+).reshape(MAX_CAPACITY+1,-1)[:,15].sum(), 1.)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_return_A,
+			state_11_15
+	).reshape(MAX_CAPACITY + 1, -1)[11:,15].sum(),
+	1.
+)
+s = np.zeros(MAX_CAPACITY + 1)
 s[17] = 1
+
 a = np.dot(P_return_A_one_loc, s)
 st = np.dot(P_return_A , get_state_vector(17, 5))
-np.testing.assert_almost_equal(a,st.reshape(MAX_CAPACITY+1,-1)[:,5])
-```
-
-```{.python}
+np.testing.assert_almost_equal(a, st.reshape(MAX_CAPACITY + 1, -1)[:,5])
 P_return_B_one_loc = get_return_transition_matrix_one_location(B)
-```
-
-```{.python}
 P_return_B = full_transition_matrix_B(P_return_B_one_loc)
 
 # should mix only states of B: 
-np.testing.assert_almost_equal(np.dot(P_return_B, state_11_15).reshape(MAX_CAPACITY+1,-1).sum(), 1.)
-np.testing.assert_almost_equal(np.dot(P_return_B, state_11_15).reshape(MAX_CAPACITY+1,-1)[11].sum(), 1.)
-np.testing.assert_almost_equal(np.dot(P_return_B, state_11_15).reshape(MAX_CAPACITY+1,-1)[11,15:].sum(), 1.)
-```
-
-```{.python}
+np.testing.assert_almost_equal(
+	np.dot(
+		P_return_B,
+		state_11_15
+	).reshape(MAX_CAPACITY + 1, -1).sum(),
+	1.
+)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_return_B,
+		state_11_15
+	).reshape(MAX_CAPACITY + 1, -1)[11].sum(),
+	1.
+)
+np.testing.assert_almost_equal(
+	np.dot(
+		P_return_B,
+		state_11_15
+	).reshape(MAX_CAPACITY + 1, -1)[11,15:].sum(),
+	1.
+)
 P_return = np.dot(P_return_B, P_return_A)
 
-np.testing.assert_allclose(np.dot(P_return_B, P_return_A), np.dot(P_return_A, P_return_B))
+np.testing.assert_allclose(
+	np.dot(
+		P_return_B,
+		P_return_A
+	),
+	np.dot(
+		P_return_A,
+		P_return_B
+	)
+)
 ```
+:::
 
 The combinations of requests and returns is given by the dot product:
 
@@ -447,8 +638,13 @@ def get_nightly_moves():
     return transition_matrix
 ```
 
-**Note:**  
-actions and indices for actions differ, e.g. action 2 has index 2+5.
+:::{.callout-note} 
+## In this implementation: 
+actions and indices for actions differ, e.g. action 2 has index 2 + 5.
+:::
+
+::: {.callout-note icon=false, collapse=true}
+## Run the following to verify this fact.
 
 ```{.python}
 P_move = get_nightly_moves()
@@ -473,12 +669,22 @@ assert P_move[:,21*20+20,-4+TRANSFER_MAX].reshape(MAX_CAPACITY+1, -1)[20,16] == 
 ```{.python}
 P_move.shape
 ```
+:::
 
-Construct the full transition probability kernel (request, returns and nightly shifts):
+Next, we construct the full transition probability 
+kernel (request, returns and nightly shifts):
 
+::: {.callout-note icon=false, collapse=true}
+## A tensor implementation of the transition probability kernel
 ```{.python}
 # this is the transpose of the state transition probability kernel
-P = np.ndarray(((MAX_CAPACITY+1)**2, (MAX_CAPACITY+1)**2, action_space.shape[0]))
+P = np.ndarray(
+	(
+		(MAX_CAPACITY + 1) ** 2,
+		(MAX_CAPACITY + 1) ** 2,
+		action_space.shape[0]
+	)
+)
 for i in range(action_space.shape[0]): # TODO: without a loop?
     P[:,:,i] = np.dot(P_return_request, P_move[:,:,i]) 
 ```
@@ -486,13 +692,17 @@ for i in range(action_space.shape[0]): # TODO: without a loop?
 ```{.python}
 P.shape
 ```
+:::
 
-$P$ is the full state transition probability kernel for the Jack's car rental problem.
+$P$ is the full state transition probability kernel for 
+the Jack's car rental problem.
 
 $P$ has the following indices: $(s', s, a)$
 
+::: {.callout-note icon=false, collapse=true}
+## To test that our kernel is a stochastic Tensor
 ```{.python}
-np.testing.assert_almost_equal(P.sum(axis=0), 1.)
+	np.testing.assert_almost_equal(P.sum(axis=0), 1.)
 ```
 
 ```{.python}
@@ -506,6 +716,7 @@ for s_a in range(21):
 ```{.python}
 np.testing.assert_almost_equal(P.sum(axis=0), 1.)
 ```
+:::
 
 ```{.python}
 def plot3d_over_states(f, zlabel="", ):

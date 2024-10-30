@@ -1,5 +1,109 @@
-{{< include jacks_car_rentals.qmd >}}
+Once a policy, $\pi$, has been improved using $v_{\pi}$ to yield a better policy, 
+$\pi^{\prime}$ , we can then compute $v_{\pi^{\prime}}$ and improve it again 
+to yield an even better policy $\pi^{\prime\prime}$. We can thus obtain a
+sequence of monotonically improving policies and value functions:
 
+$$
+	\begin{aligned}
+		& \pi_0 
+		\overset{E}{\rightarrow} v_{\pi_0}
+		\overset{I}{\rightarrow} \pi_1
+		\overset{E}{\rightarrow} v_{\pi_1}
+		\cdots
+		\overset{I}{\rightarrow} \pi_{*}
+		\overset{E}{\rightarrow} v_{\pi_{*}}
+		\\
+		\text{where:}
+		&
+    \\
+    &\overset{E}{\rightarrow} \text{: Policy Evaluation}
+    \\
+    &\overset{I}{\rightarrow} \text{: Policy Improvement}
+	\end{aligned}
+$${#eq-sequence-policy-evaluation-improvement}
+
+Then given $\pi_0$ using the algorithm to estimate $v_{\pi_0}$ and so on,
+we obtain the following algorithm
+
+## Policy iteration
+
+``` pseudocode
+#| label: alg-test-text-style
+#| html-indent-size: "1.2em"
+#| html-comment-delimiter: "$\qquad \triangleright$ "
+#| html-comment-right: true
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+#| pdf-placement: "htb!"
+#| pdf-line-number: true
+
+\begin{algorithm}
+  \caption{
+    Policy Iteration, for estimating $V \approx v_{*}$, $\pi \approx \pi_{*}$
+  }
+  \begin{algorithmic}[1]
+    \Require $\pi_0$, the arbritrary initial policy , $\theta$ precision tolerance 
+    \State Initilize $V(s) = 0$, for all $s \in \mathcal S^+$
+    
+    \Function{PolicyEvaluation}{$\pi$, $\theta$}
+      \State $\mathrm{cond} \gets$ True
+      \While{cond}
+        \State $v \gets V$
+        \ForAll{$ s \in \mathcal{S}$}
+          \State $
+            \displaystyle
+            V(s) \gets
+            \sum_{a}
+              \pi(a|s)
+              \sum_{
+                \substack{s^{\prime}\in\mathcal{S},
+                  \\
+                  r \in \mathcal{R}}
+                }
+                p(s^{\prime}, r |s ,a)
+                \left[
+                  r +\gamma V(s^{\prime})
+                \right]
+          $
+        \EndFor
+        \State $\Delta \leftarrow \|v -V \|$
+        \State $\mathrm{cond} \leftarrow (\theta < \Delta)$
+      \EndWhile
+      \Return $V \approx v_{\pi}$
+    \EndFunction
+    \Function{PolicyIteration}{$\pi_0$, $\theta$}
+      \State $\verb |policy_stable| \gets $ False
+      \While{$\neg \verb |policy_stable|$}
+        \State $V \gets $ \Call{PolicyEvaluation}{$\pi$, $\theta$}
+        \State $\verb |policy_stable| \gets $ True
+        \ForAll{$s \in \mathcal{S}$}
+        	\Comment{Loop for Policy improvement}
+          \State $\verb|old_action| \gets \pi(s)$
+          \State $
+            \displaystyle
+            \pi(s) \gets 
+              \underset{a\in \mathcal{A}(s)}{\operatorname{argmax}}
+              \sum_{
+                \substack{s^{\prime}\in\mathcal{S},
+                  \\
+                  r \in \mathcal{R}}
+                }
+                p(s^{\prime}, r |s ,a)
+                \left[
+                  r +\gamma V(s^{\prime})
+                \right]
+          $
+          \If{$\verb|old_action| \neq \pi_0(s)$}
+            \State $\verb|policy_stable| \gets$ False
+          \EndIf
+        \endFor
+      \EndWhile
+      \Return $V \approx v_{*}, \pi \approx \pi{*}$
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
+```
 
 ::: {.callout-tip collapse="true" icon="false"}
 # Python script for the example solution of the Jack's rental cars example with policy iteration
