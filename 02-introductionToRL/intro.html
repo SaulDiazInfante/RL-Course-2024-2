@@ -464,7 +464,7 @@ window.Quarto = {
 <div id="fig-tic_tac_toc_diag" class="lightbox quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-tic_tac_toc_diag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../assets/ch_00/diagram_sequence_tictactoe_play.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="../assets/ch_00/diagram_sequence_tictactoe_play.png" class="img-fluid figure-img"></a>
+<a href="../assets/ch_00/diagram_sequence_tictactoe_play.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="../assets/ch_00/diagram_sequence_tictactoe_play.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tic_tac_toc_diag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7.1: Figure taken from <span class="citation" data-cites="Sutton2018--7">[<a href="../references.html#ref-Sutton2018--7" role="doc-biblioref">1</a>]</span>. A sequence of tic-tac-toe moves. Solid black lines represents moves taken during a play. Dashed lines represent plausible but not taken moves. The <span class="math inline">\(*\)</span> symbol indicates the move currently estimated to be the best. Thus the move <span class="math inline">\(e\)</span> denotes an <em>exploratory</em> move
@@ -1359,7 +1359,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
