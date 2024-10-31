@@ -361,7 +361,7 @@ window.Quarto = {
   <li><a href="#value-iteration" id="toc-value-iteration" class="nav-link" data-scroll-target="#value-iteration">Value Iteration</a></li>
   <li><a href="#bibliography--5" id="toc-bibliography--5" class="nav-link" data-scroll-target="#bibliography--5">Refrences</a></li>
   </ul></li>
-  <li><a href="#value-iteration-1" id="toc-value-iteration-1" class="nav-link" data-scroll-target="#value-iteration-1">Value Iteration</a></li>
+  <li><a href="#value-iteration-2" id="toc-value-iteration-2" class="nav-link" data-scroll-target="#value-iteration-2">Value Iteration</a></li>
   <li><a href="#asynchronous-dynamic-programming" id="toc-asynchronous-dynamic-programming" class="nav-link" data-scroll-target="#asynchronous-dynamic-programming">Asynchronous Dynamic Programming</a></li>
   <li><a href="#generalized-policy-iteration" id="toc-generalized-policy-iteration" class="nav-link" data-scroll-target="#generalized-policy-iteration">Generalized Policy Iteration</a></li>
   <li><a href="#efficiency-of-dynamic-programming" id="toc-efficiency-of-dynamic-programming" class="nav-link" data-scroll-target="#efficiency-of-dynamic-programming">Efficiency of Dynamic Programming</a></li>
@@ -425,7 +425,7 @@ window.Quarto = {
 <p>To write a sequential computer program to implement iterative policy evaluation as given by <a href="#eq-policy_evaluation" class="quarto-xref">Eq.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">eq-policy_evaluation</span></a> you would have to use two arrays, one for the old values, <span class="math inline">\(v_k(s)\)</span>, and one for the new values, <span class="math inline">\(v_{k+1} (s)\)</span>. With two arrays, the new values can be computed one by one from the old values without the old values being changed. This procedure leads to the following synchronized updated algorhitm</p>
 <section id="synchronized-policy-evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="synchronized-policy-evaluation">Synchronized policy evaluation</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-comment-delimiter="//" data-pseudocode-number="1" data-line-number-punc=":" data-no-end="false" data-indent-size="1.2em" data-line-number="true" data-caption-prefix="Algorithm">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number="true" data-comment-delimiter="//" data-caption-prefix="Algorithm" data-no-end="false" data-line-number-punc=":" data-pseudocode-number="1" data-indent-size="1.2em">
 <div class="pseudocode">
 \begin{algorithm} \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ synchronous version} \begin{algorithmic} \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $cond \leftarrow$ True \While{cond} \State $v \leftarrow V$ \For{$s \in \mathcal{S}$} \State $ \displaystyle V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma v(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $cond \leftarrow (\theta &lt; \Delta)$ \EndWhile \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -434,7 +434,7 @@ window.Quarto = {
 </section>
 <section id="in-place-version" class="level2">
 <h2 class="anchored" data-anchor-id="in-place-version">In-place version</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-comment-delimiter="//" data-pseudocode-number="2" data-line-number-punc=":" data-no-end="false" data-indent-size="1.2em" data-line-number="true" data-caption-prefix="Algorithm">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number="true" data-comment-delimiter="//" data-caption-prefix="Algorithm" data-no-end="false" data-line-number-punc=":" data-pseudocode-number="2" data-indent-size="1.2em">
 <div class="pseudocode">
 \begin{algorithm} \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ in place update version } \begin{algorithmic} \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $cond \leftarrow$ True \While{cond} \State $v \leftarrow V$ \For{$s \in \mathcal{S}$} \State $ \displaystyle V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $cond \leftarrow (\theta &lt; \Delta)$ \EndWhile \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -646,7 +646,7 @@ Python implenmentation for the 4 x 4 gridworld example
 <p>Then given <span class="math inline">\(\pi_0\)</span> using the algorithm to estimate <span class="math inline">\(v_{\pi_0}\)</span> and so on, we obtain the following algorithm</p>
 <section id="policy-iteration-1" class="level2">
 <h2 class="anchored" data-anchor-id="policy-iteration-1">Policy iteration</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-comment-delimiter="$\qquad \triangleright$" data-pseudocode-number="3" data-indent-size="1.2em" data-line-number-punc=":" data-no-end="false" data-comment-right="true" data-line-number="true" data-caption-prefix="Algorithm">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-caption-prefix="Algorithm" data-comment-right="true" data-comment-delimiter="$\qquad \triangleright$" data-pseudocode-number="3" data-no-end="false" data-line-number-punc=":" data-line-number="true" data-indent-size="1.2em">
 <div class="pseudocode">
 \begin{algorithm} \caption{ Policy Iteration, for estimating $V \approx v_{*}$, $\pi \approx \pi_{*}$ }\begin{algorithmic} \Require $\pi_0$, the arbritrary initial policy , $\theta$ precision tolerance \State Initilize $V(s) = 0$, for all $s \in \mathcal S^+$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $\mathrm{cond} \gets$ True \While{cond} \State $v \gets V$ \ForAll{$ s \in \mathcal{S}$} \State $ \displaystyle V(s) \gets \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $\mathrm{cond} \leftarrow (\theta &lt; \Delta)$ \EndWhile \Return $V \approx v_{\pi}$ \EndFunction \Function{PolicyIteration}{$\pi_0$, $\theta$} \State $\verb |policy_stable| \gets $ False \While{$\neg \verb |policy_stable|$} \State $V \gets $ \Call{PolicyEvaluation}{$\pi$, $\theta$} \State $\verb |policy_stable| \gets $ True \ForAll{$s \in \mathcal{S}$} \Comment{Loop for Policy improvement} \State $\verb|old_action| \gets \pi(s)$ \State $ \displaystyle \pi(s) \gets \underset{a\in \mathcal{A}(s)}{\operatorname{argmax}} \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \If{$\verb|old_action| \neq \pi_0(s)$} \State $\verb|policy_stable| \gets$ False \EndIf \endFor \EndWhile \Return $V \approx v_{*}, \pi \approx \pi{*}$ \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -1687,12 +1687,18 @@ Stationary distribution
 <section id="reward-function" class="level2">
 <h2 class="anchored" data-anchor-id="reward-function">Reward Function</h2>
 <p>Let’s construct the expected reward aka reward function <span class="math display">\[ \mathcal R(s,a) = \mathcal R_s^a = \mathbb E[R \mid s, a] \]</span></p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+get_reward()
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">def</span> get_reward():</span>
 <span id="cb28-2"><a href="#cb28-2"></a>    </span>
 <span id="cb28-3"><a href="#cb28-3"></a>    poisson_mask <span class="op">=</span> np.zeros((<span class="dv">2</span>, MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>, MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>))</span>
@@ -1780,12 +1786,18 @@ Stationary distribution
 <li><span class="math inline">\(\mathcal R^\pi_{s} = \sum_{a\in \mathcal A} \pi(a \mid s) \mathcal R^a_{s}\)</span></li>
 </ul></li>
 </ul>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+Checking the Transition matrix for our MRP
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># choose in each state action 2 (move two cars from A to B)</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>policy <span class="op">=</span> np.ones((MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>, dtype<span class="op">=</span><span class="bu">int</span>) <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb31-3"><a href="#cb31-3"></a>policy.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1924,7 +1936,7 @@ Stationary distribution
 <p>Here, we can directly solve the Bellmann equation:</p>
 <p><span class="math display">\[ \vec v = (I - \gamma \mathcal P^\pi)^{-1} \mathcal R^\pi \]</span></p>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1933,7 +1945,7 @@ Ploting a vaule function
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">def</span> evaluate_policy(policy):</span>
 <span id="cb39-2"><a href="#cb39-2"></a>    P_pi_transpose, reward <span class="op">=</span> get_P_reward_for_policy(policy)</span>
@@ -1966,7 +1978,7 @@ Ploting a vaule function
   \vec v_{k+1} = \vec {\mathcal R}^\pi + \gamma {\mathcal P}^\pi \vec v_{k}
 \]</span></p>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1975,7 +1987,7 @@ Policy evaluation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">def</span> evaluate_policy_by_iteration(policy, values <span class="op">=</span> np.zeros((MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>)):</span>
 <span id="cb41-2"><a href="#cb41-2"></a>    P_pi, reward <span class="op">=</span> get_P_reward_for_policy(policy)</span>
@@ -2026,7 +2038,7 @@ Policy evaluation
 <div class="no-row-height column-margin column-container"><div id="ref-Sutton2018--5" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline">R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.</div>
 </div></div><div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2035,7 +2047,7 @@ Policy improvement
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">def</span> greedy_improve(values, P<span class="op">=</span>P):</span>
 <span id="cb44-2"><a href="#cb44-2"></a>    P_ <span class="op">=</span> P.transpose(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="co"># we used the model for improvement</span></span>
@@ -2143,7 +2155,7 @@ Policy improvement
 </ul>
 <p><span class="math display">\[ \hat Q^{k+1} = \hat R + \gamma \mathcal P \vec Q^k_{k} \]</span></p>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2152,7 +2164,7 @@ Policy improvement
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Iterative update of the bellmann equation for Q</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a><span class="kw">def</span> evaluate_policy_Q_by_iteration(</span>
@@ -2189,7 +2201,7 @@ Policy improvement
 </ul></li>
 </ul>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2198,7 +2210,7 @@ Policy improvement
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="kw">def</span> greedy_improve_Q(Q):</span>
 <span id="cb51-2"><a href="#cb51-2"></a>    <span class="cf">return</span> np.argmax(Q, axis<span class="op">=</span><span class="dv">1</span>) <span class="op">-</span> TRANSFER_MAX</span>
@@ -2266,12 +2278,18 @@ Policy improvement
         \right)
     \end{aligned}
 \]</span></p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+Value iteration
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>converged <span class="op">=</span> <span class="va">False</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a>values <span class="op">=</span> np.zeros((MAX_CAPACITY<span class="op">+</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb53-3"><a href="#cb53-3"></a>P_ <span class="op">=</span> P.transpose(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>)</span>
@@ -2294,7 +2312,7 @@ Policy improvement
 </div>
 </section>
 </section>
-<section id="value-iteration-1" class="level1">
+<section id="value-iteration-2" class="level1">
 <h1>Value Iteration</h1>
 </section>
 <section id="asynchronous-dynamic-programming" class="level1">
