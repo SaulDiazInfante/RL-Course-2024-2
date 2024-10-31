@@ -154,12 +154,11 @@ All python modules needed to run would staty at the begining of the script.
 ```{.python}
 # Python Standard Library
 import os
-
 # External Modules
 import numpy as np
 import matplotlib.pyplot as plt
-#import mpl_toolkits.mplot3d
-
+import mpl_toolkits.mplot3d
+from matplotlib import cm
 from scipy.stats import poisson
 ```
 :::
@@ -289,12 +288,12 @@ Each column of the transition matrix describes how a states is transformed.
 
 According wiht the problem setup, we define a function that calculates 
 the transitions for one given location. So, we use a Poisson probability 
-mass function (PMF) for the regaring sampling. To this end 
+mass function (PMF) for the sampling. To this end 
 we define the function \veb|get_request_transitions_for_one_location()|
 
 ::: {.callout-note icon=false, collapse=true}
 ## Construct request transitions for one location:
-e.g. state_1 = ((0,*), (1,*), ... (20,*)) 
+e.g. $\verb|state_1| = ((0,*), (1,*), ... (20,*))$
 are only the probabilities for location 1
 
 ```{.python}
@@ -318,7 +317,7 @@ def get_request_transitions_for_one_location(loc):
     """
     assert(loc==A or loc==B)
     # transition matrix P_{to, from} for one location only requests
-    transition_matrix = np.zeros([MAX_CAPACITY+1, MAX_CAPACITY+1])
+    transition_matrix = np.zeros([MAX_CAPACITY + 1, MAX_CAPACITY + 1])
     
     request_pmf = poisson.pmf(np.arange(MAX_PMF), REQUEST_RATE[loc])
     np.testing.assert_almost_equal(request_pmf[-1], 0., decimal=12)
@@ -615,8 +614,12 @@ P_return_request = np.dot(P_return, P_request)
 ```
 
 ### Nightly Moves State Transition Probability Kernel
-We implement $P_{move}$ as a 3d numpy array with indices [to_state_index, from_state_index, action_index].
+We implement $P_{move}$ as a 3d numpy array with indices 
+[to_state_index, from_state_index, action_index].
 
+::: {.callout-note icon=false, collapse=true}
+
+## Moves
 ```{.python}
 def get_moves(a, b, action):
     if action > 0: # from A to B
@@ -637,6 +640,7 @@ def get_nightly_moves():
                 transition_matrix[new_state_index, old_state_index, i] = 1.
     return transition_matrix
 ```
+:::
 
 :::{.callout-note} 
 ## In this implementation: 
@@ -718,20 +722,33 @@ np.testing.assert_almost_equal(P.sum(axis=0), 1.)
 ```
 :::
 
+Now we visualize the underlying distribution
+
+::: {.callout-note icon=false, collapse=true}
+## Plot over states
+
 ```{.python}
 def plot3d_over_states(f, zlabel="", ):
-    A = np.arange(0, MAX_CAPACITY+1)
-    B = np.arange(0, MAX_CAPACITY+1)
+    A = np.arange(0, MAX_CAPACITY + 1)
+    B = np.arange(0, MAX_CAPACITY + 1)
     # B, A !!!
     B, A = np.meshgrid(B, A)
     V = f.reshape(MAX_CAPACITY+1,-1)
     fig = plt.figure(figsize=(10,10))
     ax = fig.add_subplot(111, projection='3d')
     #ax = fig.gca(projection='3d')
-    #surf = ax.plot_surface(A, B, V, rstride=1, cstride=1, cmap=cm.coolwarm,
-    #                   linewidth=0, antialiased=False)
-    #fig.colorbar(surf, shrink=0.5, aspect=5)
-    ax.scatter(A, B, V, c='b', marker='.')
+    surf = ax.plot_surface(
+      A,
+      B,
+      V,
+      rstride=1,
+      cstride=1,
+      cmap=cm.coolwarm,
+      linewidth=0,
+      antialiased=False
+    )
+    fig.colorbar(surf, shrink=0.5, aspect=5)
+    # ax.scatter(A, B, V, c='b', marker='.')
     ax.set_xlabel("cars at A")
     ax.set_ylabel("cars at B")
     ax.set_zlabel(zlabel)
@@ -740,7 +757,6 @@ def plot3d_over_states(f, zlabel="", ):
     ax.set_yticks(np.arange(0,21,1))
     #plt.xticks(np.arange(0,1,21))
     #ax.view_init(elev=10., azim=10)
-    
     plt.show()
 ```
 
@@ -749,6 +765,12 @@ def plot3d_over_states(f, zlabel="", ):
 s_ = np.dot(P[:,:,3+TRANSFER_MAX], get_state_vector(10, 5))
 plot3d_over_states(s_, 'probability')
 ```
+:::
+
+To approximate the stationary distribution we make a product of 500 transtions
+
+::: {.callout-note icon=false, collapse=true}
+## Stationary distribution
 
 ```{.python}
 s_ = state_11_15
@@ -757,12 +779,15 @@ for i in range (500):
     
 print (get_most_probable_location(s_))
 ```
+:::
 
-### Reward Function
+## Reward Function
+
 Let's construct the expected reward aka reward function
-
 $$ \mathcal R(s,a) = \mathcal R_s^a = \mathbb E[R \mid s, a] $$
 
+::: {.callout-note icon=false, collapse=true}
+## get_reward()
 ```{.python}
 def get_reward():
     
@@ -805,36 +830,66 @@ Reward = get_reward()
 ```{.python}
 Reward = Reward.reshape(441,11)
 ```
+:::
 
-### Policy
+
+## Policy
 A policy $\pi$ is the behaviour of an agent. It maps states $s$ to actions $a$:
 
 * Deterministic Policies: $a = \pi(s)$
 * Stochastic Policies: $\pi(a\mid s) = P(a\mid s)$
 
-### Markov Reward Process
+## Markov Reward Process
 A stationary policy $\pi$ and a MDP induce a MRP. Choose always the action $a$ according to the policy $\pi$.
 
 A Markov Reward Process (MRP) is a tuple $\langle \mathcal{S}, \mathcal P_0'\rangle$ with
 
 * $\mathcal S$: finite set of states $s$
-* $\mathcal P'_0$: state transition Kernel matrix: $\mathcal P'_0$ assigns to each state $(S=s) \in \mathcal S$ a probability measure over $\mathcal S \times \mathbb R$: $P'_0(\cdot \mid s)$ with the following semantics: For $U \in \mathcal S \times \mathbb R$ is $P'_0(U \mid s)$ the probability that the next states and the reward $R$ belongs to the set $U$ given that the current state is $s$.
+* $\mathcal P'_0$: state transition Kernel matrix: 
+$\mathcal P'_0$ assigns to each state 
+$(S=s) \in \mathcal S$
+a probability measure over $\mathcal S \times \mathbb R$: $P'_0(\cdot \mid s)$
+with the following semantics: For $U \in \mathcal S \times \mathbb R$ 
+is $P'_0(U \mid s)$ the probability that the next states and the reward $R$ 
+belongs to the set $U$ given that the current state is $s$.
 
 This implies again a reward function $\mathcal R^\pi(s)$ resp. $\mathcal R^\pi_s$ as for the MDP.
 
-#### State Transition Probability Matrix for the MRP
-$$ \mathcal P_{ss'}^\pi = \mathbb P [S_{t+1} = s' \mid S_t = s , a = \pi(s)] $$
+## State Transition Probability Matrix for the MRP
+$$
+	p(s^{\prime} | s, \pi(s)) 
+		= \mathbb P [S_{t+1} = s' \mid S_t = s , a = \pi(s)] 
+$$
 
-$$ \mathcal P^\pi = \begin{pmatrix} \mathcal P_{11} & \dots & \mathcal P_{1n} \\ \vdots & & \\ \mathcal P_{n1} & \dots & \mathcal P_{nn} \end{pmatrix}$$
+$$ 
+	\mathcal P^\pi = 
+	\begin{pmatrix} 
+			\mathcal P_{11} 
+			& \dots
+			& \mathcal P_{1n} 
+		\\ 
+			\vdots 
+			& 
+			& 
+		\\ 
+			\mathcal P_{n1} 
+			& \dots 
+			& \mathcal P_{nn} 
+	\end{pmatrix}$$
 
-Note that the indicies of the matrix are $ss'$ in contrast to the above constructed state transition kernel which has the indicies $s'sa$.
+Note that the indices of the matrix are $ss'$ in contrast to the above
+constructed state transition kernel which has the indices $s'sa$.
 
 Given a MDP $\langle \mathcal{S, A, \mathcal P_o} \rangle$ and a policy $\pi$:
-* The state sequence $s_1, s_2, \dots $ is a Markov process
-* The state and reward sequence $s_1, r_2, s_2, \dots $ is a Markov Reward Process where
-* $\mathcal P^\pi_{s,s'} = \sum_{a\in \mathcal A} \pi(a \mid s) \mathcal P^a_{s,s'}$
-* $\mathcal R^\pi_{s} = \sum_{a\in \mathcal A} \pi(a \mid s) \mathcal R^a_{s}$
 
+- The state sequence $s_1, s_2, \dots$ is a Markov process
+- The state and reward sequence $s_1, r_2, s_2, \dots$ is a Markov Reward 
+	Process where
+  + $\mathcal P^\pi_{s,s'} = \sum_{a\in \mathcal A} \pi(a \mid s) \mathcal P^a_{s,s'}$
+  + $\mathcal R^\pi_{s} = \sum_{a\in \mathcal A} \pi(a \mid s) \mathcal R^a_{s}$
+
+::: {.callout-note icon=false, collapse=true}
+## Checking the Transition matrix for our MRP
 ```{.python}
 # choose in each state action 2 (move two cars from A to B)
 policy = np.ones((MAX_CAPACITY+1)**2, dtype=int) * 2
@@ -874,18 +929,23 @@ P_pi, reward = get_P_reward_for_policy(policy)
 ```{.python}
 plot3d_over_states(reward, 'avg reward')
 ```
+:::
 
-### Total Discounted Reward
+## Total Discounted Reward
 The _return_ $G_t$ is defined as the total discounted reward:
 
-$$ G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots = \sum_{k=0}^\infty \gamma^k R_{t+k+1} $$
+$$ 
+	G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots 
+		= \sum_{k=0}^\infty \gamma^k R_{t+k+1} 
+$$
 
-#### Sum of discounted rewards is finite
+## Sum of discounted rewards is finite
 Note that with all rewards $R_t>0$
 
 $$ \sum_{t=0}^\infty R_t = \infty $$
 
-Independent of the actual values of $R_t$. So we can't compare the (expected) reward of different states respectivly policies (which cases the state sequence).
+Independent of the actual values of $R_t$. So we can't compare the (expected) 
+reward of different states respectivly policies (which cases the state sequence).
 
 But $$ \sum_{t=0}^\infty \gamma^t R_t $$
 
@@ -893,41 +953,123 @@ with the discount $\gamma$
 
 $0<\gamma<1$
 
-has as result a finite number, because with the maximum reward $R_{max} = \max_t (R_t)$ in the serie it is bounded by 
+has as result a finite number, because with the maximum reward 
+$R_{max} = \max_t (R_t)$ in the serie it is bounded by 
 
-$$ \sum_{t=0}^\infty \gamma^t R_t \leq \sum_{t=0}^\infty \gamma^t R_{max} = \frac{R_{max}}{1-\gamma} $$
+$$ 
+  \sum_{t=0}^\infty 
+    \gamma^t R_t 
+    \leq 
+    \sum_{t=0}^\infty 
+    	\gamma^t R_{max} 
+    	= \frac{R_{max}}{1-\gamma} 
+$$
 
-#### Proof of $\sum_i \gamma^i = 1/(1-\gamma)$
+### Proof of $\sum_i \gamma^i = 1/(1-\gamma)$
 
-$$ x = \gamma^0 +\gamma^1 + \gamma^2 + \dots $$
+$$ 
+  x = \gamma^0 +\gamma^1 + \gamma^2 + \dots 
+$$
 
-$$ \gamma^0 +\gamma^1 + \gamma^2 + \dots = \gamma^0 + \gamma (\gamma^0 +\gamma^1 + \gamma^2 + \dots) $$
+$$ 
+  \gamma^0 +\gamma^1 
+  + \gamma^2 + \dots 
+    = \gamma^0 
+      + \gamma (\gamma^0 +\gamma^1 + \gamma^2 + \dots) 
+$$
 
-$$ x = \gamma^0 + \gamma x = 1 + \gamma x $$
+$$ 
+  x = \gamma^0 + \gamma x = 1 + \gamma x 
+$$
 
-$$ x(1-\gamma) = 1 $$
+$$ 
+  x(1-\gamma) = 1 
+$$
 
 $$ x = \frac{1}{1-\gamma} $$
 
-### Value functions
-The **state-value function** $v_\pi (s)$ of an MDP is the expected return starting from state $s$, and then follow policy $\pi$
+## Value functions
 
-$$ v_\pi (s) = \mathbb E_\pi[G_t \mid S_t=s] = \mathbb E \left[ \sum_{t'=t}^\infty \gamma^{t'-t} R_{t'+1} \mid S_t=s \right], s \in \mathcal S $$
+The **state-value function** 
+$v_\pi (s)$ of an MDP is the expected return starting from state $s$, and 
+then follow policy $\pi$
 
-The value function can be decomposed into an immediate part and the discounted value function of the successor states:
+$$ 
+  \begin{aligned}
+    v_\pi (s) = & 
+      \mathbb E_\pi[G_t \mid S_t=s]
+    \\
+      = & 
+      \mathbb E \left[ 
+        \sum_{t'=t}^\infty 
+          \gamma^{t'-t} R_{t'+1} \mid S_t=s 
+      \right], s \in\mathcal S 
+  \end{aligned}
+$$ {#eq-pi-valued-function}
 
-$$ v_\pi(s) = \mathbb E[G_t \mid S_t =s] \\ = \mathbb E [R_{t+1}+γR_{t+2}+\gamma^2 R_{t+3} + \dots \mid S_t =s] \\ = \mathbb E [R_{t+1} + \gamma (R_{t+2}+\gamma R_{t+3} + \dots ) \mid S_t = s] \\ = \mathbb E [R_{t+1} + \gamma G_{t+1} \mid S_t = s] \\ = \mathbb E [ R_{t+1} \mid S_t = s]+ \gamma v_\pi(S_{t+1} ) $$
+The value function can be decomposed into an immediate part and the 
+discounted value function of the successor states:
+
+$$
+  \begin{aligned}
+    v_\pi(s) 
+    & = \mathbb E[G_t \mid S_t =s] 
+  \\ 
+    & = \mathbb E [R_{t+1}+γR_{t+2}+\gamma^2 R_{t+3} + \dots \mid S_t =s] 
+  \\ 
+    & = \mathbb E [
+      R_{t+1} 
+      + \gamma (
+        R_{t+2}
+       + \gamma R_{t+3} 
+       + \dots 
+      ) 
+      \mid S_t = s
+  ] 
+  \\ 
+    &= 
+    \mathbb E [
+      R_{t+1} 
+      + \gamma G_{t+1} \mid S_t = s
+    ] 
+  \\
+    & =
+    \mathbb E [
+      R_{t+1} \mid S_t = s
+    ] 
+    + \gamma v_\pi(S_{t+1}) 
+  \end{aligned}  
+$${#eq-bellman-for-det-policies}
 
 so, we have the __Bellmann Equation__ (for deterministic policies): 
 
-$$ v_\pi(s) = \mathcal R_s^\pi + \gamma \sum_{s'\in \mathcal S} P_{ss'}^\pi v_\pi (s') $$
+$$ 
+  v_\pi(s) = 
+    \mathcal R_s^\pi 
+    + \gamma 
+    \sum_{s' \in \mathcal S} 
+    P_{ss'} ^ \pi v_\pi (s') 
+$$
 
-Note: $v(s')$ are the values of the successor states of $s$, so in $\sum_{s'\in \mathcal S} P_{ss'} v(s')$ the weights $P_{ss'}$ of the values $v(s')$ are the transitions back in time.
+Note: $
+ v(s')$ are the values of the successor states of $s$, so in 
+ $$ \sum_{s'\in \mathcal S} P_{ss'} v(s')$$
+ the weights $P_{ss'}$ of the values $v(s')$ 
+ are the transitions back in time.
 
-#### Bellman Equation
-also for non deterministic policies:
+### Bellman Equation
+Also for non deterministic policies:
 
-$$ v_\pi(s) = \sum_a \pi(a \mid s) \left( \mathcal R_s^a + \gamma \sum_{s' \in \mathcal S} \mathcal P^a_{s,s'} v_\pi(s')\right) $$
+$$ 
+  v_\pi(s) = 
+    \sum_a \pi(a \mid s) 
+      \left(
+        \mathcal R_s^a 
+        + \gamma 
+        \sum_{s' \in \mathcal S} 
+        \mathcal P^a_{s,s'} v_\pi(s')
+      \right) 
+$$
 
 Bellmann equations in vector-matrix form: 
 
@@ -936,6 +1078,9 @@ $$ \vec v = \mathcal R^{\pi} + \gamma P^{\pi} \vec v $$
 Here, we can directly solve the Bellmann equation: 
 
 $$ \vec v = (I - \gamma \mathcal P^\pi)^{-1} \mathcal R^\pi $$
+
+::: {.callout-note icon=false, collapse=true}
+## Ploting a vaule function
 
 ```{.python}
 def evaluate_policy(policy):
@@ -951,12 +1096,15 @@ policy_ = np.zeros(((MAX_CAPACITY+1)**2), dtype=int)
 values = evaluate_policy(policy_)
 plot3d_over_states(values, 'v')
 ```
+:::
 
 For large state spaces computing the inverse is costly in terms of space and time. However, the bellman
 equation can be solved by an iteration:
 
-### Policy Evaluation
-Computing the state-value function $v^\pi(s)$ for an arbitrary policy by an **iterative** application of Bellman expectation backup is called policy evaluation:
+## Policy Evaluation
+Computing the state-value function 
+$v^\pi(s)$ for an arbitrary policy by an **iterative** application of 
+Bellman expectation backup is called policy evaluation:
 
 * $v_1 \rightarrow v_2 \rightarrow v_3 \rightarrow \dots \rightarrow v_\pi$
 * loop until convergence (using *synchronous* backups)
@@ -964,8 +1112,13 @@ Computing the state-value function $v^\pi(s)$ for an arbitrary policy by an **it
   * for all states $s \in \mathcal S$
   * update $v_{k+1}(s)$ from $v_k(s')$, where $s'$ is a successor state of $s$
 
-$$ \vec v_{k+1} = \vec {\mathcal R}^\pi + \gamma {\mathcal P}^\pi \vec v_{k} $$
+$$ 
+  \vec v_{k+1} = \vec {\mathcal R}^\pi + \gamma {\mathcal P}^\pi \vec v_{k} 
+$$
 
+:::{.callout-note icon=false, collapse=true}
+
+## Policy evaluation
 ```{.python}
 def evaluate_policy_by_iteration(policy, values = np.zeros((MAX_CAPACITY+1)**2)):
     P_pi, reward = get_P_reward_for_policy(policy)
@@ -977,7 +1130,6 @@ def evaluate_policy_by_iteration(policy, values = np.zeros((MAX_CAPACITY+1)**2))
         values = new_values
     return values
 ```
-
 ```{.python}
 values_ = evaluate_policy_by_iteration(policy_)
 ```
@@ -985,37 +1137,56 @@ values_ = evaluate_policy_by_iteration(policy_)
 ```{.python}
 np.testing.assert_almost_equal(values, values_, decimal=3)
 ```
+:::
 
 ### Optimal Value Function
 
 $$ v^* (s) = \max_\pi v_\pi(s) $$
 
-The optimal value $v^*(s)$ of state $s \in \mathcal S$ is defined as the highest achievable expected return when the process is started from state $s$. The function $v^* : \mathcal S \rightarrow \mathbb R$ is called the *optimal value function*.
+The optimal value $v^*(s)$ of state $s \in \mathcal S$ is defined as the 
+highest achievable expected return when the process is started from state $s$. 
+The function $v^* : \mathcal S \rightarrow \mathbb R$ is called the 
+*optimal value function*.
 
-### Policy Iteration
+## Policy Iteration
 * Starting with an arbitrary policy
 * Iteration until the values converge (to the optimal policy). Alternating sequence of
   * _Policy Evaluation_ : Compute the values of the policy
-  * _Greedy Policy Improvement_: Use the "best" action in each state, i.e. chose the action which result in the highest return for each state. 
+  * _Greedy Policy Improvement_: Use the "best" action in each state, i.e.
+  chose the action which result in the highest return for each state. 
 
 
-["Policy iteration often converges in surprisingly few iterations."](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node43.html) [SUT98]
+### Greedy Policy Improvement
 
-#### Greedy Policy Improvement
-
-For _greedy policy improvement_ we need the model (transition probabilities) if we are using the value function $v(s)$: For each action $a$ we compute the probabilities of the next states and calculate the average value of the discounted return.
+For _greedy policy improvement_ we need the model (transition probabilities)
+if we are using the value function 
+$v(s)$: For each action $a$ we compute the probabilities of the next states and
+calculate the average value of the discounted return.
 
  
-If we start from state $s$ with action $a$, and then follow policy $\pi$ we get as expected return 
+If we start from state $s$ with action $a$, and then follow policy $\pi$ we 
+get as expected return 
 
-$$ q_\pi (s,a) = \mathbb E \left[ R\mid s,a \right]+ \mathbb E \left[ \gamma \sum_{s'\in \mathcal S} P_{ss'}^\pi v_\pi (s') \right]
+$$ 
+  q_\pi (s,a) = \mathbb E 
+    \left[
+      R \mid s,a 
+    \right]
+   + \mathbb E \left[
+     \gamma \sum_{s'\in \mathcal S} P_{ss'}^\pi v_\pi (s') 
+   \right]
 $$
 
 $q_\pi (s,a)$ is called the _action-value function_ $q_\pi (s,a)$.
 
-Here, we compute $q$ explicitly for each state $s$ and action $a$ (respectivly in matrix form). For each state we chose the action that results in the highest value.  
+Here, we compute $q$ explicitly for each state $s$ and action $a$ 
+(respectivly in matrix form). For each state we chose the action that results in the highest value.  
 
-To understand why _Greedy Policy Improvement_ works read the section of Sutton's book about the [policy improvement](http://incompleteideas.net/book/first/ebook/node42.html).
+To understand why _Greedy Policy Improvement_ works read the section of Sutton's 
+book [@Sutton2018].
+
+:::{.callout-note icon=false, collapse=true}
+## Policy improvement
 
 ```{.python}
 def greedy_improve(values, P=P):
@@ -1074,45 +1245,72 @@ plot3d_over_states(values_, 'v')
 #| scrolled: true
 plot_policy(policy)
 ```
+:::
 
 ## Q-Function
 
-The **action-value function** $q_\pi (s,a)$ of an MDP is the expected return starting from state $s$ with action $a$, and then follow policy $\pi$
+The **action-value function** $q_\pi (s,a)$ of an MDP is the expected return
+starting from state $s$ with action $a$, and then follow policy $\pi$
 
-$$ q^\pi (s,a) = \mathbb E_\pi[G_t \mid S_t=s, A_t=a] $$
+$$ 
+  q^\pi (s,a) = \mathbb E_\pi[G_t \mid S_t=s, A_t=a] 
+$$
 
-### Optimal action-value function
+## Optimal action-value function
 
 $$ q^* (s, a) = \max_\pi q^\pi(s, a) $$
 
-The optimal action-value $q^*(s, a)$ of state-action pair $(s,a) \in \mathcal S \times \mathcal A$ gives the highest achievable expected return when the process is started from state $s$, and the first action chosen is $a$. The function $q^* : \mathcal S \times \mathcal A \rightarrow \mathbb R$ is called the optimal action-value function.
+The optimal action-value $q^*(s, a)$ of state-action pair 
+$(s,a) \in \mathcal S \times \mathcal A$ gives the highest achievable 
+expected return when the process is started from state $s$, and the first 
+action chosen is $a$. The function 
+$q^* : \mathcal S \times \mathcal A \rightarrow \mathbb R$
+is called the optimal action-value function.
 
-### Connection between optimal value- and action-value function
+## Connection between optimal value- and action-value function
 
 $$ v^*(s) = \max_{a \in \mathcal A} q^*(s,a), s \in \mathcal S $$
 
-$$ q^*(s,a) = \mathcal R_s^a + \gamma\sum_{s' \in \mathcal S} P(s,a,s')v^*(s') ; s \in \mathcal S, a \in \mathcal A $$
+$$ 
+  q^*(s,a) = 
+    \mathcal R_s^a + \gamma\sum_{s' \in \mathcal S} P(s,a,s')v^*(s');
+  s \in \mathcal S, a \in \mathcal A 
+$$
 
-### Bellman Equation for Q
+## Bellman Equation for Q
 
-$$ q_\pi(s, a) = \mathcal R_s^a + \gamma \sum_{s' \in \mathcal S} \mathcal P^a_{s,s'} \left( \sum_{a'\in \mathcal A} \pi(a' \mid s') q_\pi(s',a') \right) $$
+$$ 
+  q_\pi(s, a) = 
+    \mathcal R_s^a 
+    + \gamma \sum_{s' \in \mathcal S} 
+      \mathcal P^a_{s,s'} 
+      \left(
+        \sum_{a'\in \mathcal A} 
+          \pi(a' \mid s') q_\pi(s',a') 
+      \right) 
+$$
 
 for a deterministic policy: 
 
-$$ q_\pi(s, a) = \mathcal R_s^a + \gamma \sum_{s' \in \mathcal S} \mathcal P^a_{s,s'} q_\pi(s',\pi(s')) $$
+$$ 
+  q_\pi(s, a) = 
+    \mathcal R_s^a 
+    + \gamma \sum_{s' \in \mathcal S} \mathcal P^a_{s,s'} q_\pi(s',\pi(s')) 
+$$
 
 $$ \hat Q^\pi = \hat R + \gamma \mathcal P \vec Q^\pi_\pi $$
-
 with
 
 * $\vec \pi$: Policy vector
-* Matricies $\hat Q^\pi, \hat R$ with entries $\cdot_{sa}$
+* Matrices $\hat Q^\pi, \hat R$ with entries $\cdot_{sa}$
 * 3d Array $\mathcal P$ with entries $\cdot_{sas'}$
 * $\vec Q^\pi_\pi = \vec v^\pi$
 
-### Policy Evaluation for Q
+## Policy Evaluation for Q
 
-Computing the state-action-value function $q^\pi(s, a)$ for an arbitrary policy by an **iterative** application of Bellman expectation backup is also called policy evaluation:
+Computing the state-action-value function $q^\pi(s, a)$ for an arbitrary 
+policy by an **iterative** application of Bellman expectation 
+backup is also called policy evaluation:
 
 * $q_1 \rightarrow q_2 \rightarrow q_3 \rightarrow \dots \rightarrow q_\pi$
 * using synchronous backups
@@ -1122,9 +1320,16 @@ Computing the state-action-value function $q^\pi(s, a)$ for an arbitrary policy 
 
 $$ \hat Q^{k+1} = \hat R + \gamma \mathcal P \vec Q^k_{k} $$
 
+:::{.callout-note icon=false, collapse=true}
+## $Q$-Policy evaluation
+
 ```{.python}
 # Iterative update of the bellmann equation for Q
-def evaluate_policy_Q_by_iteration(policy, Q = np.zeros([(MAX_CAPACITY+1)**2, 2*TRANSFER_MAX+1])):
+def evaluate_policy_Q_by_iteration(
+  policy,
+  Q = np.zeros([(MAX_CAPACITY+1) ** 2,
+  2*TRANSFER_MAX+1])
+):
     converged = False
     P_ = P.transpose(1,2,0)
     while not converged:
@@ -1136,8 +1341,9 @@ def evaluate_policy_Q_by_iteration(policy, Q = np.zeros([(MAX_CAPACITY+1)**2, 2*
         Q = new_Q
     return Q    
 ```
+:::
 
-### Policy Iteration for Q
+## Policy Iteration for Q
 * Starting with an arbitrary policy
 * Iteration until the values converge (to the optimal policy). Alternating sequence of
   * Policy Evaluation : Compute the values of the policy
@@ -1145,6 +1351,8 @@ def evaluate_policy_Q_by_iteration(policy, Q = np.zeros([(MAX_CAPACITY+1)**2, 2*
     * $\pi'(s) = \text{arg} \max_{a \in \mathcal A} q^\pi(s,a)$
     * Note: Here we don't use the (transition) model.
 
+:::{.callout-note icon=false, collapse=true}
+## $Q$-Policy iteration
 ```{.python}
 def greedy_improve_Q(Q):
     return np.argmax(Q, axis=1) - TRANSFER_MAX
@@ -1162,12 +1370,12 @@ while not converged:
     Q = new_Q
     
 ```
-
 ```{.python}
 plot_policy(policy)
 ```
+:::
 
-### Bellman Optimality Equation
+## Bellman Optimality Equation
 $$ 
 	\begin{aligned}
 		v^*(s) & = 
@@ -1187,7 +1395,10 @@ $$
 $$ 
 	\begin{aligned}
 		q^*(s, a) &= 
-			\mathbb E \left[ R_{t+1} + \gamma \max_{a'} q^*(S_{t+1},A_{t+1}=a') \mid S_t = s, A_t = a\right] 			\\ 
+			\mathbb E \left[ 
+			  R_{t+1} + \gamma \max_{a'} q^*(S_{t+1},A_{t+1}=a') \mid S_t = s, A_t = a
+			\right] 
+		\\ 
 			&= 
 			\mathcal R^a_{s} 
 				+ \gamma \sum_{s'} P_{ss'}^a 
@@ -1213,7 +1424,8 @@ $$
 	\end{aligned}
 $$
 
-
+:::{.callout-note icon=false, collapse=true}
+## Value iteration
 ```{.python}
 converged = False
 values = np.zeros((MAX_CAPACITY+1)**2)
@@ -1230,3 +1442,5 @@ while not converged:
 policy = np.argmax(Reward + GAMMA * np.dot(P_, values) , axis=1) - TRANSFER_MAX
 plot_policy(policy)
 ```
+:::
+
