@@ -20,7 +20,7 @@ book:
   comments:
     hypothesis:
       theme: classic
-      openSidebar: False
+      openSidebar: True
       
 
   author: "Saúl Díaz Infante, David González Sánchez"
