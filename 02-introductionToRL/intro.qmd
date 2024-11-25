@@ -1,4 +1,16 @@
-# Introduction
+---
+title: "Introduction"
+author: "Saúl Díaz Infante Velasco"
+format:
+  html:
+    grid:
+      margin-width: 350px
+  pdf: default
+reference-location: margin
+citation-location: margin
+number-sections: true
+number-depth: 3
+---
 
 Reinforcement Learning is part of a decades-long trend within artificial
 intelligence and machine learning toward greater integration with statistics,
@@ -12,16 +24,16 @@ closest to the kind of learning that humans and other animals do, and many of
 the core algorithms of reinforcement learning were originally inspired by
 biological learning systems.
 
-## Trial-Error
+# Trial-Error
 
-According to Richard S. Sutton and Andrew G. Barto @Sutton2018--the first
+According to Richard S. Sutton and Andrew G. Barto [@Sutton2018]--the first
 authors to use the term--Reinforced Learning Reinforcement learning is about
 what to do, that is, how to map situations to action so that we optimize a
 reward. **The learner must discover which action yield the best reward by trying
 them.** In the most general sense, action may not only affect immediate reward
 but also the next situation and, through that, all subsequent rewards.
 
-### Sensation action and goal
+## Sensation action and goal
 
 At the same time, Reinforcement Learning encloses a problem, a class of solution
 methods, and the field that studies this problem and its solutions. Its
@@ -37,7 +49,7 @@ MDPs are designed to incorporate three essential elements: sensation, action,
 and goal. Therefore, any approach suitable for solving such problems should be
 considered a potential method for Reinforcement Learning.
 
-## Exploration-exploration dilemma and uncertainty
+# Exploration-exploration dilemma and uncertainty
 
 To obtain the best reward, the agent must prefer actions used in the past and
 perceived as effective to produce a reward. However, to discover such actions,
@@ -64,7 +76,7 @@ interactive, goal-seeking agent. In reinforcement learning, the agent has
 explicit goals, can sense aspects of their environment, and can choose actions
 to influence its environment.
 
-## Examples
+# Examples
 
 -   A master chess player makes a move.
 
@@ -79,7 +91,7 @@ to influence its environment.
 
 -   Phil prepares his breakfast
 
-## The (possible) 4 elements of Reinforcement Learning
+# The (possible) 4 elements of Reinforcement Learning
 
 Given an agent, we identify four main element in a reinforcement learning model:
 
@@ -121,7 +133,6 @@ Value function
     In a sense, rewards are primary, whereas values, as predictions of rewards,
     are secondary. Without rewards, there could be no values, and the only
     purpose of estimating values is to achieve more rewards.
-
     Action choices are made based on value judgments. We seek actions that bring
     about states of highest value, not highest reward, because these actions
     obtain the greatest amount of reward for us over the long run. In fact, the
@@ -139,7 +150,7 @@ Environment model
     be represented as a dynamic system through an ordinary differential equation
     or a discrete finite difference equation.
 
-## A toy RL-exmaple: Tic-Tac-Toe
+# A toy RL-exmaple: Tic-Tac-Toe
 
 To illustrate the general idea of reinforcement learning and contrast it with
 other ap- proaches, we next consider a single example in more detail.
@@ -169,7 +180,7 @@ based on the approximate opponent model.
 Sutton and Barto [see pp. 9-12 @Sutton2018] propose the following way to
 approach tic tac toe with Reinforcement Learning:
 
-## Setup: {.unnumbered}
+# Setup:
 
 -   First we would set up a table of numbers (or labels), one for each possible
     state of the game.
@@ -193,7 +204,7 @@ approach tic tac toe with Reinforcement Learning:
 -   We set the initial values of all the other states to $0.5$, representing a
     guess that we have a 50% chance of winning.
 
-## Training: {.unnumbered}
+# Training:
 
 We then play many games against the opponent.
 
@@ -211,10 +222,18 @@ A sequence of moves made and considered during a game can be diagrammed as the
 following figure:
 
 ::: {#fig-tic_tac_toc_diag fig-env="figure*"}
+
 ![](../assets/ch_00/diagram_sequence_tictactoe_play.png){.lightbox}
 
 Figure taken from [@Sutton2018]. A sequence of tic-tac-toe moves. Solid black
 lines represents moves taken during a play. Dashed lines represent plausible but
 not taken moves. The $*$ symbol indicates the move currently estimated to be the
 best. Thus the move $e$ denotes an *exploratory* move
+
+:::
+
+## Bibliography {.sectionbibliography}
+
+
+::: {.sectionrefs}
 :::

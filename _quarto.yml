@@ -9,8 +9,7 @@ book:
   page-footer:
     left: |
       This notes for RL, are the first draft of for the course: From Markov Decision Processes to Reinforcement Learning
-    right: |
-      This book was built with <a href="https://quarto.org/">Quarto</a>.
+#
   cover-image: cover_RL.jpeg
   favicon: cover_RL.jpeg
   site-url: https://sauldiazinfante.github.io/RL-Course-2024-2/
@@ -23,11 +22,20 @@ book:
       openSidebar: True
       
 
+=======
+      openSidebar: false
+  #
+>>>>>>> f8335ea1edac1457fec79aac24662c140a23aa65
   author: "Saúl Díaz Infante, David González Sánchez"
   date: "5/30/2024"
   navbar:
     search: true
-    
+    downloads: [pdf]
+  sidebar:
+    pinned: true
+    tools:
+      - icon: save
+#
   chapters:
     - index.qmd
     - ./01-introduction/general_intro.qmd
@@ -38,17 +46,23 @@ book:
     - ./06-applications/applications.qmd
     - ./07-Project/project_proposal.qmd
     - ./08-Evaluation/rubric_evaluation.qmd
-    - references.qmd
     - ./homeworks/home_works_list.qmd
-    #- ./homeworks/_hw_grades.qmd
-  downloads: [pdf]
-  sidebar:
-    pinned: true
-    tools:
-      - icon: save
+    - ./homeworks/_hw_grades.qmd
+    - references.qmd
+#
+filters:
+  - quarto
+  - section-bibliographies
+  - pseudocode
 
+section-bibiliograpies.cleanup-first: true
+section-bibs-level: 1
+link-citations: true
+link-bibliography: true
 bibliography: references.bib
-pdf-engine: lualatex
+reference-section-title: Refrences
+citeproc: false
+csl: elsevier-with-titles-alphabetical.csl
 
 format:
   html:

@@ -26,9 +26,12 @@ one decimal place.)
 :::
 
 ::: {.callout-tip collapse="true" icon="false"}
+
 ## python implementation for the grid-world example
 
 ``` {.python filename="gridworld.py"}
+#| lst-label: lst-import
+#| lst-cap: Import pyplot
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -217,4 +220,5 @@ if __name__ == '__main__':
     figure_3_5()
 ```
 :::
+
 ::::::

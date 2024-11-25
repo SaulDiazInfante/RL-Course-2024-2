@@ -1,4 +1,4 @@
-## Homework 001 due date: september 20, 2024-12:00:00
+# Homework 001 due date: september 20, 2024-12:00:00
 
 ::: {#exr-hw_001_01}
 Read [Sec 1.1, pp 1-2 @Sutton2018] and answer the following.
@@ -113,6 +113,14 @@ iv) Conjecture that the solution to the Bellman equation takes the form
     $v(x)=ax^2+b$, where $a$ and $b$ are constant. Determine the constants $a$
     and $b$.
 :::
+
+
+## Bibliography {.sectionbibliography}
+
+
+::: {.sectionrefs}
+:::
+
 
 [^_hw_001-1]: Hint: Insert $v(x)=cx^{1-\gamma}$ into the Bellman equation and
     solve the minimization problem.

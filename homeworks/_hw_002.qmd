@@ -1,4 +1,4 @@
-## Homework 002 due date: October 25, 2024-12:00:00
+# Homework 002 due date: October 25, 2024-12:00:00
 
 ::: {#exr-hw_002_01}
 
@@ -14,7 +14,7 @@ reported script.
 :::
 
 
-:::{#exr-hw_002_02}
+::: {#exr-hw_002_02}
 
 Explain and illustrate the experiments about optimistic initial values. Include the plots similar to Figure 2.2 from [p. 29, @Sutton2018].
 :::
@@ -35,4 +35,11 @@ Explain and describe the experiments about average performance of the gradient b
 
 ::: {#exr-hw_002_06}
 Show that for two actions, the soft-max (Boltzmann or Gibbs) distribution is equivalent to the logistic, or sigmoid, function commonly used in statistics and artificial neural networks.
+:::
+
+
+## Bibliography {.sectionbibliography}
+
+
+::: {.sectionrefs}
 :::

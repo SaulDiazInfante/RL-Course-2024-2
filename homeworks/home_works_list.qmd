@@ -1,4 +1,16 @@
-# List of Home Works and due dates {.unnumbered}
+---
+title: "List of Home Works and due dates"
+author: "Saúl Díaz Infante Velasco"
+format:
+  html:
+    grid:
+      margin-width: 350px
+  pdf: default
+reference-location: margin
+citation-location: margin
+number-sections: true
+number-depth: 3
+---
 
 
 {{< include _hw_001.qmd >}}
@@ -6,3 +18,10 @@
 {{< include _hw_002.qmd >}}
 
 {{< include _hw_003.qmd >}}
+
+
+## Bibliography {.sectionbibliography}
+
+
+::: {.sectionrefs}
+:::
