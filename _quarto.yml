@@ -21,11 +21,6 @@ book:
       theme: classic
       openSidebar: True
       
-
-=======
-      openSidebar: false
-  #
->>>>>>> f8335ea1edac1457fec79aac24662c140a23aa65
   author: "Saúl Díaz Infante, David González Sánchez"
   date: "5/30/2024"
   navbar:
@@ -74,5 +69,45 @@ format:
     theme:
       dark: darkly
       light: flatly
+    callout-appearance: simple
     toc: true
-number-sections: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 3
+    section-numbering: 1.1.a
+    include-in-header:
+      text: |
+        <script>
+        MathJax = {
+          loader: {
+            load: ['[tex]/boldsymbol']
+          },
+          tex: {
+            tags: "all",
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\\[','\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {
+              '[+]': ['boldsymbol']
+            }
+          }
+        };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  
+  # pdf:
+  #   pdf-engine: lualatex
+  #   documentclass: krantz
+  #   include-in-header: latex/preamble.tex
+  #   include-before-body: latex/before_body.tex
+  #   include-after-body: latex/after_body.tex
+  #   keep-tex: true
+  #   callout-appearance: simple
+ 
+jupyter: python3
+
+execute:
+  eval: false
+  echo: false
+  freeze: auto 
