@@ -34,7 +34,7 @@
     "href": "01-introduction/general_intro.html#bibliography",
     "title": "Abstract",
     "section": "Bibliography",
-    "text": "Bibliography\n\n\n\n\n\n\n\n\n\nFigure 1.1: The shortest path",
+    "text": "Bibliography",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Abstract</span>"
     ]
@@ -84,7 +84,7 @@
     "href": "02-introductionToRL/intro.html#bibliography",
     "title": "Introduction",
     "section": "Bibliography",
-    "text": "Bibliography\n\n\n\n\n\n\n\n\nFigure 7.1: Figure taken from [1]. A sequence of tic-tac-toe moves. Solid black lines represents moves taken during a play. Dashed lines represent plausible but not taken moves. The \\(*\\) symbol indicates the move currently estimated to be the best. Thus the move \\(e\\) denotes an exploratory move\n\n\n[1] R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.",
+    "text": "Bibliography",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -304,7 +304,7 @@
     "href": "04-finiteMDPs/mdp.html#bibliography",
     "title": "Finite Markov Decision Processes (MDPs)",
     "section": "Bibliography",
-    "text": "Bibliography\n\n\n\n\n\n\n\n\nFigure 1: Recycling-robot’s graph. Taken from [1]\nFigure 2: \nPick and Drop game\nRewards rules for the drop game\nGrid World example. Problem scheme , possible actions and sampling reward\nGolf example\n\n\n[1] R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.",
+    "text": "Bibliography",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Finite Markov Decision Processes (MDPs)</span>"
     ]
@@ -650,11 +650,11 @@
     ]
   },
   {
-    "objectID": "07-Project/project_proposal.html#death-line-december-08-2024-235900",
-    "href": "07-Project/project_proposal.html#death-line-december-08-2024-235900",
+    "objectID": "07-Project/project_proposal.html#death-line-december-15-2024-235900",
+    "href": "07-Project/project_proposal.html#death-line-december-15-2024-235900",
     "title": "Project proposal",
-    "section": "Death line: December 08, 2024-23:59:00",
-    "text": "Death line: December 08, 2024-23:59:00",
+    "section": "Death line: December 15, 2024-23:59:00",
+    "text": "Death line: December 15, 2024-23:59:00",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
     ]
@@ -664,7 +664,7 @@
     "href": "07-Project/project_proposal.html#sub-products",
     "title": "Project proposal",
     "section": "Sub-products",
-    "text": "Sub-products\n\n\n\nDeath lines\n\n\n\n\n\nStage 01\nNovember 02, 2024-23:59\n\n\nStage 02\nDecember 05, 2024-23:59\n\n\n\n\nStage 01: Quarto book with MDP formulation\n\nThe page must encloses the report according to the template rl_bookdown_prg.qmd\n\nIntroduction\nFormulation of the Mrakov decision process\nModel dynamics\nDescription and justification of the Cost (reward)\nJustification of the actions\n\nMust include\n\nFigures to illustrates the behavior of the regarding elements:\n\nPolicy\nReward\nValue function eventuated for a one state-action and transition.\nEnvironmental model\n\nReferences via bibtex.\nOutput compilation for HTML and PDF formats.\nThe compiled version has to be mounted ing GitHub or Quarto Pub\n\n\n\n\nStage 02: Python code Implementation\n\nOnly code whit out running errors wold be accepted\nCode must follows the style guide from PEP 08\nAll functions must include doc-strings\nExtras:\nPacking and Documentation extra 200 xps\n\n\n\nStage 03: Video Presentation\nA video mounted in you-tube of at most 20 min with results and insight of your project",
+    "text": "Sub-products\n\n\n\nDeath lines\n\n\n\n\n\nStage 01\nNovember 20, 2024-23:59\n\n\nStage 02\nDecember 12, 2024-23:59\n\n\nStage 03\nDecember 15, 2024-23:59\n\n\n\n\nStage 01: Quarto book with MDP formulation\n\nThe page must encloses the report according to the template rl_bookdown_prg.qmd\n\nIntroduction\nFormulation of the Mrakov decision process\nModel dynamics\nDescription and justification of the Cost (reward)\nJustification of the actions\n\nMust include\n\nFigures to illustrates the behavior of the regarding elements:\n\nPolicy\nReward\nValue function eventuated for a one state-action and transition.\nEnvironmental model\n\nReferences via bibtex.\nOutput compilation for HTML and PDF formats.\nThe compiled version has to be mounted ing GitHub or Quarto Pub\n\n\n\n\nStage 02: Python code Implementation\n\nOnly code whit out running errors wold be accepted\nCode must follows the style guide from PEP 08\nAll functions must include doc-strings\nExtras:\nPacking and Documentation extra 200 xps\n\n\n\nStage 03: Video Presentation\nA link in your quarto web page with the video mounted in you-tube of at most 20 min with results and insight of your project",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
     ]

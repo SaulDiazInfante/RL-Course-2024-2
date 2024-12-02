@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Saúl Díaz Infante Velasco">
 
-<title>From Markov Decision Processes to Reinforcement Learning with Python - Dynamic Programming (DP)</title>
+<title>Dynamic Programming (DP) – From Markov Decision Processes to Reinforcement Learning with Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -133,7 +133,7 @@ div.csl-indent {
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "classic",
-  "openSidebar": false
+  "openSidebar": true
 }
 </script>
 <script async="" src="https://hypothes.is/embed.js"></script>
@@ -161,7 +161,7 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -218,11 +218,11 @@ window.Quarto = {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-dynamicProgramming/dp_rl.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dynamic Programming (DP)</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -425,7 +425,7 @@ window.Quarto = {
 <p>To write a sequential computer program to implement iterative policy evaluation as given by <a href="#eq-policy_evaluation" class="quarto-xref">Eq.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">eq-policy_evaluation</span></a> you would have to use two arrays, one for the old values, <span class="math inline">\(v_k(s)\)</span>, and one for the new values, <span class="math inline">\(v_{k+1} (s)\)</span>. With two arrays, the new values can be computed one by one from the old values without the old values being changed. This procedure leads to the following synchronized updated algorhitm</p>
 <section id="synchronized-policy-evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="synchronized-policy-evaluation">Synchronized policy evaluation</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number="true" data-comment-delimiter="//" data-caption-prefix="Algorithm" data-no-end="false" data-line-number-punc=":" data-pseudocode-number="1" data-indent-size="1.2em">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number="true" data-caption-prefix="Algorithm" data-comment-delimiter="//" data-line-number-punc=":" data-no-end="false" data-pseudocode-number="1" data-indent-size="1.2em">
 <div class="pseudocode">
 \begin{algorithm} \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ synchronous version} \begin{algorithmic} \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $cond \leftarrow$ True \While{cond} \State $v \leftarrow V$ \For{$s \in \mathcal{S}$} \State $ \displaystyle V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma v(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $cond \leftarrow (\theta &lt; \Delta)$ \EndWhile \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -434,7 +434,7 @@ window.Quarto = {
 </section>
 <section id="in-place-version" class="level2">
 <h2 class="anchored" data-anchor-id="in-place-version">In-place version</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number="true" data-comment-delimiter="//" data-caption-prefix="Algorithm" data-no-end="false" data-line-number-punc=":" data-pseudocode-number="2" data-indent-size="1.2em">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number="true" data-caption-prefix="Algorithm" data-comment-delimiter="//" data-line-number-punc=":" data-no-end="false" data-pseudocode-number="2" data-indent-size="1.2em">
 <div class="pseudocode">
 \begin{algorithm} \caption{Iterative Policy Evaluation, for estimating $V \approx v_{\pi}$ in place update version } \begin{algorithmic} \Require $\pi$, the policy to be evaluated, $\theta$ tolerance precision \Ensure $\|v(\cdot)- V(\cdot)\|&lt; \theta$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $cond \leftarrow$ True \While{cond} \State $v \leftarrow V$ \For{$s \in \mathcal{S}$} \State $ \displaystyle V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $cond \leftarrow (\theta &lt; \Delta)$ \EndWhile \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -445,12 +445,12 @@ window.Quarto = {
 <h1>Another grid-world example</h1>
 <div id="exm-four-times-four-grid-world" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.1</strong></span> The non-terminal states are <span class="math inline">\(\mathcal{S} = \{1, 2, \dots, 14\}\)</span>. There are four actions possible in each state, <span class="math inline">\(\mathcal{A} = \{\verb|up, down, right, left|\}\)</span>, which deterministically cause the corresponding state transitions, except that actions that would take the agent out off the grid in fact leave the state unchanged. Thus, for instance, <span class="math inline">\(p(6, 1|5, \verb|right|) = 1\)</span>, &nbsp;<span class="math inline">\(p(7, 1|7, \verb1right1) = 1\)</span>, and &nbsp; <span class="math inline">\(p(10, r |5, \verb|right|) = 0\)</span> for all <span class="math inline">\(r \in \mathcal{R}\)</span>. This is an undiscounted, episodic task. The reward is 1 on all transitions until the terminal state is reached. The terminal state is shaded in the figure (although it is shown in two places, it is formally one state). The expected reward function is thus <span class="math inline">\(r(s, a, s^{\prime} ) = -1\)</span> for all states <span class="math inline">\(s\)</span>, <span class="math inline">\(s^{\prime}\)</span> and actions <span class="math inline">\(a\)</span>. Suppose the agent follows the equiprobable random policy (all actions equally likely).</p>
-<div id="fig-four_by_four_world_grid_exm" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure*">
+<div id="fig-four_by_four_world_grid_exm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-four_by_four_world_grid_exm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../assets/ch_05/four_times_four_grid_world_exm.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="4 x 4 grid world example"><img src="../assets/ch_05/four_times_four_grid_world_exm.png" class="img-fluid figure-img"></a></p>
+<p><a href="../assets/ch_05/four_times_four_grid_world_exm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="4 x 4 grid world example"><img src="../assets/ch_05/four_times_four_grid_world_exm.png" class="img-fluid figure-img"></a></p>
 <figcaption>4 x 4 grid world example</figcaption>
 </figure>
 </div>
@@ -646,7 +646,7 @@ Python implenmentation for the 4 x 4 gridworld example
 <p>Then given <span class="math inline">\(\pi_0\)</span> using the algorithm to estimate <span class="math inline">\(v_{\pi_0}\)</span> and so on, we obtain the following algorithm</p>
 <section id="policy-iteration-1" class="level2">
 <h2 class="anchored" data-anchor-id="policy-iteration-1">Policy iteration</h2>
-<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-caption-prefix="Algorithm" data-comment-right="true" data-comment-delimiter="$\qquad \triangleright$" data-pseudocode-number="3" data-no-end="false" data-line-number-punc=":" data-line-number="true" data-indent-size="1.2em">
+<div id="alg-test-text-style" class="pseudocode-container quarto-float" data-line-number="true" data-caption-prefix="Algorithm" data-line-number-punc=":" data-comment-delimiter="$\qquad \triangleright$" data-comment-right="true" data-no-end="false" data-pseudocode-number="3" data-indent-size="1.2em">
 <div class="pseudocode">
 \begin{algorithm} \caption{ Policy Iteration, for estimating $V \approx v_{*}$, $\pi \approx \pi_{*}$ }\begin{algorithmic} \Require $\pi_0$, the arbritrary initial policy , $\theta$ precision tolerance \State Initilize $V(s) = 0$, for all $s \in \mathcal S^+$ \Function{PolicyEvaluation}{$\pi$, $\theta$} \State $\mathrm{cond} \gets$ True \While{cond} \State $v \gets V$ \ForAll{$ s \in \mathcal{S}$} \State $ \displaystyle V(s) \gets \sum_{a} \pi(a|s) \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \EndFor \State $\Delta \leftarrow \|v -V \|$ \State $\mathrm{cond} \leftarrow (\theta &lt; \Delta)$ \EndWhile \Return $V \approx v_{\pi}$ \EndFunction \Function{PolicyIteration}{$\pi_0$, $\theta$} \State $\verb |policy_stable| \gets $ False \While{$\neg \verb |policy_stable|$} \State $V \gets $ \Call{PolicyEvaluation}{$\pi$, $\theta$} \State $\verb |policy_stable| \gets $ True \ForAll{$s \in \mathcal{S}$} \Comment{Loop for Policy improvement} \State $\verb|old_action| \gets \pi(s)$ \State $ \displaystyle \pi(s) \gets \underset{a\in \mathcal{A}(s)}{\operatorname{argmax}} \sum_{ \substack{s^{\prime}\in\mathcal{S}, \\ r \in \mathcal{R}} } p(s^{\prime}, r |s ,a) \left[ r +\gamma V(s^{\prime}) \right] $ \If{$\verb|old_action| \neq \pi_0(s)$} \State $\verb|policy_stable| \gets$ False \EndIf \endFor \EndWhile \Return $V \approx v_{*}, \pi \approx \pi{*}$ \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -887,12 +887,12 @@ We want to answer the following question:
 </div>
 </div>
 </div>
-<div id="fig-jacks_car_rental" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-env="figure">
+<div id="fig-jacks_car_rental" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-env="figure">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-jacks_car_rental-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../assets/ch_05/jacks_car_rental.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="optimal poicy"><img src="../assets/ch_05/jacks_car_rental.png" class="img-fluid figure-img"></a></p>
+<p><a href="../assets/ch_05/jacks_car_rental.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="optimal poicy"><img src="../assets/ch_05/jacks_car_rental.png" class="img-fluid figure-img"></a></p>
 <figcaption>optimal poicy</figcaption>
 </figure>
 </div>
@@ -2330,10 +2330,6 @@ Value iteration
 
 <!-- -->
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">4 x 4 grid world example</span>
-<span class="glightbox-desc lightbox-desc-2">optimal poicy</span>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -2516,18 +2512,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2559,7 +2544,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -2618,7 +2625,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -3003,7 +3010,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb55-48"><a href="#cb55-48"></a></span>
 <span id="cb55-49"><a href="#cb55-49"></a><span class="fu"># Efficiency of Dynamic Programming</span></span>
 <span id="cb55-50"><a href="#cb55-50"></a></span>
-<span id="cb55-51"><a href="#cb55-51"></a><span class="fu"># Summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb55-51"><a href="#cb55-51"></a><span class="fu"># Summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -3019,30 +3026,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox","openEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
     <script type="text/javascript">
     (function(d) {
