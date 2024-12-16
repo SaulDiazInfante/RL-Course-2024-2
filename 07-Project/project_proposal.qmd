@@ -78,12 +78,13 @@ project
 
 | Project | Author | Reference | GitHub Repo |
 |--------------------|--------------------|--------------------|--------------------|
-| Dynamic Portfolio Analysis | GABRIEL MIRANDA GAMEZ | [Sec. 4.3, @Bertsekas2005] | https://gabo-always-learning.quarto.pub/project-dpa/ |
-| Learning the Best Diabetes Medication | Italo | [Ch.4 4, @powell2022sequential] | --------------------------- |
-| A MDP model for the collective behavior in vaccination campaigns | IRASEMA PEDROZA MEZA |  | \[https://github.com/IrasemaPM/Proyecto_psi\] |
-| Modelo de inventario para alimentos pedecederos | DAVID PEÑA PERALTA | [@Starchursky2024] | \[https://dust1920.github.io/InventoryManagement/\] |
-| A inventory model | JAZMIN SARAHI FLORES GOMEZ | [@levhari1982great] | \[https://flordejazmin.github.io/Proyectoinventario/\] |
-| A inventory model |  | [@levhari1982great] | \[https://flordejazmin.github.io/Proyectoinventario/\] |
+| Dynamic Portfolio Analysis | GABRIEL MIRANDA GAMEZ | [Sec. 4.3, @Bertsekas2005] | (gh_page)[https://gabo-always-learning.quarto.pub/project-dpa/] |
+| Analyzing Learned Markov Decision Processes using Model Checking for
+Providing Tactical Advice in Professional Soccer | JOSE ITALO SANCHEZ BERMUDEZ
+| [@Decroos2020] | (gh_page)[https://italosanchezb.github.io/Proyecto-Final-RL/] |
+| A MDP model for the collective behavior in vaccination campaigns | IRASEMA PEDROZA MEZA |  | (GitHub)[https://github.com/IrasemaPM/Proyecto_psi] |
+| Modelo de inventario para alimentos pedecederos | DAVID PEÑA PERALTA | [@Starchursky2024] | (gh_page)[https://dust1920.github.io/InventoryManagement/] |
+| A inventory model | JAZMIN SARAHI FLORES GOMEZ | [@levhari1982great] |  (gh_page)[https://flordejazmin.github.io/Proyectoinventario/] |
 
 : Project list {.striped .hover}
 

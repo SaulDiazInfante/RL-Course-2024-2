@@ -1,2 +1,98 @@
 ## Evaluation Rubric
 
++------------+------------+------------+------------+------------+------------+
+| Stege 01   |            | Stage 02   |            | Stage 03   |            |
+| MDP        |            |            |            |            |            |
+| F          |            | Impl       |            | Pr         |            |
+| ormulation |            | ementation |            | esentation |            |
++============+============+============+============+============+============+
+| In         | 15         | Code       | 70         | You tube   | 90         |
+| troduction |            |            |            | pre        |            |
+|            |            |            |            | sesntation |            |
++------------+------------+------------+------------+------------+------------+
+| F          | 15         | PEP 08     | 20         | Link       | 10         |
+| ormulation |            |            |            | reference  |            |
+| of the     |            |            |            | inside     |            |
+| Mrakov     |            |            |            | related    |            |
+| decision   |            |            |            | quarto     |            |
+| process    |            |            |            | web-page.  |            |
++------------+------------+------------+------------+------------+------------+
+| Model      | 15         | Doc        | 10         |            |            |
+| dynamics   |            | strings    |            |            |            |
++------------+------------+------------+------------+------------+------------+
+| D          | 15         |            |            |            |            |
+| escription |            |            |            |            |            |
+| and        |            |            |            |            |            |
+| jus        |            |            |            |            |            |
+| tification |            |            |            |            |            |
+| of the     |            |            |            |            |            |
+| Cost       |            |            |            |            |            |
+| (reward)   |            |            |            |            |            |
++------------+------------+------------+------------+------------+------------+
+| Jus        | 15         |            |            |            |            |
+| tification |            |            |            |            |            |
+| of the     |            |            |            |            |            |
+| actions    |            |            |            |            |            |
++------------+------------+------------+------------+------------+------------+
+| References | 10         |            |            |            |            |
+| via bibtex |            |            |            |            |            |
++------------+------------+------------+------------+------------+------------+
+| Output     | 5          |            |            |            |            |
+| c          |            |            |            |            |            |
+| ompilation |            |            |            |            |            |
+| for HTML   |            |            |            |            |            |
+| and PDF    |            |            |            |            |            |
+| formats.   |            |            |            |            |            |
++------------+------------+------------+------------+------------+------------+
+| The        | 10         |            |            |            |            |
+| compiled   |            |            |            |            |            |
+| version    |            |            |            |            |            |
+| has to be  |            |            |            |            |            |
+| mounted in |            |            |            |            |            |
+| GitHub     |            |            |            |            |            |
+| pages or   |            |            |            |            |            |
+| Quarto Pub |            |            |            |            |            |
++------------+------------+------------+------------+------------+------------+
+
+: Evaluation Rubric
+
++-------------+--------------------+-------------+-------------+-------------+
+| Student     | Project            | Stage 1     | Stage 02    | Stage 03    |
++=============+====================+=============+=============+=============+
+| GABRIEL     | Dynamic Portfolio  | 100         |             |             |
+| MIRANDA     | Analysis           |             |             |             |
+| GAMEZ       |                    |             |             |             |
++-------------+--------------------+-------------+-------------+-------------+
+| IRASEMA     | A MDP model for    | 90          |             |             |
+| PEDROZA     | the collective     |             |             |             |
+| MEZA        | behavior in        |             |             |             |
+|             | vaccination        |             |             |             |
+|             | campaigns          |             |             |             |
++-------------+--------------------+-------------+-------------+-------------+
+| DAVID PEÑA  | Modelo de          | 100         |             |             |
+| PERALTA     | inventario para    |             |             |             |
+|             | alimentos          |             |             |             |
+|             | pedecederos        |             |             |             |
++-------------+--------------------+-------------+-------------+-------------+
+| JAZMIN      | A inventory model  | 100         |             |             |
+| SARAHI      |                    |             |             |             |
+| FLORES      |                    |             |             |             |
+| GOMEZ       |                    |             |             |             |
++-------------+--------------------+-------------+-------------+-------------+
+|             |                    |             |             |             |
++-------------+--------------------+-------------+-------------+-------------+
+
+
+
+| **Project** 	|                                                                 	|              	|              	|
+| **Student** 	|                                                                 	|              	|              	|
+|-------------	|-----------------------------------------------------------------	|--------------	|--------------	|
+|             	| **Stage 01**                                                    	| **Stage 02** 	| **Stage 03** 	|
+|             	| Introduction<br>                                                	|              	|              	|
+|             	| Formulation of the Mrakov decision process<br>                  	|              	|              	|
+|             	| Model dynamics<br>                                              	|              	|              	|
+|             	| Description and justification of the Cost (reward)<br>          	|              	|              	|
+|             	| Justification of the action                                     	|              	|              	|
+|             	| References via bibtex.                                          	|              	|              	|
+|             	| Output compilation for HTML and PDF formats.                    	|              	|              	|
+|             	| The compiled version has to be mounted ing GitHub or Quarto Pub 	|              	|              	|
