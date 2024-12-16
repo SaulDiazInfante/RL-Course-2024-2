@@ -264,9 +264,129 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Bertsekas, Dimitri P. 2005. Dynamic Programming and Optimal Control.\nVol. I. Third. Athena Scientific,\nBelmont, MA.\n\n\nBilgin, E. 2020. Mastering Reinforcement Learning with Python: Build\nNext-Generation, Self-Learning Models Using Reinforcement Learning\nTechniques and Best Practices. Packt Publishing. https://books.google.com.mx/books?id=s0MQEAAAQBAJ.\n\n\nBrunton, Steven L., and J. Nathan Kutz. 2019. Data-Driven Science\nand Engineering. Cambridge University Press, Cambridge. https://doi.org/10.1017/9781108380690.\n\n\nSutton, Richard S., and Andrew G. Barto. 2018. Reinforcement\nLearning: An Introduction. Second. Adaptive Computation and Machine\nLearning. MIT Press, Cambridge, MA.\n\n\nSzepesvári, Csaba. 2022. Algorithms for Reinforcement Learning.\nVol. 9. Synthesis Lectures on Artificial Intelligence and Machine\nLearning. Springer, Cham. https://doi.org/10.1007/978-3-031-01551-9.",
+    "text": "For the cured R-quarto material see https://github.com/SaulDiazInfante/intro-quarto-unison-2024.\n\n\n[1] D.P. Bertsekas, Dynamic programming and optimal\ncontrol. Vol. I, Third, Athena Scientific,\nBelmont, MA, 2005.\n\n\n[2] E.\nBilgin, Mastering\nreinforcement learning with python: Build next-generation, self-learning\nmodels using reinforcement learning techniques and best practices,\nPackt Publishing, 2020.\n\n\n[3] P.\nBrandimarte, Numerical methods in finance and economics: A MATLAB-based\nintroduction, 2nd ed., John Wiley & Sons, Hoboken, New Jersey,\n2013.\n\n\n[4] S.L. Brunton, J.N. Kutz, Data-driven science and\nengineering, Cambridge University Press, Cambridge, 2019.\n\n\n[5] D.\nLevhari, L.J. Mirman, The great fish war: An example using a dynamic\ncournot-nash solution, Essays in the Economics of Renewable Resources,\nLJ Mirman and DF Spulber (Eds.), North-Holland. (1982) 243–258.\n\n\n[6] W.B. Powell, others, Sequential decision\nanalytics and modeling: Modeling with python, (2022).\n\n\n[7] J.\nRust, Optimal Replacement of GMC Bus Engines: An Empirical\nModel of Harold Zurcher, Econometrica. 55 (1987) 999.\n\n\n[8] J.\nStachurski., Dynamic programming volume 1, GitHub Repository.\n(2024).\n\n\n[9] R.S. Sutton, A.G. Barto, Reinforcement\nlearning: An introduction, Second, MIT Press, Cambridge, MA, 2018.\n\n\n[10] C.\nSzepesvári, Algorithms for\nreinforcement learning, Springer, Cham, 2022.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "07-Project/project_proposal.html",
+    "href": "07-Project/project_proposal.html",
+    "title": "Project proposal",
+    "section": "",
+    "text": "Formulation and reinforcement learning solution to a problem\nof a sequence of decisions.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
+    ]
+  },
+  {
+    "objectID": "07-Project/project_proposal.html#death-line-december-08-2024-235900",
+    "href": "07-Project/project_proposal.html#death-line-december-08-2024-235900",
+    "title": "Project proposal",
+    "section": "Death line: December 08, 2024-23:59:00",
+    "text": "Death line: December 08, 2024-23:59:00",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
+    ]
+  },
+  {
+    "objectID": "07-Project/project_proposal.html#sub-products",
+    "href": "07-Project/project_proposal.html#sub-products",
+    "title": "Project proposal",
+    "section": "Sub-products",
+    "text": "Sub-products\n\n\n\nDeath lines\n\n\n\n\n\nStage 01\nNovember 20, 2024-23:59\n\n\nStage 02\nDecember 15, 2024-23:59\n\n\nStage 02\nDecember 18, 2024-23:59\n\n\n\n\nStage 01: Quarto book with MDP formulation\n\nThe page must encloses the report according to the template rl_bookdown_prg.qmd\n\nIntroduction\nFormulation of the Mrakov decision process\nModel dynamics\nDescription and justification of the Cost (reward)\nJustification of the actions\n\nMust include\n\nFigures to illustrates the behavior of the regarding elements:\n\nPolicy\nReward\nValue function eventuated for a one state-action and transition.\nEnvironmental model\n\nReferences via bibtex.\nOutput compilation for HTML and PDF formats.\nThe compiled version has to be mounted ing GitHub or Quarto Pub\n\n\n\n\nStage 02: Python code Implementation\n\nOnly code whit out running errors wold be accepted\nCode must follows the style guide from PEP 08\nAll functions must include doc-strings\nExtras:\nPacking and Documentation extra 200 xps\n\n\n\nStage 03: Video Presentation\nA video mounted in you-tube of at most 20 min with results and insight of your project",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
+    ]
+  },
+  {
+    "objectID": "07-Project/project_proposal.html#suggested-project-list",
+    "href": "07-Project/project_proposal.html#suggested-project-list",
+    "title": "Project proposal",
+    "section": "Suggested project list:",
+    "text": "Suggested project list:\n\nReinforcement learning simulation of the TIC-TAC-TOE Game with SARSA or Q-learning Algorithms [2]\nThe movement of a Recycling Robot [2]\nThe replacement of a bus engine [5] from [see pd.pdf, p.130 6]\nOptimal Inventories [see dp.pdf, p. 147 6]\nMulti-Armed Bandits [2]",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
+    ]
+  },
+  {
+    "objectID": "07-Project/project_proposal.html#project-lits",
+    "href": "07-Project/project_proposal.html#project-lits",
+    "title": "Project proposal",
+    "section": "Project Lits",
+    "text": "Project Lits\n\nProject list\n\n\n\n\n\n\n\n\nProject\nAuthor\nReference\nGitHub Repo\n\n\n\n\nDynamic Portfolio Analysis\nGABRIEL MIRANDA GAMEZ\n[Sec. 4.3, 1]\nhttps://gabo-always-learning.quarto.pub/project-dpa/\n\n\nLearning the Best Diabetes Medication\nEDGAR EVERARDO MARTINEZ GARCIA\n[Ch.4 4, 4]\n—————————\n\n\nA MDP model for the collective behavior in vaccination campaigns\nIRASEMA PEDROZA MEZA\n\n[https://github.com/IrasemaPM/Proyecto_psi]\n\n\nModelo de inventario para alimentos pedecederos\nDAVID PEÑA PERALTA\n[6]\n[https://dust1920.github.io/InventoryManagement/]\n\n\nA inventory model\nJAZMIN SARAHI FLORES GOMEZ\n[3]\n[https://flordejazmin.github.io/Proyectoinventario/]\n\n\nA inventory model\n\n[3]\n[https://flordejazmin.github.io/Proyectoinventario/]",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
+    ]
+  },
+  {
+    "objectID": "07-Project/project_proposal.html#configuration-to-build-with-spanish-language",
+    "href": "07-Project/project_proposal.html#configuration-to-build-with-spanish-language",
+    "title": "Project proposal",
+    "section": "Configuration to build with Spanish language",
+    "text": "Configuration to build with Spanish language\nAdapt to your project accordingly to your .png files another sources.\n\n\n_quarto.yml\n\n  project:\n  type: book\n  output-dir: _book\n\nwebsite:\n  favicon: FCFMLOGO.png\n  reader-mode: true\n  search:\n    location: sidebar\n    type: overlay\n  comments:\n    hypothesis: true\n\nbook:\n  title: \"Análisis comparativo del desempeño en métodos para el pronóstico de series temporales\"\n  reader-mode: true\n  language: es\n  date: \"02/14/2024\"\n  output-file: \"Tesis_JSLG\"\n  # image: logofcfm.png\n  # cover-image: FCFMLOGO.png\n  sharing: [twitter, facebook]\n  downloads: [pdf, epub]\n  # favicon: logofcfm.png\n  sidebar:\n  #  logo: LOGO50.png\n    style: floating\n    collapse-level: 2\n    border: true\n    search: true\n  open-graph: true\n  twitter-card: true\n  #repo-url: https://github.com/Jennlg/Tesis\n  repo-actions: [edit, issue, source]\n  page-navigation: true\n  chapters:\n    - index.qmd\n    - intro.qmd\n    - objetivos.qmd\n\n    - part: 'Preliminares'\n      chapters:\n        - tconjuntos.qmd\n        - probabilidad.qmd\n        - estadistica.qmd\n        - procesos.qmd\n    - part: 'Series de tiempo'\n      chapters:\n        - series.qmd\n    - part: 'Redes neuronales'\n      chapters:\n        - redes.qmd\n    - part: estudio.qmd\n      chapters:\n        - metodologia.qmd\n        - confirmados.qmd\n        - muertes.qmd\n    - conclusiones.qmd\n\n    - references.qmd\n\ncomments:\n    hypothesis: true\n\nbibliography: references.bib\n\nformat:\n  html:\n    theme:\n      dark: darkly\n      light: cerulean\n    highlight-style: a11y\n    lang: es\n    html-math-method: mathjax\n    grid:\n      sidebar-width: 300px\n      body-width: 900px\n      margin-width: 300px\n      gutter-width: 1.5rem\n    code-copy: true\n    code-fold: true\n  pdf:\n    lang: es\n    include-in-header:\n      - packa.tex\n    template-partials:\n      - before-body.tex\n    documentclass: scrreprt\n    papersize: us-letter\n    #titlegraphic: FCFMLOGO.png\n    institution: Universidad Autónoma de Chiapas\n    email: jennifer.lopez67@unach.mx\n    keep-tex: true\n  epub:\n    cover-image: FCFMLOGO.png\neditor: visual\n\nWe also need the following .tex in the root folder\n\\usepackage{upgreek}\n\\usepackage{amsmath}\n\\usepackage{amssymb}\n\\newcommand{\\dashedbox}[1]{\n  \\begin{tikzpicture}\n    \\node[draw, dashed, rounded corners=5pt, inner sep=10pt] {\n      \\begin{minipage}{0.8\\textwidth} % Establece el ancho del minipage\n        #1\n      \\end{minipage}\n    };\n  \\end{tikzpicture}\n}",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
+    ]
+  },
+  {
+    "objectID": "07-Project/project_proposal.html#bibliography--2",
+    "href": "07-Project/project_proposal.html#bibliography--2",
+    "title": "Project proposal",
+    "section": "Refrences",
+    "text": "Refrences\n\n\n[1] D.P. Bertsekas, Dynamic programming and optimal control. Vol. I, Third, Athena Scientific, Belmont, MA, 2005.\n\n\n[2] E. Bilgin, Mastering reinforcement learning with python: Build next-generation, self-learning models using reinforcement learning techniques and best practices, Packt Publishing, 2020.\n\n\n[3] D. Levhari, L.J. Mirman, The great fish war: An example using a dynamic cournot-nash solution, Essays in the Economics of Renewable Resources, LJ Mirman and DF Spulber (Eds.), North-Holland. (1982) 243–258.\n\n\n[4] W.B. Powell, others, Sequential decision analytics and modeling: Modeling with python, (2022).\n\n\n[5] J. Rust, Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher, Econometrica. 55 (1987) 999.\n\n\n[6] J. Stachurski., Dynamic programming volume 1, GitHub Repository. (2024).",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project proposal</span>"
+    ]
+  },
+  {
+    "objectID": "homeworks/home_works_list.html",
+    "href": "homeworks/home_works_list.html",
+    "title": "List of Home Works and due dates",
+    "section": "",
+    "text": "Homework 001 due date: september 20, 2024-12:00:00",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>List of Home Works and due dates</span>"
+    ]
+  },
+  {
+    "objectID": "homeworks/home_works_list.html#bibliography",
+    "href": "homeworks/home_works_list.html#bibliography",
+    "title": "List of Home Works and due dates",
+    "section": "Bibliography",
+    "text": "Bibliography",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>List of Home Works and due dates</span>"
+    ]
+  },
+  {
+    "objectID": "homeworks/home_works_list.html#bibliography-1",
+    "href": "homeworks/home_works_list.html#bibliography-1",
+    "title": "List of Home Works and due dates",
+    "section": "Bibliography",
+    "text": "Bibliography",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>List of Home Works and due dates</span>"
+    ]
+  },
+  {
+    "objectID": "homeworks/home_works_list.html#bibliography-2",
+    "href": "homeworks/home_works_list.html#bibliography-2",
+    "title": "List of Home Works and due dates",
+    "section": "Bibliography",
+    "text": "Bibliography",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>List of Home Works and due dates</span>"
+    ]
+  },
+  {
+    "objectID": "homeworks/home_works_list.html#bibliography-3",
+    "href": "homeworks/home_works_list.html#bibliography-3",
+    "title": "List of Home Works and due dates",
+    "section": "Bibliography",
+    "text": "Bibliography\n\n\n[1] R.S. Sutton, A.G. Barto, Reinforcement learning: An introduction, Second, MIT Press, Cambridge, MA, 2018.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>List of Home Works and due dates</span>"
     ]
   }
 ]

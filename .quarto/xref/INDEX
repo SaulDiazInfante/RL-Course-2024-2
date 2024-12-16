@@ -16,5 +16,65 @@
   },
   "references.qmd": {
     "references.html": "eef50ea9"
+  },
+  "07-Project/project_proposal.qmd": {
+    "project_proposal.html": "836868d5"
+  },
+  "./01-introduction/general_intro.qmd": {
+    "general_intro.html": "199f70d7"
+  },
+  "./02-introductionToRL/intro.qmd": {
+    "intro.html": "49678798"
+  },
+  "./03-multiArmedBandit/multiarmed_bandits.qmd": {
+    "multiarmed_bandits.html": "2ce44023"
+  },
+  "./04-finiteMDPs/mdp.qmd": {
+    "mdp.html": "0436a236"
+  },
+  "./05-dynamicProgramming/dp_rl.qmd": {
+    "dp_rl.html": "a0ebf43f"
+  },
+  "./06-applications/applications.qmd": {
+    "applications.html": "712989c2"
+  },
+  "./07-Project/project_proposal.qmd": {
+    "project_proposal.html": "a35af1b0"
+  },
+  "./08-Evaluation/rubric_evaluation.qmd": {
+    "rubric_evaluation.html": "92937e58"
+  },
+  "./homeworks/home_works_list.qmd": {
+    "home_works_list.html": "352eb326"
+  },
+  "./homeworks/_hw_grades.qmd": {
+    "_hw_grades.html": "0295da53"
+  },
+  "01-introduction/general_intro.qmd": {
+    "general_intro.html": "9a382caa"
+  },
+  "02-introductionToRL/intro.qmd": {
+    "intro.html": "16ea4cf5"
+  },
+  "03-multiArmedBandit/multiarmed_bandits.qmd": {
+    "multiarmed_bandits.html": "3640a838"
+  },
+  "04-finiteMDPs/mdp.qmd": {
+    "mdp.html": "cf2acddf"
+  },
+  "05-dynamicProgramming/dp_rl.qmd": {
+    "dp_rl.html": "e015ef82"
+  },
+  "06-applications/applications.qmd": {
+    "applications.html": "8689d9d0"
+  },
+  "08-Evaluation/rubric_evaluation.qmd": {
+    "rubric_evaluation.html": "57c05abf"
+  },
+  "homeworks/home_works_list.qmd": {
+    "home_works_list.html": "a316494d"
+  },
+  "homeworks/_hw_grades.qmd": {
+    "_hw_grades.html": "fdb58211"
   }
 }
