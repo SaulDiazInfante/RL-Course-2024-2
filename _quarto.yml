@@ -19,7 +19,7 @@ book:
   comments:
     hypothesis:
       theme: classic
-      openSidebar: True
+      openSidebar: False
       
   author: "Saúl Díaz Infante, David González Sánchez"
   date: "5/30/2024"
@@ -95,15 +95,18 @@ format:
         };
         </script>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  
-  # pdf:
-  #   pdf-engine: lualatex
-  #   documentclass: krantz
-  #   include-in-header: latex/preamble.tex
-  #   include-before-body: latex/before_body.tex
-  #   include-after-body: latex/after_body.tex
-  #   keep-tex: true
-  #   callout-appearance: simple
+    pdf:
+        latex-auto-mk: false
+        pdf-engine: latexmk
+        pdf-engine-opts:
+            - '-auxdir=custom-aux'
+            - '-emulate-aux-dir'
+        #documentclass: krantz
+        include-in-header: latex/preamble.tex
+        include-before-body: latex/before_body.tex
+        include-after-body: latex/after_body.tex
+        keep-tex: true
+        callout-appearance: simple
  
 jupyter: python3
 

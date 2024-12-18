@@ -23,7 +23,7 @@ of a sequence of decisions.
 |-----------------|:---------------------------:|
 | Stage 01        | **November 20, 2024-23:59** |
 | Stage 02        | **December 15, 2024-23:59** |
-| Stage 02        | **December 18, 2024-23:59** |
+| Stage 03        | **December 18, 2024-12:59** |
 
 ### Stage 01: Quarto book with MDP formulation
 
@@ -74,17 +74,15 @@ project
 4.  Optimal Inventories [see dp.pdf, p. 147 @Starchursky2024]
 5.  Multi-Armed Bandits @Bilgin2020
 
-## Project Lits
+## Project List
 
 | Project | Author | Reference | GitHub Repo |
 |--------------------|--------------------|--------------------|--------------------|
-| Dynamic Portfolio Analysis | GABRIEL MIRANDA GAMEZ | [Sec. 4.3, @Bertsekas2005] | (gh_page)[https://gabo-always-learning.quarto.pub/project-dpa/] |
-| Analyzing Learned Markov Decision Processes using Model Checking for
-Providing Tactical Advice in Professional Soccer | JOSE ITALO SANCHEZ BERMUDEZ
-| [@Decroos2020] | (gh_page)[https://italosanchezb.github.io/Proyecto-Final-RL/] |
-| A MDP model for the collective behavior in vaccination campaigns | IRASEMA PEDROZA MEZA |  | (GitHub)[https://github.com/IrasemaPM/Proyecto_psi] |
-| Modelo de inventario para alimentos pedecederos | DAVID PEÑA PERALTA | [@Starchursky2024] | (gh_page)[https://dust1920.github.io/InventoryManagement/] |
-| A inventory model | JAZMIN SARAHI FLORES GOMEZ | [@levhari1982great] |  (gh_page)[https://flordejazmin.github.io/Proyectoinventario/] |
+| Dynamic Portfolio Analysis | GABRIEL MIRANDA GAMEZ | [Sec. 4.3, @Bertsekas2005] | (gh_page)[<https://gabo-always-learning.quarto.pub/project-dpa/>] |
+| Providing Tactical Advice in Professional Soccer | JOSE ITALO SANCHEZ BERMUDEZ | [@Decroos2020] | (gh_page)[<https://italosanchezb.github.io/Proyecto-Final-RL/>] |
+| A MDP model for the collective behavior in vaccination campaigns | IRASEMA PEDROZA MEZA |  | (GitHub)<https://github.com/IrasemaPM/Proyecto_psi>|
+| Modelo de inventario para alimentos pedecederos | DAVID PEÑA PERALTA | [@Starchursky2024] | (gh_page)[<https://dust1920.github.io/InventoryManagement/>] |
+| A inventory model | JAZMIN SARAHI FLORES GOMEZ | [@levhari1982great] | (gh_page)[<https://flordejazmin.github.io/Proyectoinventario/>] |
 
 : Project list {.striped .hover}
 
